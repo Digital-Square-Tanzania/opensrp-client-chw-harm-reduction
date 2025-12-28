@@ -37,6 +37,14 @@
     <string name="tbleprosy_contact_leprosy_investigation">Leprosy Investigation</string>
     <string name="tbleprosy_sample">Sample Collection</string>
     <string name="tbleprosy_source">Type of Contact</string>
+    <string name="harm_reduction_client_status">Client Status</string>
+    <string name="harm_reduction_health_education">Health Education</string>
+    <string name="harm_reduction_safe_injection_services">Safe Injection Services</string>
+    <string name="harm_reduction_risky_sexual_behaviors">Risky Sexual Behaviors</string>
+    <string name="harm_reduction_hiv_infection_status">HIV Infection Status</string>
+    <string name="harm_reduction_other_diseases_screening">Screening of Other Diseases</string>
+    <string name="harm_reduction_referrals_provided">Referrals Provided</string>
+    <string name="harm_reduction_consent_joining_mat">Consent for Joining MAT Services</string>
 
 
 

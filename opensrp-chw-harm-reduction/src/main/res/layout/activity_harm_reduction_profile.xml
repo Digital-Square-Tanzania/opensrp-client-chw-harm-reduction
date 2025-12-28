@@ -187,7 +187,7 @@
             android:orientation="vertical">
 
             <include
-                android:id="@+id/record_visit_tbleprosy"
+                android:id="@+id/record_visit_harm_reduction"
                 layout="@layout/view_record_tbleprosy" />
 
             <include layout="@layout/content_tbleprosy_profile" />

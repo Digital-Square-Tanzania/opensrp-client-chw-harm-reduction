@@ -18,8 +18,6 @@ import org.smartregister.AllConstants;
 import org.smartregister.Context;
 import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.contract.HarmReductionRegisterContract;
-import org.smartregister.chw.harmreduction.fragment.BaseHarmReductionContactFragment;
-import org.smartregister.chw.harmreduction.fragment.BaseHarmReductionMobilizationRegisterFragment;
 import org.smartregister.chw.harmreduction.fragment.BaseHarmReductionRegisterFragment;
 import org.smartregister.chw.harmreduction.interactor.BaseHarmReductionRegisterInteractor;
 import org.smartregister.chw.harmreduction.listener.HarmReductionBottomNavigationListener;
@@ -151,10 +149,7 @@ public class BaseHarmReductionRegisterActivity extends BaseRegisterActivity impl
 
     @Override
     protected Fragment[] getOtherFragments() {
-        return new Fragment[] {
-                new BaseHarmReductionContactFragment(),
-                new BaseHarmReductionMobilizationRegisterFragment()
-        };
+        return new Fragment[] {};
     }
 
     @Override

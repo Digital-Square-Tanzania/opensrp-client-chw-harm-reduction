@@ -104,7 +104,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     public abstract void openHarmReductionContactRegister();
     @Override
     protected void onCreation() {
-        setContentView(R.layout.activity_tbleprosy_profile);
+        setContentView(R.layout.activity_harm_reduction_profile);
         Toolbar toolbar = findViewById(R.id.collapsing_toolbar);
         setSupportActionBar(toolbar);
         String baseEntityId = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID);

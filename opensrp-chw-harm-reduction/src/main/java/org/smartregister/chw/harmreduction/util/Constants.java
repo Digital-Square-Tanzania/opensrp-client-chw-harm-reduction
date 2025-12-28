@@ -41,7 +41,9 @@ public interface Constants {
 
 
         String HARM_REDUCTION_CLIENT_STATUS_VISIT = "harm_reduction_client_status_visit";
+        String HARM_REDUCTION_CLIENT_STATUS = "harm_reduction_client_status_visit";
         String HARM_REDUCTION_HEALTH_EDUCATION_IEC = "harm_reduction_health_education_iec";
+        String HARM_REDUCTION_HEALTH_EDUCATION = "harm_reduction_health_education_iec";
         String HARM_REDUCTION_HIV_INFECTION_STATUS = "harm_reduction_hiv_infection_status";
         String HARM_REDUCTION_MAT_FOLLOWUP = "harm_reduction_mat_followup";
         String HARM_REDUCTION_OTHER_DISEASES_SCREENING = "harm_reduction_other_diseases_screening";
@@ -49,6 +51,7 @@ public interface Constants {
         String HARM_REDUCTION_REGISTER_EXISTING_CLIENT = "harm_reduction_register_existing_client";
         String HARM_REDUCTION_RISK_ASSESSMENT = "harm_reduction_risk_assessment";
         String HARM_REDUCTION_RISKY_SEXUAL_BEHAVIORS_CONDOMS = "harm_reduction_risky_sexual_behaviors_condoms";
+        String HARM_REDUCTION_RISKY_SEXUAL_BEHAVIORS = "harm_reduction_risky_sexual_behaviors_condoms";
         String HARM_REDUCTION_SAFE_INJECTION_SERVICES = "harm_reduction_safe_injection_services";
         String HARM_REDUCTION_SOBER_HOUSE_DETOXIFICATION = "harm_reduction_sober_house_detoxification";
         String HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT_ELIGIBILITY = "harm_reduction_sober_house_enrollment_eligibility";
@@ -59,6 +62,7 @@ public interface Constants {
         String HARM_REDUCTION_SOBER_HOUSE_ROC_PROFILE = "harm_reduction_sober_house_roc_profile";
         String HARM_REDUCTION_SOBER_HOUSE_ROUTINE_SERVICES = "harm_reduction_sober_house_routine_services";
         String ROC_CONSENT_JOINING_MAT_SERVICES = "roc_consent_joining_mat_services";
+        String HARM_REDUCTION_CONSENT_JOINING_MAT = "roc_consent_joining_mat_services";
 
 
 

@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="org.smartregister.chw.harmreduction" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.smartregister.chw.harmreduction">
+
+    <application>
+        <activity
+            android:name="org.smartregister.chw.harmreduction.activity.HarmReductionVisitActivity"
+            android:exported="false" />
+    </application>
+</manifest>

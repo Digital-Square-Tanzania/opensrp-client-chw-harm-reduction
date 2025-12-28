@@ -72,7 +72,6 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         findViewById(R.id.tbleprosy_visit_record).setOnClickListener(this);
         findViewById(R.id.tbleprosy_mobilization).setOnClickListener(this);
         findViewById(R.id.tbleprosy_observation_results).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_observation_results_contact).setOnClickListener(this);
         findViewById(R.id.tbleprosy_followup_visit).setOnClickListener(this);
         findViewById(R.id.tbleprosy_home_visit).setOnClickListener(this);
         findViewById(R.id.tbleprosy_profile).setOnClickListener(this);

@@ -68,9 +68,9 @@ public class BaseHarmReductionCallDialogFragment extends DialogFragment implemen
     private void setCallTitle(ViewGroup rootView, int viewId, final String message) {
         TextView callTitle = rootView.findViewById(viewId);
         if (MEMBER_OBJECT.getBaseEntityId().equals(MEMBER_OBJECT.getPrimaryCareGiver())) {
-            callTitle.setText(String.format("%s %s", message, getResources().getString(R.string.call_tbleprosy_client)));
+            callTitle.setText(String.format("%s %s", message, getResources().getString(R.string.call_harm_reduction_client)));
         } else {
-            callTitle.setText(String.format("%s %s", message, getResources().getString(R.string.call_tbleprosy_client)));
+            callTitle.setText(String.format("%s %s", message, getResources().getString(R.string.call_harm_reduction_client)));
         }
     }
 

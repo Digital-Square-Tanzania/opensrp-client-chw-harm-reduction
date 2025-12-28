@@ -209,7 +209,7 @@
                 android:layout_below="@+id/textview_positive_date"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/cancel_image"
-                android:text="@string/view_tbleprosy_test_result"
+                android:text="@string/view_harm_reduction_test_result"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/darker_gray" />
 

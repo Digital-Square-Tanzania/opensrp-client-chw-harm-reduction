@@ -27,7 +27,6 @@ public class BaseHarmReductionProfileInteractor implements HarmReductionProfileC
         Runnable runnable = () -> appExecutors.mainThread().execute(() -> {
             callback.refreshFamilyStatus(AlertStatus.normal);
             callback.refreshMedicalHistory(true);
-            callback.refreshUpComingServicesStatus("TbLeprosy Visit", AlertStatus.normal, new Date());
         });
         appExecutors.diskIO().execute(runnable);
     }

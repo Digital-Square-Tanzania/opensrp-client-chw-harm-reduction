@@ -62,8 +62,6 @@ public interface HarmReductionProfileContract {
 
         void refreshMedicalHistory(boolean hasHistory);
 
-        void refreshUpComingServicesStatus(String service, AlertStatus status, Date date);
-
         void refreshFamilyStatus(AlertStatus status);
 
         void startServiceForm();

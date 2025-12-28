@@ -65,7 +65,7 @@ public class HarmReductionContactProfileActivity extends BaseHarmReductionProfil
         if(StringUtils.isNotBlank(encounterType)){
             if(encounterType.equalsIgnoreCase(TB_LEPROSY_OBSERVATIONS_RESULT)){
                 textViewRecordTbContactVisit.setVisibility(View.VISIBLE);
-                textViewRecordTbContactVisit.setText(R.string.record_tbleprosy_contact_visit_followup);
+                textViewRecordTbContactVisit.setText(R.string.record_harm_reduction_contact_visit_followup);
             }
             textViewRecordTbContactVisit.setVisibility(View.VISIBLE);
 

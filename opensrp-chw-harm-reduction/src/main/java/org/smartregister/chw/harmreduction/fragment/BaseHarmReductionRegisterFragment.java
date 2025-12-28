@@ -65,7 +65,7 @@ public class BaseHarmReductionRegisterFragment extends BaseRegisterFragment impl
         CustomFontTextView titleView = view.findViewById(R.id.txt_title_label);
         if (titleView != null) {
             titleView.setVisibility(android.view.View.VISIBLE);
-            titleView.setText(getString(R.string.tbleprosy));
+            titleView.setText(getString(R.string.harm_reduction));
             titleView.setFontVariant(FontVariant.REGULAR);
         }
     }

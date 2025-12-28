@@ -42,7 +42,7 @@
                         android:gravity="center_vertical|start"
                         android:paddingStart="0dp"
                         android:paddingEnd="0dp"
-                        android:text="@string/return_to_tbleprosy_clients"
+                        android:text="@string/return_to_harm_reduction_clients"
                         android:textColor="@color/customAppThemeBlue"
                         android:textSize="17sp" />
                 </androidx.appcompat.widget.Toolbar>
@@ -153,7 +153,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="0dp"
                         android:paddingTop="@dimen/register_list_top_bottom_min_padding"
-                        android:text="@string/tbleprosy_contraindication"
+                        android:text="@string/harm_reduction_contraindication"
                         android:textColor="@color/alert_urgent_red"
                         android:textSize="@dimen/tbleprosy_register_list_due_size"
                         android:visibility="gone" />

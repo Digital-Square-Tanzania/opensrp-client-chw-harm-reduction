@@ -233,10 +233,10 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
             }else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_mat_client_followup_visit))){
                 this.openRecordTbContactVisit();
             }
-            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_client_followup_visit))) {
+            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_client_followup_visit))) {
                 this.openFollowupVisit();
             }
-            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_contact_visit_followup))) {
+            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_contact_visit_followup))) {
                 this.openTbContactFollowUpVisit();
             }
             else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_observation_results))) {
@@ -292,7 +292,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         }
 
         if (memberObject.getTbLeprosyTestDate() != null) {
-            textview_positive_date.setText(getString(R.string.tbleprosy_positive) + " " + formatTime(memberObject.getTbLeprosyTestDate()));
+            textview_positive_date.setText(getString(R.string.harm_reduction_positive) + " " + formatTime(memberObject.getTbLeprosyTestDate()));
         }
     }
 
@@ -326,20 +326,6 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     public void refreshMedicalHistory(boolean hasHistory) {
         showProgressBar(false);
 //       rlLastVisit.setVisibility(hasHistory ? View.VISIBLE : View.GONE);
-    }
-
-    @Override
-    public void refreshUpComingServicesStatus(String service, AlertStatus status, Date date) {
-        showProgressBar(false);
-        if (status == AlertStatus.complete) return;
-        view_most_due_overdue_row.setVisibility(View.GONE);
-        rlUpcomingServices.setVisibility(View.GONE);
-
-        if (status == AlertStatus.upcoming) {
-            tvUpComingServices.setText(HarmReductionUtil.fromHtml(getString(R.string.vaccine_service_upcoming, service, dateFormat.format(date))));
-        } else {
-            tvUpComingServices.setText(HarmReductionUtil.fromHtml(getString(R.string.vaccine_service_due, service, dateFormat.format(date))));
-        }
     }
 
     @Override

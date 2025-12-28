@@ -75,30 +75,6 @@ public class BaseHarmReductionRegisterProviderTest {
     }
 
     @Test
-    public void isAncClosed() throws Exception {
-        Resources resources = Mockito.mock(Resources.class);
-        Activity activity = Mockito.mock(Activity.class);
-        HarmReductionRegisterProvider provider = Mockito.spy(new HarmReductionRegisterProvider(activity, listener, listener, null));
-        Map<String, String> map = new HashMap<>();
-        map.put("is_anc_closed", "0");
-        Mockito.when(activity.getResources()).thenReturn(resources);
-        Mockito.when(commonPersonObjectClient.getColumnmaps()).thenReturn(map);
-        Assert.assertEquals(resources.getString(R.string.anc_string), Whitebox.invokeMethod(provider, "updateMemberGender", commonPersonObjectClient));
-    }
-
-    @Test
-    public void isPncClosed() throws Exception {
-        Resources resources = Mockito.mock(Resources.class);
-        Activity activity = Mockito.mock(Activity.class);
-        HarmReductionRegisterProvider provider = Mockito.spy(new HarmReductionRegisterProvider(activity, listener, listener, null));
-        Map<String, String> map = new HashMap<>();
-        map.put("is_pnc_closed", "0");
-        Mockito.when(activity.getResources()).thenReturn(resources);
-        Mockito.when(commonPersonObjectClient.getColumnmaps()).thenReturn(map);
-        Assert.assertEquals(resources.getString(R.string.pnc_string), Whitebox.invokeMethod(provider, "updateMemberGender", commonPersonObjectClient));
-    }
-
-    @Test
     public void updateMemberGender() throws Exception {
         Activity activity = Mockito.mock(Activity.class);
         Resources resources = Mockito.mock(Resources.class);

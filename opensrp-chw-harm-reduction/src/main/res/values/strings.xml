@@ -47,8 +47,6 @@
     <string name="family_has_services_due">Family has services due</string>
     <string name="primary_care_giver">PRIMARY CARE GIVER</string>
     <string name="family_has_service_overdue"><![CDATA[Family has <font color=#FF0000>services overdue</font></b>]]></string>
-    <string name="vaccine_service_upcoming"><![CDATA[%1$s <font color=#7f7f7f>upcoming (%2$s)</font></b>]]></string>
-    <string name="vaccine_service_due"><![CDATA[%1$s <font color=#000000>due (%2$s)</font></b>]]></string>
     <string name="call_harm_reduction_client">Harm Reduction Client</string>
     <string name="head_of_family">Head of family</string>
     <string name="harm_reduction_client">Harm Reduction Client</string>
@@ -61,8 +59,6 @@
     <string name="no_phone_number">No Phone Number</string>
     <string name="view_harm_reduction_test_result">View Harm Reduction test results</string>
     <string name="harm_reduction_positive">Harm Reduction positive</string>
-    <string name="anc_string">ANC</string>
-    <string name="pnc_string">PNC</string>
     <string name="visit_done">Visit Done</string>
     <string name="edit">EDIT</string>
     <string name="male">Male</string>
@@ -75,12 +71,6 @@
     <string name="participants">Participants:</string>
     <string name="date">Date:</string>
 
-    <string name="mobilization_session_participants">Participants: %s</string>
-    <string name="mobilization_condoms_issued">Condoms Issued: %s</string>
-    <string name="mobilziation_session_date">Date: %s</string>
-
-
-    <string name="harm_reduction_mobilization">Mobilization</string>
     <string name="harm_reduction_contact">Contacts</string>
 
 

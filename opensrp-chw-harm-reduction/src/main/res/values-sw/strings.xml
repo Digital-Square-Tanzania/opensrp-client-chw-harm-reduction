@@ -28,8 +28,6 @@
     <string name="harm_reduction_contact_option_new_client">Sajili mteja mpya</string>
     <string name="primary_care_giver">MLEZI</string>
     <string name="family_has_service_overdue"><![CDATA[Kaya ina <font color=#FF0000>huduma zilizochelewa</font></b>]]></string>
-    <string name="vaccine_service_upcoming"><![CDATA[%1$s <font color=#7f7f7f>inakaribia (%2$s)</font></b>]]></string>
-    <string name="vaccine_service_due"><![CDATA[%1$s <font color=#000000>imefika (%2$s)</font></b>]]></string>
     <string name="call_harm_reduction_client">Piga simu kwa mteja wa Harm Reduction</string>
     <string name="head_of_family">Mkuu wa kaya</string>
     <string name="harm_reduction_client">Mteja wa Harm Reduction</string>
@@ -40,8 +38,6 @@
     <string name="undo">TENGUA</string>
     <string name="view_harm_reduction_test_result">Angalia matokeo ya uchunguzi</string>
     <string name="harm_reduction_positive">Harm Reduction chanya</string>
-    <string name="anc_string">Wajawazito</string>
-    <string name="pnc_string">Baada ya kujifungua</string>
     <string name="visit_done">Hudhurio limekamilika</string>
     <string name="edit">HARIRI</string>
     <string name="male">Me</string>
@@ -61,11 +57,6 @@
 
     <string name="view_upcoming_services">Angalia huduma zijazo</string>
 
-    <string name="mobilization_session_participants">Waliohamasishwa: %s</string>
-    <string name="mobilization_condoms_issued">Kondomu zilizogaiwa: %s</string>
-    <string name="mobilziation_session_date">Tarehe: %s</string>
-
-    <string name="harm_reduction_session">Harm Reduction</string>
     <string name="participants">Waliohamasishwa:</string>
     <string name="date">Tarehe:</string>
 

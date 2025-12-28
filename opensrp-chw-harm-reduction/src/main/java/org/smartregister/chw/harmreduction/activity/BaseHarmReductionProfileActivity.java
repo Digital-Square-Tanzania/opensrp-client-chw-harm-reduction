@@ -58,12 +58,9 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     protected TextView textViewUniqueID;
     protected TextView textViewRecordTbLeprosy;
     protected TextView textViewRecordTbContactVisit;
-    protected TextView textViewRecordAnc;
     protected TextView textViewContinueTbLeprosy;
-    protected TextView textViewContinueTbLeprosyService;
     protected TextView manualProcessVisit;
     protected TextView textview_positive_date;
-    protected TextView textViewRegisterTBLeprosyContact;
     protected View view_last_visit_row;
     protected View view_most_due_overdue_row;
     protected View view_family_row;
@@ -74,15 +71,12 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     protected RelativeLayout rlFamilyServicesDue;
     protected RelativeLayout visitStatus;
     protected RelativeLayout visitInProgress;
-    protected RelativeLayout tbleprosyServiceInProgress;
     protected ImageView imageViewCross;
     protected TextView textViewUndo;
     protected RelativeLayout rlTbLeprosyPositiveDate;
     protected TextView textViewVisitDone;
     protected RelativeLayout visitDone;
-    protected LinearLayout recordVisits;
     protected TextView textViewVisitDoneEdit;
-    protected TextView textViewRecordAncNotDone;
     protected String profileType;
     protected BaseHarmReductionFloatingMenu baseTbLeprosyFloatingMenu;
     private TextView tvUpComingServices;
@@ -145,18 +139,12 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         visitStatus = findViewById(R.id.record_visit_not_done_bar);
         visitDone = findViewById(R.id.visit_done_bar);
         visitInProgress = findViewById(R.id.record_visit_in_progress);
-        tbleprosyServiceInProgress = findViewById(R.id.record_tbleprosy_service_visit_in_progress);
-        recordVisits = findViewById(R.id.record_visits);
         progressBar = findViewById(R.id.progress_bar);
-        textViewRecordAncNotDone = findViewById(R.id.textview_record_anc_not_done);
         textViewVisitDoneEdit = findViewById(R.id.textview_edit);
-        textViewRecordTbLeprosy = findViewById(R.id.textview_record_tbleprosy);
-        textViewRecordTbContactVisit = findViewById(R.id.textview_record_tbleprosy_contact_visit);
+        textViewRecordTbLeprosy = findViewById(R.id.textview_record_harm_reduction_community_visit);
+        textViewRecordTbContactVisit = findViewById(R.id.textview_record_sober_house_visit);
         textViewContinueTbLeprosy = findViewById(R.id.textview_continue);
-        textViewContinueTbLeprosyService = findViewById(R.id.continue_tbleprosy_service);
-        textViewRegisterTBLeprosyContact = findViewById(R.id.textview_register_tb_leprosy_contact);
         manualProcessVisit = findViewById(R.id.textview_manual_process);
-        textViewRecordAnc = findViewById(R.id.textview_record_anc);
         textViewUndo = findViewById(R.id.textview_undo);
         imageView = findViewById(R.id.imageview_profile);
 
@@ -164,7 +152,6 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
 
 
         ivViewHistoryArrow.setOnClickListener(this);
-        textViewRecordAncNotDone.setOnClickListener(this);
         textViewVisitDoneEdit.setOnClickListener(this);
         rlLastVisit.setOnClickListener(this);
         rlObservationResults.setOnClickListener(this);
@@ -174,10 +161,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         textViewRecordTbLeprosy.setOnClickListener(this);
         textViewRecordTbContactVisit.setOnClickListener(this);
         textViewContinueTbLeprosy.setOnClickListener(this);
-        textViewContinueTbLeprosyService.setOnClickListener(this);
-        textViewRegisterTBLeprosyContact.setOnClickListener(this);
         manualProcessVisit.setOnClickListener(this);
-        textViewRecordAnc.setOnClickListener(this);
         textViewUndo.setOnClickListener(this);
 
         imageRenderHelper = new ImageRenderHelper(this);
@@ -243,10 +227,10 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
             this.openUpcomingService();
         } else if (id == R.id.rlFamilyServicesDue) {
             this.openFamilyDueServices();
-        } else if (id == R.id.textview_record_tbleprosy) {
-            if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy))){
+        } else if (id == R.id.textview_record_harm_reduction_community_visit) {
+            if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_community_visit))){
                 this.openRecordClientVisit();
-            }else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_contact_visit))){
+            }else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_mat_client_followup_visit))){
                 this.openRecordTbContactVisit();
             }
             else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_client_followup_visit))) {
@@ -260,13 +244,8 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
             } else {
                 Toast.makeText(getApplicationContext(), "No click", Toast.LENGTH_SHORT).show();
             }
-        } else if (id == R.id.continue_tbleprosy_service) {
-            this.continueService();
         } else if (id == R.id.textview_continue) {
             this.continueContactVisit();
-        }
-        else if (id == R.id.textview_register_tb_leprosy_contact) {
-            this.openHarmReductionContactRegister();
         }
     }
 

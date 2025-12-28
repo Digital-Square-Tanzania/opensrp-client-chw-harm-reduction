@@ -9,31 +9,24 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
-import androidx.room.util.StringUtil;
 
 import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 
 import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.contract.BaseHarmReductionVisitContract;
 import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.util.Constants;
-import org.smartregister.chw.harmreduction.util.DBConstants;
 import org.smartregister.chw.harmreduction.util.JsonFormUtils;
 import org.smartregister.chw.harmreduction_sample.R;
-import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.view.activity.SecuredActivity;
 
-import java.time.Year;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 import timber.log.Timber;
 
@@ -67,17 +60,8 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        findViewById(R.id.tbleprosy_activity).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_screening).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_visit_record).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_mobilization).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_observation_results).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_followup_visit).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_home_visit).setOnClickListener(this);
         findViewById(R.id.tbleprosy_profile).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_contact_profile).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_update_member_profile).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_contact_visit).setOnClickListener(this);
+        findViewById(R.id.harm_reduction_community_visit).setOnClickListener(this);
     }
 
     private void setLocale(String languageCode) {
@@ -102,58 +86,11 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tbleprosy_activity:
+            case R.id.tbleprosy_profile:
                 startActivity(new Intent(this, HarmReductionRegisterActivity.class));
                 break;
-            case R.id.tbleprosy_home_visit:
-                HarmReductionServiceActivity.startTbLeprosyVisitActivity(this, "12345", true);
-                break;
-            case R.id.tbleprosy_profile:
-                HarmReductionMemberProfileActivity.startMe(this, "12345");
-                break;
-            case R.id.tbleprosy_contact_profile:
-                HarmReductionContactProfileActivity.startMe(this, "12345");
-                break;
-            case R.id.tbleprosy_update_member_profile:
-                UpdateHarmReductionMemberProfileActivity.startMe(this, "12345");
-                break;
-            case R.id.tbleprosy_contact_visit:
+            case R.id.harm_reduction_community_visit:
                 HarmReductionServiceActivity.startTbLeprosyVisitActivity(this, "98765", false);
-                break;
-            case R.id.tbleprosy_screening:
-                try {
-                    startForm("tbleprosy_screening");
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-                break;
-            case R.id.tbleprosy_mobilization:
-                try {
-                    startForm("tbleprosy_mobilization_session");
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-                break;
-            case R.id.tbleprosy_observation_results:
-                try {
-                    startForm("tbleprosy_observation_results");
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-                break;
-            case R.id.tbleprosy_followup_visit:
-                try {
-                    startForm("tbleprosy_followup_visit");
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-                break;
-            case R.id.tbleprosy_visit_record:
-                try {
-                    startForm("tbleprosy_record_visit");
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
                 break;
             default:
                 break;

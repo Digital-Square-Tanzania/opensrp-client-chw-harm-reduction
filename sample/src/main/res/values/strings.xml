@@ -1,24 +1,5 @@
 <resources>
     <string name="app_name">opensrp-chw-testing</string>
-    <string name="action_settings">Settings</string>
-    <string name="tbleprosy_client_profile">New TbLeprosy Client Profile</string>
-    <string name="tbleprosy_contact_profile">TbLeprosy Contact Profile</string>
-    <string name="tbleprosy_update_member_profile">TbLeprosy Update Profile</string>
-
-    <string name="tbleprosy_follow_up_visit">Follow up TBLEPROSY Client Profile</string>
-
-<!--    <string name="tbleprosy_record_tb_contact_follow_up_visit">Record TB Contact Follow up Visit</string>-->
-
-    <string name="tbleprosy_contact_visit">"Record TB Contact Visit"</string>
-
-    <string name="tbleprosy_screening">TB/Leprosy screening</string>
-    <string name="tbleprosy_visit_record">TB/Leprosy Visit Record</string>
-    <string name="tbleprosy_mobilization">TBLeprosy Mobilization</string>
-
-
-    <string name="tbleprosy_observation_results">Matokeo ya Uchunguzi</string>
-    <string name="tbleprosy_observation_results_contact">Matokeo ya Uchunguzi ya Contact</string>
-    <string name="tbleprosy_followup_visit">Ufuatiliaji wa mteja</string>
-    <string name="provide_contact_visit">Provide Contact Visit</string>
-
+    <string name="harm_reduction_client_profile">New Harm Reduction Client Profile</string>
+    <string name="harm_reduction_contact_visit">"Record Harm Reduction Contact Visit"</string>
 </resources>

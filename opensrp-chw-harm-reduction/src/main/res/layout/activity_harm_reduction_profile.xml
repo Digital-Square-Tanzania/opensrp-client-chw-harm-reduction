@@ -188,7 +188,7 @@
 
             <include
                 android:id="@+id/record_visit_harm_reduction"
-                layout="@layout/view_record_tbleprosy" />
+                layout="@layout/view_record_harm_reduction" />
 
             <include layout="@layout/content_tbleprosy_profile" />
         </LinearLayout>

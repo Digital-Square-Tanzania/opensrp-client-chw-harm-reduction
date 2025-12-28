@@ -1,0 +1,254 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_sober_house_roc_profile",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_sober_house_roc_profile",
+    "fields": [
+      {
+        "key": "roc_nickname",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "roc_nickname",
+        "type": "edit_text",
+        "hint": "RoC Nickname"
+      },
+      {
+        "key": "uic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "uic",
+        "type": "edit_text",
+        "hint": "Unique ID (UIC)",
+        "edit_type": "number"
+      },
+      {
+        "key": "education_level",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "education_level",
+        "type": "native_radio",
+        "label": "Level of Education",
+        "options": [
+          {
+            "key": "no_formal_education",
+            "text": "No formal Education",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_formal_education"
+          },
+          {
+            "key": "incomplete_primary",
+            "text": "Incomplete Primary Education",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "incomplete_primary"
+          },
+          {
+            "key": "completed_primary",
+            "text": "Completed Primary Education",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "completed_primary"
+          },
+          {
+            "key": "completed_secondary",
+            "text": "Completed Secondary Education",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "completed_secondary"
+          },
+          {
+            "key": "university",
+            "text": "University Education",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "university"
+          }
+        ]
+      },
+      {
+        "key": "ctc_id",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ctc_id",
+        "type": "edit_text",
+        "hint": "Unique ID (CTC)",
+        "edit_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-roc-profile-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "substances_led_to_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_led_to_services",
+        "type": "check_box",
+        "label": "Type(s) of substance that led to the need for services",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "alcohol",
+            "text": "Alcohol",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "alcohol"
+          },
+          {
+            "key": "cannabis",
+            "text": "Cannabis",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cannabis"
+          },
+          {
+            "key": "khat",
+            "text": "Khat",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "khat"
+          },
+          {
+            "key": "heroine",
+            "text": "Heroine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "heroine"
+          },
+          {
+            "key": "valium_diazepam",
+            "text": "Valium/Diazepam",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "valium_diazepam"
+          },
+          {
+            "key": "tramadol",
+            "text": "Tramadol",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tramadol"
+          },
+          {
+            "key": "methamphetamine",
+            "text": "Methamphetamine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methamphetamine"
+          },
+          {
+            "key": "methadone",
+            "text": "Methadone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methadone"
+          },
+          {
+            "key": "other",
+            "text": "Other substances (specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ]
+      },
+      {
+        "key": "other_substances_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_substances_specify",
+        "type": "edit_text",
+        "hint": "If other substances, specify",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-roc-profile-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "length_cm",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "length_cm",
+        "type": "edit_text",
+        "hint": "Length (cm)",
+        "edit_type": "number"
+      },
+      {
+        "key": "nationality",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "nationality",
+        "type": "native_radio",
+        "label": "Nationality",
+        "options": [
+          {
+            "key": "tanzanian",
+            "text": "Tanzanian",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tanzanian"
+          },
+          {
+            "key": "non_tanzanian",
+            "text": "Non Tanzanian",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "non_tanzanian"
+          }
+        ]
+      }
+    ]
+  }
+}

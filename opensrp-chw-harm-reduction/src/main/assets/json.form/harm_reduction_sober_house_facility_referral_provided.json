@@ -1,0 +1,178 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_sober_house_facility_referral_provided",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_sober_house_facility_referral_provided",
+    "fields": [
+      {
+        "key": "facility_referrals_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "facility_referrals_provided",
+        "type": "check_box",
+        "label": "Referral provided",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "hiv_aids",
+            "text": "HIV and AIDS",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hiv_aids"
+          },
+          {
+            "key": "tuberculosis",
+            "text": "Tuberculosis (TB)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tuberculosis"
+          },
+          {
+            "key": "ntds",
+            "text": "Neglected Tropical Diseases",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ntds"
+          },
+          {
+            "key": "family_planning",
+            "text": "Family Planning",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "family_planning"
+          },
+          {
+            "key": "rmch",
+            "text": "Reproductive, Mother and Child Health",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "rmch"
+          },
+          {
+            "key": "mental_health",
+            "text": "Mental Health",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mental_health"
+          },
+          {
+            "key": "gbv",
+            "text": "Gender Based Violence",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "gbv"
+          },
+          {
+            "key": "psychological_support",
+            "text": "Psychological support",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "psychological_support"
+          },
+          {
+            "key": "rights_entitlements",
+            "text": "Rights and entitlements for special groups",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "rights_entitlements"
+          },
+          {
+            "key": "sti",
+            "text": "STI",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sti"
+          },
+          {
+            "key": "legal_services",
+            "text": "Legal services",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "legal_services"
+          },
+          {
+            "key": "iga",
+            "text": "Income Generating Activities (IGA)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "iga"
+          },
+          {
+            "key": "wounds_abscesses",
+            "text": "Treatment of wounds and abscesses (boils)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "wounds_abscesses"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ]
+      },
+      {
+        "key": "facility_referrals_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "facility_referrals_other_specify",
+        "type": "edit_text",
+        "hint": "If others, specify",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-facility-referral-provided-relevance-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

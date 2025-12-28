@@ -1,0 +1,7 @@
+---
+name: step1_facility_referrals_other_specify
+description: Show facility_referrals_other_specify when its condition is met
+priority: 1
+condition: "step1_facility_referrals_provided != null && step1_facility_referrals_provided.contains('other')"
+actions:
+  - "isRelevant = true"

@@ -1,0 +1,133 @@
+---
+name: step1_harm_reduction_services_type
+description: Show harm_reduction_services_type when its condition is met
+priority: 1
+condition: "step1_received_harm_reduction_services == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_harm_reduction_services_other_specify
+description: Show harm_reduction_services_other_specify when its condition is met
+priority: 1
+condition: "step1_harm_reduction_services_type != null && step1_harm_reduction_services_type.contains('other')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_living_environment_other_specify
+description: Show living_environment_other_specify when its condition is met
+priority: 1
+condition: "step1_living_environment == 'other'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substances_used_injecting
+description: Show substances_used_injecting when its condition is met
+priority: 1
+condition: "step1_route_of_substance_use != null && step1_route_of_substance_use.contains('injecting')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substances_used_injecting_other_specify
+description: Show substances_used_injecting_other_specify when its condition is met
+priority: 1
+condition: "step1_substances_used_injecting != null && step1_substances_used_injecting.contains('other')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substances_used_non_injecting
+description: Show substances_used_non_injecting when its condition is met
+priority: 1
+condition: "step1_route_of_substance_use != null && (step1_route_of_substance_use.contains('smoking') || step1_route_of_substance_use.contains('drinking') || step1_route_of_substance_use.contains('sniffing'))"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substances_used_non_injecting_other_specify
+description: Show substances_used_non_injecting_other_specify when its condition is met
+priority: 1
+condition: "step1_substances_used_non_injecting != null && step1_substances_used_non_injecting.contains('other')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_injection_times_per_day
+description: Show injection_times_per_day when its condition is met
+priority: 1
+condition: "step1_route_of_substance_use != null && step1_route_of_substance_use.contains('injecting')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_reused_needles
+description: Show reused_needles when its condition is met
+priority: 1
+condition: "step1_route_of_substance_use != null && step1_route_of_substance_use.contains('injecting')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_shared_needles
+description: Show shared_needles when its condition is met
+priority: 1
+condition: "step1_route_of_substance_use != null && step1_route_of_substance_use.contains('injecting')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_controlled_substances_other_specify
+description: Show controlled_substances_other_specify when its condition is met
+priority: 1
+condition: "step1_controlled_substances_prescribed != null && step1_controlled_substances_prescribed.contains('other')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_multiple_partners
+description: Show multiple_partners when its condition is met
+priority: 1
+condition: "step1_sex_times_per_week > 0"
+actions:
+  - "isRelevant = true"
+---
+name: step1_condom_use
+description: Show condom_use when its condition is met
+priority: 1
+condition: "step1_sex_times_per_week > 0"
+actions:
+  - "isRelevant = true"
+---
+name: step1_hbv_status
+description: Show hbv_status when its condition is met
+priority: 1
+condition: "step1_ever_tested_hbv == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_hcv_status
+description: Show hcv_status when its condition is met
+priority: 1
+condition: "step1_ever_tested_hcv == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_sti_status
+description: Show sti_status when its condition is met
+priority: 1
+condition: "step1_ever_tested_sti == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_health_problem_description
+description: Show health_problem_description when its condition is met
+priority: 1
+condition: "step1_other_health_problem == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_health_problem_support
+description: Show health_problem_support when its condition is met
+priority: 1
+condition: "step1_other_health_problem == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_pregnancy_challenges
+description: Show pregnancy_challenges when its condition is met
+priority: 1
+condition: "step1_pregnant == 'yes'"
+actions:
+  - "isRelevant = true"

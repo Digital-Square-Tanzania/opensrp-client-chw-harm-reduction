@@ -1,0 +1,28 @@
+---
+name: step1_number_of_sexual_partners
+description: Show number_of_sexual_partners when its condition is met
+priority: 1
+condition: "step1_engaging_in_sexual_activity == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_condom_use_during_sex
+description: Show condom_use_during_sex when its condition is met
+priority: 1
+condition: "step1_engaging_in_sexual_activity == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_condom_education_prompt
+description: Show condom_education_prompt when its condition is met
+priority: 1
+condition: "step1_engaging_in_sexual_activity == 'yes' && step1_condom_use_during_sex == 'no'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_number_of_condoms
+description: Show number_of_condoms when its condition is met
+priority: 1
+condition: "step1_condoms_given == 'yes'"
+actions:
+  - "isRelevant = true"

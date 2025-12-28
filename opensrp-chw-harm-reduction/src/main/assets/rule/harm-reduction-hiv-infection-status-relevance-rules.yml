@@ -1,0 +1,35 @@
+---
+name: step1_hiv_test_location
+description: Show hiv_test_location when its condition is met
+priority: 1
+condition: "step1_hiv_tested == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_hiv_results
+description: Show hiv_results when its condition is met
+priority: 1
+condition: "step1_hiv_tested == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_drug_adherence_status_ctc
+description: Show drug_adherence_status_ctc when its condition is met
+priority: 1
+condition: "step1_hiv_results == 'positive'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_adherence_guidance_discontinued
+description: Show adherence_guidance_discontinued when its condition is met
+priority: 1
+condition: "step1_drug_adherence_status_ctc == 'discontinued'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_adherence_guidance_not_started
+description: Show adherence_guidance_not_started when its condition is met
+priority: 1
+condition: "step1_drug_adherence_status_ctc == 'not_started'"
+actions:
+  - "isRelevant = true"

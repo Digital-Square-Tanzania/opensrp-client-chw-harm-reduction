@@ -1,0 +1,214 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_safe_injection_services",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_safe_injection_services",
+    "fields": [
+      {
+        "key": "safe_injection_tools",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "safe_injection_tools",
+        "type": "check_box",
+        "label": "Safe injection services - Type of tools",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "syringes",
+            "text": "Syringes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "syringes"
+          },
+          {
+            "key": "alcohol_swab",
+            "text": "Alcohol swab",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "alcohol_swab"
+          },
+          {
+            "key": "dry_cotton",
+            "text": "Dry cotton",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dry_cotton"
+          },
+          {
+            "key": "plaster",
+            "text": "Plaster",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "plaster"
+          },
+          {
+            "key": "sterile_water",
+            "text": "Sterile Water",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sterile_water"
+          },
+          {
+            "key": "needles",
+            "text": "Needles",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "needles"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-safe-injection-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "qty_syringes",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "qty_syringes",
+        "type": "edit_text",
+        "hint": "Number of tools - Syringes",
+        "edit_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-safe-injection-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "qty_alcohol_swab",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "qty_alcohol_swab",
+        "type": "edit_text",
+        "hint": "Number of tools - Alcohol swab",
+        "edit_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-safe-injection-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "qty_dry_cotton",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "qty_dry_cotton",
+        "type": "edit_text",
+        "hint": "Number of tools - Dry cotton",
+        "edit_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-safe-injection-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "qty_plaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "qty_plaster",
+        "type": "edit_text",
+        "hint": "Number of tools - Plaster",
+        "edit_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-safe-injection-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "qty_sterile_water",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "qty_sterile_water",
+        "type": "edit_text",
+        "hint": "Number of tools - Sterile Water",
+        "edit_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-safe-injection-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "qty_needles",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "qty_needles",
+        "type": "edit_text",
+        "hint": "Number of tools - Needles (max 21)",
+        "edit_type": "number",
+        "v_max": {
+          "value": "21",
+          "err": "Must be 21 or less"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-safe-injection-services-relevance-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

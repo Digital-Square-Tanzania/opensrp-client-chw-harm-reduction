@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.smartregister.chw.harmreduction_sample">
+
+    <application
+        android:name=".application.SampleApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
+        <activity
+            android:name="org.smartregister.chw.harmreduction_sample.activity.EntryActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true"> <!-- Explicitly define exported -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="org.smartregister.view.receiver.ConnectivityChangeReceiver"
+            android:exported="true"
+            tools:replace="android:exported">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="org.smartregister.view.receiver.TimeChangedBroadcastReceiver"
+            android:exported="true"
+            tools:replace="android:exported">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="org.smartregister.chw.harmreduction_sample.activity.SampleJsonFormActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="org.smartregister.chw.harmreduction_sample.activity.HarmReductionMemberProfileActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="org.smartregister.chw.harmreduction_sample.activity.HarmReductionContactProfileActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="org.smartregister.chw.harmreduction_sample.activity.UpdateHarmReductionMemberProfileActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="org.smartregister.chw.harmreduction_sample.activity.HarmReductionContactRegister"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="org.smartregister.chw.harmreduction_sample.activity.HarmReductionServiceActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.vijay.jsonwizard.activities.JsonWizardFormActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>

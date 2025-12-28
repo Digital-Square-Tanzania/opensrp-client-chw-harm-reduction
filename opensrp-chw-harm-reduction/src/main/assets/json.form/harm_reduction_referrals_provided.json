@@ -1,0 +1,262 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_referrals_provided",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_referrals_provided",
+    "fields": [
+      {
+        "key": "referrals_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "referrals_provided",
+        "type": "check_box",
+        "label": "Referrals provided",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "hiv_aids",
+            "text": "HIV and AIDS",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hiv_aids"
+          },
+          {
+            "key": "epidemic_diseases",
+            "text": "Epidemic diseases",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "epidemic_diseases"
+          },
+          {
+            "key": "communicable_diseases",
+            "text": "Communicable diseases",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "communicable_diseases"
+          },
+          {
+            "key": "tb_leprosy",
+            "text": "TB/Leprosy",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tb_leprosy"
+          },
+          {
+            "key": "ntds",
+            "text": "Neglected Tropical Diseases",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ntds"
+          },
+          {
+            "key": "family_planning",
+            "text": "Family planning",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "family_planning"
+          },
+          {
+            "key": "reproductive_health",
+            "text": "Reproductive health, father, mother, child and adolescents",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "reproductive_health"
+          },
+          {
+            "key": "nutrition",
+            "text": "Nutrition",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "nutrition"
+          },
+          {
+            "key": "prep",
+            "text": "PrEP",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "prep"
+          },
+          {
+            "key": "mental_health",
+            "text": "Mental Health",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mental_health"
+          },
+          {
+            "key": "substance_abuse",
+            "text": "Substance abuse",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "substance_abuse"
+          },
+          {
+            "key": "gbv_vac",
+            "text": "GBV/VAC",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "gbv_vac"
+          },
+          {
+            "key": "psychological_assistance",
+            "text": "Psychological assistance",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "psychological_assistance"
+          },
+          {
+            "key": "rights_vulnerable",
+            "text": "Rights of vulnerable population",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "rights_vulnerable"
+          },
+          {
+            "key": "health_services_advocacy",
+            "text": "Health services advocacy",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_services_advocacy"
+          },
+          {
+            "key": "hepatitis_bc",
+            "text": "Hepatitis B/C",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hepatitis_bc"
+          },
+          {
+            "key": "stis_stds",
+            "text": "STIs/STDs",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stis_stds"
+          },
+          {
+            "key": "overdose_management",
+            "text": "Overdose management and prevention",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "overdose_management"
+          },
+          {
+            "key": "legal_issues",
+            "text": "Legal issues",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "legal_issues"
+          },
+          {
+            "key": "safe_injection",
+            "text": "Safe injection",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "safe_injection"
+          },
+          {
+            "key": "methadone_services",
+            "text": "Methadone services (MAT)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methadone_services"
+          },
+          {
+            "key": "sober_house",
+            "text": "Sober House",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sober_house"
+          },
+          {
+            "key": "income_generating",
+            "text": "Income Generating Activities (IGA)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "income_generating"
+          },
+          {
+            "key": "hiv_testing",
+            "text": "HIV Testing",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hiv_testing"
+          },
+          {
+            "key": "wounds_abscess_treatment",
+            "text": "Wounds and abscess treatment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "wounds_abscess_treatment"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ]
+      },
+      {
+        "key": "referrals_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "referrals_other_specify",
+        "type": "edit_text",
+        "hint": "If others, specify",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-referrals-provided-relevance-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

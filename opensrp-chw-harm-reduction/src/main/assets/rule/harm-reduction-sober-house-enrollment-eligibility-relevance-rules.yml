@@ -1,0 +1,14 @@
+---
+name: step1_sober_house_enroll_prompt
+description: Show sober_house_enroll_prompt when its condition is met
+priority: 1
+condition: "step1_sober_house_eligibility == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_sober_house_not_eligible_prompt
+description: Show sober_house_not_eligible_prompt when its condition is met
+priority: 1
+condition: "step1_sober_house_eligibility == 'no'"
+actions:
+  - "isRelevant = true"

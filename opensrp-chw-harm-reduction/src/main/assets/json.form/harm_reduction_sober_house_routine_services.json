@@ -1,0 +1,447 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_sober_house_routine_services",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_sober_house_routine_services",
+    "fields": [
+      {
+        "key": "roc_emotional_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "roc_emotional_status",
+        "type": "native_radio",
+        "label": "RoC current emotional status",
+        "options": [
+          {
+            "key": "calm",
+            "text": "Calm",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "calm"
+          },
+          {
+            "key": "anxious",
+            "text": "Anxious",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anxious"
+          },
+          {
+            "key": "depressed",
+            "text": "Depressed / Sad",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "depressed"
+          },
+          {
+            "key": "angry",
+            "text": "Angry / Irritable",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "angry"
+          },
+          {
+            "key": "stable",
+            "text": "Stable",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stable"
+          }
+        ]
+      },
+      {
+        "key": "testing_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "testing_services",
+        "type": "check_box",
+        "label": "Testing services provided",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "weight",
+            "text": "Weight",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "weight"
+          },
+          {
+            "key": "blood_pressure",
+            "text": "Blood Pressure",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "blood_pressure"
+          },
+          {
+            "key": "not_done",
+            "text": "Not Done",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_done"
+          }
+        ]
+      },
+      {
+        "key": "systolic_bp",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "systolic_bp",
+        "type": "edit_text",
+        "hint": "Blood Pressure – Systolic (Upper)",
+        "edit_type": "number",
+        "v_numeric_integer": {
+          "value": "true",
+          "err": "Please enter a whole number"
+        },
+        "v_min": {
+          "value": "50",
+          "err": "Must be 50 or more"
+        },
+        "v_max": {
+          "value": "250",
+          "err": "Must be 250 or less"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "diastolic_bp",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "diastolic_bp",
+        "type": "edit_text",
+        "hint": "Blood Pressure – Diastolic (Lower)",
+        "edit_type": "number",
+        "v_numeric_integer": {
+          "value": "true",
+          "err": "Please enter a whole number"
+        },
+        "v_min": {
+          "value": "30",
+          "err": "Must be 30 or more"
+        },
+        "v_max": {
+          "value": "150",
+          "err": "Must be 150 or less"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "bp_hypertension_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "bp_hypertension_prompt",
+        "type": "toaster_notes",
+        "text": "Possible hypertension detected. Follow clinical protocol.",
+        "toaster_type": "warning",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "bp_hypotension_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "bp_hypotension_prompt",
+        "type": "toaster_notes",
+        "text": "Possible hypotension detected. Assess and manage promptly.",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "attended_recovery_meetings",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "attended_recovery_meetings",
+        "type": "native_radio",
+        "label": "Did RoC attend recovery meetings?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "recovery_meeting_types",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "recovery_meeting_types",
+        "type": "check_box",
+        "label": "Type of recovery meetings attended",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "aa",
+            "text": "Alcoholics Anonymous (AA)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "aa"
+          },
+          {
+            "key": "na",
+            "text": "Narcotics Anonymous (NA)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "na"
+          },
+          {
+            "key": "special_topic",
+            "text": "Special topic (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "special_topic"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "recovery_meeting_special_topic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "recovery_meeting_special_topic",
+        "type": "edit_text",
+        "hint": "Specify special recovery meeting topic",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "life_skills_participation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "life_skills_participation",
+        "type": "check_box",
+        "label": "Participation in life skills",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "relapse_prevention",
+            "text": "Relapse Prevention Skills",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "relapse_prevention"
+          },
+          {
+            "key": "communication",
+            "text": "Communication & Interpersonal Skills",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "communication"
+          },
+          {
+            "key": "emotional_regulation",
+            "text": "Emotional Regulation & Stress Management",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "emotional_regulation"
+          },
+          {
+            "key": "problem_solving",
+            "text": "Problem-Solving & Decision-Making",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "problem_solving"
+          },
+          {
+            "key": "daily_living",
+            "text": "Daily Living & Self-Care Skills",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "daily_living"
+          },
+          {
+            "key": "financial_literacy",
+            "text": "Financial Literacy & Money Management",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "financial_literacy"
+          },
+          {
+            "key": "job_readiness",
+            "text": "Job Readiness & Vocational Skills",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "job_readiness"
+          },
+          {
+            "key": "social_responsibility",
+            "text": "Social Responsibility & Community Integration",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "social_responsibility"
+          },
+          {
+            "key": "health_education",
+            "text": "Health Education & Wellness Skills",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_education"
+          },
+          {
+            "key": "household_skills",
+            "text": "Household & Practical Skills",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "household_skills"
+          },
+          {
+            "key": "self_esteem",
+            "text": "Self-Esteem & Personal Growth",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "self_esteem"
+          }
+        ]
+      },
+      {
+        "key": "counseling_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "counseling_provided",
+        "type": "native_radio",
+        "label": "Was counseling provided?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "counseling_type",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "counseling_type",
+        "type": "native_radio",
+        "label": "Type of counseling provided",
+        "options": [
+          {
+            "key": "group",
+            "text": "Group",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "group"
+          },
+          {
+            "key": "individual",
+            "text": "Individual / One-on-One",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "individual"
+          },
+          {
+            "key": "family",
+            "text": "Family",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "family"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-relevance-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

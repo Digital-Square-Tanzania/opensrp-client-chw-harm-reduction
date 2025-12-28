@@ -1,0 +1,168 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_other_diseases_screening",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_other_diseases_screening",
+    "fields": [
+      {
+        "key": "hepatitis_bc_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hepatitis_bc_screening",
+        "type": "native_radio",
+        "label": "Hepatitis B/C Screening",
+        "options": [
+          {
+            "key": "has_symptoms",
+            "text": "Has symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms"
+          },
+          {
+            "key": "no_symptoms",
+            "text": "No symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms"
+          },
+          {
+            "key": "not_screened",
+            "text": "Not screened",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_screened"
+          },
+          {
+            "key": "undergoing_treatment",
+            "text": "Undergoing treatment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "undergoing_treatment"
+          }
+        ]
+      },
+      {
+        "key": "tb_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_screening",
+        "type": "native_radio",
+        "label": "TB Screening",
+        "options": [
+          {
+            "key": "has_symptoms",
+            "text": "Has symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms"
+          },
+          {
+            "key": "no_symptoms",
+            "text": "No symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms"
+          },
+          {
+            "key": "not_screened",
+            "text": "Not screened",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_screened"
+          },
+          {
+            "key": "undergoing_treatment",
+            "text": "Undergoing treatment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "undergoing_treatment"
+          }
+        ]
+      },
+      {
+        "key": "stds_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "stds_screening",
+        "type": "native_radio",
+        "label": "STDs Screening",
+        "options": [
+          {
+            "key": "has_symptoms",
+            "text": "Has symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms"
+          },
+          {
+            "key": "no_symptoms",
+            "text": "No symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms"
+          },
+          {
+            "key": "not_screened",
+            "text": "Not screened",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_screened"
+          },
+          {
+            "key": "undergoing_treatment",
+            "text": "Undergoing treatment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "undergoing_treatment"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+---
+name: step1_safe_injection_tools
+description: Show safe_injection_tools when its condition is met
+priority: 1
+condition: "step1_is_idu != null && step1_is_idu.contains('yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_qty_syringes
+description: Show qty_syringes when its condition is met
+priority: 1
+condition: "step1_safe_injection_tools != null && step1_safe_injection_tools.contains('syringes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_qty_alcohol_swab
+description: Show qty_alcohol_swab when its condition is met
+priority: 1
+condition: "step1_safe_injection_tools != null && step1_safe_injection_tools.contains('alcohol_swab')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_qty_dry_cotton
+description: Show qty_dry_cotton when its condition is met
+priority: 1
+condition: "step1_safe_injection_tools != null && step1_safe_injection_tools.contains('dry_cotton')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_qty_plaster
+description: Show qty_plaster when its condition is met
+priority: 1
+condition: "step1_safe_injection_tools != null && step1_safe_injection_tools.contains('plaster')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_qty_sterile_water
+description: Show qty_sterile_water when its condition is met
+priority: 1
+condition: "step1_safe_injection_tools != null && step1_safe_injection_tools.contains('sterile_water')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_qty_needles
+description: Show qty_needles when its condition is met
+priority: 1
+condition: "step1_safe_injection_tools != null && step1_safe_injection_tools.contains('needles')"
+actions:
+  - "isRelevant = true"

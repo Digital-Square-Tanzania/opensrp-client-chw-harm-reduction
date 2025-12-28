@@ -1,0 +1,404 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_client_status_visit",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_client_status_visit",
+    "fields": [
+      {
+        "key": "client_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_status",
+        "type": "native_radio",
+        "label": "Client Status",
+        "options": [
+          {
+            "key": "new",
+            "text": "New",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "new"
+          },
+          {
+            "key": "deceased",
+            "text": "Deceased",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "deceased"
+          },
+          {
+            "key": "lost",
+            "text": "Lost",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "lost"
+          },
+          {
+            "key": "moved",
+            "text": "Moved",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "moved"
+          },
+          {
+            "key": "discontinued_service",
+            "text": "Discontinued service",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "discontinued_service"
+          },
+          {
+            "key": "continue_service",
+            "text": "Continue service",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "continue_service"
+          },
+          {
+            "key": "graduated",
+            "text": "Graduated",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "graduated"
+          }
+        ]
+      },
+      {
+        "key": "pregnancy_breastfeeding_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "pregnancy_breastfeeding_status",
+        "type": "native_radio",
+        "label": "Pregnancy/Breastfeeding status",
+        "options": [
+          {
+            "key": "pregnant",
+            "text": "Pregnant",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pregnant"
+          },
+          {
+            "key": "breastfeeding",
+            "text": "Breastfeeding",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "breastfeeding"
+          },
+          {
+            "key": "not_pregnant",
+            "text": "Not pregnant",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_pregnant"
+          }
+        ]
+      },
+      {
+        "key": "substance_use_methods",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substance_use_methods",
+        "type": "check_box",
+        "label": "Methods of substance use",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "injecting",
+            "text": "Injecting",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "injecting"
+          },
+          {
+            "key": "smoking",
+            "text": "Smoking",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "smoking"
+          },
+          {
+            "key": "drinking",
+            "text": "Drinking",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "drinking"
+          },
+          {
+            "key": "sniffing",
+            "text": "Sniffing",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sniffing"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ]
+      },
+      {
+        "key": "substance_use_methods_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substance_use_methods_other_specify",
+        "type": "edit_text",
+        "hint": "If others, specify",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "substances_used",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used",
+        "type": "check_box",
+        "label": "Substance used",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "marijuana",
+            "text": "Marijuana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "marijuana"
+          },
+          {
+            "key": "mirungi",
+            "text": "Mirungi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mirungi"
+          },
+          {
+            "key": "heroine",
+            "text": "Heroine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "heroine"
+          },
+          {
+            "key": "alcohol",
+            "text": "Alcohol",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "alcohol"
+          },
+          {
+            "key": "valium",
+            "text": "Valium",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "valium"
+          },
+          {
+            "key": "cocaine",
+            "text": "Cocaine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cocaine"
+          },
+          {
+            "key": "methamphetamine",
+            "text": "Methamphetamine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methamphetamine"
+          },
+          {
+            "key": "tramadol",
+            "text": "Tramadol",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tramadol"
+          },
+          {
+            "key": "tobacco",
+            "text": "Tobacco",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tobacco"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ]
+      },
+      {
+        "key": "substances_used_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_other_specify",
+        "type": "edit_text",
+        "hint": "If others, specify",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "risky_behaviours",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "risky_behaviours",
+        "type": "check_box",
+        "label": "Risky behaviour among IDUs",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "sharing_needles_syringes",
+            "text": "Sharing needles and syringes (IDU only)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sharing_needles_syringes"
+          },
+          {
+            "key": "sharing_saliva",
+            "text": "Sharing saliva",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sharing_saliva"
+          },
+          {
+            "key": "unsafe_sex",
+            "text": "Unsafe sex",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unsafe_sex"
+          },
+          {
+            "key": "overdose",
+            "text": "Overdose",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "overdose"
+          },
+          {
+            "key": "excessive_alcohol_intake_smoking",
+            "text": "Excessive alcohol intake/smoking",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "excessive_alcohol_intake_smoking"
+          },
+          {
+            "key": "non_adherence_injection_hygiene",
+            "text": "Non-adherence to injection hygiene protocols",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "non_adherence_injection_hygiene"
+          },
+          {
+            "key": "avoiding_harm_reduction",
+            "text": "Avoiding harm reduction services",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "avoiding_harm_reduction"
+          },
+          {
+            "key": "needles_syringes_reuse",
+            "text": "Needles and syringes reuse? (IDU only)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "needles_syringes_reuse"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ]
+      },
+      {
+        "key": "risky_behaviours_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "risky_behaviours_other_specify",
+        "type": "edit_text",
+        "hint": "If others, specify",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "is_idu",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "is_idu",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

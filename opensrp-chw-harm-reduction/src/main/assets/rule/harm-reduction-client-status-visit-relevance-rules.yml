@@ -1,0 +1,28 @@
+---
+name: step1_substance_use_methods_other_specify
+description: Show substance_use_methods_other_specify when its condition is met
+priority: 1
+condition: "step1_substance_use_methods != null && step1_substance_use_methods.contains('other')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substances_used_other_specify
+description: Show substances_used_other_specify when its condition is met
+priority: 1
+condition: "step1_substances_used != null && step1_substances_used.contains('other')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_risky_behaviours_other_specify
+description: Show risky_behaviours_other_specify when its condition is met
+priority: 1
+condition: "step1_risky_behaviours != null && step1_risky_behaviours.contains('other')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_is_idu
+description: Calculate is_idu from substance_use_methods
+priority: 1
+condition: "true"
+actions:
+  - "calculation = (step1_substance_use_methods != null && step1_substance_use_methods.contains('injecting')) ? 'yes' : 'no'"

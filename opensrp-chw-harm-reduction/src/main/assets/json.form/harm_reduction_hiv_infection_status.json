@@ -1,0 +1,224 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_hiv_infection_status",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_hiv_infection_status",
+    "fields": [
+      {
+        "key": "hiv_tested",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_tested",
+        "type": "native_radio",
+        "label": "HIV tested?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "hiv_test_location",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_test_location",
+        "type": "native_radio",
+        "label": "Where the test was conducted",
+        "options": [
+          {
+            "key": "facility",
+            "text": "Facility",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "facility"
+          },
+          {
+            "key": "community",
+            "text": "Community",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "community"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "hiv_results",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_results",
+        "type": "native_radio",
+        "label": "HIV results",
+        "options": [
+          {
+            "key": "negative",
+            "text": "Not infected (Negative)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "positive",
+            "text": "Infected (Positive)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "unknown",
+            "text": "Unknown",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unknown"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "drug_adherence_status_ctc",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "drug_adherence_status_ctc",
+        "type": "native_radio",
+        "label": "Drug adherence status (CTC only)",
+        "options": [
+          {
+            "key": "good_adherence",
+            "text": "Good adherence",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "good_adherence"
+          },
+          {
+            "key": "poor_adherence",
+            "text": "Poor adherence",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "poor_adherence"
+          },
+          {
+            "key": "discontinued",
+            "text": "Discontinued",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "discontinued"
+          },
+          {
+            "key": "not_started",
+            "text": "Not started",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_started"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "adherence_guidance_discontinued",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "adherence_guidance_discontinued",
+        "type": "label",
+        "label": "Guidance",
+        "text": "Mrudishe kwa mtoa huduma wa Tiba na matunzo (CTC) kwa unasihi.",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "adherence_guidance_not_started",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "adherence_guidance_not_started",
+        "type": "label",
+        "label": "Guidance",
+        "text": "Msindikize kwenye huduma ya Tiba na matunzo (CTC).",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

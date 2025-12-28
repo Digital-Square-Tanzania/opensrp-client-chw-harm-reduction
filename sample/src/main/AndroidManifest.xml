@@ -51,18 +51,6 @@
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="org.smartregister.chw.harmreduction_sample.activity.HarmReductionContactProfileActivity"
-            android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="org.smartregister.chw.harmreduction_sample.activity.UpdateHarmReductionMemberProfileActivity"
-            android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="org.smartregister.chw.harmreduction_sample.activity.HarmReductionContactRegister"
-            android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="org.smartregister.chw.harmreduction_sample.activity.HarmReductionServiceActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />

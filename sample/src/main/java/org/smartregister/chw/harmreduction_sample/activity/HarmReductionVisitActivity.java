@@ -18,7 +18,7 @@ public class HarmReductionVisitActivity extends BaseHarmReductionVisitActivity {
         Intent intent = new Intent(activity, HarmReductionVisitActivity.class);
         intent.putExtra(org.smartregister.chw.harmreduction.util.Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityId);
         intent.putExtra(org.smartregister.chw.harmreduction.util.Constants.ACTIVITY_PAYLOAD.EDIT_MODE, editMode);
-        intent.putExtra(org.smartregister.chw.harmreduction.util.Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.TBLEPROSY_PROFILE);
+        intent.putExtra(org.smartregister.chw.harmreduction.util.Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.HARM_REDUCTION_PROFILE);
         activity.startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
     }
 

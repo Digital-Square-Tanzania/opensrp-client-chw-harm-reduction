@@ -47,7 +47,7 @@ public class HarmReductionMemberProfileActivity extends BaseHarmReductionProfile
 //        textViewRecordTbLeprosy.setText("Record TB Leprosy Visit");
 
         if (StringUtils.isNotBlank(encounterType)) {
-            if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_SCREENING)) {
+            if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT)) {
                 textViewRecordTbLeprosy.setVisibility(View.GONE);
             }
         }

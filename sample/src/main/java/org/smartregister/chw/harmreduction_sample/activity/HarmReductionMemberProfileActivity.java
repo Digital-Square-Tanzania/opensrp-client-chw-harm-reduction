@@ -113,7 +113,7 @@ public class HarmReductionMemberProfileActivity extends BaseHarmReductionProfile
 
     @Override
     public void startServiceForm() {
-        HarmReductionServiceActivity.startTbLeprosyVisitActivity(this, memberObject.getBaseEntityId(), false);
+        HarmReductionVisitActivity.startTbLeprosyVisitActivity(this, memberObject.getBaseEntityId(), false);
     }
 
 

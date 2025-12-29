@@ -51,7 +51,7 @@
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="org.smartregister.chw.harmreduction_sample.activity.HarmReductionServiceActivity"
+            android:name="org.smartregister.chw.harmreduction_sample.activity.HarmReductionVisitActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

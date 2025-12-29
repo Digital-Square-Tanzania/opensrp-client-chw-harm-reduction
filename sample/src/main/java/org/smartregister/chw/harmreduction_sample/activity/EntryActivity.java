@@ -90,7 +90,7 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                 startActivity(new Intent(this, HarmReductionRegisterActivity.class));
                 break;
             case R.id.harm_reduction_community_visit:
-                HarmReductionServiceActivity.startTbLeprosyVisitActivity(this, "98765", false);
+                HarmReductionVisitActivity.startTbLeprosyVisitActivity(this, "98765", false);
                 break;
             default:
                 break;

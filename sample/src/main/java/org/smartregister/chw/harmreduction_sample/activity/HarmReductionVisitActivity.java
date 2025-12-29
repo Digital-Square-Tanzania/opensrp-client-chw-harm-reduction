@@ -8,14 +8,14 @@ import com.vijay.jsonwizard.constants.JsonFormConstants;
 import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.activity.BaseHarmReductionVisitActivity;
 import org.smartregister.chw.harmreduction.domain.MemberObject;
-import org.smartregister.chw.harmreduction.presenter.BaseHarmReductionVisitPresenter;
+import org.smartregister.chw.harmreduction.presenter.HarmReductionVisitPresenter;
 import org.smartregister.chw.harmreduction.util.Constants;
-import org.smartregister.chw.harmreduction_sample.interactor.HarmReductionServiceVisitInteractor;
+import org.smartregister.chw.harmreduction_sample.interactor.HarmReductionVisitInteractor;
 
 
-public class HarmReductionServiceActivity extends BaseHarmReductionVisitActivity {
+public class HarmReductionVisitActivity extends BaseHarmReductionVisitActivity {
     public static void startTbLeprosyVisitActivity(Activity activity, String baseEntityId, Boolean editMode) {
-        Intent intent = new Intent(activity, HarmReductionServiceActivity.class);
+        Intent intent = new Intent(activity, HarmReductionVisitActivity.class);
         intent.putExtra(org.smartregister.chw.harmreduction.util.Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityId);
         intent.putExtra(org.smartregister.chw.harmreduction.util.Constants.ACTIVITY_PAYLOAD.EDIT_MODE, editMode);
         intent.putExtra(org.smartregister.chw.harmreduction.util.Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.TBLEPROSY_PROFILE);
@@ -29,7 +29,7 @@ public class HarmReductionServiceActivity extends BaseHarmReductionVisitActivity
 
     @Override
     protected void registerPresenter() {
-        presenter = new BaseHarmReductionVisitPresenter(memberObject, this, new HarmReductionServiceVisitInteractor(Constants.EVENT_TYPE.TB_LEPROSY_SERVICES));
+        presenter = new HarmReductionVisitPresenter(memberObject, this, new HarmReductionVisitInteractor());
     }
 
     @Override

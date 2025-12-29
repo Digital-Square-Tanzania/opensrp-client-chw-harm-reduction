@@ -69,7 +69,7 @@ public class BaseHarmReductionVisitInteractor implements BaseHarmReductionVisitC
         if(StringUtils.isNotBlank(visitType)){
             return visitType;
         }
-        return Constants.EVENT_TYPE.TB_LEPROSY_SCREENING;
+        return Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT;
     }
 
     @Override
@@ -374,10 +374,10 @@ public class BaseHarmReductionVisitInteractor implements BaseHarmReductionVisitC
     }
 
     protected String getEncounterType() {
-        return Constants.EVENT_TYPE.TB_LEPROSY_SCREENING;
+        return Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT;
     }
 
     protected String getTableName() {
-        return Constants.TABLES.TBLEPROSY_SCREENING;
+        return Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT;
     }
 }

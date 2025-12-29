@@ -60,7 +60,7 @@ public class HarmReductionDao extends AbstractDao {
     };
 
     public static String getTbLeprosyClientStatus(String baseEntityId) {
-        String status = getClientStatusFromTable(Constants.TABLES.TBLEPROSY_SCREENING, baseEntityId);
+        String status = getClientStatusFromTable(Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT, baseEntityId);
 
         if (StringUtils.isBlank(status)) {
             if (getContact(baseEntityId) != null) {

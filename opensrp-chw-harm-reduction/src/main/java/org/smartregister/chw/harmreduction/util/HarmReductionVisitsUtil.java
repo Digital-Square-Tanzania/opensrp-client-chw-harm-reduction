@@ -39,7 +39,7 @@ public class HarmReductionVisitsUtil extends VisitUtils {
             Date updatedAtDate = new Date(v.getUpdatedAt().getTime());
             int daysDiff = TimeUtils.getElapsedDays(updatedAtDate);
             if (daysDiff > 1) {
-                if (v.getVisitType().equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_FOLLOW_UP_VISIT) && getTbLeprosyVisitStatus(v).equals(Complete)) {
+                if (v.getVisitType().equalsIgnoreCase(Constants.EVENT_TYPE.HARM_REDUCTION_FOLLOW_UP_VISIT) && getTbLeprosyVisitStatus(v).equals(Complete)) {
                     prepFollowupVisit.add(v);
                 }
             }

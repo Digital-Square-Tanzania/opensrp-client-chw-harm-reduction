@@ -13,7 +13,7 @@ public class BaseHarmReductionVisitActivity extends BaseVisitActivity {
         Intent intent = new Intent(activity, BaseHarmReductionVisitActivity.class);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityId);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.EDIT_MODE, editMode);
-        intent.putExtra(Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.TBLEPROSY_PROFILE);
+        intent.putExtra(Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.HARM_REDUCTION_PROFILE);
         activity.startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
     }
 

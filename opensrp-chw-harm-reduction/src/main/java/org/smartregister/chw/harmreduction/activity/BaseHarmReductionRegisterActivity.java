@@ -51,7 +51,7 @@ public class BaseHarmReductionRegisterActivity extends BaseRegisterActivity impl
         super.onCreate(savedInstanceState);
         BASE_ENTITY_ID = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID);
         FAMILY_BASE_ENTITY_ID = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.FAMILY_BASE_ENTITY_ID);
-        FORM_NAME = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.TB_LEPROSY_FORM_NAME);
+        FORM_NAME = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.HARM_REDUCTION_FORM_NAME);
         onStartActivityWithAction();
     }
 
@@ -108,7 +108,7 @@ public class BaseHarmReductionRegisterActivity extends BaseRegisterActivity impl
 
     @Override
     public List<String> getViewIdentifiers() {
-        return Arrays.asList(Constants.CONFIGURATION.TBLEPROSY_ENROLLMENT);
+        return Arrays.asList(Constants.CONFIGURATION.HARM_REDUCTION_ENROLLMENT);
     }
 
     /**
@@ -163,6 +163,8 @@ public class BaseHarmReductionRegisterActivity extends BaseRegisterActivity impl
             try {
                 String jsonString = data.getStringExtra(Constants.JSON_FORM_EXTRA.JSON);
                 JSONObject form = new JSONObject(jsonString);
+
+                //TODO FIX THE IMPLEMENTATION TO HANDLE ALL STEPS
                 JSONArray fieldsOne = HarmReductionJsonFormUtils.fields(form, Constants.STEP_ONE);
                 updateFormField(fieldsOne, DBConstants.KEY.RELATIONAL_ID, FAMILY_BASE_ENTITY_ID);
                 presenter().saveForm(form.toString());

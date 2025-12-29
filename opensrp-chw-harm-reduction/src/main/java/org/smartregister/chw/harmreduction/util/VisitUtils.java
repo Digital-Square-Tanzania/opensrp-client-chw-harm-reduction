@@ -35,7 +35,7 @@ public class VisitUtils {
     public static List<Visit> getVisits(String memberID, String... eventTypes) {
 
 
-        List<Visit> visits = (eventTypes != null && eventTypes.length > 0) ? getVisitsOnly(memberID, eventTypes[0]) : getVisitsOnly(memberID, Constants.EVENT_TYPE.TB_LEPROSY_SCREENING);
+        List<Visit> visits = (eventTypes != null && eventTypes.length > 0) ? getVisitsOnly(memberID, eventTypes[0]) : getVisitsOnly(memberID, Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT);
 
         return visits;
     }
@@ -96,7 +96,7 @@ public class VisitUtils {
                 if (StringUtils.isBlank(baseEvent.getFormSubmissionId()))
                     baseEvent.setFormSubmissionId(UUID.randomUUID().toString());
 
-                baseEvent.addDetails(Constants.TBLEPROSY_VISIT_GROUP, visitGroupId);
+                baseEvent.addDetails(Constants.HARM_REDUCTION_VISIT_GROUP, visitGroupId);
 
                 AllSharedPreferences allSharedPreferences = HarmReductionLibrary.getInstance().context().allSharedPreferences();
                 NCUtils.addEvent(allSharedPreferences, baseEvent);

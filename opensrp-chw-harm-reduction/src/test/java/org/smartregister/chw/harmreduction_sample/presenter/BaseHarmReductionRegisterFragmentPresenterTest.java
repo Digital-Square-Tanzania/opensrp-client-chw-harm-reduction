@@ -48,20 +48,20 @@ public class BaseHarmReductionRegisterFragmentPresenterTest {
 
     @Test
     public void getDefaultSortQuery() {
-        Assert.assertEquals(Constants.TABLES.TBLEPROSY_SCREENING + "." + DBConstants.KEY.LAST_INTERACTED_WITH + " DESC ", baseHarmReductionRegisterFragmentPresenter.getDefaultSortQuery());
+        Assert.assertEquals(Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT + "." + DBConstants.KEY.LAST_INTERACTED_WITH + " DESC ", baseHarmReductionRegisterFragmentPresenter.getDefaultSortQuery());
     }
 
     @Test
     public void getMainTable() {
-        Assert.assertEquals(Constants.TABLES.TBLEPROSY_SCREENING, baseHarmReductionRegisterFragmentPresenter.getMainTable());
+        Assert.assertEquals(Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT, baseHarmReductionRegisterFragmentPresenter.getMainTable());
     }
 
     @Test
     public void initializeQueries() {
         Set<View> visibleColumns = new TreeSet<>();
         baseHarmReductionRegisterFragmentPresenter.initializeQueries(null);
-        Mockito.doNothing().when(view).initializeQueryParams(Constants.TABLES.TBLEPROSY_SCREENING, null, null);
-        Mockito.verify(view).initializeQueryParams(Constants.TABLES.TBLEPROSY_SCREENING, null, null);
+        Mockito.doNothing().when(view).initializeQueryParams(Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT, null, null);
+        Mockito.verify(view).initializeQueryParams(Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT, null, null);
         Mockito.verify(view).initializeAdapter(visibleColumns);
         Mockito.verify(view).countExecute();
         Mockito.verify(view).filterandSortInInitializeQueries();

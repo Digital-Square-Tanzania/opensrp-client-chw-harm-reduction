@@ -27,26 +27,6 @@ public class HarmReductionMobilizationDao extends AbstractDao {
 
         updateDB(sql);
     }
-
-    public static List<HarmReductionMobilizationModel> getMobilizationSessions() {
-        String sql = "SELECT *,  substr(mobilization_date, 7, 4)||'-'|| " +
-                "                substr(mobilization_date, 4,2)||'-'|| " +
-                "                substr(mobilization_date, 1,2) as orderDate FROM " + Constants.TABLES.TBLEPROSY_MOBILIZATION + " ORDER BY julianday(orderDate)  DESC";
-
-        @SuppressLint("Range") DataMap<HarmReductionMobilizationModel> dataMap = cursor -> {
-            HarmReductionMobilizationModel tbLeprosyMobilizationModel = new HarmReductionMobilizationModel();
-            tbLeprosyMobilizationModel.setSessionId(cursor.getString(cursor.getColumnIndex(DBConstants.KEY.BASE_ENTITY_ID)));
-            tbLeprosyMobilizationModel.setSessionDate(cursor.getString(cursor.getColumnIndex(DBConstants.KEY.MOBILIZATION_DATE)));
-            tbLeprosyMobilizationModel.setSessionParticipants(computeSessionParticipants(cursor.getString(cursor.getColumnIndex(DBConstants.KEY.FEMALE_CLIENTS_REACHED)), cursor.getString(cursor.getColumnIndex(DBConstants.KEY.MALE_CLIENTS_REACHED))));
-            return tbLeprosyMobilizationModel;
-        };
-
-        List<HarmReductionMobilizationModel> res = readData(sql, dataMap);
-        if (res == null || res.size() == 0)
-            return null;
-        return res;
-    }
-
     private static String computeSessionParticipants(String femaleParticipants, String maleParticipants) {
         int sum = Integer.parseInt(femaleParticipants) + Integer.parseInt(maleParticipants);
         return String.valueOf(sum);

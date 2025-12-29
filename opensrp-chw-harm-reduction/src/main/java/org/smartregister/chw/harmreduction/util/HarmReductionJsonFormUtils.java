@@ -1,7 +1,7 @@
 package org.smartregister.chw.harmreduction.util;
 
 import static org.smartregister.chw.harmreduction.util.Constants.ENCOUNTER_TYPE;
-import static org.smartregister.chw.harmreduction.util.Constants.TBLEPROSY_VISIT_GROUP;
+import static org.smartregister.chw.harmreduction.util.Constants.HARM_REDUCTION_VISIT_GROUP;
 
 import android.util.Log;
 
@@ -107,12 +107,8 @@ public class HarmReductionJsonFormUtils extends org.smartregister.util.JsonFormU
         String entityId = getString(jsonForm, ENTITY_ID);
         String encounter_type = jsonForm.optString(Constants.JSON_FORM_EXTRA.ENCOUNTER_TYPE);
 
-        if (Constants.EVENT_TYPE.TB_LEPROSY_SCREENING.equals(encounter_type)) {
-            encounter_type = Constants.TABLES.TBLEPROSY_SCREENING;
-        } else if (Constants.EVENT_TYPE.HARM_REDUCTION_COMMUNITY_VISIT.equals(encounter_type)) {
-            encounter_type = Constants.TABLES.TBLEPROSY_SERVICES;
-        } else if (Constants.EVENT_TYPE.TBLEPROSY_CONTACTS.equals(encounter_type)) {
-            encounter_type = Constants.TABLES.TBLEPROSY_CONTACTS;
+        if (Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT.equals(encounter_type)) {
+            encounter_type = Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT;
         }
         return org.smartregister.util.JsonFormUtils.createEvent(fields, getJSONObject(jsonForm, METADATA), formTag(allSharedPreferences), entityId, getString(jsonForm, ENCOUNTER_TYPE), encounter_type);
     }
@@ -187,7 +183,7 @@ public class HarmReductionJsonFormUtils extends org.smartregister.util.JsonFormU
             while (local_fields.length() > x) {
                 try {
                     JSONObject obj = local_fields.getJSONObject(x);
-                    obj.put(TBLEPROSY_VISIT_GROUP, map.getKey());
+                    obj.put(HARM_REDUCTION_VISIT_GROUP, map.getKey());
                     fields_obj.add(obj);
                 } catch (JSONException e) {
                     Timber.e(e);

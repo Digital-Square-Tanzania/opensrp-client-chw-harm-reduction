@@ -132,14 +132,14 @@ public class HarmReductionUtil {
         return "";
     }
 
-    protected static Event getCloseTbLeprosyEvent(String jsonString,
-                                             String baseEntityId) {
+    protected static Event getCloseHarmReductionEvent(String jsonString,
+                                                      String baseEntityId) {
 
         Event closeTbLeprosyEvent = new Gson().
                 fromJson(jsonString, Event.class);
 
-        closeTbLeprosyEvent.setEntityType(Constants.TABLES.TBLEPROSY_SCREENING);
-        closeTbLeprosyEvent.setEventType(Constants.EVENT_TYPE.CLOSE_TB_LEPROSY_SERVICE);
+        closeTbLeprosyEvent.setEntityType(Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT);
+        closeTbLeprosyEvent.setEventType(Constants.EVENT_TYPE.CLOSE_HARM_REDUCTION_SERVICE);
         closeTbLeprosyEvent.setBaseEntityId(baseEntityId);
         closeTbLeprosyEvent.setFormSubmissionId(JsonFormUtils.
                 generateRandomUUIDString());
@@ -147,12 +147,12 @@ public class HarmReductionUtil {
         return closeTbLeprosyEvent;
     }
 
-    public static void closeTbLeprosyService(String baseEntityId) {
+    public static void closeHarmReductionService(String baseEntityId) {
         AllSharedPreferences allSharedPreferences = HarmReductionLibrary.
                 getInstance().
                 context().
                 allSharedPreferences();
-        Event closeTbLeprosyEvent = getCloseTbLeprosyEvent(new JSONObject().
+        Event closeTbLeprosyEvent = getCloseHarmReductionEvent(new JSONObject().
                 toString(),
                 baseEntityId);
 

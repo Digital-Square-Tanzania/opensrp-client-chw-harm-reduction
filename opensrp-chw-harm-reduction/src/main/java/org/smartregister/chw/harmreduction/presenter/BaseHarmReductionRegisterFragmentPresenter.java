@@ -97,7 +97,7 @@ public class BaseHarmReductionRegisterFragmentPresenter implements HarmReduction
 
     @Override
     public String getMainTable() {
-        return Constants.TABLES.TBLEPROSY_SCREENING;
+        return Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT;
     }
 
     @Override

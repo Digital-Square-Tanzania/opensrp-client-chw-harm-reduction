@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name="org.smartregister.chw.harmreduction.activity.HarmReductionVisitActivity"
+            android:name="org.smartregister.chw.harmreduction.activity.BaseHarmReductionVisitActivity"
             android:exported="false" />
     </application>
 </manifest>

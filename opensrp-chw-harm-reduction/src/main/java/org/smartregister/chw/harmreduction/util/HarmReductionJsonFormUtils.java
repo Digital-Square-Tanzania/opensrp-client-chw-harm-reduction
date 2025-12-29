@@ -109,7 +109,7 @@ public class HarmReductionJsonFormUtils extends org.smartregister.util.JsonFormU
 
         if (Constants.EVENT_TYPE.TB_LEPROSY_SCREENING.equals(encounter_type)) {
             encounter_type = Constants.TABLES.TBLEPROSY_SCREENING;
-        } else if (Constants.EVENT_TYPE.TB_LEPROSY_SERVICES.equals(encounter_type)) {
+        } else if (Constants.EVENT_TYPE.HARM_REDUCTION_COMMUNITY_VISIT.equals(encounter_type)) {
             encounter_type = Constants.TABLES.TBLEPROSY_SERVICES;
         } else if (Constants.EVENT_TYPE.TBLEPROSY_CONTACTS.equals(encounter_type)) {
             encounter_type = Constants.TABLES.TBLEPROSY_CONTACTS;

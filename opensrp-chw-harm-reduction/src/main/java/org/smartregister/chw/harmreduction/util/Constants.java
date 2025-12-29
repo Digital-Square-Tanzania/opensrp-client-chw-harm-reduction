@@ -17,7 +17,7 @@ public interface Constants {
 
     interface EVENT_TYPE {
         String TB_LEPROSY_SCREENING = "TBLeprosy Screening";
-        String TB_LEPROSY_SERVICES = "TbLeprosy Services";
+        String HARM_REDUCTION_COMMUNITY_VISIT = "Harm Reduction Community Visit";
         String TB_LEPROSY_FOLLOW_UP_VISIT = "TbLeprosy Follow-up Visit";
         String VOID_EVENT = "Void Event";
         String CLOSE_TB_LEPROSY_SERVICE = "Close TbLeprosy Service";

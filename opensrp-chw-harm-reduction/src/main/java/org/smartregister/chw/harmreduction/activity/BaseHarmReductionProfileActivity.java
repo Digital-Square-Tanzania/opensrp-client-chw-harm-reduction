@@ -195,7 +195,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     }
 
     protected Visit getServiceVisit() {
-        return HarmReductionLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.TB_LEPROSY_SERVICES);
+        return HarmReductionLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.HARM_REDUCTION_COMMUNITY_VISIT);
     }
 
 

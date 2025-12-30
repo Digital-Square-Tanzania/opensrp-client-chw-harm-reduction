@@ -159,14 +159,6 @@
             }
           }
         }
-      },
-      {
-        "key": "next_appointment_date",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "next_appointment_date",
-        "type": "date_picker",
-        "hint": "Next appointment date"
       }
     ]
   }

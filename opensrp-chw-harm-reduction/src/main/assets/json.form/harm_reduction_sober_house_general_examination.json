@@ -1,0 +1,174 @@
+{
+  "count": "1",
+  "encounter_type": "General Examination",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "General Examination",
+    "fields": [
+      {
+        "key": "testing_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "testing_services",
+        "type": "check_box",
+        "label": "Testing services provided",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "weight",
+            "text": "Weight",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "weight"
+          },
+          {
+            "key": "blood_pressure",
+            "text": "Blood Pressure",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "blood_pressure"
+          },
+          {
+            "key": "not_done",
+            "text": "Not Done",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_done"
+          }
+        ]
+      },
+      {
+        "key": "systolic_bp",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "systolic_bp",
+        "type": "edit_text",
+        "hint": "Blood Pressure – Systolic (Upper)",
+        "edit_type": "number",
+        "v_numeric_integer": {
+          "value": "true",
+          "err": "Please enter a whole number"
+        },
+        "v_min": {
+          "value": "50",
+          "err": "Must be 50 or more"
+        },
+        "v_max": {
+          "value": "250",
+          "err": "Must be 250 or less"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "diastolic_bp",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "diastolic_bp",
+        "type": "edit_text",
+        "hint": "Blood Pressure – Diastolic (Lower)",
+        "edit_type": "number",
+        "v_numeric_integer": {
+          "value": "true",
+          "err": "Please enter a whole number"
+        },
+        "v_min": {
+          "value": "30",
+          "err": "Must be 30 or more"
+        },
+        "v_max": {
+          "value": "150",
+          "err": "Must be 150 or less"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "bp_hypertension_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "bp_hypertension_prompt",
+        "type": "toaster_notes",
+        "text": "Possible hypertension detected. Follow clinical protocol.",
+        "toaster_type": "warning",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "bp_hypotension_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "bp_hypotension_prompt",
+        "type": "toaster_notes",
+        "text": "Possible hypotension detected. Assess and manage promptly.",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-relevance-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

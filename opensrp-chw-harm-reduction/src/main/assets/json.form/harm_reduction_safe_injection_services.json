@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "safe_injection_tools",
         "type": "check_box",
-        "label": "Safe injection services - Type of tools",
+        "label": "Safe injection services provided - Type of tools",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -100,14 +100,7 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "needles"
           }
-        ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-safe-injection-services-relevance-rules.yml"
-            }
-          }
-        }
+        ]
       },
       {
         "key": "qty_syringes",

@@ -152,3 +152,17 @@ priority: 1
 condition: "global_sex == 'female' && step1_pregnant == 'yes'"
 actions:
   - "isRelevant = true"
+---
+name: step1_help_received
+description: Show help_received when its condition is met
+priority: 1
+condition: "step1_stress_challenges != ''"
+actions:
+  - "isRelevant = true"
+---
+name: step1_roc_mat_pre_session
+description: Show roc_mat_pre_session when its condition is met
+priority: 1
+condition: "step1_received_harm_reduction_services == 'yes'"
+actions:
+  - "isRelevant = true"

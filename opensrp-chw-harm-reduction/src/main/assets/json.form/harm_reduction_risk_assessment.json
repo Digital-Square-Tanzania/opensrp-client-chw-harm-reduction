@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_intake",
+  "encounter_type": "Harm Reduction Risk Assessment",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -48,7 +48,7 @@
   },
   "global": {},
   "step1": {
-    "title": "harm_reduction_intake",
+    "title": "Harm Reduction Risk Assessment",
     "fields": [
       {
         "key": "birth_region",
@@ -127,7 +127,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "maskani_name",
         "type": "edit_text",
-        "hint": "Maskani name"
+        "hint": "Maskani name",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the name"
+        }
       },
       {
         "key": "received_harm_reduction_services",
@@ -151,7 +155,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "harm_reduction_services_type",
@@ -190,6 +198,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -205,6 +217,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please specify the other type of harm reduction received"
         }
       },
       {
@@ -243,7 +259,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "living_environment_other_specify",
@@ -251,13 +271,17 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "living_environment_other_specify",
         "type": "edit_text",
-        "hint": "If others, specify",
+        "hint": "Specify the other living environment",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please specify the other living environment"
         }
       },
       {
@@ -297,7 +321,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sniffing"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "substances_used_injecting",
@@ -357,6 +385,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -372,6 +404,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please specify the other substance"
         }
       },
       {
@@ -460,6 +496,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -475,6 +515,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please specify the other substance"
         }
       },
       {
@@ -485,6 +529,10 @@
         "type": "edit_text",
         "hint": "How many times a day do you inject substance?",
         "edit_type": "number",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the number of times"
+        },
         "v_numeric": {
           "value": "true",
           "err": "Please enter the number of times"
@@ -539,6 +587,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -570,6 +622,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -580,6 +636,10 @@
         "type": "edit_text",
         "hint": "How many doses do you use at once?",
         "edit_type": "number",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the number of doses"
+        },
         "v_numeric": {
           "value": "true",
           "err": "Please enter the number of doses"
@@ -651,7 +711,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "none"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "controlled_substances_other_specify",
@@ -666,6 +730,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please specify the other substance"
         }
       },
       {
@@ -676,6 +744,10 @@
         "type": "edit_text",
         "hint": "How many times per week do you engage in sexual activity?",
         "edit_type": "number",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the number of times per week"
+        },
         "v_numeric": {
           "value": "true",
           "err": "Please enter the number of times per week"
@@ -715,6 +787,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -746,6 +822,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -777,6 +857,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -801,7 +885,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "ever_tested_hbv",
@@ -825,7 +913,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "hbv_status",
@@ -870,6 +962,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -894,7 +990,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "hcv_status",
@@ -939,6 +1039,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -963,7 +1067,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "sti_status",
@@ -1008,6 +1116,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -1050,7 +1162,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "partner"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "stress_challenges",
@@ -1066,7 +1182,18 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "help_received",
         "type": "edit_text",
-        "hint": "What type of help have you received in dealing with these challenges?"
+        "hint": "What type of help have you received in dealing with these challenges?",
+        "v_required": {
+          "value": "true",
+          "err": "Please describe the help received"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "other_health_problem",
@@ -1090,7 +1217,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "health_problem_description",
@@ -1105,6 +1236,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please describe the health problem"
         }
       },
       {
@@ -1120,6 +1255,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please describe the support received"
         }
       },
       {
@@ -1144,7 +1283,18 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "started_anc",
@@ -1168,7 +1318,18 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "pregnancy_challenges",
@@ -1199,6 +1360,10 @@
               "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -1223,7 +1388,18 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "status",

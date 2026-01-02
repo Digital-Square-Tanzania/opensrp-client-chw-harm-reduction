@@ -6,17 +6,21 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.contract.HarmReductionRegisterContract;
+import org.smartregister.chw.harmreduction.dao.HarmReductionDao;
+import org.smartregister.chw.harmreduction.util.Constants;
+import org.smartregister.client.utils.constants.JsonFormConstants;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
+import java.util.Locale;
 
 public class BaseHarmReductionRegisterPresenter implements HarmReductionRegisterContract.Presenter, HarmReductionRegisterContract.InteractorCallBack {
 
     public static final String TAG = BaseHarmReductionRegisterPresenter.class.getName();
 
     protected WeakReference<HarmReductionRegisterContract.View> viewReference;
-    private HarmReductionRegisterContract.Interactor interactor;
     protected HarmReductionRegisterContract.Model model;
+    private HarmReductionRegisterContract.Interactor interactor;
 
     public BaseHarmReductionRegisterPresenter(HarmReductionRegisterContract.View view, HarmReductionRegisterContract.Model model, HarmReductionRegisterContract.Interactor interactor) {
         viewReference = new WeakReference<>(view);
@@ -31,6 +35,10 @@ public class BaseHarmReductionRegisterPresenter implements HarmReductionRegister
         }
 
         JSONObject form = model.getFormAsJson(formName, entityId, currentLocationId);
+        if (formName.equals(Constants.FORMS.HARM_REDUCTION_RISK_ASSESSMENT)) {
+            form.getJSONObject(JsonFormConstants.JSON_FORM_KEY.GLOBAL)
+                    .put("sex", HarmReductionDao.getMember(entityId).getGender().toLowerCase(Locale.getDefault()));
+        }
         getView().startFormActivity(form);
     }
 

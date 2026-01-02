@@ -480,7 +480,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_hiv_aids",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - HIV and AIDS (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -508,7 +515,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_epidemic_diseases",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Epidemic diseases (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -536,7 +550,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_communicable_diseases",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Communicable diseases (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -564,7 +585,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_tb_leprosy",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - TB/Leprosy (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -592,7 +620,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_ntds",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Neglected Tropical Diseases (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -620,7 +655,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_family_planning",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Family planning (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -648,7 +690,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_reproductive_health",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Reproductive health, father, mother, child and adolescents (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -676,7 +725,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_nutrition",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Nutrition (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -704,7 +760,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_prep",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - PrEP (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -732,7 +795,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_mental_health",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Mental Health (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -760,7 +830,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_substance_abuse",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Substance abuse (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -788,7 +865,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_gbv_vac",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - GBV/VAC (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -816,7 +900,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_psychological_assistance",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Psychological assistance (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -844,7 +935,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_rights_vulnerable",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Rights of vulnerable population (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -872,7 +970,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_health_services_advocacy",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Health services advocacy (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -900,7 +1005,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_hepatitis_bc",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Hepatitis B/C (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -928,7 +1040,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_stis_stds",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - STIs/STDs (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -956,7 +1075,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_overdose_management",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Overdose management and prevention (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -984,7 +1110,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_legal_issues",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Legal issues (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -1012,7 +1145,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_safe_injection",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Safe injection (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -1040,7 +1180,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_methadone_use",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Methadone use (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -1068,7 +1215,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_lowering_infection_risk",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Lowering infection risk (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -1096,7 +1250,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_social_services",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Social services (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -1124,7 +1285,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_income_generating",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Income Generating Activities (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {
@@ -1152,7 +1320,14 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_other",
-        "type": "edit_text",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "hint": "Number of IEC Materials provided - Others (max 1)",
         "edit_type": "number",
         "v_numeric_integer": {

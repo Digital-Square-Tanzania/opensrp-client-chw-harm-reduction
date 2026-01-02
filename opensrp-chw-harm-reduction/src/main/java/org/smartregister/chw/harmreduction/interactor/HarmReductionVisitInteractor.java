@@ -55,7 +55,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     }
 
     private void evaluateClientStatus(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {
-        HarmReductionClientStatusActionHelper actionHelper = new HarmReductionClientStatusActionHelper();
+        HarmReductionClientStatusActionHelper actionHelper = new HarmReductionClientStatusActionHelper(memberObject);
         BaseHarmReductionVisitAction action = getBuilder(context.getString(R.string.harm_reduction_client_status))
                 .withOptional(false)
                 .withDetails(details)

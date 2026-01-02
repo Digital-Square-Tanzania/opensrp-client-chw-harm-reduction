@@ -3,29 +3,53 @@ package org.smartregister.chw.harmreduction.actionhelper;
 import android.content.Context;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.domain.VisitDetail;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
+import org.smartregister.chw.harmreduction.util.JsonFormUtils;
 
 import java.util.List;
 import java.util.Map;
 
-public class HarmReductionClientStatusActionHelper implements BaseHarmReductionVisitAction.HarmReductionVisitActionHelper {
+import timber.log.Timber;
 
+public class HarmReductionClientStatusActionHelper implements BaseHarmReductionVisitAction.HarmReductionVisitActionHelper {
+    protected MemberObject memberObject;
+    protected String clientStatus;
     private String jsonPayload;
+
+    public HarmReductionClientStatusActionHelper(MemberObject memberObject) {
+        this.memberObject = memberObject;
+    }
 
     @Override
     public void onJsonFormLoaded(String jsonPayload, Context context, Map<String, List<VisitDetail>> details) {
-        // no-op
+        this.jsonPayload = jsonPayload;
     }
 
     @Override
     public String getPreProcessed() {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonPayload);
+            JSONObject global = jsonObject.getJSONObject("global");
+            global.put("sex", memberObject.getGender().toLowerCase());
+            return jsonObject.toString();
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
         return null;
     }
 
     @Override
     public void onPayloadReceived(String jsonPayload) {
-        this.jsonPayload = jsonPayload;
+        try {
+            JSONObject jsonObject = new JSONObject(jsonPayload);
+            clientStatus = JsonFormUtils.getValue(jsonObject, "client_status");
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
     }
 
     @Override
@@ -50,7 +74,7 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
 
     @Override
     public BaseHarmReductionVisitAction.Status evaluateStatusOnPayload() {
-        return StringUtils.isNotBlank(jsonPayload)
+        return StringUtils.isNotBlank(clientStatus)
                 ? BaseHarmReductionVisitAction.Status.COMPLETED
                 : BaseHarmReductionVisitAction.Status.PENDING;
     }

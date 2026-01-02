@@ -132,9 +132,23 @@ condition: "step1_other_health_problem == 'yes'"
 actions:
   - "isRelevant = true"
 ---
+name: step1_pregnant
+description: Show pregnant when its condition is met
+priority: 1
+condition: "global_sex == 'Female'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_started_anc
+description: Show started_anc when its condition is met
+priority: 1
+condition: "global_sex == 'Female' && step1_pregnant == 'yes'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_pregnancy_challenges
 description: Show pregnancy_challenges when its condition is met
 priority: 1
-condition: "step1_pregnant == 'yes'"
+condition: "global_sex == 'Female' && step1_pregnant == 'yes'"
 actions:
   - "isRelevant = true"

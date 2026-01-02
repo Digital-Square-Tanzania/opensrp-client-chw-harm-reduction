@@ -12,7 +12,11 @@ import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSafeInjecti
 import org.smartregister.chw.harmreduction.contract.BaseHarmReductionVisitContract;
 import org.smartregister.chw.harmreduction.domain.VisitDetail;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.util.Constants;
+import org.smartregister.chw.harmreduction.util.JsonFormUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -22,6 +26,9 @@ import timber.log.Timber;
 public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteractor {
 
     private static final String VISIT_TYPE = "Harm Reduction Community Visit";
+    private static final String CLIENT_STATUS_FIELD = "client_status";
+    private static final String CLIENT_STATUS_NEW = "new";
+    private static final String CLIENT_STATUS_CONTINUE_SERVICE = "continue_service";
 
     public HarmReductionVisitInteractor() {
         super(VISIT_TYPE);
@@ -71,6 +78,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(otherActionsVisibilityValidator())
                 .withFormName(Constants.FORMS.HARM_REDUCTION_HEALTH_EDUCATION)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_health_education), action);
@@ -82,6 +90,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(otherActionsVisibilityValidator())
                 .withFormName(Constants.FORMS.HARM_REDUCTION_SAFE_INJECTION_SERVICES)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_safe_injection_services), action);
@@ -93,6 +102,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(otherActionsVisibilityValidator())
                 .withFormName(Constants.FORMS.HARM_REDUCTION_RISKY_SEXUAL_BEHAVIORS)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_risky_sexual_behaviors), action);
@@ -104,6 +114,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(otherActionsVisibilityValidator())
                 .withFormName(Constants.FORMS.HARM_REDUCTION_HIV_INFECTION_STATUS)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_hiv_infection_status), action);
@@ -115,6 +126,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(otherActionsVisibilityValidator())
                 .withFormName(Constants.FORMS.HARM_REDUCTION_OTHER_DISEASES_SCREENING)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_other_diseases_screening), action);
@@ -126,6 +138,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(otherActionsVisibilityValidator())
                 .withFormName(Constants.FORMS.HARM_REDUCTION_REFERRALS_PROVIDED)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_referrals_provided), action);
@@ -137,8 +150,57 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(otherActionsVisibilityValidator())
                 .withFormName(Constants.FORMS.HARM_REDUCTION_CONSENT_JOINING_MAT)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_consent_joining_mat), action);
+    }
+
+    private BaseHarmReductionVisitAction.Validator otherActionsVisibilityValidator() {
+        return new BaseHarmReductionVisitAction.Validator() {
+            @Override
+            public boolean isValid(String key) {
+                return isClientStatusEligible();
+            }
+
+            @Override
+            public boolean isEnabled(String key) {
+                return isClientStatusEligible();
+            }
+
+            @Override
+            public void onChanged(String key) {
+                // no-op
+            }
+        };
+    }
+
+    private boolean isClientStatusEligible() {
+        if (context == null) {
+            return false;
+        }
+
+        BaseHarmReductionVisitAction clientStatusAction = actionList.get(
+                context.getString(R.string.harm_reduction_client_status)
+        );
+        if (clientStatusAction == null) {
+            return false;
+        }
+
+        String payload = clientStatusAction.getJsonPayload();
+        if (StringUtils.isBlank(payload)) {
+            return false;
+        }
+
+        try {
+            JSONObject jsonObject = new JSONObject(payload);
+            String status = JsonFormUtils.getValue(jsonObject, CLIENT_STATUS_FIELD);
+            return CLIENT_STATUS_NEW.equalsIgnoreCase(status)
+                    || CLIENT_STATUS_CONTINUE_SERVICE.equalsIgnoreCase(status);
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
+
+        return false;
     }
 }

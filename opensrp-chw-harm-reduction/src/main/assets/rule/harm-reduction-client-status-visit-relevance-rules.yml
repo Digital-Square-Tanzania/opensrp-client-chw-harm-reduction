@@ -20,12 +20,33 @@ condition: "step1_client_status == 'new' || step1_client_status == 'continue_ser
 actions:
   - "isRelevant = true"
 ---
+name: step1_substances_used_injecting_only
+description: Show substances_used_injecting_only when its condition is met
+priority: 1
+condition: "(step1_client_status == 'new' || step1_client_status == 'continue_service') && step1_substance_use_methods != null && step1_substance_use_methods.contains('injecting') && !(step1_substance_use_methods.contains('smoking') || step1_substance_use_methods.contains('drinking') || step1_substance_use_methods.contains('sniffing') || step1_substance_use_methods.contains('other'))"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substances_used_non_injecting_only
+description: Show substances_used_non_injecting_only when its condition is met
+priority: 1
+condition: "(step1_client_status == 'new' || step1_client_status == 'continue_service') && step1_substance_use_methods != null && !step1_substance_use_methods.contains('injecting')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substances_used_all
+description: Show substances_used_all when its condition is met
+priority: 1
+condition: "(step1_client_status == 'new' || step1_client_status == 'continue_service') && step1_substance_use_methods != null && step1_substance_use_methods.contains('injecting') && (step1_substance_use_methods.contains('smoking') || step1_substance_use_methods.contains('drinking') || step1_substance_use_methods.contains('sniffing') || step1_substance_use_methods.contains('other'))"
+actions:
+  - "isRelevant = true"
+---
 name: step1_substances_used
-description: Show substances_used when its condition is met
+description: Calculate substances_used from selected method-specific fields
 priority: 1
 condition: "step1_client_status == 'new' || step1_client_status == 'continue_service'"
 actions:
-  - "isRelevant = true"
+  - "calculation = (step1_substance_use_methods != null && step1_substance_use_methods.contains('injecting') && !(step1_substance_use_methods.contains('smoking') || step1_substance_use_methods.contains('drinking') || step1_substance_use_methods.contains('sniffing') || step1_substance_use_methods.contains('other'))) ? step1_substances_used_injecting_only : (step1_substance_use_methods != null && !step1_substance_use_methods.contains('injecting')) ? step1_substances_used_non_injecting_only : (step1_substance_use_methods != null && step1_substance_use_methods.contains('injecting') && (step1_substance_use_methods.contains('smoking') || step1_substance_use_methods.contains('drinking') || step1_substance_use_methods.contains('sniffing') || step1_substance_use_methods.contains('other'))) ? step1_substances_used_all : null"
 ---
 name: step1_substances_used_other_specify
 description: Show substances_used_other_specify when its condition is met

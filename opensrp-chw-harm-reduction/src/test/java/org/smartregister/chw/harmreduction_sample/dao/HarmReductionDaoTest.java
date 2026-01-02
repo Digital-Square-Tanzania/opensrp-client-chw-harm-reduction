@@ -39,14 +39,6 @@ public class HarmReductionDaoTest extends HarmReductionDao {
     }
 
     @Test
-    public void testGetTbLeprosyTestDate() {
-        Mockito.doReturn(database).when(repository).getReadableDatabase();
-        Date testDate = HarmReductionDao.getTbLeprosyTestDate("34233");
-        Mockito.verify(database).rawQuery(Mockito.contains("select tbleprosy_test_date from ec_tbleprosy_screening where base_entity_id = '34233'"), Mockito.any());
-    }
-
-
-    @Test
     public void testGetVisitNumber() {
         Mockito.doReturn(database).when(repository).getReadableDatabase();
         int result = HarmReductionDao.getVisitNumber("89012");

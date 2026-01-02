@@ -482,10 +482,10 @@
         }
       },
       {
-        "key": "risky_behaviours",
+        "key": "risky_behaviours_injecting_only",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "risky_behaviours",
+        "openmrs_entity_id": "risky_behaviours_injecting_only",
         "type": "check_box",
         "label": "Risky behaviour among IDUs",
         "combine_checkbox_option_values": "true",
@@ -555,6 +555,94 @@
           }
         ],
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "risky_behaviours_non_injecting_only",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "risky_behaviours_non_injecting_only",
+        "type": "check_box",
+        "label": "Risky behaviour among IDUs",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "sharing_saliva",
+            "text": "Sharing saliva",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sharing_saliva"
+          },
+          {
+            "key": "unsafe_sex",
+            "text": "Unsafe sex",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unsafe_sex"
+          },
+          {
+            "key": "overdose",
+            "text": "Overdose",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "overdose"
+          },
+          {
+            "key": "excessive_alcohol_intake_smoking",
+            "text": "Excessive alcohol intake/smoking",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "excessive_alcohol_intake_smoking"
+          },
+          {
+            "key": "non_adherence_injection_hygiene",
+            "text": "Non-adherence to injection hygiene protocols",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "non_adherence_injection_hygiene"
+          },
+          {
+            "key": "avoiding_harm_reduction",
+            "text": "Avoiding harm reduction services",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "avoiding_harm_reduction"
+          },
+          {
+            "key": "needles_syringes_reuse",
+            "text": "Needles and syringes reuse? (IDU only)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "needles_syringes_reuse"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "risky_behaviours",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "risky_behaviours",
+        "type": "hidden",
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"

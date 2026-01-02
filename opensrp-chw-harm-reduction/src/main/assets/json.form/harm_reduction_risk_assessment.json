@@ -54,8 +54,71 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "birth_region",
-        "type": "edit_text",
-        "hint": "Which region were you born in?"
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "label_info_title": "Client's Region of Birth",
+        "label_info_text": "",
+        "hint": "Select the client's Region of Birth",
+        "values": [
+          "Arusha",
+          "Dar es Salaam",
+          "Dodoma",
+          "Geita",
+          "Iringa",
+          "Kagera",
+          "Katavi",
+          "Kigoma",
+          "Kilimanjaro",
+          "Lindi",
+          "Manyara",
+          "Mara",
+          "Mbeya",
+          "Morogoro",
+          "Mtwara",
+          "Mwanza",
+          "Njombe",
+          "Pwani",
+          "Rukwa",
+          "Ruvuma",
+          "Shinyanga",
+          "Simiyu",
+          "Singida",
+          "Songwe",
+          "Tabora",
+          "Tanga"
+        ],
+        "keys": [
+          "Arusha",
+          "Dar es Salaam",
+          "Dodoma",
+          "Geita",
+          "Iringa",
+          "Kagera",
+          "Katavi",
+          "Kigoma",
+          "Kilimanjaro",
+          "Lindi",
+          "Manyara",
+          "Mara",
+          "Mbeya",
+          "Morogoro",
+          "Mtwara",
+          "Mwanza",
+          "Njombe",
+          "Pwani",
+          "Rukwa",
+          "Ruvuma",
+          "Shinyanga",
+          "Simiyu",
+          "Singida",
+          "Songwe",
+          "Tabora",
+          "Tanga"
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the region"
+        }
       },
       {
         "key": "maskani_name",
@@ -134,7 +197,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "harm_reduction_services_other_specify",
         "type": "edit_text",
-        "hint": "If others, specify",
+        "hint": "Specify the other type of harm reduction receives received",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -421,6 +484,23 @@
         "type": "edit_text",
         "hint": "How many times a day do you inject substance?",
         "edit_type": "number",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the number of times"
+        },
+        "v_min": {
+          "value": "1",
+          "err": "Times injected must be greater than 1"
+        },
+        "v_max": {
+          "value": "30",
+          "err": "Times injected must be less than 30"
+        },
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid input"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -498,7 +578,24 @@
         "openmrs_entity_id": "doses_used_at_once",
         "type": "edit_text",
         "hint": "How many doses do you use at once?",
-        "edit_type": "number"
+        "edit_type": "number",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the number of doses"
+        },
+        "v_min": {
+          "value": "1",
+          "err": "Doses used at once must be greater than 1"
+        },
+        "v_max": {
+          "value": "30",
+          "err": "Doses used at once must be less than 30"
+        },
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid input"
+        }
       },
       {
         "key": "controlled_substances_prescribed",
@@ -508,6 +605,9 @@
         "type": "check_box",
         "label": "Are you using any type of controlled substances under a doctor's prescriptions?",
         "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "none"
+        ],
         "options": [
           {
             "key": "valium",
@@ -543,6 +643,12 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
+          },
+          {
+            "key": "none",
+            "text": "None",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
           }
         ]
       },
@@ -568,7 +674,16 @@
         "openmrs_entity_id": "sex_times_per_week",
         "type": "edit_text",
         "hint": "How many times per week do you engage in sexual activity?",
-        "edit_type": "number"
+        "edit_type": "number",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the number of times per week"
+        },
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid input"
+        }
       },
       {
         "key": "multiple_partners",
@@ -654,7 +769,14 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "ever_tested_hiv",
@@ -713,18 +835,18 @@
         "label": "Status of Hepatitis B Infection",
         "options": [
           {
-            "key": "yes",
-            "text": "Yes",
+            "key": "positive",
+            "text": "Positive",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
+            "openmrs_entity_id": "positive"
           },
           {
-            "key": "no",
-            "text": "No",
+            "key": "negative",
+            "text": "Negative",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
+            "openmrs_entity_id": "negative"
           },
           {
             "key": "dont_know",
@@ -782,18 +904,18 @@
         "label": "Status of Hepatitis C Infection",
         "options": [
           {
-            "key": "yes",
-            "text": "Yes",
+            "key": "positive",
+            "text": "Positive",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
+            "openmrs_entity_id": "positive"
           },
           {
-            "key": "no",
-            "text": "No",
+            "key": "negative",
+            "text": "Negative",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
+            "openmrs_entity_id": "negative"
           },
           {
             "key": "dont_know",
@@ -851,18 +973,18 @@
         "label": "Status of STIs",
         "options": [
           {
-            "key": "yes",
-            "text": "Yes",
+            "key": "positive",
+            "text": "Positive",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
+            "openmrs_entity_id": "positive"
           },
           {
-            "key": "no",
-            "text": "No",
+            "key": "negative",
+            "text": "Negative",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
+            "openmrs_entity_id": "negative"
           },
           {
             "key": "dont_know",
@@ -895,6 +1017,9 @@
         "type": "check_box",
         "label": "Who are you usually with when using substance?",
         "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "alone"
+        ],
         "options": [
           {
             "key": "alone",
@@ -1098,6 +1223,14 @@
             "openmrs_entity_id": "no"
           }
         ]
+      },
+      {
+        "key": "status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "status",
+        "type": "hidden",
+        "value": "on_community_service"
       }
     ]
   }

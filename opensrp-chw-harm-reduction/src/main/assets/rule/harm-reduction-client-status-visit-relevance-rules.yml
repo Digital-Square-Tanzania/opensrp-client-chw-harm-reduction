@@ -2,27 +2,55 @@
 name: step1_substance_use_methods_other_specify
 description: Show substance_use_methods_other_specify when its condition is met
 priority: 1
-condition: "step1_substance_use_methods != null && step1_substance_use_methods.contains('other')"
+condition: "(step1_client_status == 'new' || step1_client_status == 'continue_service') && step1_substance_use_methods != null && step1_substance_use_methods.contains('other')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_pregnancy_breastfeeding_status
+description: Show pregnancy_breastfeeding_status when its condition is met
+priority: 1
+condition: "global_sex == 'female' && (step1_client_status == 'new' || step1_client_status == 'continue_service')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substance_use_methods
+description: Show substance_use_methods when its condition is met
+priority: 1
+condition: "step1_client_status == 'new' || step1_client_status == 'continue_service'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substances_used
+description: Show substances_used when its condition is met
+priority: 1
+condition: "step1_client_status == 'new' || step1_client_status == 'continue_service'"
 actions:
   - "isRelevant = true"
 ---
 name: step1_substances_used_other_specify
 description: Show substances_used_other_specify when its condition is met
 priority: 1
-condition: "step1_substances_used != null && step1_substances_used.contains('other')"
+condition: "(step1_client_status == 'new' || step1_client_status == 'continue_service') && step1_substances_used != null && step1_substances_used.contains('other')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_risky_behaviours
+description: Show risky_behaviours when its condition is met
+priority: 1
+condition: "step1_client_status == 'new' || step1_client_status == 'continue_service'"
 actions:
   - "isRelevant = true"
 ---
 name: step1_risky_behaviours_other_specify
 description: Show risky_behaviours_other_specify when its condition is met
 priority: 1
-condition: "step1_risky_behaviours != null && step1_risky_behaviours.contains('other')"
+condition: "(step1_client_status == 'new' || step1_client_status == 'continue_service') && step1_risky_behaviours != null && step1_risky_behaviours.contains('other')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_is_idu
 description: Calculate is_idu from substance_use_methods
 priority: 1
-condition: "true"
+condition: "step1_client_status == 'new' || step1_client_status == 'continue_service'"
 actions:
   - "calculation = (step1_substance_use_methods != null && step1_substance_use_methods.contains('injecting')) ? 'yes' : 'no'"

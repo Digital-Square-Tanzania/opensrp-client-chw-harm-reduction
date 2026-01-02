@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_client_status_visit",
+  "encounter_type": "Client Status",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -48,7 +48,7 @@
   },
   "global": {},
   "step1": {
-    "title": "harm_reduction_client_status_visit",
+    "title": "Client Status",
     "fields": [
       {
         "key": "client_status",
@@ -99,13 +99,6 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "continue_service"
-          },
-          {
-            "key": "graduated",
-            "text": "Graduated",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "graduated"
           }
         ]
       },
@@ -138,7 +131,14 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "not_pregnant"
           }
-        ]
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "substance_use_methods",
@@ -184,7 +184,14 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }
-        ]
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "substance_use_methods_other_specify",
@@ -192,7 +199,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "substance_use_methods_other_specify",
         "type": "edit_text",
-        "hint": "If others, specify",
+        "hint": "Specify other methods of substance use",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -280,7 +287,14 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }
-        ]
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "substances_used_other_specify",
@@ -369,7 +383,14 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }
-        ]
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "risky_behaviours_other_specify",

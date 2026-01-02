@@ -135,20 +135,20 @@ actions:
 name: step1_pregnant
 description: Show pregnant when its condition is met
 priority: 1
-condition: "global_sex == 'Female'"
+condition: "global_sex == 'female'"
 actions:
   - "isRelevant = true"
 ---
 name: step1_started_anc
 description: Show started_anc when its condition is met
 priority: 1
-condition: "global_sex == 'Female' && step1_pregnant == 'yes'"
+condition: "global_sex == 'female' && step1_pregnant == 'yes'"
 actions:
   - "isRelevant = true"
 ---
 name: step1_pregnancy_challenges
 description: Show pregnancy_challenges when its condition is met
 priority: 1
-condition: "global_sex == 'Female' && step1_pregnant == 'yes'"
+condition: "global_sex == 'female' && step1_pregnant == 'yes'"
 actions:
   - "isRelevant = true"

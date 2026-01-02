@@ -487,12 +487,12 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "risky_behaviours_injecting_only",
         "type": "check_box",
-        "label": "Risky behaviour among IDUs",
+        "label": "Risky behaviour",
         "combine_checkbox_option_values": "true",
         "options": [
           {
             "key": "sharing_needles_syringes",
-            "text": "Sharing needles and syringes (IDU only)",
+            "text": "Sharing needles and syringes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sharing_needles_syringes"
@@ -541,7 +541,7 @@
           },
           {
             "key": "needles_syringes_reuse",
-            "text": "Needles and syringes reuse? (IDU only)",
+            "text": "Needles and syringes reuse",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "needles_syringes_reuse"
@@ -568,7 +568,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "risky_behaviours_non_injecting_only",
         "type": "check_box",
-        "label": "Risky behaviour among IDUs",
+        "label": "Risky behaviour",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -615,7 +615,7 @@
           },
           {
             "key": "needles_syringes_reuse",
-            "text": "Needles and syringes reuse? (IDU only)",
+            "text": "Needles and syringes reuse",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "needles_syringes_reuse"

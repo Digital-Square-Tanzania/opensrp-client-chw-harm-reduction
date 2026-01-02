@@ -29,6 +29,8 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     private static final String CLIENT_STATUS_FIELD = "client_status";
     private static final String CLIENT_STATUS_NEW = "new";
     private static final String CLIENT_STATUS_CONTINUE_SERVICE = "continue_service";
+    private static final String IS_IDU_FIELD = "is_idu";
+    private static final String YES_VALUE = "yes";
 
     public HarmReductionVisitInteractor() {
         super(VISIT_TYPE);
@@ -90,7 +92,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withValidator(otherActionsVisibilityValidator())
+                .withValidator(safeInjectionVisibilityValidator())
                 .withFormName(Constants.FORMS.HARM_REDUCTION_SAFE_INJECTION_SERVICES)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_safe_injection_services), action);
@@ -176,31 +178,59 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     }
 
     private boolean isClientStatusEligible() {
+        String status = getClientStatusValue(CLIENT_STATUS_FIELD);
+        return CLIENT_STATUS_NEW.equalsIgnoreCase(status)
+                || CLIENT_STATUS_CONTINUE_SERVICE.equalsIgnoreCase(status);
+    }
+
+    private BaseHarmReductionVisitAction.Validator safeInjectionVisibilityValidator() {
+        return new BaseHarmReductionVisitAction.Validator() {
+            @Override
+            public boolean isValid(String key) {
+                return isClientIdu();
+            }
+
+            @Override
+            public boolean isEnabled(String key) {
+                return isClientIdu();
+            }
+
+            @Override
+            public void onChanged(String key) {
+                // no-op
+            }
+        };
+    }
+
+    private boolean isClientIdu() {
+        String isIdu = getClientStatusValue(IS_IDU_FIELD);
+        return YES_VALUE.equalsIgnoreCase(isIdu);
+    }
+
+    private String getClientStatusValue(String key) {
         if (context == null) {
-            return false;
+            return null;
         }
 
         BaseHarmReductionVisitAction clientStatusAction = actionList.get(
                 context.getString(R.string.harm_reduction_client_status)
         );
         if (clientStatusAction == null) {
-            return false;
+            return null;
         }
 
         String payload = clientStatusAction.getJsonPayload();
         if (StringUtils.isBlank(payload)) {
-            return false;
+            return null;
         }
 
         try {
             JSONObject jsonObject = new JSONObject(payload);
-            String status = JsonFormUtils.getValue(jsonObject, CLIENT_STATUS_FIELD);
-            return CLIENT_STATUS_NEW.equalsIgnoreCase(status)
-                    || CLIENT_STATUS_CONTINUE_SERVICE.equalsIgnoreCase(status);
+            return JsonFormUtils.getValue(jsonObject, key);
         } catch (JSONException e) {
             Timber.e(e);
         }
 
-        return false;
+        return null;
     }
 }

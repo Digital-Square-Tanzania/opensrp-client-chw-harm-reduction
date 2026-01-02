@@ -36,8 +36,9 @@ public class BaseHarmReductionRegisterPresenter implements HarmReductionRegister
 
         JSONObject form = model.getFormAsJson(formName, entityId, currentLocationId);
         if (formName.equals(Constants.FORMS.HARM_REDUCTION_RISK_ASSESSMENT)) {
+            String sex =  HarmReductionDao.getMemberSex(entityId);
             form.getJSONObject(JsonFormConstants.JSON_FORM_KEY.GLOBAL)
-                    .put("sex", HarmReductionDao.getMember(entityId).getGender().toLowerCase(Locale.getDefault()));
+                    .put("sex", sex.toLowerCase(Locale.getDefault()));
         }
         getView().startFormActivity(form);
     }

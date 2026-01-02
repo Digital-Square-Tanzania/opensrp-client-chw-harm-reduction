@@ -55,12 +55,26 @@ condition: "(step1_client_status == 'new' || step1_client_status == 'continue_se
 actions:
   - "isRelevant = true"
 ---
+name: step1_risky_behaviours_injecting_only
+description: Show risky_behaviours_injecting_only when its condition is met
+priority: 1
+condition: "(step1_client_status == 'new' || step1_client_status == 'continue_service') && step1_substance_use_methods != null && step1_substance_use_methods.contains('injecting')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_risky_behaviours_non_injecting_only
+description: Show risky_behaviours_non_injecting_only when its condition is met
+priority: 1
+condition: "(step1_client_status == 'new' || step1_client_status == 'continue_service') && step1_substance_use_methods != null && !step1_substance_use_methods.contains('injecting')"
+actions:
+  - "isRelevant = true"
+---
 name: step1_risky_behaviours
-description: Show risky_behaviours when its condition is met
+description: Calculate risky_behaviours from method-specific fields
 priority: 1
 condition: "step1_client_status == 'new' || step1_client_status == 'continue_service'"
 actions:
-  - "isRelevant = true"
+  - "calculation = (step1_substance_use_methods != null && step1_substance_use_methods.contains('injecting')) ? step1_risky_behaviours_injecting_only : (step1_substance_use_methods != null && !step1_substance_use_methods.contains('injecting')) ? step1_risky_behaviours_non_injecting_only : null"
 ---
 name: step1_risky_behaviours_other_specify
 description: Show risky_behaviours_other_specify when its condition is met

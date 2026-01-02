@@ -90,6 +90,13 @@ condition: "step1_sex_times_per_week > 0"
 actions:
   - "isRelevant = true"
 ---
+name: step1_ever_used_prep
+description: Show ever_used_prep when its condition is met
+priority: 1
+condition: "step1_sex_times_per_week > 0"
+actions:
+  - "isRelevant = true"
+---
 name: step1_hbv_status
 description: Show hbv_status when its condition is met
 priority: 1

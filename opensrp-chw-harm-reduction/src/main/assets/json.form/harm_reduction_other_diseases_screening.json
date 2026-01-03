@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_other_diseases_screening",
+  "encounter_type": "Other Diseases Screening",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "harm_reduction_other_diseases_screening",
+    "title": "Other Diseases Screening",
     "fields": [
       {
         "key": "hepatitis_bc_screening",

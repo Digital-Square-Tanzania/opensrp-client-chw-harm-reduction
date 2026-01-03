@@ -23,8 +23,8 @@ import androidx.viewpager.widget.ViewPager;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
-import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.HarmReductionLibrary;
+import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.contract.HarmReductionProfileContract;
 import org.smartregister.chw.harmreduction.custom_views.BaseHarmReductionFloatingMenu;
 import org.smartregister.chw.harmreduction.dao.HarmReductionDao;
@@ -79,13 +79,11 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     protected TextView textViewVisitDoneEdit;
     protected String profileType;
     protected BaseHarmReductionFloatingMenu baseTbLeprosyFloatingMenu;
+    protected CustomFontTextView ivViewHistoryArrow;
     private TextView tvUpComingServices;
     private TextView tvFamilyStatus;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
     private ProgressBar progressBar;
-
-    protected CustomFontTextView ivViewHistoryArrow;
-
 
     public static void startProfileActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, BaseHarmReductionProfileActivity.class);
@@ -96,6 +94,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     public abstract void openObservationResults();
 
     public abstract void openHarmReductionContactRegister();
+
     @Override
     protected void onCreation() {
         setContentView(R.layout.activity_harm_reduction_profile);
@@ -195,13 +194,11 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     }
 
     protected Visit getServiceVisit() {
-        return HarmReductionLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.HARM_REDUCTION_COMMUNITY_VISIT);
+        return HarmReductionLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.HARM_REDUCTION_FOLLOW_UP_VISIT);
     }
 
 
     protected void processTbLeprosyService() {
-//         rlLastVisit.setVisibility(View.VISIBLE);
-//        rlTbLeprosyMatokeoYaUchunguzi.setVisibility(View.VISIBLE);
         findViewById(R.id.family_tbleprosy_head).setVisibility(View.VISIBLE);
     }
 
@@ -228,18 +225,15 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         } else if (id == R.id.rlFamilyServicesDue) {
             this.openFamilyDueServices();
         } else if (id == R.id.textview_record_harm_reduction_community_visit) {
-            if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_community_visit))){
+            if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_community_visit))) {
                 this.openRecordClientVisit();
-            }else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_mat_client_followup_visit))){
+            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_mat_client_followup_visit))) {
                 this.openRecordTbContactVisit();
-            }
-            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_client_followup_visit))) {
+            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_client_followup_visit))) {
                 this.openFollowupVisit();
-            }
-            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_contact_visit_followup))) {
+            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_contact_visit_followup))) {
                 this.openTbContactFollowUpVisit();
-            }
-            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_observation_results))) {
+            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_observation_results))) {
                 this.openObservationResults();
             } else {
                 Toast.makeText(getApplicationContext(), "No click", Toast.LENGTH_SHORT).show();
@@ -265,7 +259,6 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
             addContentView(baseTbLeprosyFloatingMenu, linearLayoutParams);
         }
     }
-
 
 
     @Override

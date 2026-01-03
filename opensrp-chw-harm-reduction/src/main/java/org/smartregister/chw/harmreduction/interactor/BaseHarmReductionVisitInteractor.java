@@ -19,8 +19,8 @@ import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
 import org.smartregister.chw.harmreduction.repository.VisitRepository;
 import org.smartregister.chw.harmreduction.util.AppExecutors;
 import org.smartregister.chw.harmreduction.util.Constants;
-import org.smartregister.chw.harmreduction.util.NCUtils;
 import org.smartregister.chw.harmreduction.util.HarmReductionJsonFormUtils;
+import org.smartregister.chw.harmreduction.util.NCUtils;
 import org.smartregister.chw.harmreduction.util.VisitUtils;
 import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.clientandeventmodel.Obs;
@@ -60,13 +60,14 @@ public class BaseHarmReductionVisitInteractor implements BaseHarmReductionVisitC
     public BaseHarmReductionVisitInteractor() {
         this(new AppExecutors(), HarmReductionLibrary.getInstance().getEcSyncHelper());
     }
+
     public BaseHarmReductionVisitInteractor(String visitType) {
         this(new AppExecutors(), HarmReductionLibrary.getInstance().getEcSyncHelper());
         this.visitType = visitType;
     }
 
     protected String getCurrentVisitType() {
-        if(StringUtils.isNotBlank(visitType)){
+        if (StringUtils.isNotBlank(visitType)) {
             return visitType;
         }
         return Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT;
@@ -199,7 +200,7 @@ public class BaseHarmReductionVisitInteractor implements BaseHarmReductionVisitC
             }
         }
 
-        String type = StringUtils.isBlank(parentEventType) ? getEncounterType() : getEncounterType();
+        String type = getEncounterType();
 
         // persist to database
         Visit visit = saveVisit(editMode, memberID, type, combinedJsons, parentEventType);
@@ -308,7 +309,8 @@ public class BaseHarmReductionVisitInteractor implements BaseHarmReductionVisitC
         // check if the event
         AllSharedPreferences allSharedPreferences = HarmReductionLibrary.getInstance().context().allSharedPreferences();
         Visit visit = visitRepository().getVisitByVisitId(visitID);
-        if (visit == null || !visit.getProcessed()) return;
+        if (visit == null || !visit.getProcessed()) {
+        }
         //TODO: implement if needed
     }
 
@@ -374,10 +376,10 @@ public class BaseHarmReductionVisitInteractor implements BaseHarmReductionVisitC
     }
 
     protected String getEncounterType() {
-        return Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT;
+        return Constants.EVENT_TYPE.HARM_REDUCTION_FOLLOW_UP_VISIT;
     }
 
     protected String getTableName() {
-        return Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT;
+        return Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT;
     }
 }

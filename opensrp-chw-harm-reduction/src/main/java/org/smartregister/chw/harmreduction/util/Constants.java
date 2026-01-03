@@ -16,7 +16,6 @@ public interface Constants {
 
     interface EVENT_TYPE {
         String HARM_REDUCTION_RISK_ASSESSMENT = "Harm Reduction Risk Assessment";
-        String HARM_REDUCTION_COMMUNITY_VISIT = "Harm Reduction Community Visit";
         String HARM_REDUCTION_FOLLOW_UP_VISIT = "Harm Reduction Follow-up Visit";
         String VOID_EVENT = "Void Event";
         String CLOSE_HARM_REDUCTION_SERVICE = "Close Harm Reduction Service";
@@ -48,11 +47,11 @@ public interface Constants {
         String HARM_REDUCTION_CONSENT_JOINING_MAT = "roc_consent_joining_mat_services";
 
 
-
     }
 
     interface TABLES {
         String HARM_REDUCTION_RISK_ASSESSMENT = "ec_harm_reduction_risk_assessment";
+        String HARM_REDUCTION_FOLLOWUP_VISIT = "ec_harm_reduction_followup_visit";
     }
 
     interface ACTIVITY_PAYLOAD {

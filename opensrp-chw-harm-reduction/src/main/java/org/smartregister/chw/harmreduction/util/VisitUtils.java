@@ -31,7 +31,6 @@ public class VisitUtils {
     public static String Ongoing = "ongoing";
 
 
-
     public static List<Visit> getVisits(String memberID, String... eventTypes) {
 
 

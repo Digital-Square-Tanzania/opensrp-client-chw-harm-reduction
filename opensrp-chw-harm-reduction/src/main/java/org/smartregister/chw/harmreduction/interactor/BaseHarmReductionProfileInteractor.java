@@ -8,8 +8,6 @@ import org.smartregister.chw.harmreduction.util.AppExecutors;
 import org.smartregister.chw.harmreduction.util.HarmReductionUtil;
 import org.smartregister.domain.AlertStatus;
 
-import java.util.Date;
-
 public class BaseHarmReductionProfileInteractor implements HarmReductionProfileContract.Interactor {
     protected AppExecutors appExecutors;
 

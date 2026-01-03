@@ -12,7 +12,7 @@ import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.fragment.BaseHarmReductionCallDialogFragment;
 
 public class BaseHarmReductionFloatingMenu extends LinearLayout implements View.OnClickListener {
-    private MemberObject MEMBER_OBJECT;
+    private final MemberObject MEMBER_OBJECT;
 
     public BaseHarmReductionFloatingMenu(Context context, MemberObject MEMBER_OBJECT) {
         super(context);
@@ -32,7 +32,7 @@ public class BaseHarmReductionFloatingMenu extends LinearLayout implements View.
         if (view.getId() == R.id.tbleprosy_fab) {
             Activity activity = (Activity) getContext();
             BaseHarmReductionCallDialogFragment.launchDialog(activity, MEMBER_OBJECT);
-        }  else if (view.getId() == R.id.refer_to_facility_layout) {
+        } else if (view.getId() == R.id.refer_to_facility_layout) {
             Activity activity = (Activity) getContext();
             BaseHarmReductionCallDialogFragment.launchDialog(activity, MEMBER_OBJECT);
         }

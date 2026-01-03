@@ -35,9 +35,9 @@ public class BaseHarmReductionVisitAction {
     private String jsonPayload;
     private String selectedOption;
     private HarmReductionVisitActionHelper tbleprosyVisitActionHelper;
-    private Map<String, List<VisitDetail>> details;
-    private Context context;
-    private Validator validator;
+    private final Map<String, List<VisitDetail>> details;
+    private final Context context;
+    private final Validator validator;
 
     private BaseHarmReductionVisitAction(Builder builder) throws ValidationException {
         this.baseEntityID = builder.baseEntityID;
@@ -401,10 +401,10 @@ public class BaseHarmReductionVisitAction {
 
     public static class Builder {
         private String baseEntityID;
-        private String title;
+        private final String title;
         private String subTitle;
         private String disabledMessage;
-        private Status actionStatus = Status.PENDING;
+        private final Status actionStatus = Status.PENDING;
         private PayloadType payloadType = PayloadType.JSON;
         private String payloadDetails;
         private ScheduleStatus scheduleStatus = ScheduleStatus.DUE;
@@ -414,7 +414,7 @@ public class BaseHarmReductionVisitAction {
         private String formName;
         private HarmReductionVisitActionHelper tbleprosyVisitActionHelper;
         private Map<String, List<VisitDetail>> details = new HashMap<>();
-        private Context context;
+        private final Context context;
         private String jsonPayload;
         private Validator validator;
 

@@ -35,6 +35,7 @@ import org.smartregister.view.activity.BaseRegisterActivity;
 import org.smartregister.view.fragment.BaseRegisterFragment;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -108,7 +109,7 @@ public class BaseHarmReductionRegisterActivity extends BaseRegisterActivity impl
 
     @Override
     public List<String> getViewIdentifiers() {
-        return Arrays.asList(Constants.CONFIGURATION.HARM_REDUCTION_ENROLLMENT);
+        return Collections.singletonList(Constants.CONFIGURATION.HARM_REDUCTION_ENROLLMENT);
     }
 
     /**
@@ -149,7 +150,7 @@ public class BaseHarmReductionRegisterActivity extends BaseRegisterActivity impl
 
     @Override
     protected Fragment[] getOtherFragments() {
-        return new Fragment[] {};
+        return new Fragment[]{};
     }
 
     @Override

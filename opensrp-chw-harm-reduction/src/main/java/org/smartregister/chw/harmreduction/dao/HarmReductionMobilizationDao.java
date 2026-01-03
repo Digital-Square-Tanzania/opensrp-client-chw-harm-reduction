@@ -1,14 +1,7 @@
 package org.smartregister.chw.harmreduction.dao;
 
 
-import android.annotation.SuppressLint;
-
-import org.smartregister.chw.harmreduction.model.HarmReductionMobilizationModel;
-import org.smartregister.chw.harmreduction.util.Constants;
-import org.smartregister.chw.harmreduction.util.DBConstants;
 import org.smartregister.dao.AbstractDao;
-
-import java.util.List;
 
 
 public class HarmReductionMobilizationDao extends AbstractDao {
@@ -27,6 +20,7 @@ public class HarmReductionMobilizationDao extends AbstractDao {
 
         updateDB(sql);
     }
+
     private static String computeSessionParticipants(String femaleParticipants, String maleParticipants) {
         int sum = Integer.parseInt(femaleParticipants) + Integer.parseInt(maleParticipants);
         return String.valueOf(sum);

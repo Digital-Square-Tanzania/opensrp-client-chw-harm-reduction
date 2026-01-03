@@ -68,18 +68,18 @@ public class HarmReductionInvestigationActionHelper implements BaseHarmReduction
                 tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "majibu_ya_uchunguzi_tb");
             }
 
-            if (StringUtils.isBlank(tbleprosyObservation)){
+            if (StringUtils.isBlank(tbleprosyObservation)) {
                 tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "leprosy_interview_findings");
             }
 
-            if (StringUtils.isBlank(tbleprosyObservation)){
+            if (StringUtils.isBlank(tbleprosyObservation)) {
                 tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "majibu_ya_uchunguzi_ukoma");
             }
 
             screeningStatus = JsonFormUtils.getValue(jsonObject, "screening_status");
 
         } catch (JSONException e) {
-           Timber.e(e);
+            Timber.e(e);
         }
     }
 
@@ -105,7 +105,7 @@ public class HarmReductionInvestigationActionHelper implements BaseHarmReduction
 
     @Override
     public BaseHarmReductionVisitAction.Status evaluateStatusOnPayload() {
-        if(StringUtils.isNotBlank(tbleprosyObservation)){
+        if (StringUtils.isNotBlank(tbleprosyObservation)) {
             return BaseHarmReductionVisitAction.Status.COMPLETED;
         }
         return BaseHarmReductionVisitAction.Status.PENDING;

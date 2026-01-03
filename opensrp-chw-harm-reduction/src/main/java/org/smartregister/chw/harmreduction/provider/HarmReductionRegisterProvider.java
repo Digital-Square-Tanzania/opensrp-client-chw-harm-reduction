@@ -37,9 +37,9 @@ public class HarmReductionRegisterProvider implements RecyclerViewProvider<HarmR
 
     private final LayoutInflater inflater;
     protected View.OnClickListener onClickListener;
-    private View.OnClickListener paginationClickListener;
-    private Context context;
-    private Set<org.smartregister.configurableviews.model.View> visibleColumns;
+    private final View.OnClickListener paginationClickListener;
+    private final Context context;
+    private final Set<org.smartregister.configurableviews.model.View> visibleColumns;
 
     public HarmReductionRegisterProvider(Context context, View.OnClickListener paginationClickListener, View.OnClickListener onClickListener, Set visibleColumns) {
 

@@ -6,6 +6,7 @@ public interface BaseHarmReductionCallDialogContract {
 
     interface View {
         void setPendingCallRequest(Dialer dialer);
+
         Context getCurrentContext();
     }
 

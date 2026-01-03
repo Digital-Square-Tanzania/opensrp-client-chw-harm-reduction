@@ -56,7 +56,7 @@ public class VisitRepository extends BaseRepository {
             + VISIT_TYPE + " COLLATE NOCASE , "
             + VISIT_DATE + " COLLATE NOCASE"
             + ");";
-    private String[] VISIT_COLUMNS = {VISIT_ID, VISIT_TYPE, VISIT_GROUP, PARENT_VISIT_ID, BASE_ENTITY_ID, VISIT_DATE, VISIT_JSON, PRE_PROCESSED, FORM_SUBMISSION_ID, PROCESSED, UPDATED_AT, CREATED_AT};
+    private final String[] VISIT_COLUMNS = {VISIT_ID, VISIT_TYPE, VISIT_GROUP, PARENT_VISIT_ID, BASE_ENTITY_ID, VISIT_DATE, VISIT_JSON, PRE_PROCESSED, FORM_SUBMISSION_ID, PROCESSED, UPDATED_AT, CREATED_AT};
 
     public static String ADD_VISIT_GROUP_COLUMN = "ALTER TABLE " + VISIT_TABLE + " ADD COLUMN " + VISIT_GROUP + " VARCHAR;";
 
@@ -227,7 +227,6 @@ public class VisitRepository extends BaseRepository {
     }
 
 
-
     public List<Visit> getAllUnSynced(Long last_edit_time, String baseEntityID) {
         List<Visit> visits = new ArrayList<>();
         Cursor cursor = null;
@@ -283,8 +282,7 @@ public class VisitRepository extends BaseRepository {
         List<Visit> visits = new ArrayList<>();
         Cursor cursor = null;
         try {
-            String query = "select STRFTIME('%Y%m%d', datetime((" + VISIT_DATE + ")/1000,'unixepoch')) as d,* from " + VISIT_TABLE + " where " + VISIT_TYPE + " = '" + visitType + "' AND " +
-                    "" + BASE_ENTITY_ID + " = '" + baseEntityID + "'  group by d order by " + VISIT_DATE + " desc limit 3";
+            String query = "select STRFTIME('%Y%m%d', datetime((" + VISIT_DATE + ")/1000,'unixepoch')) as d,* from " + VISIT_TABLE + " where " + VISIT_TYPE + " = '" + visitType + "' AND " + BASE_ENTITY_ID + " = '" + baseEntityID + "'  group by d order by " + VISIT_DATE + " desc limit 3";
             cursor = getReadableDatabase().rawQuery(query, null);
             visits = readVisits(cursor);
         } catch (Exception e) {

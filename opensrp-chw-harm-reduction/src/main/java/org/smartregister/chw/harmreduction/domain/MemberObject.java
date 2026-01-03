@@ -111,6 +111,7 @@ public class MemberObject implements Serializable {
     public String getMartialStatus() {
         return martialStatus;
     }
+
     public void setMartialStatus(String martialStatus) {
         this.martialStatus = martialStatus;
     }

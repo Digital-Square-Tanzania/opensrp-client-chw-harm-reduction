@@ -8,7 +8,7 @@ import org.smartregister.chw.harmreduction.fragment.BaseHarmReductionCallDialogF
 
 public class BaseHarmReductionCallWidgetDialogListener implements View.OnClickListener {
 
-    private BaseHarmReductionCallDialogFragment callDialogFragment;
+    private final BaseHarmReductionCallDialogFragment callDialogFragment;
 
     public BaseHarmReductionCallWidgetDialogListener(BaseHarmReductionCallDialogFragment dialogFragment) {
         callDialogFragment = dialogFragment;

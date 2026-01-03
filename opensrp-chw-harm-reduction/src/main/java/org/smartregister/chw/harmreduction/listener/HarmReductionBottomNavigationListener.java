@@ -10,7 +10,7 @@ import org.smartregister.listener.BottomNavigationListener;
 import org.smartregister.view.activity.BaseRegisterActivity;
 
 public class HarmReductionBottomNavigationListener extends BottomNavigationListener {
-    private Activity context;
+    private final Activity context;
 
     public HarmReductionBottomNavigationListener(Activity context) {
         super(context);

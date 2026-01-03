@@ -25,8 +25,8 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 import org.opensrp.api.constants.Gender;
-import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.HarmReductionLibrary;
+import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.contract.BaseHarmReductionCallDialogContract;
 import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.repository.AllSharedPreferences;
@@ -153,7 +153,7 @@ public class HarmReductionUtil {
                 context().
                 allSharedPreferences();
         Event closeTbLeprosyEvent = getCloseHarmReductionEvent(new JSONObject().
-                toString(),
+                        toString(),
                 baseEntityId);
 
         try {

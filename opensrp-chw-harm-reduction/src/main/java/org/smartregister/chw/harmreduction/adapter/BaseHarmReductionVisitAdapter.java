@@ -23,9 +23,9 @@ import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class BaseHarmReductionVisitAdapter extends RecyclerView.Adapter<BaseHarmReductionVisitAdapter.MyViewHolder> {
-    private Map<String, BaseHarmReductionVisitAction> tbleprosyVisitActionList;
-    private Context context;
-    private BaseHarmReductionVisitContract.View visitContractView;
+    private final Map<String, BaseHarmReductionVisitAction> tbleprosyVisitActionList;
+    private final Context context;
+    private final BaseHarmReductionVisitContract.View visitContractView;
 
     public BaseHarmReductionVisitAdapter(Context context, BaseHarmReductionVisitContract.View view, LinkedHashMap<String, BaseHarmReductionVisitAction> myDataset) {
         tbleprosyVisitActionList = myDataset;
@@ -36,7 +36,7 @@ public class BaseHarmReductionVisitAdapter extends RecyclerView.Adapter<BaseHarm
     @NotNull
     @Override
     public BaseHarmReductionVisitAdapter.MyViewHolder onCreateViewHolder(@NotNull ViewGroup parent,
-                                                                     int viewType) {
+                                                                         int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.tbleprosy_visit_item, parent, false);
         return new MyViewHolder(v);
@@ -173,9 +173,11 @@ public class BaseHarmReductionVisitAdapter extends RecyclerView.Adapter<BaseHarm
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView titleText, invalidText, descriptionText;
-        private CircleImageView circleImageView;
-        private LinearLayout myView;
+        private final TextView titleText;
+        private final TextView invalidText;
+        private final TextView descriptionText;
+        private final CircleImageView circleImageView;
+        private final LinearLayout myView;
 
         private MyViewHolder(View view) {
             super(view);

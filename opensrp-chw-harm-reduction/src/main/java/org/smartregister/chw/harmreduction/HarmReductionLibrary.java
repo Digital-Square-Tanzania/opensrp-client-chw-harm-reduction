@@ -16,8 +16,8 @@ public class HarmReductionLibrary {
     private final Context context;
     private final Repository repository;
 
-    private int applicationVersion;
-    private int databaseVersion;
+    private final int applicationVersion;
+    private final int databaseVersion;
     private ECSyncHelper syncHelper;
 
     private ClientProcessorForJava clientProcessorForJava;

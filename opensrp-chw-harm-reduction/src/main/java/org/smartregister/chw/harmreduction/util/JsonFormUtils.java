@@ -364,8 +364,8 @@ public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
     }
 
     private static class NameID {
-        private String name;
-        private int position;
+        private final String name;
+        private final int position;
 
         public NameID(String name, int position) {
             this.name = name;

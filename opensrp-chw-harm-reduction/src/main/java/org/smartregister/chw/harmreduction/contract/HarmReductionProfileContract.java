@@ -4,8 +4,6 @@ import org.jetbrains.annotations.Nullable;
 import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.domain.AlertStatus;
 
-import java.util.Date;
-
 public interface HarmReductionProfileContract {
     interface View extends InteractorCallBack {
 

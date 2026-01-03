@@ -20,7 +20,7 @@ public class BaseHarmReductionRegisterPresenter implements HarmReductionRegister
 
     protected WeakReference<HarmReductionRegisterContract.View> viewReference;
     protected HarmReductionRegisterContract.Model model;
-    private HarmReductionRegisterContract.Interactor interactor;
+    private final HarmReductionRegisterContract.Interactor interactor;
 
     public BaseHarmReductionRegisterPresenter(HarmReductionRegisterContract.View view, HarmReductionRegisterContract.Model model, HarmReductionRegisterContract.Interactor interactor) {
         viewReference = new WeakReference<>(view);
@@ -36,7 +36,7 @@ public class BaseHarmReductionRegisterPresenter implements HarmReductionRegister
 
         JSONObject form = model.getFormAsJson(formName, entityId, currentLocationId);
         if (formName.equals(Constants.FORMS.HARM_REDUCTION_RISK_ASSESSMENT)) {
-            String sex =  HarmReductionDao.getMemberSex(entityId);
+            String sex = HarmReductionDao.getMemberSex(entityId);
             form.getJSONObject(JsonFormConstants.JSON_FORM_KEY.GLOBAL)
                     .put("sex", sex.toLowerCase(Locale.getDefault()));
         }

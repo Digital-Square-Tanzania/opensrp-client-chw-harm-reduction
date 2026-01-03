@@ -1,5 +1,8 @@
 package org.smartregister.chw.harmreduction.interactor;
 
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionClientStatusActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionConsentJoiningMatActionHelper;
@@ -12,9 +15,6 @@ import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSafeInjecti
 import org.smartregister.chw.harmreduction.contract.BaseHarmReductionVisitContract;
 import org.smartregister.chw.harmreduction.domain.VisitDetail;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
-import org.apache.commons.lang3.StringUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.util.Constants;
 import org.smartregister.chw.harmreduction.util.JsonFormUtils;
 

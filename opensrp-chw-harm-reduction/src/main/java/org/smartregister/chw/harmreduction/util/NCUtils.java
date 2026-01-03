@@ -50,7 +50,7 @@ import timber.log.Timber;
 
 public class NCUtils {
 
-    private static String[] default_obs = {"start", "end", "deviceid", "subscriberid", "simserial", "phonenumber"};
+    private static final String[] default_obs = {"start", "end", "deviceid", "subscriberid", "simserial", "phonenumber"};
 
     public static String firstCharacterUppercase(String str) {
         if (TextUtils.isEmpty(str)) return "";
@@ -81,7 +81,7 @@ public class NCUtils {
         Drawable.ConstantState stateB = drawableB.getConstantState();
         // If the constant state is identical, they are using the same drawable resource.
         // However, the opposite is not necessarily true.
-        return (stateA != null && stateB != null && stateA.equals(stateB)) || getBitmap(drawableA).sameAs(getBitmap(drawableB));
+        return (stateA != null && stateA.equals(stateB)) || getBitmap(drawableA).sameAs(getBitmap(drawableB));
     }
 
     public static Bitmap getBitmap(Drawable drawable) {
@@ -200,7 +200,8 @@ public class NCUtils {
         visit.setCreatedAt(new Date());
         visit.setUpdatedAt(new Date());
         Map<String, String> eventDetails = event.getDetails();
-        if (eventDetails != null) visit.setVisitGroup(eventDetails.get(JsonFormUtils.HOME_VISIT_GROUP));
+        if (eventDetails != null)
+            visit.setVisitGroup(eventDetails.get(JsonFormUtils.HOME_VISIT_GROUP));
 
         Map<String, List<VisitDetail>> details = new HashMap<>();
         if (event.getObs() != null) {
@@ -333,7 +334,8 @@ public class NCUtils {
         visit.setUpdatedAt(new Date());
         visit.setDate(new Date());
         Map<String, String> eventDetails = event.getDetails();
-        if (eventDetails != null) visit.setVisitGroup(eventDetails.get(JsonFormUtils.HOME_VISIT_GROUP));
+        if (eventDetails != null)
+            visit.setVisitGroup(eventDetails.get(JsonFormUtils.HOME_VISIT_GROUP));
 
         Map<String, List<VisitDetail>> details = new HashMap<>();
         if (event.getObs() != null) {

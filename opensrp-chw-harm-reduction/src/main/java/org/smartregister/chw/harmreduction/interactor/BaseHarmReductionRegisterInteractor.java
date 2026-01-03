@@ -8,7 +8,7 @@ import org.smartregister.chw.harmreduction.util.HarmReductionUtil;
 
 public class BaseHarmReductionRegisterInteractor implements HarmReductionRegisterContract.Interactor {
 
-    private AppExecutors appExecutors;
+    private final AppExecutors appExecutors;
 
     @VisibleForTesting
     BaseHarmReductionRegisterInteractor(AppExecutors appExecutors) {

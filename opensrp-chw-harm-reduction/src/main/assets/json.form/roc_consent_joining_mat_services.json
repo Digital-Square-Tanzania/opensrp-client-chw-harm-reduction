@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "roc_consent_joining_mat_services",
+  "encounter_type": "Consent for Joining MAT Services",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "roc_consent_joining_mat_services",
+    "title": "Consent for Joining MAT Services",
     "fields": [
       {
         "key": "roc_consent_joining_mat_services",

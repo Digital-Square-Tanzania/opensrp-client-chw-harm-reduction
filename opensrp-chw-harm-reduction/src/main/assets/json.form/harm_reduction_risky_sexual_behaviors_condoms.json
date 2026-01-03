@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_risky_sexual_behaviors_condoms",
+  "encounter_type": "Risky Sexual Behaviors",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "harm_reduction_risky_sexual_behaviors_condoms",
+    "title": "Risky Sexual Behaviors",
     "fields": [
       {
         "key": "engaging_in_sexual_activity",
@@ -81,6 +81,15 @@
         "type": "edit_text",
         "hint": "Number of sexual partners",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
+        },
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid input"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -125,9 +134,9 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "condom_education_prompt",
-        "type": "label",
+        "type": "toaster_notes",
         "label": "Guidance",
-        "text": "Muelimishe kuhusu umuhimu na matumizi sahihi ya kondomu.",
+        "text": "Educate the client on the importance and correct use of condoms",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -166,8 +175,13 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "number_of_condoms",
         "type": "edit_text",
-        "hint": "Number of condoms",
+        "hint": "Number of condoms (pieces) provided",
         "edit_type": "number",
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid input"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

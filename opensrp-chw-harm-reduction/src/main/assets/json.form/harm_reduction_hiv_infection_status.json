@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_hiv_infection_status",
+  "encounter_type": "HIV Infection Status",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "harm_reduction_hiv_infection_status",
+    "title": "HIV Infection Status",
     "fields": [
       {
         "key": "hiv_tested",
@@ -79,7 +79,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_test_location",
         "type": "native_radio",
-        "label": "Where the test was conducted",
+        "label": "Where was the test was conducted",
         "options": [
           {
             "key": "facility",
@@ -148,7 +148,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "drug_adherence_status_ctc",
         "type": "native_radio",
-        "label": "Drug adherence status (CTC only)",
+        "label": "Drug adherence status",
         "options": [
           {
             "key": "good_adherence",
@@ -192,9 +192,9 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "adherence_guidance_discontinued",
-        "type": "label",
+        "type": "toaster_notes",
         "label": "Guidance",
-        "text": "Mrudishe kwa mtoa huduma wa Tiba na matunzo (CTC) kwa unasihi.",
+        "text": "Refer the client back to the Care and Treatment Clinic (CTC) provider for counselling.",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -208,9 +208,9 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "adherence_guidance_not_started",
-        "type": "label",
+        "type": "toaster_notes",
         "label": "Guidance",
-        "text": "Msindikize kwenye huduma ya Tiba na matunzo (CTC).",
+        "text": "Accompany the client to the Care and Treatment Clinic (CTC) for services.",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

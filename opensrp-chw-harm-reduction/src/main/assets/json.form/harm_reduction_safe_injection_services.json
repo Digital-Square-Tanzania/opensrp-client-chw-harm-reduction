@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_safe_injection_services",
+  "encounter_type": "Safe Injection Services",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "harm_reduction_safe_injection_services",
+    "title": "Safe Injection Services",
     "fields": [
       {
         "key": "safe_injection_tools",
@@ -110,6 +110,11 @@
         "type": "edit_text",
         "hint": "Number of tools - Syringes",
         "edit_type": "number",
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid input"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -126,6 +131,11 @@
         "type": "edit_text",
         "hint": "Number of tools - Alcohol swab",
         "edit_type": "number",
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid input"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -142,6 +152,11 @@
         "type": "edit_text",
         "hint": "Number of tools - Dry cotton",
         "edit_type": "number",
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid input"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -158,6 +173,11 @@
         "type": "edit_text",
         "hint": "Number of tools - Plaster",
         "edit_type": "number",
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid input"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -174,6 +194,11 @@
         "type": "edit_text",
         "hint": "Number of tools - Sterile Water",
         "edit_type": "number",
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid input"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -188,11 +213,16 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_needles",
         "type": "edit_text",
-        "hint": "Number of tools - Needles (max 21)",
+        "hint": "Number of tools - Needles",
         "edit_type": "number",
         "v_max": {
           "value": "21",
           "err": "Must be 21 or less"
+        },
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid input"
         },
         "relevance": {
           "rules-engine": {

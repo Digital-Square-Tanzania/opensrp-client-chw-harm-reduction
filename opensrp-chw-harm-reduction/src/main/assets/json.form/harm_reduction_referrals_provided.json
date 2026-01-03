@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_referrals_provided",
+  "encounter_type": "Referrals Provided",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "harm_reduction_referrals_provided",
+    "title": "Referrals Provided",
     "fields": [
       {
         "key": "referrals_provided",
@@ -56,6 +56,9 @@
         "openmrs_entity_id": "referrals_provided",
         "type": "check_box",
         "label": "Referrals provided",
+        "exclusive": [
+          "none"
+        ],
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -239,6 +242,13 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
+          },
+          {
+            "key": "none",
+            "text": "None",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
           }
         ]
       },
@@ -255,6 +265,18 @@
               "rules-file": "harm-reduction-referrals-provided-relevance-rules.yml"
             }
           }
+        }
+      },
+      {
+        "key": "remarks_comments",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "remarks_comments",
+        "type": "edit_text",
+        "hint": "Remarks/Comments",
+        "v_required": {
+          "value": "false",
+          "err": "Please enter the your remarks/comments"
         }
       }
     ]

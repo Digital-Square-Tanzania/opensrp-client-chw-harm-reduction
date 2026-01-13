@@ -49,6 +49,7 @@ import timber.log.Timber;
 
 public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivity implements HarmReductionProfileContract.View, HarmReductionProfileContract.InteractorCallBack {
 
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
     protected MemberObject memberObject;
     protected HarmReductionProfileContract.Presenter profilePresenter;
     protected CircleImageView imageView;
@@ -82,7 +83,6 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     protected CustomFontTextView ivViewHistoryArrow;
     private TextView tvUpComingServices;
     private TextView tvFamilyStatus;
-    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
     private ProgressBar progressBar;
 
     public static void startProfileActivity(Activity activity, String baseEntityId) {
@@ -316,7 +316,8 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     @Override
     public void refreshMedicalHistory(boolean hasHistory) {
         showProgressBar(false);
-//       rlLastVisit.setVisibility(hasHistory ? View.VISIBLE : View.GONE);
+        Visit lastVisit = HarmReductionLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.HARM_REDUCTION_FOLLOW_UP_VISIT);
+        rlLastVisit.setVisibility(lastVisit != null ? View.VISIBLE : View.GONE);
     }
 
     @Override

@@ -29,8 +29,6 @@ public interface HarmReductionProfileContract {
 
         void observationResults();
 
-        void openTbContactFollowUpVisit();
-
         void openRecordClientVisit();
     }
 

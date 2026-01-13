@@ -231,8 +231,6 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
                 this.openRecordTbContactVisit();
             } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_client_followup_visit))) {
                 this.openFollowupVisit();
-            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_contact_visit_followup))) {
-                this.openTbContactFollowUpVisit();
             } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_observation_results))) {
                 this.openObservationResults();
             } else {

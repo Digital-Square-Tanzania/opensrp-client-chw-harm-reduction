@@ -12,7 +12,6 @@
     <string name="record_harm_reduction_community_visit">Hudhurio la TB/Ukoma</string>
     <string name="record_mat_client_followup_visit">Rekodi hudhurio la mhisiwa wa ugonjwa wa TB</string>
     <string name="record_harm_reduction_client_followup_visit">Rekodi hudhurio la ufuatiliaji la Harm Reduction</string>
-    <string name="record_harm_reduction_contact_visit_followup">Rekodi hudhurio la ufuatiliaji la mhisiwa wa ugonjwa wa Harm Reduction</string>
 
     <string name="optional">Si lazima</string>
     <string name="error_unable_save_visit">Imeshindwa kuhifadhi hudhurio hili</string>

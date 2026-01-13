@@ -13,7 +13,6 @@
     <string name="record_harm_reduction_community_visit">Record Harm Reduction Visit</string>
     <string name="record_mat_client_followup_visit">Record MAT Client Followup Visit</string>
     <string name="record_harm_reduction_client_followup_visit">Record Harm Reduction FollowUp Visit</string>
-    <string name="record_harm_reduction_contact_visit_followup">Record Harm Reduction Contact Visit FollowUp</string>
     <string name="manual_process_visit">Process Visit</string>
     <string name="continue_visit">Continue</string>
     <string name="harm_reduction_visit_in_progress">Visit In Progress</string>

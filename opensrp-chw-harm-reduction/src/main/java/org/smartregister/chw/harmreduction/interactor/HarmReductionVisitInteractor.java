@@ -1,5 +1,7 @@
 package org.smartregister.chw.harmreduction.interactor;
 
+import static org.smartregister.chw.harmreduction.util.Constants.EVENT_TYPE.HARM_REDUCTION_FOLLOW_UP_VISIT;
+
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,8 +26,6 @@ import java.util.Map;
 import timber.log.Timber;
 
 public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteractor {
-
-    private static final String VISIT_TYPE = "Harm Reduction Community Visit";
     private static final String CLIENT_STATUS_FIELD = "client_status";
     private static final String CLIENT_STATUS_NEW = "new";
     private static final String CLIENT_STATUS_CONTINUE_SERVICE = "continue_service";
@@ -33,7 +33,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     private static final String YES_VALUE = "yes";
 
     public HarmReductionVisitInteractor() {
-        super(VISIT_TYPE);
+        super(HARM_REDUCTION_FOLLOW_UP_VISIT);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
 
     @Override
     protected String getEncounterType() {
-        return VISIT_TYPE;
+        return HARM_REDUCTION_FOLLOW_UP_VISIT;
     }
 
     private void evaluateClientStatus(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {

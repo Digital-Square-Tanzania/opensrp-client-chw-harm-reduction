@@ -142,6 +142,20 @@ public class HarmReductionDao extends AbstractDao {
         return "";
     }
 
+    public static String getLastInteractedWithMatConsentFollowUpVisit(String baseEntityId) {
+        String sql = "SELECT last_interacted_with FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT +
+                " WHERE entity_id = '" + baseEntityId + "' AND " +
+                Constants.FORMS.ROC_CONSENT_JOINING_MAT_SERVICES + " = 'yes' " +
+                "ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "last_interacted_with");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
+            return res.get(0);
+        }
+        return null;
+    }
+
     public static int getVisitNumber(String baseEntityID) {
         String sql = "SELECT visit_number  FROM ec_tbleprosy_follow_up_visit WHERE entity_id='" + baseEntityID + "' ORDER BY visit_number DESC LIMIT 1";
         DataMap<Integer> map = cursor -> getCursorIntValue(cursor, "visit_number");

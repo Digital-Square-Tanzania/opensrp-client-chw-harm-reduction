@@ -335,7 +335,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "health_education_other_specify",
         "type": "edit_text",
-        "hint": "If others, specify",
+        "hint": "Specify other health education provided",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -673,7 +673,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_materials_other_specify",
         "type": "edit_text",
-        "hint": "If others, specify",
+        "hint": "Specify other iec materials provided",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

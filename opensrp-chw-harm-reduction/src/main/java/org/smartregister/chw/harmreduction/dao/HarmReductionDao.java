@@ -250,6 +250,20 @@ public class HarmReductionDao extends AbstractDao {
 
     }
 
+    public static String getRocConsentForJoiningMatServices(String baseEntityID) {
+        String sql = "select roc_consent_joining_mat_services from " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " where base_entity_id = '" + baseEntityID + "' ";
+
+        DataMap<String> map = cursor -> getCursorValue(cursor, "roc_consent_joining_mat_services");
+        List<String> res = readData(sql, map);
+
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
+            return res.get(0);
+        } else
+            return "";
+
+    }
+
     public static MemberObject getContact(String baseEntityID) {
         String sql = "select " +
                 "m.base_entity_id , " +

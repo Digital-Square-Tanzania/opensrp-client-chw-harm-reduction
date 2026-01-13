@@ -58,7 +58,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     protected TextView textViewGender;
     protected TextView textViewLocation;
     protected TextView textViewUniqueID;
-    protected TextView textViewRecordTbLeprosy;
+    protected TextView textViewRecordHarmReductionVisit;
     protected TextView textViewRecordSoberHouseVisit;
     protected TextView textViewContinueTbLeprosy;
     protected TextView manualProcessVisit;
@@ -141,7 +141,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         visitInProgress = findViewById(R.id.record_visit_in_progress);
         progressBar = findViewById(R.id.progress_bar);
         textViewVisitDoneEdit = findViewById(R.id.textview_edit);
-        textViewRecordTbLeprosy = findViewById(R.id.textview_record_harm_reduction_community_visit);
+        textViewRecordHarmReductionVisit = findViewById(R.id.textview_record_harm_reduction_community_visit);
         textViewRecordSoberHouseVisit = findViewById(R.id.textview_record_sober_house_visit);
         textViewContinueTbLeprosy = findViewById(R.id.textview_continue);
         manualProcessVisit = findViewById(R.id.textview_manual_process);
@@ -158,7 +158,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         rlUpcomingServices.setOnClickListener(this);
         rlFamilyServicesDue.setOnClickListener(this);
         rlTbLeprosyPositiveDate.setOnClickListener(this);
-        textViewRecordTbLeprosy.setOnClickListener(this);
+        textViewRecordHarmReductionVisit.setOnClickListener(this);
         textViewRecordSoberHouseVisit.setOnClickListener(this);
         textViewContinueTbLeprosy.setOnClickListener(this);
         manualProcessVisit.setOnClickListener(this);
@@ -226,13 +226,13 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         } else if (id == R.id.rlFamilyServicesDue) {
             this.openFamilyDueServices();
         } else if (id == R.id.textview_record_harm_reduction_community_visit) {
-            if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_community_visit))) {
+            if (textViewRecordHarmReductionVisit.getText().equals(getString(R.string.record_harm_reduction_community_visit))) {
                 this.openRecordClientVisit();
-            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_mat_client_followup_visit))) {
+            } else if (textViewRecordHarmReductionVisit.getText().equals(getString(R.string.record_mat_client_followup_visit))) {
                 this.openRecordTbContactVisit();
-            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_harm_reduction_client_followup_visit))) {
+            } else if (textViewRecordHarmReductionVisit.getText().equals(getString(R.string.record_harm_reduction_client_followup_visit))) {
                 this.openFollowupVisit();
-            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_observation_results))) {
+            } else if (textViewRecordHarmReductionVisit.getText().equals(getString(R.string.record_observation_results))) {
                 this.openObservationResults();
             } else {
                 Toast.makeText(getApplicationContext(), "No click", Toast.LENGTH_SHORT).show();
@@ -290,7 +290,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
 
     @Override
     public void setOverDueColor() {
-        textViewRecordTbLeprosy.setBackground(getResources().getDrawable(R.drawable.record_btn_selector_overdue));
+        textViewRecordHarmReductionVisit.setBackground(getResources().getDrawable(R.drawable.record_btn_selector_overdue));
 
     }
 

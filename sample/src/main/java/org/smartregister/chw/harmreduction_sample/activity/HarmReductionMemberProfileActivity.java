@@ -43,12 +43,12 @@ public class HarmReductionMemberProfileActivity extends BaseHarmReductionProfile
 
     @Override
     protected void setupButtons() {
-        textViewRecordTbLeprosy.setVisibility(View.VISIBLE);
+        textViewRecordHarmReductionVisit.setVisibility(View.VISIBLE);
 //        textViewRecordTbLeprosy.setText("Record TB Leprosy Visit");
 
         if (StringUtils.isNotBlank(encounterType)) {
             if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT)) {
-                textViewRecordTbLeprosy.setVisibility(View.GONE);
+                textViewRecordHarmReductionVisit.setVisibility(View.GONE);
             }
         }
     }

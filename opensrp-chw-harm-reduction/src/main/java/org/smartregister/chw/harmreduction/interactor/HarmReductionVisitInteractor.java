@@ -42,6 +42,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
             try {
                 evaluateClientStatus(details);
                 evaluateHealthEducation(details);
+                evaluatePreMatServicesHealthEducation(details);
                 evaluateSafeInjectionServices(details);
                 evaluateRiskySexualBehaviors(details);
                 evaluateHivInfectionStatus(details);
@@ -82,6 +83,18 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 .withHelper(actionHelper)
                 .withValidator(otherActionsVisibilityValidator())
                 .withFormName(Constants.FORMS.HARM_REDUCTION_HEALTH_EDUCATION)
+                .build();
+        actionList.put(context.getString(R.string.harm_reduction_health_education), action);
+    }
+
+    private void evaluatePreMatServicesHealthEducation(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {
+        HarmReductionHealthEducationActionHelper actionHelper = new HarmReductionHealthEducationActionHelper();
+        BaseHarmReductionVisitAction action = getBuilder(context.getString(R.string.harm_reduction_health_education))
+                .withOptional(false)
+                .withDetails(details)
+                .withHelper(actionHelper)
+                .withValidator(otherActionsVisibilityValidator())
+                .withFormName(Constants.FORMS.HARM_REDUCTION_PRE_MAT_SESSIONS_HEALTH_EDUCATION)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_health_education), action);
     }

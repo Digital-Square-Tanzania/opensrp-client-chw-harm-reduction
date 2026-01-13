@@ -15,6 +15,7 @@ import org.smartregister.chw.harmreduction.actionhelper.HarmReductionReferralsPr
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionRiskySexualBehaviorsActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSafeInjectionServicesActionHelper;
 import org.smartregister.chw.harmreduction.contract.BaseHarmReductionVisitContract;
+import org.smartregister.chw.harmreduction.dao.HarmReductionDao;
 import org.smartregister.chw.harmreduction.domain.VisitDetail;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
 import org.smartregister.chw.harmreduction.util.Constants;
@@ -41,8 +42,11 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
         final Runnable runnable = () -> {
             try {
                 evaluateClientStatus(details);
-                evaluateHealthEducation(details);
-                evaluatePreMatServicesHealthEducation(details);
+                if (HarmReductionDao.getRocConsentForJoiningMatServices(memberObject.getBaseEntityId()).equalsIgnoreCase("yes")) {
+                    evaluatePreMatServicesHealthEducation(details);
+                } else {
+                    evaluateHealthEducation(details);
+                }
                 evaluateSafeInjectionServices(details);
                 evaluateRiskySexualBehaviors(details);
                 evaluateHivInfectionStatus(details);

@@ -34,6 +34,7 @@ import org.smartregister.chw.harmreduction.interactor.BaseHarmReductionProfileIn
 import org.smartregister.chw.harmreduction.presenter.BaseHarmReductionProfilePresenter;
 import org.smartregister.chw.harmreduction.util.Constants;
 import org.smartregister.chw.harmreduction.util.HarmReductionUtil;
+import org.smartregister.chw.harmreduction.util.HarmReductionVisitsUtil;
 import org.smartregister.domain.AlertStatus;
 import org.smartregister.helper.ImageRenderHelper;
 import org.smartregister.view.activity.BaseProfileActivity;
@@ -58,7 +59,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     protected TextView textViewLocation;
     protected TextView textViewUniqueID;
     protected TextView textViewRecordTbLeprosy;
-    protected TextView textViewRecordTbContactVisit;
+    protected TextView textViewRecordSoberHouseVisit;
     protected TextView textViewContinueTbLeprosy;
     protected TextView manualProcessVisit;
     protected TextView textview_positive_date;
@@ -141,7 +142,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         progressBar = findViewById(R.id.progress_bar);
         textViewVisitDoneEdit = findViewById(R.id.textview_edit);
         textViewRecordTbLeprosy = findViewById(R.id.textview_record_harm_reduction_community_visit);
-        textViewRecordTbContactVisit = findViewById(R.id.textview_record_sober_house_visit);
+        textViewRecordSoberHouseVisit = findViewById(R.id.textview_record_sober_house_visit);
         textViewContinueTbLeprosy = findViewById(R.id.textview_continue);
         manualProcessVisit = findViewById(R.id.textview_manual_process);
         textViewUndo = findViewById(R.id.textview_undo);
@@ -158,7 +159,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         rlFamilyServicesDue.setOnClickListener(this);
         rlTbLeprosyPositiveDate.setOnClickListener(this);
         textViewRecordTbLeprosy.setOnClickListener(this);
-        textViewRecordTbContactVisit.setOnClickListener(this);
+        textViewRecordSoberHouseVisit.setOnClickListener(this);
         textViewContinueTbLeprosy.setOnClickListener(this);
         manualProcessVisit.setOnClickListener(this);
         textViewUndo.setOnClickListener(this);
@@ -370,14 +371,16 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
             profilePresenter.saveForm(data.getStringExtra(Constants.JSON_FORM_EXTRA.JSON));
-//           finish();
-            textViewRecordTbContactVisit.setVisibility(View.GONE);
-
+            try {
+                Visit lastVisit = HarmReductionLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.HARM_REDUCTION_FOLLOW_UP_VISIT);
+                HarmReductionVisitsUtil.manualProcessVisit(lastVisit);
+            } catch (Exception e) {
+                Timber.e(e);
+            }
         }
     }
 
     protected boolean isVisitOnProgress(Visit visit) {
-
         return visit != null && !visit.getProcessed();
     }
 }

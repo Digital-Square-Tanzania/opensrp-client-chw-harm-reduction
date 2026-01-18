@@ -226,7 +226,7 @@ public class HarmReductionDao extends AbstractDao {
 
     public static String getVisitDateForRocConsentForJoiningMatServices(String baseEntityID) {
         String sql = "select dateCreated from " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT +
-                " where entity_id = '" + baseEntityID + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                " where entity_id = '" + baseEntityID + "' AND roc_consent_joining_mat_services = 'yes' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> map = cursor -> getCursorValue(cursor, "dateCreated");
         List<String> res = readData(sql, map);

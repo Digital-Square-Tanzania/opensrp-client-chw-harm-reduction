@@ -258,6 +258,27 @@ public class BaseHarmReductionVisitAction {
         this.jsonPayload = jsonPayload;
     }
 
+    /**
+     * Re-run helper preprocessing to allow dynamic updates when dependent actions change.
+     */
+    public void refreshPreProcessedPayload() {
+        if (tbleprosyVisitActionHelper == null || StringUtils.isBlank(jsonPayload)) {
+            return;
+        }
+
+        try {
+            tbleprosyVisitActionHelper.onJsonFormLoaded(jsonPayload, context, details);
+            String preProcessed = tbleprosyVisitActionHelper.getPreProcessed();
+            if (StringUtils.isNotBlank(preProcessed)) {
+                JSONObject jsonObject = new JSONObject(preProcessed);
+                HarmReductionJsonFormUtils.populateForm(jsonObject, details);
+                this.jsonPayload = jsonObject.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public BaseHarmReductionVisitFragment getDestinationFragment() {
         return destinationFragment;
     }

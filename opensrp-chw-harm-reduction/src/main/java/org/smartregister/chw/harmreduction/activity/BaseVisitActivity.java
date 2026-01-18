@@ -188,6 +188,8 @@ public class BaseVisitActivity extends SecuredActivity implements BaseHarmReduct
     public void startForm(BaseHarmReductionVisitAction tbleprosyHomeVisitAction) {
         current_action = tbleprosyHomeVisitAction.getTitle();
 
+        tbleprosyHomeVisitAction.refreshPreProcessedPayload();
+
         if (StringUtils.isNotBlank(tbleprosyHomeVisitAction.getJsonPayload())) {
             try {
                 JSONObject jsonObject = new JSONObject(tbleprosyHomeVisitAction.getJsonPayload());

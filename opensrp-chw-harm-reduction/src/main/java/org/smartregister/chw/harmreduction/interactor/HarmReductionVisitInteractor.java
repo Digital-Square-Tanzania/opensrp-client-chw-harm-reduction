@@ -116,7 +116,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     }
 
     private void evaluateRiskySexualBehaviors(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {
-        HarmReductionRiskySexualBehaviorsActionHelper actionHelper = new HarmReductionRiskySexualBehaviorsActionHelper();
+        HarmReductionRiskySexualBehaviorsActionHelper actionHelper = new HarmReductionRiskySexualBehaviorsActionHelper(this::isUnsafeSexSelectedInClientStatus);
         BaseHarmReductionVisitAction action = getBuilder(context.getString(R.string.harm_reduction_risky_sexual_behaviors))
                 .withOptional(false)
                 .withDetails(details)
@@ -222,6 +222,19 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     private boolean isClientIdu() {
         String isIdu = getClientStatusValue(IS_IDU_FIELD);
         return YES_VALUE.equalsIgnoreCase(isIdu);
+    }
+
+    private boolean isUnsafeSexSelectedInClientStatus() {
+        String riskyBehavioursAll = getClientStatusValue("risky_behaviours");
+        String riskyBehavioursInjecting = getClientStatusValue("risky_behaviours_injecting_only");
+        String riskyBehavioursNonInjecting = getClientStatusValue("risky_behaviours_non_injecting_only");
+        return containsUnsafeSex(riskyBehavioursAll)
+                || containsUnsafeSex(riskyBehavioursInjecting)
+                || containsUnsafeSex(riskyBehavioursNonInjecting);
+    }
+
+    private boolean containsUnsafeSex(String value) {
+        return StringUtils.isNotBlank(value) && value.toLowerCase().contains("unsafe_sex");
     }
 
     private String getClientStatusValue(String key) {

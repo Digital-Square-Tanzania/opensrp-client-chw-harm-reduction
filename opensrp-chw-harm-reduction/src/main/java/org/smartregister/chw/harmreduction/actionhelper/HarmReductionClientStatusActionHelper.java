@@ -2,13 +2,17 @@ package org.smartregister.chw.harmreduction.actionhelper;
 
 import android.content.Context;
 
+import com.vijay.jsonwizard.constants.JsonFormConstants;
+
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONArray;
 import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.domain.VisitDetail;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
 import org.smartregister.chw.harmreduction.util.JsonFormUtils;
+import org.smartregister.chw.harmreduction.dao.HarmReductionDao;
 
 import java.util.List;
 import java.util.Map;
@@ -16,6 +20,10 @@ import java.util.Map;
 import timber.log.Timber;
 
 public class HarmReductionClientStatusActionHelper implements BaseHarmReductionVisitAction.HarmReductionVisitActionHelper {
+    private static final String GLOBAL = "global";
+    private static final String CLIENT_STATUS_FIELD_KEY = "client_status";
+    private static final String CLIENT_STATUS_NEW_OPTION = "new";
+
     protected MemberObject memberObject;
     protected String clientStatus;
     private String jsonPayload;
@@ -33,8 +41,13 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
     public String getPreProcessed() {
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
-            JSONObject global = jsonObject.getJSONObject("global");
+            JSONObject global = jsonObject.optJSONObject(GLOBAL);
+            if (global == null) {
+                global = new JSONObject();
+                jsonObject.put(GLOBAL, global);
+            }
             global.put("sex", memberObject.getGender().toLowerCase());
+            removeNewClientStatusOption(jsonObject);
             return jsonObject.toString();
         } catch (JSONException e) {
             Timber.e(e);
@@ -82,5 +95,52 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
     @Override
     public void onPayloadReceived(BaseHarmReductionVisitAction baseVisitAction) {
         // no-op
+    }
+
+    private void removeNewClientStatusOption(JSONObject jsonObject) {
+        if (memberObject == null || StringUtils.isBlank(memberObject.getBaseEntityId())) {
+            return;
+        }
+
+        if (!HarmReductionDao.hasHarmReductionVisit(memberObject.getBaseEntityId())) {
+            return;
+        }
+
+        try {
+            JSONObject stepOne = jsonObject.optJSONObject(JsonFormConstants.STEP1);
+            if (stepOne == null) {
+                return;
+            }
+
+            JSONArray fields = stepOne.optJSONArray(JsonFormConstants.FIELDS);
+            if (fields == null) {
+                return;
+            }
+
+            for (int i = 0; i < fields.length(); i++) {
+                JSONObject field = fields.optJSONObject(i);
+                if (field != null && CLIENT_STATUS_FIELD_KEY.equalsIgnoreCase(field.optString(JsonFormConstants.KEY))) {
+                    JSONArray options = field.optJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME);
+                    if (options == null) {
+                        return;
+                    }
+
+                    JSONArray filteredOptions = new JSONArray();
+                    for (int j = 0; j < options.length(); j++) {
+                        JSONObject option = options.optJSONObject(j);
+                        if (option == null) {
+                            continue;
+                        }
+                        if (!CLIENT_STATUS_NEW_OPTION.equalsIgnoreCase(option.optString(JsonFormConstants.KEY))) {
+                            filteredOptions.put(option);
+                        }
+                    }
+                    field.put(JsonFormConstants.OPTIONS_FIELD_NAME, filteredOptions);
+                    return;
+                }
+            }
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
     }
 }

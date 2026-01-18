@@ -15,6 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import timber.log.Timber;
+
 /**
  * This action list allows users to either load a form or link it to a separate fragment.
  */
@@ -34,7 +36,7 @@ public class BaseHarmReductionVisitAction {
     private String formName;
     private String jsonPayload;
     private String selectedOption;
-    private HarmReductionVisitActionHelper tbleprosyVisitActionHelper;
+    private HarmReductionVisitActionHelper harmReductionVisitActionHelper;
     private final Map<String, List<VisitDetail>> details;
     private final Context context;
     private final Validator validator;
@@ -51,7 +53,7 @@ public class BaseHarmReductionVisitAction {
         this.optional = builder.optional;
         this.destinationFragment = builder.destinationFragment;
         this.formName = builder.formName;
-        this.tbleprosyVisitActionHelper = builder.tbleprosyVisitActionHelper;
+        this.harmReductionVisitActionHelper = builder.tbleprosyVisitActionHelper;
         this.details = builder.details;
         this.context = builder.context;
         this.processingMode = builder.processingMode;
@@ -80,9 +82,9 @@ public class BaseHarmReductionVisitAction {
                 jsonPayload = jsonObject.toString();
             }
 
-            if (tbleprosyVisitActionHelper != null) {
-                tbleprosyVisitActionHelper.onJsonFormLoaded(jsonPayload, context, details);
-                String pre_processed = tbleprosyVisitActionHelper.getPreProcessed();
+            if (harmReductionVisitActionHelper != null) {
+                harmReductionVisitActionHelper.onJsonFormLoaded(jsonPayload, context, details);
+                String pre_processed = harmReductionVisitActionHelper.getPreProcessed();
                 if (StringUtils.isNotBlank(pre_processed)) {
                     JSONObject jsonObject = new JSONObject(pre_processed);
                     HarmReductionJsonFormUtils.populateForm(jsonObject, details);
@@ -90,12 +92,12 @@ public class BaseHarmReductionVisitAction {
                     this.jsonPayload = jsonObject.toString();
                 }
 
-                String sub_title = tbleprosyVisitActionHelper.getPreProcessedSubTitle();
+                String sub_title = harmReductionVisitActionHelper.getPreProcessedSubTitle();
                 if (StringUtils.isNotBlank(sub_title)) {
                     this.subTitle = sub_title;
                 }
 
-                ScheduleStatus status = tbleprosyVisitActionHelper.getPreProcessedStatus();
+                ScheduleStatus status = harmReductionVisitActionHelper.getPreProcessedStatus();
                 if (status != null) {
                     this.scheduleStatus = status;
                 }
@@ -236,22 +238,22 @@ public class BaseHarmReductionVisitAction {
     }
 
     private void onPayloadReceivedNotifyHelper(String jsonPayload) {
-        if (tbleprosyVisitActionHelper == null)
+        if (harmReductionVisitActionHelper == null)
             return;
 
-        tbleprosyVisitActionHelper.onPayloadReceived(jsonPayload);
+        harmReductionVisitActionHelper.onPayloadReceived(jsonPayload);
 
-        String sub_title = tbleprosyVisitActionHelper.evaluateSubTitle();
+        String sub_title = harmReductionVisitActionHelper.evaluateSubTitle();
         if (sub_title != null) {
             setSubTitle(sub_title);
         }
 
-        String post_process = tbleprosyVisitActionHelper.postProcess(jsonPayload);
+        String post_process = harmReductionVisitActionHelper.postProcess(jsonPayload);
         if (post_process != null) {
-            this.jsonPayload = tbleprosyVisitActionHelper.postProcess(jsonPayload);
+            this.jsonPayload = harmReductionVisitActionHelper.postProcess(jsonPayload);
         }
 
-        tbleprosyVisitActionHelper.onPayloadReceived(this);
+        harmReductionVisitActionHelper.onPayloadReceived(this);
     }
 
     public void setProcessedJsonPayload(String jsonPayload) {
@@ -262,20 +264,20 @@ public class BaseHarmReductionVisitAction {
      * Re-run helper preprocessing to allow dynamic updates when dependent actions change.
      */
     public void refreshPreProcessedPayload() {
-        if (tbleprosyVisitActionHelper == null || StringUtils.isBlank(jsonPayload)) {
+        if (harmReductionVisitActionHelper == null || StringUtils.isBlank(jsonPayload)) {
             return;
         }
 
         try {
-            tbleprosyVisitActionHelper.onJsonFormLoaded(jsonPayload, context, details);
-            String preProcessed = tbleprosyVisitActionHelper.getPreProcessed();
+            harmReductionVisitActionHelper.onJsonFormLoaded(jsonPayload, context, details);
+            String preProcessed = harmReductionVisitActionHelper.getPreProcessed();
             if (StringUtils.isNotBlank(preProcessed)) {
                 JSONObject jsonObject = new JSONObject(preProcessed);
                 HarmReductionJsonFormUtils.populateForm(jsonObject, details);
                 this.jsonPayload = jsonObject.toString();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
     }
 
@@ -304,11 +306,11 @@ public class BaseHarmReductionVisitAction {
     }
 
     public HarmReductionVisitActionHelper getTbLeprosyVisitActionHelper() {
-        return tbleprosyVisitActionHelper;
+        return harmReductionVisitActionHelper;
     }
 
     public void setTbLeprosyVisitActionHelper(HarmReductionVisitActionHelper tbleprosyVisitActionHelper) {
-        this.tbleprosyVisitActionHelper = tbleprosyVisitActionHelper;
+        this.harmReductionVisitActionHelper = tbleprosyVisitActionHelper;
     }
 
     /**

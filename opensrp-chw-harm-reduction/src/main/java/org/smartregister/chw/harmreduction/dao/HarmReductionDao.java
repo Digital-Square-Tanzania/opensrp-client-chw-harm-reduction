@@ -74,49 +74,8 @@ public class HarmReductionDao extends AbstractDao {
         return null;
     }
 
-    public static String getTbScreeningStatus(String baseEntityId) {
-        String sql = "SELECT screening_status FROM ec_tbleprosy_screening WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
-
-        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "screening_status");
-        List<String> res = readData(sql, dataMap);
-        if (res != null && !res.isEmpty() && res.get(0) != null) {
-            return res.get(0);
-        }
-        return null;
-    }
-
-    public static String getTBleprosyFollowUpVisit(String baseEntityId) {
-        String sql = "SELECT follow_up_reason FROM ec_tbleprosy_followup_visit p " +
-                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
-
-        DataMap<String> dataMap = cursor -> {
-            return getCursorValue(cursor, "follow_up_reason");
-        };
-
-        List<String> res = readData(sql, dataMap);
-        if (res != null && !res.isEmpty() && res.get(0) != null) {
-            return res.get(0);
-        }
-        return "";
-    }
-
-    public static String getTBleprosyVisit(String baseEntityId) {
-        String sql = "SELECT has_sample_been_collected FROM ec_tbleprosy_visit p " +
-                " WHERE p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
-
-        DataMap<String> dataMap = cursor -> {
-            return getCursorValue(cursor, "has_sample_been_collected");
-        };
-
-        List<String> res = readData(sql, dataMap);
-        if (res != null && !res.isEmpty() && res.get(0) != null) {
-            return res.get(0);
-        }
-        return "";
-    }
-
-    public static boolean hasTbLeprosyVisit(String baseEntityId) {
-        String sql = "SELECT count(p.entity_id) count FROM ec_tbleprosy_visit p " +
+    public static boolean hasHarmReductionVisit(String baseEntityId) {
+        String sql = "SELECT count(p.entity_id) count FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT + " p " +
                 " WHERE p.entity_id = '" + baseEntityId + "'";
 
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
@@ -263,7 +222,6 @@ public class HarmReductionDao extends AbstractDao {
             return "";
 
     }
-
 
 
     public static String getVisitDateForRocConsentForJoiningMatServices(String baseEntityID) {

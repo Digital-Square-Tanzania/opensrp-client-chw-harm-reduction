@@ -20,6 +20,8 @@
 
 
     <string name="harm_reduction_followup_visit">Follow Up Visit</string>
+    <string name="harm_reduction_pre_mat_session">Pre-Mat Session</string>
+    <string name="harm_reduction_pre_mat_session_history">Pre-Mat Sessions History</string>
 
     <string name="harm_reduction_client_status">Client Status</string>
     <string name="harm_reduction_health_education">Health Education</string>
@@ -36,6 +38,7 @@
     <string name="optional">Optional</string>
     <string name="error_unable_save_visit">Unable to save visit</string>
     <string name="view_visit_history">View Visit history</string>
+    <string name="view_pre_mat_session_history">View Pre-Mat Sessions history</string>
     <string name="harm_reduction_family_member">Family Member</string>
     <string name="harm_reduction_existing_client">Existing Client</string>
     <string name="harm_reduction_contact_option_new_client">Register new client</string>

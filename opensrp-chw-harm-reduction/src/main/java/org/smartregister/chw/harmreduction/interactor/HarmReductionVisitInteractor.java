@@ -52,7 +52,9 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 evaluateHivInfectionStatus(details);
                 evaluateOtherDiseasesScreening(details);
                 evaluateReferralsProvided(details);
-                evaluateConsentJoiningMat(details);
+                if (!HarmReductionDao.getRocConsentForJoiningMatServices(memberObject.getBaseEntityId()).equalsIgnoreCase("yes")) {
+                    evaluateConsentJoiningMat(details);
+                }
             } catch (BaseHarmReductionVisitAction.ValidationException e) {
                 Timber.e(e);
             }

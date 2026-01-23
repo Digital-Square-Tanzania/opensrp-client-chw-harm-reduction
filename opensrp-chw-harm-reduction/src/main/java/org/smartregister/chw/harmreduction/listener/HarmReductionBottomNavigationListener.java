@@ -25,6 +25,8 @@ public class HarmReductionBottomNavigationListener extends BottomNavigationListe
 
         if (item.getItemId() == R.id.action_home) {
             baseRegisterActivity.switchToBaseFragment();
+        }else if (item.getItemId() == R.id.action_safety_boxes_collection) {
+            baseRegisterActivity.switchToFragment(1);
         }
 
         return true;

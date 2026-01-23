@@ -8,4 +8,11 @@
         android:title="@string/home"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/action_safety_boxes_collection"
+        android:enabled="true"
+        android:icon="@mipmap/ic_jobaids"
+        android:title="@string/harm_reduction_safety_boxes_collection"
+        app:showAsAction="ifRoom" />
+
 </menu>

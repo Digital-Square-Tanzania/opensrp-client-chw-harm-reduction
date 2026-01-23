@@ -74,6 +74,11 @@
     <string name="harm_reduction_session">Harm Reduction Session</string>
     <string name="participants">Participants:</string>
     <string name="date">Date:</string>
+    <string name="harm_reduction_used_needles_collection_label">Used Needle and Syringes Collection</string>
+    <string name="harm_reduction_used_needles_collection_sessions">Used Needle and Syringes Collection Sessions</string>
+    <string name="harm_reduction_collection_date">Collection date: %s</string>
+    <string name="harm_reduction_safety_boxes_collected">Safety boxes collected: %s</string>
+    <string name="harm_reduction_safety_boxes_collection">Safety boxes collection</string>
 
     <string name="harm_reduction_contact">Contacts</string>
 

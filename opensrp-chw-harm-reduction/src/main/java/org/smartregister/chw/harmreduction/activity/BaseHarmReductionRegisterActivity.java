@@ -34,7 +34,6 @@ import org.smartregister.util.Utils;
 import org.smartregister.view.activity.BaseRegisterActivity;
 import org.smartregister.view.fragment.BaseRegisterFragment;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -135,7 +134,7 @@ public class BaseHarmReductionRegisterActivity extends BaseRegisterActivity impl
 
     @MenuRes
     public int getMenuResource() {
-        return R.menu.bottom_nav_tbleprosy;
+        return R.menu.bottom_nav_harm_reduction;
     }
 
     @Override

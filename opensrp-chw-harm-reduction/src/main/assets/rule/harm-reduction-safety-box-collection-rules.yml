@@ -1,0 +1,7 @@
+---
+name: step1_total_safety_boxes_collected
+description: Calculate total safety boxes collected
+priority: 1
+condition: "true"
+actions:
+  - "calculation = (step1_other_collection == null || step1_other_collection == '' ? 0 : step1_other_collection) + (step1_fixed_bins == null || step1_fixed_bins == '' ? 0 : step1_fixed_bins)"

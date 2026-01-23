@@ -19,6 +19,7 @@ public interface Constants {
         String HARM_REDUCTION_FOLLOW_UP_VISIT =  "Harm Reduction Follow-up Visit";
         String VOID_EVENT = "Void Event";
         String CLOSE_HARM_REDUCTION_SERVICE = "Close Harm Reduction Service";
+        String HARM_REDUCTION_USED_NEEDLES_AND_SYRINGES_COLLECTION = "Harm Reduction Used Needle and Syringes Collection";
     }
 
     interface FORMS {

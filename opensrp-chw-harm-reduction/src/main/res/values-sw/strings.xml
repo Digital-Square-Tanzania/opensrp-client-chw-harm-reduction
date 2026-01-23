@@ -10,6 +10,7 @@
     <string name="saving_dialog_title">Kuhifadhi</string>
     <string name="harm_reduction_followup_visit">Hudhurio la ufuatiliaji</string>
     <string name="record_harm_reduction_community_visit">Hudhurio la TB/Ukoma</string>
+    <string name="mark_client_started_mat">Thibitisha mteja ameanza MAT</string>
     <string name="record_mat_client_followup_visit">Rekodi hudhurio la mhisiwa wa ugonjwa wa TB</string>
     <string name="record_harm_reduction_client_followup_visit">Rekodi hudhurio la ufuatiliaji la Harm Reduction</string>
 

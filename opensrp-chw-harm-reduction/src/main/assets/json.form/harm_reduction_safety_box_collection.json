@@ -115,7 +115,13 @@
         "type": "edit_text",
         "edit_type": "number",
         "read_only": true,
-        "calculation": "coalesce(${other_collection}, 0) + coalesce(${fixed_bins}, 0)",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-safety-box-collection-rules.yml"
+            }
+          }
+        },
         "hint": "Total Safety Boxes collected (used syringes)"
       },
       {

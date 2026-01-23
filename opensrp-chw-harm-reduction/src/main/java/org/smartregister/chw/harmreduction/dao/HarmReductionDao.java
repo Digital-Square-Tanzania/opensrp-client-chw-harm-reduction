@@ -26,7 +26,7 @@ public class HarmReductionDao extends AbstractDao {
         memberObject.setGender(getCursorValue(cursor, "gender"));
         memberObject.setMartialStatus(getCursorValue(cursor, "marital_status"));
         memberObject.setUniqueId(getCursorValue(cursor, "unique_id", ""));
-        memberObject.setAge(getCursorValue(cursor, "dob"));
+        memberObject.setDob(getCursorValue(cursor, "dob"));
         memberObject.setFamilyBaseEntityId(getCursorValue(cursor, "family_base_entity_id", ""));
         memberObject.setRelationalId(getCursorValue(cursor, "relational_id", ""));
         memberObject.setPrimaryCareGiver(getCursorValue(cursor, "primary_caregiver"));

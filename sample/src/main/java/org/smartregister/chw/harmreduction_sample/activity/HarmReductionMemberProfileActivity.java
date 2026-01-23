@@ -79,11 +79,6 @@ public class HarmReductionMemberProfileActivity extends BaseHarmReductionProfile
     }
 
     @Override
-    public void openTbContactFollowUpVisit() {
-
-    }
-
-    @Override
     public void openRecordClientVisit() {
 
     }

@@ -20,9 +20,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import com.vijay.jsonwizard.activities.JsonFormActivity;
+
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
+import org.json.JSONObject;
+import org.smartregister.AllConstants;
 import org.smartregister.chw.harmreduction.HarmReductionLibrary;
 import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.contract.HarmReductionProfileContract;
@@ -33,6 +37,7 @@ import org.smartregister.chw.harmreduction.domain.Visit;
 import org.smartregister.chw.harmreduction.interactor.BaseHarmReductionProfileInteractor;
 import org.smartregister.chw.harmreduction.presenter.BaseHarmReductionProfilePresenter;
 import org.smartregister.chw.harmreduction.util.Constants;
+import org.smartregister.chw.harmreduction.util.HarmReductionJsonFormUtils;
 import org.smartregister.chw.harmreduction.util.HarmReductionUtil;
 import org.smartregister.chw.harmreduction.util.HarmReductionVisitsUtil;
 import org.smartregister.domain.AlertStatus;
@@ -60,6 +65,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     protected TextView textViewUniqueID;
     protected TextView textViewRecordHarmReductionVisit;
     protected TextView textViewRecordSoberHouseVisit;
+    protected TextView textViewMarkClientStartedMat;
     protected TextView textViewContinueTbLeprosy;
     protected TextView manualProcessVisit;
     protected TextView textview_positive_date;
@@ -145,6 +151,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         textViewVisitDoneEdit = findViewById(R.id.textview_edit);
         textViewRecordHarmReductionVisit = findViewById(R.id.textview_record_harm_reduction_community_visit);
         textViewRecordSoberHouseVisit = findViewById(R.id.textview_record_sober_house_visit);
+        textViewMarkClientStartedMat = findViewById(R.id.textview_mark_client_started_mat);
         textViewContinueTbLeprosy = findViewById(R.id.textview_continue);
         manualProcessVisit = findViewById(R.id.textview_manual_process);
         textViewUndo = findViewById(R.id.textview_undo);
@@ -161,6 +168,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         rlTbLeprosyPositiveDate.setOnClickListener(this);
         textViewRecordHarmReductionVisit.setOnClickListener(this);
         textViewRecordSoberHouseVisit.setOnClickListener(this);
+        textViewMarkClientStartedMat.setOnClickListener(this);
         textViewContinueTbLeprosy.setOnClickListener(this);
         manualProcessVisit.setOnClickListener(this);
         textViewUndo.setOnClickListener(this);
@@ -236,6 +244,8 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
             } else {
                 Toast.makeText(getApplicationContext(), "No click", Toast.LENGTH_SHORT).show();
             }
+        } else if (id == R.id.textview_mark_client_started_mat) {
+            openMarkClientStartedMatForm();
         } else if (id == R.id.textview_continue) {
             this.continueContactVisit();
         }
@@ -267,6 +277,25 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     @Override
     public void openFollowupVisit() {
         //Implement in application
+    }
+
+    protected void startFormActivity(JSONObject jsonForm) {
+        Intent intent = new Intent(this, JsonFormActivity.class);
+        intent.putExtra(Constants.JSON_FORM_EXTRA.JSON, jsonForm.toString());
+        startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
+    }
+
+    private void openMarkClientStartedMatForm() {
+        try {
+            String locationId = HarmReductionLibrary.getInstance().context().allSharedPreferences()
+                    .getPreference(AllConstants.CURRENT_LOCATION_ID);
+            JSONObject jsonForm = HarmReductionJsonFormUtils.getFormAsJson(Constants.FORMS.HARM_REDUCTION_MARK_CLIENT_HAS_STARTED_MAT);
+            HarmReductionJsonFormUtils.getRegistrationForm(jsonForm, memberObject.getBaseEntityId(), locationId);
+            startFormActivity(jsonForm);
+        } catch (Exception e) {
+            Timber.e(e);
+            Toast.makeText(getApplicationContext(), getString(R.string.error_unable_to_start_form), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @SuppressLint("DefaultLocale")

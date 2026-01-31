@@ -1,0 +1,334 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_sober_house_recovery_services",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_sober_house_recovery_services",
+    "fields": [
+      {
+        "key": "client_current_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_current_status",
+        "type": "radio",
+        "label": "Hali ya Mpokea huduma",
+        "options": [
+          {
+            "key": "calm",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "calm",
+            "text": "Mtulivu"
+          },
+          {
+            "key": "anxious",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anxious",
+            "text": "Ana Wasiwasi"
+          },
+          {
+            "key": "depressed_sad",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "depressed_sad",
+            "text": "Aliyekata tamaa / Mwenye huzuni kupita kiasi"
+          },
+          {
+            "key": "angry",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "angry",
+            "text": "Ana Hasira"
+          },
+          {
+            "key": "stable",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stable",
+            "text": "Yuko Imara / Thabiti"
+          }
+        ]
+      },
+      {
+        "key": "attended_recovery_meetings",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "attended_recovery_meetings",
+        "type": "radio",
+        "label": "Amehudhuria kwenye mikutano ya upataji nafuu",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
+          }
+        ]
+      },
+      {
+        "key": "recovery_meeting_types",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "recovery_meeting_types",
+        "type": "check_box",
+        "label": "Aina ya Mikutano",
+        "combine_checkbox_option_values": "true",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "aa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "aa",
+            "text": "Ustiri wa pombe (AA)"
+          },
+          {
+            "key": "na",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "na",
+            "text": "Ustiri wa mihadarati (NA)"
+          },
+          {
+            "key": "special_topic",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "special_topic",
+            "text": "Mada maalum (Taja)"
+          },
+          {
+            "key": "did_not_attend",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "did_not_attend",
+            "text": "Hajahudhuria"
+          }
+        ]
+      },
+      {
+        "key": "recovery_meeting_special_topic_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "recovery_meeting_special_topic_specify",
+        "type": "edit_text",
+        "hint": "Mada maalum (Taja)",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "life_skills_participation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "life_skills_participation",
+        "type": "check_box",
+        "label": "Ushiriki katika Stadi za Maisha",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "relapse_prevention",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "relapse_prevention",
+            "text": "Kujikinga kurudia dawa za kulevya"
+          },
+          {
+            "key": "communication_relationships",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "communication_relationships",
+            "text": "Mawasiliano na mahusiano"
+          },
+          {
+            "key": "emotional_regulation_stress",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "emotional_regulation_stress",
+            "text": "Udhibiti wa hisia na msongo"
+          },
+          {
+            "key": "problem_solving_decision_making",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "problem_solving_decision_making",
+            "text": "Utatuzi wa matatizo na ufanyaji maamuzi sahihi"
+          },
+          {
+            "key": "daily_self_care",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "daily_self_care",
+            "text": "Mbinu za kujijali katika maisha ya kila siku"
+          },
+          {
+            "key": "financial_skills",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "financial_skills",
+            "text": "Ujuzi na udhibiti wa fedha"
+          },
+          {
+            "key": "employment_entrepreneurship",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "employment_entrepreneurship",
+            "text": "Maarifa ya kazi na kujiajiri"
+          },
+          {
+            "key": "social_responsibility",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "social_responsibility",
+            "text": "Uwajibikaji wa kijamii"
+          },
+          {
+            "key": "health_education_wellbeing",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_education_wellbeing",
+            "text": "Elimu ya Afya na Ustawi"
+          },
+          {
+            "key": "household_responsibility",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "household_responsibility",
+            "text": "Uwajibikaji wa shughuli za nyumbani"
+          },
+          {
+            "key": "self_esteem_personal_growth",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "self_esteem_personal_growth",
+            "text": "Kujithamini na ukuaji binafsi"
+          }
+        ]
+      },
+      {
+        "key": "counseling_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "counseling_provided",
+        "type": "radio",
+        "label": "Unasihi umetolewa?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
+          }
+        ]
+      },
+      {
+        "key": "counseling_type",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "counseling_type",
+        "type": "radio",
+        "label": "Aina ya Unasihi",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-routine-services-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "group",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "group",
+            "text": "Vikundi"
+          },
+          {
+            "key": "individual",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "individual",
+            "text": "Binafsi"
+          },
+          {
+            "key": "family",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "family",
+            "text": "Familia"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -17,6 +17,7 @@ public interface Constants {
     interface EVENT_TYPE {
         String HARM_REDUCTION_RISK_ASSESSMENT = "Harm Reduction Risk Assessment";
         String HARM_REDUCTION_FOLLOW_UP_VISIT =  "Harm Reduction Follow-up Visit";
+        String HARM_REDUCTION_SOBER_HOUSE_VISIT = "Harm Reduction Sober House Visit";
         String VOID_EVENT = "Void Event";
         String CLOSE_HARM_REDUCTION_SERVICE = "Close Harm Reduction Service";
         String HARM_REDUCTION_USED_NEEDLES_AND_SYRINGES_COLLECTION = "Harm Reduction Used Needle and Syringes Collection";
@@ -44,6 +45,12 @@ public interface Constants {
         String HARM_REDUCTION_SOBER_HOUSE_RECOVERY_CAPITAL_FOLLOWUP = "harm_reduction_sober_house_recovery_capital_followup";
         String HARM_REDUCTION_SOBER_HOUSE_ROC_PROFILE = "harm_reduction_sober_house_roc_profile";
         String HARM_REDUCTION_SOBER_HOUSE_ROUTINE_SERVICES = "harm_reduction_sober_house_routine_services";
+        String HARM_REDUCTION_SOBER_HOUSE_CLIENT_TYPE_FOLLOWUP_STATUS = "harm_reduction_sober_house_client_type_followup_status";
+        String HARM_REDUCTION_SOBER_HOUSE_VITAL_SIGN_CHECK = "harm_reduction_sober_house_vitals";
+        String HARM_REDUCTION_SOBER_HOUSE_LINKAGE_TO_OTHER_SERVICES = "harm_reduction_sober_house_linkage_to_other_services";
+        String HARM_REDUCTION_SOBER_HOUSE_REFERRALS = "harm_reduction_sober_house_referrals";
+        String HARM_REDUCTION_SOBER_HOUSE_RECOVERY_CAPITAL_ASSESSMENT_AFTERCARE = "harm_reduction_sober_house_recovery_capital_assessment_aftercare";
+        String HARM_REDUCTION_SOBER_HOUSE_NEXT_APPOINTMENT_DATE = "harm_reduction_sober_house_next_appointment_date";
         String ROC_CONSENT_JOINING_MAT_SERVICES = "roc_consent_joining_mat_services";
         String HARM_REDUCTION_CONSENT_JOINING_MAT = "roc_consent_joining_mat_services";
         String HARM_REDUCTION_PRE_MAT_SESSIONS_HEALTH_EDUCATION = "harm_reduction_pre_mat_sessions_health_education";

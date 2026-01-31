@@ -13,5 +13,9 @@
             android:name="org.smartregister.view.receiver.TimeChangedBroadcastReceiver"
             android:exported="true"
             tools:replace="android:exported" />
+
+        <activity
+            android:name=".activity.HarmReductionSoberHouseVisitActivity"
+            android:exported="false" />
     </application>
 </manifest>

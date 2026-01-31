@@ -54,7 +54,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "client_type",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Aina ya Mteja",
         "options": [
           {
@@ -156,7 +156,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "follow_up_status",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Hali ya Mpokea huduma",
         "relevance": {
           "rules-engine": {

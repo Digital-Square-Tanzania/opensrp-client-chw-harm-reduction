@@ -54,7 +54,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "client_current_status",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Hali ya Mpokea huduma",
         "options": [
           {
@@ -99,7 +99,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "attended_recovery_meetings",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Amehudhuria kwenye mikutano ya upataji nafuu",
         "options": [
           {
@@ -272,7 +272,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "counseling_provided",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Unasihi umetolewa?",
         "options": [
           {
@@ -296,7 +296,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "counseling_type",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Aina ya Unasihi",
         "relevance": {
           "rules-engine": {

@@ -161,7 +161,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "stis_result",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Magonjwa ya Ngono - Matokeo",
         "relevance": {
           "rules-engine": {
@@ -192,7 +192,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "heart_diseases_result",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Magonjwa ya Moyo - Matokeo",
         "relevance": {
           "rules-engine": {
@@ -223,7 +223,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "mental_health_result",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Magonjwa ya afya ya Akili - Matokeo",
         "relevance": {
           "rules-engine": {
@@ -254,7 +254,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hepatitis_b_result",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Homa ya Ini aina ya B - Matokeo",
         "relevance": {
           "rules-engine": {
@@ -285,7 +285,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hepatitis_c_result",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Homa ya Ini aina ya C - Matokeo",
         "relevance": {
           "rules-engine": {
@@ -316,7 +316,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "diabetes_result",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Ugonjwa wa Kisukari - Matokeo",
         "relevance": {
           "rules-engine": {
@@ -347,7 +347,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tuberculosis_result",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Ugonjwa wa Kifua Kikuu - Matokeo",
         "relevance": {
           "rules-engine": {
@@ -378,7 +378,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_result",
-        "type": "radio",
+        "type": "native_radio",
         "label": "VVU na UKIMWI - Matokeo",
         "relevance": {
           "rules-engine": {
@@ -409,7 +409,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "treatment_after_screening",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Amefanyiwa matibabu baada ya uchunguzi?",
         "relevance": {
           "rules-engine": {
@@ -440,7 +440,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sober_house_eligible",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Je, Mpokea huduma amekidhi vigezo?",
         "options": [
           {
@@ -580,7 +580,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "education_level",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Kiwango cha Elimu",
         "relevance": {
           "rules-engine": {
@@ -783,7 +783,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "nationality",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Uraia",
         "relevance": {
           "rules-engine": {
@@ -814,7 +814,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "detoxification_done",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Mpokea huduma amefanyiwa Detoxification?",
         "relevance": {
           "rules-engine": {

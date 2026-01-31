@@ -54,7 +54,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "recovery_capital_passed",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Je, Mpokea huduma amekidhi vigezo?",
         "options": [
           {
@@ -94,7 +94,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "post_counselling_done",
-        "type": "radio",
+        "type": "native_radio",
         "label": "Je, Unasihi baada ya tathmini umefanyika?",
         "relevance": {
           "rules-engine": {
@@ -125,7 +125,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "after_care_plan_done",
-        "type": "radio",
+        "type": "native_radio",
         "label": "After Care Plan Imefanyika?",
         "relevance": {
           "rules-engine": {

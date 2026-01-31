@@ -27,12 +27,27 @@ public class BaseTestHarmReductionProfileActivity extends BaseHarmReductionProfi
     }
 
     @Override
-    public void openMatukioYaUchunguzi() {
+    public void openClientObservationResults() {
 
     }
 
     @Override
     public void observationResults() {
+
+    }
+
+    @Override
+    public void openRecordClientVisit() {
+
+    }
+
+    @Override
+    public void openObservationResults() {
+
+    }
+
+    @Override
+    public void openHarmReductionContactRegister() {
 
     }
 }

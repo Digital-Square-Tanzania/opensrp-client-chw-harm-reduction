@@ -29,7 +29,8 @@ public class BaseHarmReductionRegisterFragmentTest {
         Whitebox.invokeMethod(baseTestRegisterFragment, "openProfile", client);
         PowerMockito.mockStatic(BaseHarmReductionProfileActivity.class);
         BaseHarmReductionProfileActivity.startProfileActivity(null, null);
-        PowerMockito.verifyStatic(times(1));
+        PowerMockito.verifyStatic(BaseHarmReductionProfileActivity.class, times(1));
+        BaseHarmReductionProfileActivity.startProfileActivity(null, null);
 
     }
 }

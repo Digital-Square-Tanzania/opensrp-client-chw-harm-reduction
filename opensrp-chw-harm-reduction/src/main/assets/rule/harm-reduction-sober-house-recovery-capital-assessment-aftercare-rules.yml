@@ -1,0 +1,28 @@
+---
+name: step1_recovery_capital_passed_note
+description: Show recovery_capital_passed_note when its condition is met
+priority: 1
+condition: "step1_recovery_capital_passed == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_post_counselling_done
+description: Show post_counselling_done when its condition is met
+priority: 1
+condition: "step1_recovery_capital_passed == 'no'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_after_care_plan_done
+description: Show after_care_plan_done when its condition is met
+priority: 1
+condition: "step1_recovery_capital_passed == 'yes' || (step1_recovery_capital_passed == 'no' && step1_post_counselling_done == 'yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_after_care_plan_participants
+description: Show after_care_plan_participants when its condition is met
+priority: 1
+condition: "step1_after_care_plan_done == 'yes' && (step1_recovery_capital_passed == 'yes' || (step1_recovery_capital_passed == 'no' && step1_post_counselling_done == 'yes'))"
+actions:
+  - "isRelevant = true"

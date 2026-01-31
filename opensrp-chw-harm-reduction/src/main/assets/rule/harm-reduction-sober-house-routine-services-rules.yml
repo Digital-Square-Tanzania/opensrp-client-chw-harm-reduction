@@ -1,0 +1,21 @@
+---
+name: step1_recovery_meeting_types
+description: Show recovery_meeting_types when its condition is met
+priority: 1
+condition: "step1_attended_recovery_meetings == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_recovery_meeting_special_topic_specify
+description: Show recovery_meeting_special_topic_specify when its condition is met
+priority: 1
+condition: "step1_recovery_meeting_types != null && step1_recovery_meeting_types.contains('special_topic')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_counseling_type
+description: Show counseling_type when its condition is met
+priority: 1
+condition: "step1_counseling_provided == 'yes'"
+actions:
+  - "isRelevant = true"

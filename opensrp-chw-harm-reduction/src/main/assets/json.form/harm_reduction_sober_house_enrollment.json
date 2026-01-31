@@ -1,0 +1,876 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_sober_house_biopsychosocial_screening_linkage_enrollment_detox",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_sober_house_biopsychosocial_screening_linkage_enrollment_detox",
+    "fields": [
+      {
+        "key": "screening_tests_done",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "screening_tests_done",
+        "type": "check_box",
+        "label": "Vipimo vya Uchunguzi alivyofanyiwa Mpokea Huduma",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "stis",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stis",
+            "text": "Magonjwa ya Ngono"
+          },
+          {
+            "key": "heart_diseases",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "heart_diseases",
+            "text": "Magonjwa ya Moyo"
+          },
+          {
+            "key": "mental_health_conditions",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mental_health_conditions",
+            "text": "Magonjwa ya afya ya Akili"
+          },
+          {
+            "key": "hepatitis_b",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hepatitis_b",
+            "text": "Homa ya Ini aina ya B"
+          },
+          {
+            "key": "hepatitis_c",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hepatitis_c",
+            "text": "Homa ya Ini aina ya C"
+          },
+          {
+            "key": "other_hepatitis",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other_hepatitis",
+            "text": "Homa Nyengine za Ini"
+          },
+          {
+            "key": "diabetes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "diabetes",
+            "text": "Ugonjwa wa Kisukari"
+          },
+          {
+            "key": "tuberculosis",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tuberculosis",
+            "text": "Ugonjwa wa Kifua Kikuu"
+          },
+          {
+            "key": "other_conditions",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other_conditions",
+            "text": "Magonjwa Mengineyo (Taja)"
+          }
+        ]
+      },
+      {
+        "key": "other_conditions_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_conditions_specify",
+        "type": "edit_text",
+        "hint": "Magonjwa Mengineyo (Taja)",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "hiv_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_screening",
+        "type": "check_box",
+        "label": "VVU na UKIMWI",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "hiv",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hiv",
+            "text": "VVU na UKIMWI"
+          }
+        ]
+      },
+      {
+        "key": "stis_result",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "stis_result",
+        "type": "radio",
+        "label": "Magonjwa ya Ngono - Matokeo",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "has_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms",
+            "text": "Ana dalili"
+          },
+          {
+            "key": "no_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms",
+            "text": "Hana dalili"
+          }
+        ]
+      },
+      {
+        "key": "heart_diseases_result",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "heart_diseases_result",
+        "type": "radio",
+        "label": "Magonjwa ya Moyo - Matokeo",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "has_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms",
+            "text": "Ana dalili"
+          },
+          {
+            "key": "no_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms",
+            "text": "Hana dalili"
+          }
+        ]
+      },
+      {
+        "key": "mental_health_result",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mental_health_result",
+        "type": "radio",
+        "label": "Magonjwa ya afya ya Akili - Matokeo",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "has_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms",
+            "text": "Ana dalili"
+          },
+          {
+            "key": "no_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms",
+            "text": "Hana dalili"
+          }
+        ]
+      },
+      {
+        "key": "hepatitis_b_result",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hepatitis_b_result",
+        "type": "radio",
+        "label": "Homa ya Ini aina ya B - Matokeo",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "has_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms",
+            "text": "Ana dalili"
+          },
+          {
+            "key": "no_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms",
+            "text": "Hana dalili"
+          }
+        ]
+      },
+      {
+        "key": "hepatitis_c_result",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hepatitis_c_result",
+        "type": "radio",
+        "label": "Homa ya Ini aina ya C - Matokeo",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "has_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms",
+            "text": "Ana dalili"
+          },
+          {
+            "key": "no_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms",
+            "text": "Hana dalili"
+          }
+        ]
+      },
+      {
+        "key": "diabetes_result",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "diabetes_result",
+        "type": "radio",
+        "label": "Ugonjwa wa Kisukari - Matokeo",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "has_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms",
+            "text": "Ana dalili"
+          },
+          {
+            "key": "no_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms",
+            "text": "Hana dalili"
+          }
+        ]
+      },
+      {
+        "key": "tuberculosis_result",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tuberculosis_result",
+        "type": "radio",
+        "label": "Ugonjwa wa Kifua Kikuu - Matokeo",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "has_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms",
+            "text": "Ana dalili"
+          },
+          {
+            "key": "no_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms",
+            "text": "Hana dalili"
+          }
+        ]
+      },
+      {
+        "key": "hiv_result",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_result",
+        "type": "radio",
+        "label": "VVU na UKIMWI - Matokeo",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "positive",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive",
+            "text": "Ana Maambukizi"
+          },
+          {
+            "key": "negative",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative",
+            "text": "Hana Maambukizi"
+          }
+        ]
+      },
+      {
+        "key": "treatment_after_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "treatment_after_screening",
+        "type": "radio",
+        "label": "Amefanyiwa matibabu baada ya uchunguzi?",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
+          }
+        ]
+      },
+      {
+        "key": "sober_house_eligible",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sober_house_eligible",
+        "type": "radio",
+        "label": "Je, Mpokea huduma amekidhi vigezo?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
+          }
+        ]
+      },
+      {
+        "key": "enroll_action_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "enroll_action_prompt",
+        "type": "label",
+        "label": "Hatua",
+        "text": "Msajili Mpokea huduma katika Nyumba ya Upataji nafuu (Sober House).",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "not_eligible_action_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "not_eligible_action_prompt",
+        "type": "label",
+        "label": "Hatua",
+        "text": "Mpokea huduma hajakidhi vigezo, muunganishe na huduma nyingine.",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "other_services_referral",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_services_referral",
+        "type": "check_box",
+        "label": "Rufaa ya huduma nyinginezo zilizotolewa",
+        "combine_checkbox_option_values": "true",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "tuberculosis",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tuberculosis",
+            "text": "Kifua Kikuu"
+          },
+          {
+            "key": "mental_health",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mental_health",
+            "text": "Magonjwa ya Akili"
+          },
+          {
+            "key": "hepatitis",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hepatitis",
+            "text": "Homa ya Ini"
+          },
+          {
+            "key": "skin_diseases",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "skin_diseases",
+            "text": "Magonjwa ya Ngozi"
+          },
+          {
+            "key": "none",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none",
+            "text": "Hajaunganishwa na huduma"
+          }
+        ]
+      },
+      {
+        "key": "nickname",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "nickname",
+        "type": "edit_text",
+        "hint": "Jina la Utani",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "uic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "uic",
+        "type": "edit_text",
+        "hint": "Namba ya Utambulisho (UIC)",
+        "edit_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "education_level",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "education_level",
+        "type": "radio",
+        "label": "Kiwango cha Elimu",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "no_education",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_education",
+            "text": "Hajasoma"
+          },
+          {
+            "key": "incomplete_primary",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "incomplete_primary",
+            "text": "Hajamaliza Elimu ya Msingi"
+          },
+          {
+            "key": "completed_primary",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "completed_primary",
+            "text": "Amemaliza Elimu ya Msingi"
+          },
+          {
+            "key": "completed_secondary",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "completed_secondary",
+            "text": "Amemaliza Elimu ya Sekondari"
+          },
+          {
+            "key": "university",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "university",
+            "text": "Elimu ya Chuo Kikuu"
+          }
+        ]
+      },
+      {
+        "key": "hiv_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_status",
+        "type": "edit_text",
+        "hint": "Hali ya Maambukizi ya VVU",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "ctc_id",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ctc_id",
+        "type": "edit_text",
+        "hint": "Namba ya Utambulisho (CTC)",
+        "edit_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "substances_leading_to_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_leading_to_services",
+        "type": "check_box",
+        "label": "Aina za kilevi zilizopelekea kuhitaji huduma",
+        "combine_checkbox_option_values": "true",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "alcohol",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "alcohol",
+            "text": "Pombe"
+          },
+          {
+            "key": "cannabis",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cannabis",
+            "text": "Bangi"
+          },
+          {
+            "key": "khat",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "khat",
+            "text": "Mirungi"
+          },
+          {
+            "key": "heroin",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "heroin",
+            "text": "Heroine"
+          },
+          {
+            "key": "valium_diazepam",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "valium_diazepam",
+            "text": "Valium/Diazepam"
+          },
+          {
+            "key": "tramadol",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tramadol",
+            "text": "Tramadol"
+          },
+          {
+            "key": "methamphetamine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methamphetamine",
+            "text": "Methamphetamine"
+          },
+          {
+            "key": "methadone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methadone",
+            "text": "Methadone"
+          },
+          {
+            "key": "other",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other",
+            "text": "Vilevi Vinginevyo (Taja)"
+          }
+        ]
+      },
+      {
+        "key": "other_substances_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_substances_specify",
+        "type": "edit_text",
+        "hint": "Vilevi Vinginevyo (Taja)",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "height_cm",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "height_cm",
+        "type": "edit_text",
+        "hint": "Urefu (cm)",
+        "edit_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "nationality",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "nationality",
+        "type": "radio",
+        "label": "Uraia",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "tanzanian",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tanzanian",
+            "text": "Mtanzania"
+          },
+          {
+            "key": "non_tanzanian",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "non_tanzanian",
+            "text": "Sio Mtanzania"
+          }
+        ]
+      },
+      {
+        "key": "detoxification_done",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "detoxification_done",
+        "type": "radio",
+        "label": "Mpokea huduma amefanyiwa Detoxification?",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
+          }
+        ]
+      },
+      {
+        "key": "detoxification_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "detoxification_date",
+        "type": "date_picker",
+        "hint": "Tarehe ya kufanyika detoxification",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "detoxification_referral_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "detoxification_referral_prompt",
+        "type": "label",
+        "label": "Hatua",
+        "text": "Mpeleke kituo cha afya akafanye detoxification.",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

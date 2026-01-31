@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_sober_house_recovery_capital_followup",
+  "encounter_type": "harm_reduction_sober_house_recovery_capital_assessment_aftercare",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,118 +47,141 @@
     }
   },
   "step1": {
-    "title": "harm_reduction_sober_house_recovery_capital_followup",
+    "title": "harm_reduction_sober_house_recovery_capital_assessment_aftercare",
     "fields": [
       {
         "key": "recovery_capital_passed",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "recovery_capital_passed",
-        "type": "native_radio",
-        "label": "Did RoC pass the Recovery Capital Assessment?",
+        "type": "radio",
+        "label": "Je, Mpokea huduma amekidhi vigezo?",
         "options": [
           {
             "key": "yes",
-            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
           },
           {
             "key": "no",
-            "text": "No",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
           }
         ]
       },
       {
-        "key": "post_counseling_done",
+        "key": "recovery_capital_passed_note",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "post_counseling_done",
-        "type": "native_radio",
-        "label": "Was post-counseling conducted?",
-        "options": [
-          {
-            "key": "yes",
-            "text": "Yes",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
-          },
-          {
-            "key": "no",
-            "text": "No",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
-          }
-        ],
+        "openmrs_entity_id": "recovery_capital_passed_note",
+        "type": "label",
+        "label": "Maelekezo",
+        "text": "1. Mfumo utamhitimu Mpokea huduma (Auto graduate) baada ya kupita Tathmini ya Recovery Capital.\n2. Endelea na swali la \"Provide After Care and Social re-integration\".",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-sober-house-recovery-capital-followup-relevance-rules.yml"
+              "rules-file": "harm-reduction-sober-house-recovery-capital-assessment-aftercare-rules.yml"
             }
           }
         }
       },
       {
-        "key": "after_care_plan_conducted",
+        "key": "post_counselling_done",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "after_care_plan_conducted",
-        "type": "native_radio",
-        "label": "Was an after-care plan conducted?",
+        "openmrs_entity_id": "post_counselling_done",
+        "type": "radio",
+        "label": "Je, Unasihi baada ya tathmini umefanyika?",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-recovery-capital-assessment-aftercare-rules.yml"
+            }
+          }
+        },
         "options": [
           {
             "key": "yes",
-            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
           },
           {
             "key": "no",
-            "text": "No",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
           }
         ]
       },
       {
-        "key": "after_care_plan_participation",
+        "key": "after_care_plan_done",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "after_care_plan_participation",
+        "openmrs_entity_id": "after_care_plan_done",
+        "type": "radio",
+        "label": "After Care Plan Imefanyika?",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-recovery-capital-assessment-aftercare-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
+          }
+        ]
+      },
+      {
+        "key": "after_care_plan_participants",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "after_care_plan_participants",
         "type": "check_box",
-        "label": "After-care plan participants",
+        "label": "Ushirikishi wa Plan",
         "combine_checkbox_option_values": "true",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-recovery-capital-assessment-aftercare-rules.yml"
+            }
+          }
+        },
         "options": [
           {
             "key": "family",
-            "text": "Family",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "family"
+            "openmrs_entity_id": "family",
+            "text": "Familia"
           },
           {
-            "key": "treatment_supporter",
-            "text": "Treatment supporter",
+            "key": "close_supporter",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "treatment_supporter"
+            "openmrs_entity_id": "close_supporter",
+            "text": "Msaidizi wa Karibu"
           }
-        ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-sober-house-recovery-capital-followup-relevance-rules.yml"
-            }
-          }
-        }
+        ]
       }
     ]
   }

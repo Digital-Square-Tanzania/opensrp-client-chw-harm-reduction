@@ -1,5 +1,9 @@
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'signing'
+
+def isReleaseBuild() {
+    return project.version.toString().contains("SNAPSHOT") == false
+}
 
 def sonatypeRepositoryURL
 def mavenLocalFlag = hasProperty('mavenLocal') ? mavenLocal.toBoolean() : true;
@@ -24,111 +28,73 @@ def getRepositoryUsername() {
 }
 
 afterEvaluate { project ->
-    uploadArchives {
-        repositories {
+    task androidJavadocs(type: Javadoc) {
+        // Intentionally empty: configure sources/classpath in the module if needed.
+    }
 
-            if (mavenLocalFlag) {
+    task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+        archiveClassifier.set('javadoc')
+    }
 
-                mavenDeployer {
+    task androidSourcesJar(type: Jar) {
+        archiveClassifier.set('sources')
+    }
 
-                    pom.artifactId = POM_SETTING_ARTIFACT_ID
-
-                    repository(url: mavenLocal().url)
-
-                    pom.project {
-                        name POM_SETTING_NAME
-                        packaging POM_SETTING_PACKAGING
-                        description POM_SETTING_DESCRIPTION
-                        url POM_SETTING_URL
-
-                        scm {
-                            url POM_SETTING_SCM_URL
-                            connection POM_SETTING_SCM_CONNECTION
-                            developerConnection POM_SETTING_SCM_DEV_CONNECTION
-                        }
-
-                        licenses {
-                            license {
-                                name POM_SETTING_LICENCE_NAME
-                                url POM_SETTING_LICENCE_URL
-                                distribution POM_SETTING_LICENCE_DIST
-                            }
-                        }
-
-                        developers {
-                            developer {
-                                id POM_SETTING_DEVELOPER_ID
-                                name POM_SETTING_DEVELOPER_NAME
-                            }
-                        }
+    publishing {
+        publications.withType(MavenPublication).configureEach {
+            artifact(androidSourcesJar)
+            artifact(androidJavadocsJar)
+            pom {
+                name.set(POM_SETTING_NAME)
+                description.set(POM_SETTING_DESCRIPTION)
+                url.set(POM_SETTING_URL)
+                scm {
+                    url.set(POM_SETTING_SCM_URL)
+                    connection.set(POM_SETTING_SCM_CONNECTION)
+                    developerConnection.set(POM_SETTING_SCM_DEV_CONNECTION)
+                }
+                licenses {
+                    license {
+                        name.set(POM_SETTING_LICENCE_NAME)
+                        url.set(POM_SETTING_LICENCE_URL)
+                        distribution.set(POM_SETTING_LICENCE_DIST)
                     }
                 }
-            } else {
-                mavenDeployer {
-                    beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-                    pom.artifactId = POM_SETTING_ARTIFACT_ID
-
-                    repository(url: sonatypeRepositoryURL) {
-                        authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
-                    }
-
-                    pom.project {
-                        name POM_SETTING_NAME
-                        packaging POM_SETTING_PACKAGING
-                        description POM_SETTING_DESCRIPTION
-                        url POM_SETTING_URL
-
-                        scm {
-                            url POM_SETTING_SCM_URL
-                            connection POM_SETTING_SCM_CONNECTION
-                            developerConnection POM_SETTING_SCM_DEV_CONNECTION
-                        }
-
-                        licenses {
-                            license {
-                                name POM_SETTING_LICENCE_NAME
-                                url POM_SETTING_LICENCE_URL
-                                distribution POM_SETTING_LICENCE_DIST
-                            }
-                        }
-
-                        developers {
-                            developer {
-                                id POM_SETTING_DEVELOPER_ID
-                                name POM_SETTING_DEVELOPER_NAME
-                            }
-                        }
+                developers {
+                    developer {
+                        id.set(POM_SETTING_DEVELOPER_ID)
+                        name.set(POM_SETTING_DEVELOPER_NAME)
                     }
                 }
-
+            }
+        }
+        if (!mavenLocalFlag) {
+            repositories {
+                maven {
+                    url = uri(sonatypeRepositoryURL)
+                    credentials {
+                        username = getRepositoryUsername()
+                        password = getRepositoryPassword()
+                    }
+                }
             }
         }
     }
 
     signing {
-        required { isReleaseBuild() && gradle.taskGraph.hasTask("uploadArchives") }
-        sign configurations.archives
+        required { isReleaseBuild() && gradle.taskGraph.hasTask("publish") }
+        sign publishing.publications
     }
 
-    task androidJavadocs(type: Javadoc) {
-    }
-
-    task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-        classifier = 'javadoc'
-    }
-
-    task androidSourcesJar(type: Jar) {
-        classifier = 'sources'
-    }
-
-    artifacts {
-        archives androidSourcesJar
-        archives androidJavadocsJar
-    }
-
-    nexusStaging {
-        username getRepositoryUsername()
-        password getRepositoryPassword()
+    if (project.extensions.findByName("nexusStaging") != null) {
+        nexusStaging {
+            username getRepositoryUsername()
+            password getRepositoryPassword()
+        }
+    } else if (rootProject.extensions.findByName("nexusStaging") != null) {
+        rootProject.nexusStaging {
+            username getRepositoryUsername()
+            password getRepositoryPassword()
+        }
     }
 }

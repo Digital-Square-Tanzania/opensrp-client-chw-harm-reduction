@@ -1,0 +1,7 @@
+---
+name: step1_other_services_referrals_specify
+description: Show other_services_referrals_specify when its condition is met
+priority: 1
+condition: "step1_other_services_referrals != null && step1_other_services_referrals.contains('other')"
+actions:
+  - "isRelevant = true"

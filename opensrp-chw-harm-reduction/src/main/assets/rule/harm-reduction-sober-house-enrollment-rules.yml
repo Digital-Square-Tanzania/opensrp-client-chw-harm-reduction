@@ -1,0 +1,176 @@
+---
+name: step1_other_conditions_specify
+description: Show other_conditions_specify when its condition is met
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('other_conditions')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_stis_result
+description: Show stis_result when its condition is met
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('stis')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_heart_diseases_result
+description: Show heart_diseases_result when its condition is met
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('heart_diseases')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_mental_health_result
+description: Show mental_health_result when its condition is met
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('mental_health_conditions')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_hepatitis_b_result
+description: Show hepatitis_b_result when its condition is met
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('hepatitis_b')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_hepatitis_c_result
+description: Show hepatitis_c_result when its condition is met
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('hepatitis_c')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_diabetes_result
+description: Show diabetes_result when its condition is met
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('diabetes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tuberculosis_result
+description: Show tuberculosis_result when its condition is met
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('tuberculosis')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_hiv_result
+description: Show hiv_result when its condition is met
+priority: 1
+condition: "step1_hiv_screening != null && step1_hiv_screening.contains('hiv')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_treatment_after_screening
+description: Show treatment_after_screening when its condition is met
+priority: 1
+condition: "step1_stis_result == 'has_symptoms' || step1_heart_diseases_result == 'has_symptoms' || step1_mental_health_result == 'has_symptoms' || step1_hepatitis_b_result == 'has_symptoms' || step1_hepatitis_c_result == 'has_symptoms' || step1_diabetes_result == 'has_symptoms' || step1_tuberculosis_result == 'has_symptoms'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_enroll_action_prompt
+description: Show enroll_action_prompt when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_not_eligible_action_prompt
+description: Show not_eligible_action_prompt when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'no'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_other_services_referral
+description: Show other_services_referral when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'no'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_nickname
+description: Show nickname when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_uic
+description: Show uic when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_education_level
+description: Show education_level when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_hiv_status
+description: Show hiv_status when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes'"
+actions:
+  - "isRelevant = true"
+  - "calculation = (step1_hiv_result == 'positive' ? 'Ana Maambukizi' : (step1_hiv_result == 'negative' ? 'Hana Maambukizi' : 'Haijabainika'))"
+---
+name: step1_ctc_id
+description: Show ctc_id when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes' && step1_hiv_result == 'positive'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substances_leading_to_services
+description: Show substances_leading_to_services when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_other_substances_specify
+description: Show other_substances_specify when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes' && step1_substances_leading_to_services != null && step1_substances_leading_to_services.contains('other')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_height_cm
+description: Show height_cm when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_nationality
+description: Show nationality when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_detoxification_done
+description: Show detoxification_done when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_detoxification_date
+description: Show detoxification_date when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes' && step1_detoxification_done == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_detoxification_referral_prompt
+description: Show detoxification_referral_prompt when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes' && step1_detoxification_done == 'no'"
+actions:
+  - "isRelevant = true"

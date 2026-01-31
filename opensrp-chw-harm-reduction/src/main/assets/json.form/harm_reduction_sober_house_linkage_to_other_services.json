@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_sober_house_followup_status",
+  "encounter_type": "harm_reduction_sober_house_link_other_services",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,52 +47,68 @@
     }
   },
   "step1": {
-    "title": "harm_reduction_sober_house_followup_status",
+    "title": "harm_reduction_sober_house_link_other_services",
     "fields": [
       {
-        "key": "follow_up_status",
+        "key": "other_services_referrals",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "follow_up_status",
-        "type": "native_radio",
-        "label": "Follow up Status",
+        "openmrs_entity_id": "other_services_referrals",
+        "type": "check_box",
+        "label": "Rufaa ya huduma nyinginezo zilizotolewa",
+        "combine_checkbox_option_values": "true",
         "options": [
           {
-            "key": "lost",
-            "text": "Lost",
+            "key": "gender_based_violence",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "lost"
+            "openmrs_entity_id": "gender_based_violence",
+            "text": "Ukatili wa Kijinsia"
           },
           {
-            "key": "died",
-            "text": "Died",
+            "key": "rights_entitlements_special_groups",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "died"
+            "openmrs_entity_id": "rights_entitlements_special_groups",
+            "text": "Haki stahiki kwa makundi maalumu"
           },
           {
-            "key": "relapsed",
-            "text": "Relapsed",
+            "key": "legal_issues",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "relapsed"
+            "openmrs_entity_id": "legal_issues",
+            "text": "Masuala ya Kisheria"
           },
           {
-            "key": "graduated",
-            "text": "Graduated",
+            "key": "income_generating_activities",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "graduated"
+            "openmrs_entity_id": "income_generating_activities",
+            "text": "Kujikwamua Kiuchumi (IGA)"
           },
           {
-            "key": "transferred_out",
-            "text": "Transferred Out",
+            "key": "other",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "transferred_out"
+            "openmrs_entity_id": "other",
+            "text": "Mengineyo"
           }
         ]
+      },
+      {
+        "key": "other_services_referrals_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_services_referrals_specify",
+        "type": "edit_text",
+        "hint": "Mengineyo (Taja)",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-linkage-to-other-services-rules.yml"
+            }
+          }
+        }
       }
     ]
   }

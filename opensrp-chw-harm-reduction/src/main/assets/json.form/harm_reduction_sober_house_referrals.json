@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_sober_house_facility_referral_provided",
+  "encounter_type": "harm_reduction_sober_house_refer_to_facility",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,114 +47,93 @@
     }
   },
   "step1": {
-    "title": "harm_reduction_sober_house_facility_referral_provided",
+    "title": "harm_reduction_sober_house_refer_to_facility",
     "fields": [
       {
-        "key": "facility_referrals_provided",
+        "key": "facility_referrals",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "facility_referrals_provided",
+        "openmrs_entity_id": "facility_referrals",
         "type": "check_box",
-        "label": "Referral provided",
+        "label": "Rufaa ya huduma za kitabibu zilizotolewa",
         "combine_checkbox_option_values": "true",
         "options": [
           {
             "key": "hiv_aids",
-            "text": "HIV and AIDS",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hiv_aids"
+            "openmrs_entity_id": "hiv_aids",
+            "text": "VVU na UKIMWI"
           },
           {
-            "key": "tuberculosis",
-            "text": "Tuberculosis (TB)",
+            "key": "tb_leprosy",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tuberculosis"
-          },
-          {
-            "key": "ntds",
-            "text": "Neglected Tropical Diseases",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "ntds"
+            "openmrs_entity_id": "tb_leprosy",
+            "text": "Kifua Kikuu na Ukoma"
           },
           {
             "key": "family_planning",
-            "text": "Family Planning",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "family_planning"
+            "openmrs_entity_id": "family_planning",
+            "text": "Uzazi wa mpango"
           },
           {
-            "key": "rmch",
-            "text": "Reproductive, Mother and Child Health",
+            "key": "rmchn_adolescents",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "rmch"
+            "openmrs_entity_id": "rmchn_adolescents",
+            "text": "Afya ya uzazi, baba, Mama, Mtoto na Vijana balehe"
           },
           {
             "key": "mental_health",
-            "text": "Mental Health",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "mental_health"
+            "openmrs_entity_id": "mental_health",
+            "text": "Afya ya Akili"
           },
           {
-            "key": "gbv",
-            "text": "Gender Based Violence",
+            "key": "gender_based_violence",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "gbv"
+            "openmrs_entity_id": "gender_based_violence",
+            "text": "Ukatili wa Kijinsia"
           },
           {
             "key": "psychological_support",
-            "text": "Psychological support",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "psychological_support"
+            "openmrs_entity_id": "psychological_support",
+            "text": "Msaada wa kisaikolojia"
           },
           {
-            "key": "rights_entitlements",
-            "text": "Rights and entitlements for special groups",
+            "key": "rights_entitlements_special_groups",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "rights_entitlements"
+            "openmrs_entity_id": "rights_entitlements_special_groups",
+            "text": "Haki stahiki kwa makundi maalumu"
           },
           {
-            "key": "sti",
-            "text": "STI",
+            "key": "stis_reproductive",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sti"
-          },
-          {
-            "key": "legal_services",
-            "text": "Legal services",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "legal_services"
-          },
-          {
-            "key": "iga",
-            "text": "Income Generating Activities (IGA)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "iga"
+            "openmrs_entity_id": "stis_reproductive",
+            "text": "Magonjwa ya Ngono na via vya Uzazi"
           },
           {
             "key": "wounds_abscesses",
-            "text": "Treatment of wounds and abscesses (boils)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "wounds_abscesses"
+            "openmrs_entity_id": "wounds_abscesses",
+            "text": "Matibabu ya vidonda na Mabunyufu (majipu)"
           },
           {
             "key": "other",
-            "text": "Others (Specify)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "other"
+            "openmrs_entity_id": "other",
+            "text": "Mengineyo"
           }
         ]
       },
@@ -164,11 +143,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "facility_referrals_other_specify",
         "type": "edit_text",
-        "hint": "If others, specify",
+        "hint": "Mengineyo (Taja)",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-sober-house-facility-referral-provided-relevance-rules.yml"
+              "rules-file": "harm-reduction-sober-house-referrals-rules.yml"
             }
           }
         }

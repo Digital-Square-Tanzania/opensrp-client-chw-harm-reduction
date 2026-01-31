@@ -1,0 +1,233 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_sober_house_client_type_followup_status",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_sober_house_client_type_followup_status",
+    "fields": [
+      {
+        "key": "client_type",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_type",
+        "type": "radio",
+        "label": "Aina ya Mteja",
+        "options": [
+          {
+            "key": "new_client",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "new_client",
+            "text": "Mpya"
+          },
+          {
+            "key": "returning_client",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "returning_client",
+            "text": "Marudio"
+          },
+          {
+            "key": "relapsed_client",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "relapsed_client",
+            "text": "Aliyerudia kutumia dawa za kulevya"
+          },
+          {
+            "key": "migrant_client",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "migrant_client",
+            "text": "Muhamiaji"
+          }
+        ]
+      },
+      {
+        "key": "client_type_guidance_new",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_type_guidance_new",
+        "type": "label",
+        "label": "Maelekezo",
+        "text": "Endelea na hatua ya Uchunguzi na Tathmini (Screening and Assessment).",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "client_type_guidance_returning",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_type_guidance_returning",
+        "type": "label",
+        "label": "Maelekezo",
+        "text": "Mfumo utabaini moja kwa moja kuwa huyu ni Mpokea huduma aliyeshasajiliwa kwenye huduma za Sober House.",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "client_type_guidance_relapse",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_type_guidance_relapse",
+        "type": "label",
+        "label": "Maelekezo",
+        "text": "Kwa Mpokea huduma aliyewahi kusajiliwa na ana Hali ya Ufuatiliaji ya \"Aliyerudia kutumia dawa za kulevya (Relapse)\", endelea na Uchunguzi na Tathmini.",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "client_type_guidance_migrant",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_type_guidance_migrant",
+        "type": "label",
+        "label": "Maelekezo",
+        "text": "Endelea na Usajili wa Sober House (Sober House Enrollment).",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "follow_up_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "follow_up_status",
+        "type": "radio",
+        "label": "Hali ya Mpokea huduma",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "continuing_service",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "continuing_service",
+            "text": "Anaendelea na Huduma"
+          },
+          {
+            "key": "absconded",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "absconded",
+            "text": "Ametoroka"
+          },
+          {
+            "key": "died",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "died",
+            "text": "Amefariki"
+          },
+          {
+            "key": "moved",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "moved",
+            "text": "Amehama"
+          }
+        ]
+      },
+      {
+        "key": "died_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "died_prompt",
+        "type": "label",
+        "label": "Maelekezo",
+        "text": "Mfumo utamuweka Mpokea huduma kwenye hali ya Amefariki (Mark as Deceased).",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "discontinued_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "discontinued_prompt",
+        "type": "label",
+        "label": "Tahadhari",
+        "text": "Mpokea huduma amesitisha huduma za Sober House.",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

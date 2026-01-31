@@ -1,0 +1,14 @@
+---
+name: step1_systolic_bp
+description: Show systolic_bp when its condition is met
+priority: 1
+condition: "step1_testing_services != null && step1_testing_services.contains('blood_pressure')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_diastolic_bp
+description: Show diastolic_bp when its condition is met
+priority: 1
+condition: "step1_testing_services != null && step1_testing_services.contains('blood_pressure')"
+actions:
+  - "isRelevant = true"

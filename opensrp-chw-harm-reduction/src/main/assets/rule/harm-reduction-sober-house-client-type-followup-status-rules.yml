@@ -1,0 +1,49 @@
+---
+name: step1_client_type_guidance_new
+description: Show client_type_guidance_new when its condition is met
+priority: 1
+condition: "step1_client_type == 'new_client'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_client_type_guidance_returning
+description: Show client_type_guidance_returning when its condition is met
+priority: 1
+condition: "step1_client_type == 'returning_client'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_client_type_guidance_relapse
+description: Show client_type_guidance_relapse when its condition is met
+priority: 1
+condition: "step1_client_type == 'relapsed_client'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_client_type_guidance_migrant
+description: Show client_type_guidance_migrant when its condition is met
+priority: 1
+condition: "step1_client_type == 'migrant_client'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_follow_up_status
+description: Show follow_up_status when its condition is met
+priority: 1
+condition: "step1_client_type == 'returning_client'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_died_prompt
+description: Show died_prompt when its condition is met
+priority: 1
+condition: "step1_client_type == 'returning_client' && step1_follow_up_status == 'died'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_discontinued_prompt
+description: Show discontinued_prompt when its condition is met
+priority: 1
+condition: "step1_client_type == 'returning_client' && step1_follow_up_status == 'absconded'"
+actions:
+  - "isRelevant = true"

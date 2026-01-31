@@ -177,7 +177,7 @@
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
             android:text="@string/mark_client_started_mat"
-            android:visibility="visible"
+            android:visibility="gone"
             android:textColor="@color/white" />
 
         <org.smartregister.view.customcontrols.CustomFontTextView

@@ -2,7 +2,7 @@ package org.smartregister.chw.harmreduction_sample.repository;
 
 import android.content.Context;
 
-import net.sqlcipher.database.SQLiteDatabase;
+import net.zetetic.database.sqlcipher.SQLiteDatabase;
 
 import org.smartregister.AllConstants;
 import org.smartregister.chw.harmreduction.HarmReductionLibrary;
@@ -25,7 +25,6 @@ public class SampleRepository extends Repository {
     protected SQLiteDatabase readableDatabase;
     protected SQLiteDatabase writableDatabase;
     private Context context;
-    private String password = "Sample_PASS";
 
     public SampleRepository(Context context, org.smartregister.Context openSRPContext) {
         super(context, AllConstants.DATABASE_NAME, BuildConfig.DATABASE_VERSION, openSRPContext.session(), SampleApplication.createCommonFtsObject(), openSRPContext.sharedRepositoriesArray());
@@ -72,38 +71,27 @@ public class SampleRepository extends Repository {
 
     @Override
     public SQLiteDatabase getReadableDatabase() {
-        return getReadableDatabase(password);
-    }
-
-    @Override
-    public SQLiteDatabase getWritableDatabase() {
-        return getWritableDatabase(password);
-    }
-
-    @Override
-    public synchronized SQLiteDatabase getReadableDatabase(String password) {
         try {
             if (readableDatabase == null || !readableDatabase.isOpen()) {
                 if (readableDatabase != null) {
                     readableDatabase.close();
                 }
-                readableDatabase = super.getReadableDatabase(password);
+                readableDatabase = super.getReadableDatabase();
             }
             return readableDatabase;
         } catch (Exception e) {
             Timber.e("Database Error. " + e.getMessage());
             return null;
         }
-
     }
 
     @Override
-    public synchronized SQLiteDatabase getWritableDatabase(String password) {
+    public SQLiteDatabase getWritableDatabase() {
         if (writableDatabase == null || !writableDatabase.isOpen()) {
             if (writableDatabase != null) {
                 writableDatabase.close();
             }
-            writableDatabase = super.getWritableDatabase(password);
+            writableDatabase = super.getWritableDatabase();
         }
         return writableDatabase;
     }

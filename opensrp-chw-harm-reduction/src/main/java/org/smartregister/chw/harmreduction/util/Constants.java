@@ -64,6 +64,7 @@ public interface Constants {
         String HARM_REDUCTION_RISK_ASSESSMENT = "ec_harm_reduction_risk_assessment";
         String HARM_REDUCTION_FOLLOWUP_VISIT = "ec_harm_reduction_followup_visit";
         String HARM_REDUCTION_SAFETY_BOX_COLLECTION = "ec_harm_reduction_safety_box_collection";
+        String HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT = "ec_harm_reduction_sober_house_enrollment";
     }
 
     interface ACTIVITY_PAYLOAD {

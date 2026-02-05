@@ -193,6 +193,46 @@ public class HarmReductionDao extends AbstractDao {
         return res.get(0);
     }
 
+    public static MemberObject getSoberHouseMember(String baseEntityID) {
+        String sql = "select " +
+                "m.base_entity_id , " +
+                "m.unique_id , " +
+                "m.relational_id , " +
+                "f.base_entity_id as family_base_entity_id, " +
+                "m.dob , " +
+                "m.first_name , " +
+                "m.middle_name , " +
+                "m.last_name , " +
+                "m.gender , " +
+                "m.marital_status , " +
+                "m.phone_number , " +
+                "m.other_phone_number , " +
+                "f.first_name as family_name ," +
+                "f.primary_caregiver , " +
+                "f.family_head , " +
+                "f.village_town ," +
+                "fh.first_name as family_head_first_name , " +
+                "fh.middle_name as family_head_middle_name , " +
+                "fh.last_name as family_head_last_name, " +
+                "fh.phone_number as family_head_phone_number ,  " +
+                "pcg.first_name as pcg_first_name , " +
+                "pcg.last_name as pcg_last_name , " +
+                "pcg.middle_name as pcg_middle_name , " +
+                "pcg.phone_number as  pcg_phone_number , " +
+                "sh.* " +
+                "from ec_family_member m " +
+                "inner join ec_family f on m.relational_id = f.base_entity_id " +
+                "inner join " + Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT + " sh on sh.base_entity_id = m.base_entity_id " +
+                "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
+                "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
+                "where sh.is_closed = 0 AND m.base_entity_id ='" + baseEntityID + "' ";
+        List<MemberObject> res = readData(sql, memberObjectMap);
+        if (res == null || res.size() != 1)
+            return null;
+
+        return res.get(0);
+    }
+
     public static String getMemberSex(String baseEntityID) {
         String sql = "select " +
                 "gender " +

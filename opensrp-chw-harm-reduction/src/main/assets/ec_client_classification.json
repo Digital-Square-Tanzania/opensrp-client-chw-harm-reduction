@@ -1,0 +1,34 @@
+{
+  "case_classification_rules": [
+    {
+      "comment": "Patient: This rule checks whether a given case belongs to register",
+      "rule": {
+        "type": "event",
+        "fields": [
+          {
+            "field": "eventType",
+            "field_value": "Harm Reduction Risk Assessment",
+            "creates_case": [
+              "ec_harm_reduction_risk_assessment"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Harm Reduction Follow-up Visit",
+            "creates_case": [
+              "ec_harm_reduction_risk_assessment",
+              "ec_harm_reduction_followup_visit"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Harm Reduction Used Needle and Syringes Collection",
+            "creates_case": [
+              "ec_harm_reduction_safety_box_collection"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

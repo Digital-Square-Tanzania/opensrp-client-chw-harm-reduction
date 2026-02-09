@@ -15,7 +15,7 @@
             tools:replace="android:exported" />
 
         <activity
-            android:name=".activity.HarmReductionSoberHouseVisitActivity"
+            android:name=".activity.BaseHarmReductionSoberHouseVisitActivity"
             android:exported="false" />
     </application>
 </manifest>

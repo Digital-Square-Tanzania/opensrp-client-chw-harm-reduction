@@ -24,11 +24,11 @@ import java.util.Map;
 
 import timber.log.Timber;
 
-public class HarmReductionSoberHouseVisitInteractor extends BaseHarmReductionVisitInteractor {
+public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductionVisitInteractor {
     private static final String FOLLOW_UP_STATUS_FIELD = "follow_up_status";
     private static final String CONTINUING_SERVICE_VALUE = "continuing_service";
 
-    public HarmReductionSoberHouseVisitInteractor() {
+    public BaseHarmReductionSoberHouseVisitInteractor() {
         super(HARM_REDUCTION_SOBER_HOUSE_VISIT);
     }
 

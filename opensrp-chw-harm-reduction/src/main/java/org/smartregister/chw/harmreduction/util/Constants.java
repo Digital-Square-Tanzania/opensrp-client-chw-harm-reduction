@@ -42,6 +42,7 @@ public interface Constants {
         String HARM_REDUCTION_SOBER_HOUSE_REFERRALS = "harm_reduction_sober_house_referrals";
         String HARM_REDUCTION_SOBER_HOUSE_RECOVERY_CAPITAL_ASSESSMENT_AFTERCARE = "harm_reduction_sober_house_recovery_capital_assessment_aftercare";
         String HARM_REDUCTION_SOBER_HOUSE_NEXT_APPOINTMENT_DATE = "harm_reduction_sober_house_next_appointment_date";
+        String HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT = "harm_reduction_sober_house_enrollment";
         String ROC_CONSENT_JOINING_MAT_SERVICES = "roc_consent_joining_mat_services";
         String HARM_REDUCTION_CONSENT_JOINING_MAT = "roc_consent_joining_mat_services";
         String HARM_REDUCTION_PRE_MAT_SESSIONS_HEALTH_EDUCATION = "harm_reduction_pre_mat_sessions_health_education";

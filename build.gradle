@@ -48,6 +48,16 @@ subprojects {
         maven { url "https://repo.maven.apache.org/maven2" }
         maven { url "https://cloudant.github.io/cloudant-sync-eap/repository" }
         maven { url "https://s3.amazonaws.com/repo.commonsware.com" }
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username = 'mapbox'
+                password = project.findProperty('MAPBOX_DOWNLOADS_TOKEN') ?: System.getenv("MAPBOX_DOWNLOADS_TOKEN")
+            }
+        }
         mavenLocal()
     }
 

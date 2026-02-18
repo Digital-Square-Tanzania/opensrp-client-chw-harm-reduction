@@ -453,7 +453,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "enroll_action_prompt",
-        "type": "label",
+        "type": "toaster_notes",
         "label": "Hatua",
         "text": "Msajili Mpokea huduma katika Nyumba ya Upataji nafuu (Sober House).",
         "relevance": {
@@ -469,7 +469,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "not_eligible_action_prompt",
-        "type": "label",
+        "type": "toaster_notes",
         "label": "Hatua",
         "text": "Mpokea huduma hajakidhi vigezo, muunganishe na huduma nyingine.",
         "relevance": {
@@ -929,7 +929,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "detoxification_referral_prompt",
-        "type": "label",
+        "type": "toaster_notes",
         "label": "Hatua",
         "text": "Mpeleke kituo cha afya akafanye detoxification.",
         "relevance": {

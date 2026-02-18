@@ -57,6 +57,9 @@
         "type": "check_box",
         "label": "Huduma ya Vipimo",
         "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "not_done"
+        ],
         "options": [
           {
             "key": "weight",
@@ -82,13 +85,28 @@
         ]
       },
       {
-        "key": "systolic_bp",
+        "key": "systolic",
+        "type": "edit_text",
+        "hint": "Systolic (Blood Pressure)",
+        "openmrs_entity_id": "systolic",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "systolic_bp",
-        "type": "edit_text",
-        "hint": "Shinikizo la juu",
-        "edit_type": "number",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the systolic value"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Systolic value must be equal or greater than 0"
+        },
+        "v_max": {
+          "value": "320",
+          "err": "Systolic value must be equal or less than 320"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter the systolic value"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -98,13 +116,94 @@
         }
       },
       {
-        "key": "diastolic_bp",
+        "key": "diastolic",
+        "type": "edit_text",
+        "hint": "Diastolic (Blood Pressure)",
+        "openmrs_entity_id": "diastolic",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "diastolic_bp",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the diastolic value"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Diastolic value must be equal or greater than 0"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Diastolic value must be equal or less than 200"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter the diastolic value"
+        },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:systolic)",
+            "err": "The diastolic value must be less than the systolic value"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-vitals-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_management_of_hypertension",
+        "type": "toaster_notes",
+        "text": "Manage the hypertension according to standard guidelines",
+        "openmrs_entity_id": "prompt_for_management_of_hypertension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-vitals-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_management_of_hypotension",
+        "type": "toaster_notes",
+        "text": "Elicit the cause of hypotension and manage according to standard guidelines",
+        "openmrs_entity_id": "prompt_for_management_of_hypotension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-vitals-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "weight",
         "type": "edit_text",
-        "hint": "Shinikizo la chini",
-        "edit_type": "number",
+        "hint": "Uzito (KG)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "weight",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza uzito"
+        },
+        "v_min": {
+          "value": "20",
+          "err": "Uzito lazima uwe sawasawa au zaidi ya 20 (KG)"
+        },
+        "v_max": {
+          "value": "300",
+          "err": "Uzito lazima uwe sawasawa au chini ya 300 (KG)"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

@@ -1,14 +1,35 @@
 ---
-name: step1_systolic_bp
+name: step1_weight
+description: Show weight when its condition is met
+priority: 1
+condition: "step1_testing_services != null && step1_testing_services.contains('weight')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_systolic
 description: Show systolic_bp when its condition is met
 priority: 1
 condition: "step1_testing_services != null && step1_testing_services.contains('blood_pressure')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_diastolic_bp
+name: step1_diastolic
 description: Show diastolic_bp when its condition is met
 priority: 1
 condition: "step1_testing_services != null && step1_testing_services.contains('blood_pressure')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_prompt_for_management_of_hypertension
+description: Show hypertension prompt when BP is elevated
+priority: 1
+condition: "step1_testing_services != null && step1_testing_services.contains('blood_pressure') && ((step1_systolic != null && step1_systolic != '' && step1_systolic >= 140) || (step1_diastolic != null && step1_diastolic != '' && step1_diastolic >= 90))"
+actions:
+  - "isRelevant = true"
+---
+name: step1_prompt_for_management_of_hypotension
+description: Show hypotension prompt when BP is low
+priority: 1
+condition: "step1_testing_services != null && step1_testing_services.contains('blood_pressure') && ((step1_systolic != null && step1_systolic != '' && step1_systolic <= 90) || (step1_diastolic != null && step1_diastolic != '' && step1_diastolic <= 60))"
 actions:
   - "isRelevant = true"

@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "harm_reduction_sober_house_client_type_followup_status",
+    "title": "Harm Reduction Sober House Client Type Followup Status",
     "fields": [
       {
         "key": "client_type",

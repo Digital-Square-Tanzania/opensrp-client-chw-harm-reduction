@@ -46,7 +46,7 @@ public abstract class BaseHarmReductionSoberHouseProfileActivity extends BaseHar
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.textview_record_sober_house_visit) {
-            BaseHarmReductionSoberHouseVisitActivity.startHarmReductionSoberHouseVisitActivity(this, memberObject.getBaseEntityId(), false);
+            openFollowupVisit();
             return;
         }
         super.onClick(view);

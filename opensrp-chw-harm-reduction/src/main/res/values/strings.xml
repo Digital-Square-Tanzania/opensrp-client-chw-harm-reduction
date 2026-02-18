@@ -15,6 +15,7 @@
     <string name="record_pre_mat_session">Record Pre-Mat Sessions</string>
     <string name="record_mat_client_followup_visit">Record MAT Client Followup Visit</string>
     <string name="record_harm_reduction_client_followup_visit">Record Harm Reduction FollowUp Visit</string>
+    <string name="record_sober_house_services">Record Sober House Services</string>
     <string name="manual_process_visit">Process Visit</string>
     <string name="continue_visit">Continue</string>
     <string name="harm_reduction_visit_in_progress">Visit In Progress</string>

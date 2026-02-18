@@ -74,10 +74,10 @@
         ]
       },
       {
-        "key": "unit_identification_code",
+        "key": "uic",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "unit_identification_code",
+        "openmrs_entity_id": "uic",
         "type": "edit_text",
         "hint": "Unit Identification Code (UIC)",
         "edit_type": "number"

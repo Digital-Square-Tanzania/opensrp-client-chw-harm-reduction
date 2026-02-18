@@ -159,6 +159,13 @@ publishing {
     }
 }
 
+tasks.matching {
+    it.name in ["publishToMavenLocal", "publishAllPublicationsToGitHubPackagesRepository"]
+}.configureEach {
+    dependsOn("clean", "assemble")
+}
+
+
 allprojects {
     repositories {
         mavenCentral()

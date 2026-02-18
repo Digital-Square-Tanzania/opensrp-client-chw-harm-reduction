@@ -50,13 +50,44 @@
     "title": "Harm Reduction Sober House Link Other Services",
     "fields": [
       {
-        "key": "other_services_referrals",
+        "key": "linkage_to_other_services_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "other_services_referrals",
+        "openmrs_entity_id": "linkage_to_other_services_provided",
+        "type": "native_radio",
+        "label": "Je, rufaa ya huduma nyinginezo imetolewa?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
+          }
+        ]
+      },
+      {
+        "key": "linkage_to_other_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "linkage_to_other_services",
         "type": "check_box",
         "label": "Rufaa ya huduma nyinginezo zilizotolewa",
         "combine_checkbox_option_values": "true",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-linkage-to-other-services-rules.yml"
+            }
+          }
+        },
         "options": [
           {
             "key": "gender_based_violence",
@@ -96,10 +127,10 @@
         ]
       },
       {
-        "key": "other_services_referrals_specify",
+        "key": "linkage_to_other_services_specify",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "other_services_referrals_specify",
+        "openmrs_entity_id": "linkage_to_other_services_specify",
         "type": "edit_text",
         "hint": "Mengineyo (Taja)",
         "relevance": {

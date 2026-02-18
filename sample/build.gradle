@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "org.smartregister.chw.harmreduction_sample"
-        minSdkVersion androidMinSdkVersion
+        minSdkVersion 26
         targetSdkVersion androidTargetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -48,7 +48,14 @@ android {
         exclude 'META-INF/dependencies.txt'
         exclude 'META-INF/LGPL2.1'
         exclude 'LICENSE.txt'
+        exclude 'META-INF/LICENSE.md'
+        exclude 'META-INF/NOTICE.md'
+        exclude 'META-INF/INDEX.LIST'
         exclude 'META-INF/kotlin-stdlib-jdk7.kotlin_module'
+        pickFirst 'lib/arm64-v8a/libsqlcipher.so'
+        pickFirst 'lib/armeabi-v7a/libsqlcipher.so'
+        pickFirst 'lib/x86/libsqlcipher.so'
+        pickFirst 'lib/x86_64/libsqlcipher.so'
     }
 
     lintOptions {
@@ -132,7 +139,7 @@ dependencies {
     }
 
     implementation 'com.emredavarci:circleprogressbar:1.0.8-SNAPSHOT'
-    implementation('org.smartregister:opensrp-client-configurable-views:1.1.5-SNAPSHOT@aar') {
+    implementation('org.smartregister:opensrp-client-configurable-views:2.0.0-MOH-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'org.smartregister', module: 'opensrp-client-core'
         exclude group: 'org.smartregister', module: 'opensrp-client-native-form'
@@ -153,4 +160,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+}
+
+configurations.all {
+    resolutionStrategy.force 'org.apache.commons:commons-lang3:3.12.0'
 }

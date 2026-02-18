@@ -28,7 +28,11 @@ import timber.log.Timber;
 
 public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductionVisitInteractor {
     private static final String FOLLOW_UP_STATUS_FIELD = "follow_up_status";
+    private static final String CLIENT_TYPE = "client_type";
     private static final String CONTINUING_SERVICE_VALUE = "continuing_service";
+    private static final String NEW_CLIENT_VALUE = "new_client";
+    private static final String RELAPSED_CLIENT_VALUE = "relapsed_client";
+    private static final String MIGRANT_CLIENT_VALUE = "migrant_client";
 
     public BaseHarmReductionSoberHouseVisitInteractor() {
         super(HARM_REDUCTION_SOBER_HOUSE_VISIT);
@@ -164,7 +168,11 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
 
     private boolean isContinuingService() {
         String status = getFollowUpStatusValue(FOLLOW_UP_STATUS_FIELD);
-        return CONTINUING_SERVICE_VALUE.equalsIgnoreCase(status);
+        String clientType = getFollowUpStatusValue(CLIENT_TYPE);
+        return CONTINUING_SERVICE_VALUE.equalsIgnoreCase(status) ||
+                NEW_CLIENT_VALUE.equalsIgnoreCase(clientType) ||
+                RELAPSED_CLIENT_VALUE.equalsIgnoreCase(clientType) ||
+                MIGRANT_CLIENT_VALUE.equalsIgnoreCase(clientType);
     }
 
     private String getFollowUpStatusValue(String key) {

@@ -126,6 +126,9 @@
         "type": "check_box",
         "label": "Aina ya Mikutano",
         "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "did_not_attend"
+        ],
         "relevance": {
           "rules-engine": {
             "ex-rules": {

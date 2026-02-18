@@ -1,7 +1,14 @@
 ---
-name: step1_other_services_referrals_specify
-description: Show other_services_referrals_specify when its condition is met
+name: step1_linkage_to_other_services
+description: Show linkage_to_other_services when linkage to other services is provided
 priority: 1
-condition: "step1_other_services_referrals != null && step1_other_services_referrals.contains('other')"
+condition: "step1_linkage_to_other_services_provided == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_linkage_to_other_services_specify
+description: Show linkage_to_other_services_specify when its condition is met
+priority: 1
+condition: "step1_linkage_to_other_services_provided == 'yes' && step1_linkage_to_other_services != null && step1_linkage_to_other_services.contains('other')"
 actions:
   - "isRelevant = true"

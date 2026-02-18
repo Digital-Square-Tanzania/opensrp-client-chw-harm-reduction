@@ -194,7 +194,7 @@
             android:paddingTop="10dp"
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
-            android:text="@string/record_sober_house_services"
+            android:text="@string/record_sober_house_services_action"
             android:visibility="gone"
             tools:visibility="visible"
             android:textColor="@color/white"

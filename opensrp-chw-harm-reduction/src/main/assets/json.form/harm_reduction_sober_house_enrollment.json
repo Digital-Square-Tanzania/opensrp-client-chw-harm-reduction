@@ -549,18 +549,79 @@
         }
       },
       {
-        "key": "uic",
+        "key": "birth_region",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "uic",
-        "type": "edit_text",
-        "hint": "Namba ya Utambulisho (UIC)",
-        "edit_type": "number",
+        "openmrs_entity_id": "birth_region",
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "label_info_title": "Mkoa wa Kuzaliwa kwa Mteja",
+        "label_info_text": "",
+        "hint": "Chagua mkoa aliozaliwa mteja",
+        "values": [
+          "Arusha",
+          "Dar es Salaam",
+          "Dodoma",
+          "Geita",
+          "Iringa",
+          "Kagera",
+          "Katavi",
+          "Kigoma",
+          "Kilimanjaro",
+          "Lindi",
+          "Manyara",
+          "Mara",
+          "Mbeya",
+          "Morogoro",
+          "Mtwara",
+          "Mwanza",
+          "Njombe",
+          "Pwani",
+          "Rukwa",
+          "Ruvuma",
+          "Shinyanga",
+          "Simiyu",
+          "Singida",
+          "Songwe",
+          "Tabora",
+          "Tanga"
+        ],
+        "keys": [
+          "Arusha",
+          "Dar es Salaam",
+          "Dodoma",
+          "Geita",
+          "Iringa",
+          "Kagera",
+          "Katavi",
+          "Kigoma",
+          "Kilimanjaro",
+          "Lindi",
+          "Manyara",
+          "Mara",
+          "Mbeya",
+          "Morogoro",
+          "Mtwara",
+          "Mwanza",
+          "Njombe",
+          "Pwani",
+          "Rukwa",
+          "Ruvuma",
+          "Shinyanga",
+          "Simiyu",
+          "Singida",
+          "Songwe",
+          "Tabora",
+          "Tanga"
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mkoa"
+        },
         "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
-            }
+          "step8:should_enroll": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
           }
         }
       },

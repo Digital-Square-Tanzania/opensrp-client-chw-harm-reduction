@@ -1174,11 +1174,11 @@
           }
         },
         {
-          "column_name": "uic",
+          "column_name": "birth_region",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "uic"
+            "concept": "birth_region"
           }
         },
         {

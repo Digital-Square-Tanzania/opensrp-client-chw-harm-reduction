@@ -821,6 +821,23 @@
         "type": "edit_text",
         "hint": "Urefu (cm)",
         "edit_type": "number",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza urefu"
+        },
+        "v_min": {
+          "value": "100",
+          "err": "Urefu lazima uwe sawasawa au zaidi ya 100 (CM)"
+        },
+        "v_max": {
+          "value": "250",
+          "err": "Urefu lazima uwe sawasawa au chini ya 250 (CM)"
+        },
+        "v_max_length": {
+          "value": "3",
+          "is_fixed_size": "true",
+          "err": "Tafadhali jaza urefu sahihi"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -897,6 +914,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "detoxification_date",
         "type": "date_picker",
+        "max_date": "today",
         "hint": "Tarehe ya kufanyika detoxification",
         "relevance": {
           "rules-engine": {

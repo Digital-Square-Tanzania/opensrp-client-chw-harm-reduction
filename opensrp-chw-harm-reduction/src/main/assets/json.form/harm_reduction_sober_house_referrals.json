@@ -50,6 +50,30 @@
     "title": "Harm Reduction Sober House Refer To Facility",
     "fields": [
       {
+        "key": "facility_referrals_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "facility_referrals_provided",
+        "type": "native_radio",
+        "label": "Je, rufaa ya huduma za kitabibu imetolewa?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
+          }
+        ]
+      },
+      {
         "key": "facility_referrals",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -57,6 +81,13 @@
         "type": "check_box",
         "label": "Rufaa ya huduma za kitabibu zilizotolewa",
         "combine_checkbox_option_values": "true",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-referrals-rules.yml"
+            }
+          }
+        },
         "options": [
           {
             "key": "hiv_aids",

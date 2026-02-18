@@ -111,6 +111,13 @@ condition: "step1_sober_house_eligible == 'yes'"
 actions:
   - "isRelevant = true"
 ---
+name: step1_birth_region
+description: Show birth_region when its condition is met
+priority: 1
+condition: "step1_sober_house_eligible == 'yes'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_hiv_status
 description: Show hiv_status when its condition is met
 priority: 1

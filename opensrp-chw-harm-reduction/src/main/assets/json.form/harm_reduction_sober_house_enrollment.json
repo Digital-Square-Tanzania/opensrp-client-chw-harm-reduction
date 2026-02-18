@@ -619,9 +619,10 @@
           "err": "Tafadhali chagua mkoa"
         },
         "relevance": {
-          "step8:should_enroll": {
-            "type": "string",
-            "ex": "equalTo(., \"yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
           }
         }
       },

@@ -115,6 +115,13 @@
             "text": "Ugonjwa wa Kifua Kikuu"
           },
           {
+            "key": "hiv",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hiv",
+            "text": "VVU na UKIMWI"
+          },
+          {
             "key": "other_conditions",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
@@ -137,24 +144,6 @@
             }
           }
         }
-      },
-      {
-        "key": "hiv_screening",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "hiv_screening",
-        "type": "check_box",
-        "label": "VVU na UKIMWI",
-        "combine_checkbox_option_values": "true",
-        "options": [
-          {
-            "key": "hiv",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hiv",
-            "text": "VVU na UKIMWI"
-          }
-        ]
       },
       {
         "key": "stis_result",

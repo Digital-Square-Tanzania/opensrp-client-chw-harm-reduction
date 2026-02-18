@@ -14,6 +14,8 @@ import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseR
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseRoutineServicesActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseVitalSignCheckActionHelper;
 import org.smartregister.chw.harmreduction.contract.BaseHarmReductionVisitContract;
+import org.smartregister.chw.harmreduction.dao.HarmReductionDao;
+import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.domain.VisitDetail;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
 import org.smartregister.chw.harmreduction.util.Constants;
@@ -191,4 +193,17 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
 
         return null;
     }
+
+    /**
+     * Default if profile type is not provided is TbLeprosy/PrEP member
+     *
+     * @param memberID    unique identifier for the user
+     * @param profileType profile type being used
+     * @return MemberObject wrapper for the user's data
+     */
+    @Override
+    public MemberObject getMemberClient(String memberID, String profileType) {
+        return HarmReductionDao.getSoberHouseMember(memberID);
+    }
+
 }

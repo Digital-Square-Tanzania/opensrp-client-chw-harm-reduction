@@ -58,7 +58,7 @@ actions:
 name: step1_hiv_result
 description: Show hiv_result when its condition is met
 priority: 1
-condition: "step1_hiv_screening != null && step1_hiv_screening.contains('hiv')"
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('hiv')"
 actions:
   - "isRelevant = true"
 ---

@@ -18,6 +18,7 @@ public interface Constants {
         String HARM_REDUCTION_RISK_ASSESSMENT = "Harm Reduction Risk Assessment";
         String HARM_REDUCTION_FOLLOW_UP_VISIT =  "Harm Reduction Follow-up Visit";
         String HARM_REDUCTION_SOBER_HOUSE_VISIT = "Harm Reduction Sober House Visit";
+        String HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT = "Harm Reduction Sober House Enrollment";
         String VOID_EVENT = "Void Event";
         String CLOSE_HARM_REDUCTION_SERVICE = "Close Harm Reduction Service";
         String HARM_REDUCTION_USED_NEEDLES_AND_SYRINGES_COLLECTION = "Harm Reduction Used Needle and Syringes Collection";
@@ -57,6 +58,7 @@ public interface Constants {
         String HARM_REDUCTION_FOLLOWUP_VISIT = "ec_harm_reduction_followup_visit";
         String HARM_REDUCTION_SAFETY_BOX_COLLECTION = "ec_harm_reduction_safety_box_collection";
         String HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT = "ec_harm_reduction_sober_house_enrollment";
+        String FAMILY_MEMBER_TABLE = "ec_family_member";
     }
 
     interface ACTIVITY_PAYLOAD {
@@ -84,6 +86,10 @@ public interface Constants {
 
     interface PROFILE_TYPES {
         String HARM_REDUCTION_PROFILE = "harm_reduction_profile";
+    }
+
+    interface JSON_FORM_KEY {
+        String UIC_ID = "uic_id";
     }
 
 

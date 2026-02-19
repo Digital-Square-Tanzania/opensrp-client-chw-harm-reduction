@@ -74,22 +74,6 @@
         ]
       },
       {
-        "key": "recovery_capital_passed_note",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "recovery_capital_passed_note",
-        "type": "label",
-        "label": "Maelekezo",
-        "text": "1. Mfumo utamhitimu Mpokea huduma (Auto graduate) baada ya kupita Tathmini ya Recovery Capital.\n2. Endelea na swali la \"Provide After Care and Social re-integration\".",
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-sober-house-recovery-capital-assessment-aftercare-rules.yml"
-            }
-          }
-        }
-      },
-      {
         "key": "post_counselling_done",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

@@ -72,6 +72,14 @@
             "openmrs_entity_id": "no"
           }
         ]
+      },
+      {
+        "key": "status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "status",
+        "type": "hidden",
+        "value": "started_mat_services"
       }
     ]
   }

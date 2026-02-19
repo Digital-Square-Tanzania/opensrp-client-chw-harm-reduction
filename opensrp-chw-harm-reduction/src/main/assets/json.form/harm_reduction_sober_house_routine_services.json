@@ -126,9 +126,6 @@
         "type": "check_box",
         "label": "Aina ya Mikutano",
         "combine_checkbox_option_values": "true",
-        "exclusive": [
-          "did_not_attend"
-        ],
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -157,13 +154,6 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "special_topic",
             "text": "Mada maalum (Taja)"
-          },
-          {
-            "key": "did_not_attend",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "did_not_attend",
-            "text": "Hajahudhuria"
           }
         ]
       },
@@ -190,6 +180,9 @@
         "type": "check_box",
         "label": "Ushiriki katika Stadi za Maisha",
         "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "did_not_attend"
+        ],
         "options": [
           {
             "key": "relapse_prevention",
@@ -267,6 +260,13 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "self_esteem_personal_growth",
             "text": "Kujithamini na ukuaji binafsi"
+          },
+          {
+            "key": "did_not_attend",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "did_not_attend",
+            "text": "Hajashiriki"
           }
         ]
       },

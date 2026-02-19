@@ -49,4 +49,36 @@ public class BaseHarmReductionSoberHouseVisitInteractorTest {
 
         Assert.assertFalse(visible);
     }
+
+    @Test
+    public void testNextAppointmentHiddenWhenRecoveryActionVisibleAndPassedYes() {
+        boolean shouldHide = BaseHarmReductionSoberHouseVisitInteractor
+                .shouldHideNextAppointmentDateAction(true, "yes");
+
+        Assert.assertTrue(shouldHide);
+    }
+
+    @Test
+    public void testNextAppointmentHiddenWhenRecoveryActionVisibleAndPassedYesCaseInsensitive() {
+        boolean shouldHide = BaseHarmReductionSoberHouseVisitInteractor
+                .shouldHideNextAppointmentDateAction(true, "YES");
+
+        Assert.assertTrue(shouldHide);
+    }
+
+    @Test
+    public void testNextAppointmentVisibleWhenRecoveryActionHiddenEvenIfPassedYes() {
+        boolean shouldHide = BaseHarmReductionSoberHouseVisitInteractor
+                .shouldHideNextAppointmentDateAction(false, "yes");
+
+        Assert.assertFalse(shouldHide);
+    }
+
+    @Test
+    public void testNextAppointmentVisibleWhenRecoveryActionVisibleAndPassedNo() {
+        boolean shouldHide = BaseHarmReductionSoberHouseVisitInteractor
+                .shouldHideNextAppointmentDateAction(true, "no");
+
+        Assert.assertFalse(shouldHide);
+    }
 }

@@ -17,5 +17,7 @@
         <activity
             android:name=".activity.BaseHarmReductionSoberHouseVisitActivity"
             android:exported="false" />
+
+        <service android:name=".sync.intent.CloseSoberHouseMembershipIntentService" />
     </application>
 </manifest>

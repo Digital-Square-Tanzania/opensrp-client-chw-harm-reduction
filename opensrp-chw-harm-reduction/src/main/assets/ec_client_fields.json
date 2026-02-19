@@ -1142,22 +1142,6 @@
           }
         },
         {
-          "column_name": "enroll_action_prompt",
-          "type": "Event",
-          "json_mapping": {
-            "field": "obs.fieldCode",
-            "concept": "enroll_action_prompt"
-          }
-        },
-        {
-          "column_name": "not_eligible_action_prompt",
-          "type": "Event",
-          "json_mapping": {
-            "field": "obs.fieldCode",
-            "concept": "not_eligible_action_prompt"
-          }
-        },
-        {
           "column_name": "other_services_referral",
           "type": "Event",
           "json_mapping": {
@@ -1266,6 +1250,13 @@
           "type": "Event",
           "json_mapping": {
             "field": "version"
+          }
+        },
+        {
+          "column_name": "event_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "eventDate"
           }
         }
       ]

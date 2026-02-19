@@ -101,6 +101,18 @@ public class HarmReductionDao extends AbstractDao {
         return "";
     }
 
+    public static String getSoberHouseEnrollmentEventDate(String baseEntityId) {
+        String sql = "SELECT event_date FROM " + Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT +
+                " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY event_date DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "event_date");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
+            return res.get(0);
+        }
+        return "";
+    }
+
     public static String getLastInteractedWithMatConsentFollowUpVisit(String baseEntityId) {
         String sql = "SELECT last_interacted_with FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT +
                 " WHERE entity_id = '" + baseEntityId + "' AND " +

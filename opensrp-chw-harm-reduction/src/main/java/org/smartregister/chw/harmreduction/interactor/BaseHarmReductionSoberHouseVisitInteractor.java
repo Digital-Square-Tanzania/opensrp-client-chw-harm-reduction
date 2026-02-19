@@ -2,7 +2,14 @@ package org.smartregister.chw.harmreduction.interactor;
 
 import static org.smartregister.chw.harmreduction.util.Constants.EVENT_TYPE.HARM_REDUCTION_SOBER_HOUSE_VISIT;
 
+import androidx.annotation.VisibleForTesting;
+
 import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.R;
@@ -27,6 +34,7 @@ import java.util.Map;
 import timber.log.Timber;
 
 public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductionVisitInteractor {
+    private static final int RECOVERY_CAPITAL_ASSESSMENT_DELAY_MONTHS = 3;
     private static final String FOLLOW_UP_STATUS_FIELD = "follow_up_status";
     private static final String CLIENT_TYPE = "client_type";
     private static final String CONTINUING_SERVICE_VALUE = "continuing_service";
@@ -129,7 +137,7 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withValidator(continuingServiceValidator())
+                .withValidator(recoveryCapitalAssessmentAftercareValidator())
                 .withFormName(Constants.FORMS.HARM_REDUCTION_SOBER_HOUSE_RECOVERY_CAPITAL_ASSESSMENT_AFTERCARE)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_sober_house_recovery_capital_assessment_aftercare), action);
@@ -166,6 +174,25 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
         };
     }
 
+    private BaseHarmReductionVisitAction.Validator recoveryCapitalAssessmentAftercareValidator() {
+        return new BaseHarmReductionVisitAction.Validator() {
+            @Override
+            public boolean isValid(String key) {
+                return isRecoveryCapitalAssessmentAftercareVisible();
+            }
+
+            @Override
+            public boolean isEnabled(String key) {
+                return isRecoveryCapitalAssessmentAftercareVisible();
+            }
+
+            @Override
+            public void onChanged(String key) {
+                // no-op
+            }
+        };
+    }
+
     private boolean isContinuingService() {
         String status = getFollowUpStatusValue(FOLLOW_UP_STATUS_FIELD);
         String clientType = getFollowUpStatusValue(CLIENT_TYPE);
@@ -173,6 +200,66 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
                 NEW_CLIENT_VALUE.equalsIgnoreCase(clientType) ||
                 RELAPSED_CLIENT_VALUE.equalsIgnoreCase(clientType) ||
                 MIGRANT_CLIENT_VALUE.equalsIgnoreCase(clientType);
+    }
+
+    private boolean isRecoveryCapitalAssessmentAftercareVisible() {
+        if (!isContinuingService() || memberObject == null || StringUtils.isBlank(memberObject.getBaseEntityId())) {
+            return false;
+        }
+
+        String enrollmentEventDate = HarmReductionDao.getSoberHouseEnrollmentEventDate(memberObject.getBaseEntityId());
+        return isVisitAtLeastThreeCalendarMonthsFromEnrollment(enrollmentEventDate, getCurrentVisitDateTime());
+    }
+
+    @VisibleForTesting
+    DateTime getCurrentVisitDateTime() {
+        return DateTime.now();
+    }
+
+    @VisibleForTesting
+    static boolean isVisitAtLeastThreeCalendarMonthsFromEnrollment(String enrollmentEventDate, DateTime visitDateTime) {
+        if (visitDateTime == null) {
+            return false;
+        }
+
+        LocalDate enrollmentDate = parseEnrollmentEventDate(enrollmentEventDate);
+        if (enrollmentDate == null) {
+            return false;
+        }
+
+        LocalDate eligibleDate = enrollmentDate.plusMonths(RECOVERY_CAPITAL_ASSESSMENT_DELAY_MONTHS);
+        return !visitDateTime.toLocalDate().isBefore(eligibleDate);
+    }
+
+    @VisibleForTesting
+    static LocalDate parseEnrollmentEventDate(String enrollmentEventDate) {
+        if (StringUtils.isBlank(enrollmentEventDate)) {
+            return null;
+        }
+
+        String normalizedDate = enrollmentEventDate.trim();
+        try {
+            return new DateTime(Long.parseLong(normalizedDate)).toLocalDate();
+        } catch (NumberFormatException e) {
+            // no-op
+        }
+
+        DateTimeFormatter[] formatters = {
+                ISODateTimeFormat.dateTimeParser(),
+                DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss.S"),
+                DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss"),
+                DateTimeFormat.forPattern("yyyy-MM-dd")
+        };
+
+        for (DateTimeFormatter formatter : formatters) {
+            try {
+                return formatter.parseDateTime(normalizedDate).toLocalDate();
+            } catch (IllegalArgumentException e) {
+                // try next supported format
+            }
+        }
+
+        return null;
     }
 
     private String getFollowUpStatusValue(String key) {

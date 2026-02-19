@@ -41,6 +41,8 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
     private static final String NEW_CLIENT_VALUE = "new_client";
     private static final String RELAPSED_CLIENT_VALUE = "relapsed_client";
     private static final String MIGRANT_CLIENT_VALUE = "migrant_client";
+    private static final String RECOVERY_CAPITAL_PASSED_FIELD = "recovery_capital_passed";
+    private static final String YES_VALUE = "yes";
 
     public BaseHarmReductionSoberHouseVisitInteractor() {
         super(HARM_REDUCTION_SOBER_HOUSE_VISIT);
@@ -149,7 +151,7 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withValidator(continuingServiceValidator())
+                .withValidator(nextAppointmentDateValidator())
                 .withFormName(Constants.FORMS.HARM_REDUCTION_SOBER_HOUSE_NEXT_APPOINTMENT_DATE)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_sober_house_next_appointment_date), action);
@@ -193,6 +195,25 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
         };
     }
 
+    private BaseHarmReductionVisitAction.Validator nextAppointmentDateValidator() {
+        return new BaseHarmReductionVisitAction.Validator() {
+            @Override
+            public boolean isValid(String key) {
+                return isNextAppointmentDateVisible();
+            }
+
+            @Override
+            public boolean isEnabled(String key) {
+                return isNextAppointmentDateVisible();
+            }
+
+            @Override
+            public void onChanged(String key) {
+                // no-op
+            }
+        };
+    }
+
     private boolean isContinuingService() {
         String status = getFollowUpStatusValue(FOLLOW_UP_STATUS_FIELD);
         String clientType = getFollowUpStatusValue(CLIENT_TYPE);
@@ -200,6 +221,24 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
                 NEW_CLIENT_VALUE.equalsIgnoreCase(clientType) ||
                 RELAPSED_CLIENT_VALUE.equalsIgnoreCase(clientType) ||
                 MIGRANT_CLIENT_VALUE.equalsIgnoreCase(clientType);
+    }
+
+    private boolean isNextAppointmentDateVisible() {
+        if (!isContinuingService()) {
+            return false;
+        }
+
+        return !shouldHideNextAppointmentDateAction(
+                isRecoveryCapitalAssessmentAftercareVisible(),
+                getRecoveryCapitalPassedValue()
+        );
+    }
+
+    @VisibleForTesting
+    static boolean shouldHideNextAppointmentDateAction(boolean isRecoveryCapitalAssessmentAftercareVisible,
+                                                       String recoveryCapitalPassedValue) {
+        return isRecoveryCapitalAssessmentAftercareVisible &&
+                YES_VALUE.equalsIgnoreCase(StringUtils.trimToEmpty(recoveryCapitalPassedValue));
     }
 
     private boolean isRecoveryCapitalAssessmentAftercareVisible() {
@@ -263,13 +302,25 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
     }
 
     private String getFollowUpStatusValue(String key) {
+        return getActionValue(
+                context == null ? null : context.getString(R.string.harm_reduction_sober_house_client_type_followup_status),
+                key
+        );
+    }
+
+    private String getRecoveryCapitalPassedValue() {
+        return getActionValue(
+                context == null ? null : context.getString(R.string.harm_reduction_sober_house_recovery_capital_assessment_aftercare),
+                RECOVERY_CAPITAL_PASSED_FIELD
+        );
+    }
+
+    private String getActionValue(String actionTitle, String key) {
         if (context == null) {
             return null;
         }
 
-        BaseHarmReductionVisitAction statusAction = actionList.get(
-                context.getString(R.string.harm_reduction_sober_house_client_type_followup_status)
-        );
+        BaseHarmReductionVisitAction statusAction = actionList.get(actionTitle);
         if (statusAction == null) {
             return null;
         }

@@ -3,6 +3,8 @@
     <string name="error_unable_to_save_form">Hitilafu imetokea wakati wa kuhifadhi fomu</string>
     <string name="harm_reduction">Harm Reduction</string>
     <string name="harm_reduction_sober_house">Nyumba ya Upataji Nafuu</string>
+    <string name="harm_reduction_sober_house_visit">Hudhurio la Nyumba ya Upataji Nafuu</string>
+    <string name="harm_reduction_sober_house_enrollment">Usajili wa Nyumba ya Upataji Nafuu</string>
     <string name="sort">Panga</string>
     <string name="home">Nyumbani</string>
     <string name="add_family">Sajili Kaya</string>

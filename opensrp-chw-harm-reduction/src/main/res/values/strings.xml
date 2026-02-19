@@ -4,6 +4,8 @@
     <string name="error_unable_to_save_form">An error occurred when saving the form</string>
     <string name="harm_reduction">Harm Reduction</string>
     <string name="harm_reduction_sober_house">Sober House</string>
+    <string name="harm_reduction_sober_house_visit">Sober House Visit</string>
+    <string name="harm_reduction_sober_house_enrollment">Sober House Enrollment</string>
     <string name="sort">Sort</string>
     <string name="home">Home</string>
     <string name="add_family">Add family</string>

@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "linkage_to_other_services_provided",
         "type": "native_radio",
-        "label": "Je, rufaa ya huduma nyinginezo imetolewa?",
+        "label": "Je, mteja ameunganishwa katika huduma nyingine?",
         "options": [
           {
             "key": "yes",
@@ -79,7 +79,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "linkage_to_other_services",
         "type": "check_box",
-        "label": "Rufaa ya huduma nyinginezo zilizotolewa",
+        "label": "Huduma alizounganishwa",
         "combine_checkbox_option_values": "true",
         "relevance": {
           "rules-engine": {
@@ -132,7 +132,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "linkage_to_other_services_specify",
         "type": "edit_text",
-        "hint": "Mengineyo (Taja)",
+        "hint": "Huduma nyinginezo (Taja)",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

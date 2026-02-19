@@ -10,6 +10,9 @@ import org.smartregister.chw.harmreduction.dao.HarmReductionDao;
 import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.domain.Visit;
 import org.smartregister.chw.harmreduction.util.Constants;
+import org.smartregister.chw.harmreduction.util.HarmReductionVisitsUtil;
+
+import timber.log.Timber;
 
 public abstract class BaseHarmReductionSoberHouseProfileActivity extends BaseHarmReductionProfileActivity {
 
@@ -50,5 +53,26 @@ public abstract class BaseHarmReductionSoberHouseProfileActivity extends BaseHar
             return;
         }
         super.onClick(view);
+    }
+
+    @Override
+    public void refreshMedicalHistory(boolean hasHistory) {
+        showProgressBar(false);
+        Visit lastVisit = HarmReductionLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.HARM_REDUCTION_SOBER_HOUSE_VISIT);
+        rlLastVisit.setVisibility(lastVisit != null ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Constants.REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
+            profilePresenter.saveForm(data.getStringExtra(Constants.JSON_FORM_EXTRA.JSON));
+            try {
+                Visit lastVisit = HarmReductionLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.HARM_REDUCTION_SOBER_HOUSE_VISIT);
+                HarmReductionVisitsUtil.manualProcessVisit(lastVisit);
+            } catch (Exception e) {
+                Timber.e(e);
+            }
+        }
     }
 }

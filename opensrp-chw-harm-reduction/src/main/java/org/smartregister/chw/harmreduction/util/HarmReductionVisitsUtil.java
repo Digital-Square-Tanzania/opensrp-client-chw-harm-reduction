@@ -33,20 +33,20 @@ public class HarmReductionVisitsUtil extends VisitUtils {
 
     private static void processVisits(VisitRepository visitRepository, VisitDetailsRepository visitDetailsRepository) throws Exception {
         List<Visit> visits = visitRepository.getAllUnSynced();
-        List<Visit> prepFollowupVisit = new ArrayList<>();
+        List<Visit> harmReductionVisit = new ArrayList<>();
 
         for (Visit v : visits) {
             Date updatedAtDate = new Date(v.getUpdatedAt().getTime());
             int daysDiff = TimeUtils.getElapsedDays(updatedAtDate);
             if (daysDiff > 1) {
-                if (v.getVisitType().equalsIgnoreCase(Constants.EVENT_TYPE.HARM_REDUCTION_FOLLOW_UP_VISIT) && getTbLeprosyVisitStatus(v).equals(Complete)) {
-                    prepFollowupVisit.add(v);
+                if (v.getVisitType().equalsIgnoreCase(Constants.EVENT_TYPE.HARM_REDUCTION_FOLLOW_UP_VISIT) || v.getVisitType().equalsIgnoreCase(Constants.EVENT_TYPE.HARM_REDUCTION_SOBER_HOUSE_VISIT)) {
+                    harmReductionVisit.add(v);
                 }
             }
         }
-        if (prepFollowupVisit.size() > 0) {
-            processVisits(prepFollowupVisit, visitRepository, visitDetailsRepository);
-            for (Visit v : prepFollowupVisit) {
+        if (!harmReductionVisit.isEmpty()) {
+            processVisits(harmReductionVisit, visitRepository, visitDetailsRepository);
+            for (Visit v : harmReductionVisit) {
                 if (shouldCreateCloseVisitEvent(v)) {
                     createCancelledEvent(v.getJson());
                 }
@@ -63,15 +63,13 @@ public class HarmReductionVisitsUtil extends VisitUtils {
         NCUtils.startClientProcessing();
     }
 
-    public static String getTbLeprosyVisitStatus(Visit lastVisit) {
+    public static String getHarmReductionVisitStatus(Visit lastVisit) {
         HashMap<String, Boolean> completionObject = new HashMap<>();
         try {
             JSONObject jsonObject = new JSONObject(lastVisit.getJson());
             JSONArray obs = jsonObject.getJSONArray("obs");
 
             completionObject.put("isFirstVitalDone", computeCompletionStatusForAction(obs, "first_vital_completion_status"));
-            completionObject.put("isSecondVitalDone", computeCompletionStatusForAction(obs, "second_vital_completion_status"));
-            completionObject.put("isDischargeConditionDone", computeCompletionStatus(obs, "discharge_condition"));
 
 
         } catch (Exception e) {
@@ -79,41 +77,6 @@ public class HarmReductionVisitsUtil extends VisitUtils {
         }
         return getActionStatus(completionObject);
     }
-
-    public static String getTbLeprosyServiceVisitStatus(Visit lastVisit) {
-        HashMap<String, Boolean> completionObject = new HashMap<>();
-        try {
-            JSONObject jsonObject = new JSONObject(lastVisit.getJson());
-            JSONArray obs = jsonObject.getJSONArray("obs");
-
-            completionObject.put("isMedicalHistoryDone", computeCompletionStatusForAction(obs, "medical_history_completion_status"));
-            completionObject.put("isPhysicalExamDone", computeCompletionStatusForAction(obs, "physical_exam_completion_status"));
-            completionObject.put("isHtsDone", computeCompletionStatusForAction(obs, "hts_completion_status"));
-
-
-        } catch (Exception e) {
-            Timber.e(e);
-        }
-        return getActionStatus(completionObject);
-    }
-
-    public static String getTbLeprosyProcedureVisitStatus(Visit lastVisit) {
-        HashMap<String, Boolean> completionObject = new HashMap<>();
-        try {
-            JSONObject jsonObject = new JSONObject(lastVisit.getJson());
-            JSONArray obs = jsonObject.getJSONArray("obs");
-            JSONObject checkObj = obs.getJSONObject(0);
-            JSONArray value = checkObj.getJSONArray("values");
-
-            completionObject.put("isClientConsentForMcProcedureDone", computeCompletionStatus(obs, "client_consent_for_mc_procedure"));
-            completionObject.put("isMcProcedureDone", computeCompletionStatusForAction(obs, "mc_procedure_completion_status"));
-
-        } catch (Exception e) {
-            Timber.e(e);
-        }
-        return getActionStatus(completionObject);
-    }
-
 
     public static String getActionStatus(Map<String, Boolean> checkObject) {
         for (Map.Entry<String, Boolean> entry : checkObject.entrySet()) {

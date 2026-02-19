@@ -23,8 +23,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.vijay.jsonwizard.activities.JsonFormActivity;
 
 import org.apache.commons.lang3.StringUtils;
-import org.joda.time.DateTime;
-import org.joda.time.Period;
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
 import org.smartregister.chw.harmreduction.HarmReductionLibrary;
@@ -184,6 +182,13 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     @Override
     protected void onResume() {
         super.onResume();
+        try {
+            //Auto closing sober house clients who have graduated
+            HarmReductionDao.autoCloseSoberHouseRecordsAfterRecoveryCapitalPass();
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+
         setupViews();
     }
 

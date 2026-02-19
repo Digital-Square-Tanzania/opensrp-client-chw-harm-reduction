@@ -18,6 +18,7 @@ import org.smartregister.AllConstants;
 import org.smartregister.Context;
 import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.contract.HarmReductionRegisterContract;
+import org.smartregister.chw.harmreduction.dao.HarmReductionDao;
 import org.smartregister.chw.harmreduction.fragment.BaseHarmReductionRegisterFragment;
 import org.smartregister.chw.harmreduction.interactor.BaseHarmReductionRegisterInteractor;
 import org.smartregister.chw.harmreduction.listener.HarmReductionBottomNavigationListener;
@@ -53,6 +54,13 @@ public class BaseHarmReductionRegisterActivity extends BaseRegisterActivity impl
         FAMILY_BASE_ENTITY_ID = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.FAMILY_BASE_ENTITY_ID);
         FORM_NAME = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.HARM_REDUCTION_FORM_NAME);
         onStartActivityWithAction();
+
+        try {
+            //Auto closing sober house clients who have graduated
+            HarmReductionDao.autoCloseSoberHouseRecordsAfterRecoveryCapitalPass();
+        } catch (Exception e) {
+            Timber.e(e);
+        }
     }
 
     /**

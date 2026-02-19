@@ -1,19 +1,74 @@
 package org.smartregister.chw.harmreduction.dao;
 
+import androidx.annotation.VisibleForTesting;
+
 import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
 import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.util.Constants;
 import org.smartregister.dao.AbstractDao;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class HarmReductionDao extends AbstractDao {
+    private static final String SOBER_HOUSE_SERVICES_TABLE = "ec_harm_reduction_sober_house_services";
+    private static final String YES_VALUE = "yes";
+    private static final DateTimeFormatter SQL_DATE_TIME_FORMAT = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+    private static final DateTimeFormatter[] SUPPORTED_EVENT_DATE_FORMATS = new DateTimeFormatter[]{
+            ISODateTimeFormat.dateTimeParser(),
+            DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss.S"),
+            DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss"),
+            DateTimeFormat.forPattern("yyyy-MM-dd")
+    };
+
     private static final SimpleDateFormat df = new SimpleDateFormat(
             "dd-MM-yyyy",
             Locale.getDefault()
     );
+
+    public static class SoberHouseAutoCloseSummary {
+        private final int affectedClients;
+        private final int serviceRowsUpdated;
+        private final int enrollmentRowsUpdated;
+
+        public SoberHouseAutoCloseSummary(int affectedClients, int serviceRowsUpdated, int enrollmentRowsUpdated) {
+            this.affectedClients = affectedClients;
+            this.serviceRowsUpdated = serviceRowsUpdated;
+            this.enrollmentRowsUpdated = enrollmentRowsUpdated;
+        }
+
+        public int getAffectedClients() {
+            return affectedClients;
+        }
+
+        public int getServiceRowsUpdated() {
+            return serviceRowsUpdated;
+        }
+
+        public int getEnrollmentRowsUpdated() {
+            return enrollmentRowsUpdated;
+        }
+    }
+
+    @VisibleForTesting
+    static class SoberHouseClosureTrigger {
+        private final String entityId;
+        private final String eventDate;
+
+        SoberHouseClosureTrigger(String entityId, String eventDate) {
+            this.entityId = entityId;
+            this.eventDate = eventDate;
+        }
+    }
 
     private static final DataMap<MemberObject> memberObjectMap = cursor -> {
 
@@ -111,6 +166,39 @@ public class HarmReductionDao extends AbstractDao {
             return res.get(0);
         }
         return "";
+    }
+
+    public static SoberHouseAutoCloseSummary autoCloseSoberHouseRecordsAfterRecoveryCapitalPass() {
+        List<SoberHouseClosureTrigger> triggers = loadRecoveryCapitalPassTriggers();
+        Map<String, DateTime> closeThresholdByClient = findEarliestCloseThresholdByClient(triggers);
+
+        int affectedClients = 0;
+        int serviceRowsUpdated = 0;
+        int enrollmentRowsUpdated = 0;
+
+        for (Map.Entry<String, DateTime> entry : closeThresholdByClient.entrySet()) {
+            String clientId = entry.getKey();
+            DateTime closeThreshold = entry.getValue();
+
+            int openServiceRows = countOpenServiceRowsToClose(clientId, closeThreshold);
+            int openEnrollmentRows = countOpenEnrollmentRowsToClose(clientId, closeThreshold);
+
+            if (openServiceRows > 0) {
+                updateDB(buildCloseServicesSql(clientId, closeThreshold));
+            }
+
+            if (openEnrollmentRows > 0) {
+                updateDB(buildCloseEnrollmentSql(clientId, closeThreshold));
+            }
+
+            if (openServiceRows > 0 || openEnrollmentRows > 0) {
+                affectedClients++;
+            }
+            serviceRowsUpdated += openServiceRows;
+            enrollmentRowsUpdated += openEnrollmentRows;
+        }
+
+        return new SoberHouseAutoCloseSummary(affectedClients, serviceRowsUpdated, enrollmentRowsUpdated);
     }
 
     public static String getLastInteractedWithMatConsentFollowUpVisit(String baseEntityId) {
@@ -365,6 +453,135 @@ public class HarmReductionDao extends AbstractDao {
                 "where mr.is_closed = 0 ";
 
         return readData(sql, memberObjectMap);
+    }
+
+    private static List<SoberHouseClosureTrigger> loadRecoveryCapitalPassTriggers() {
+        String sql = "SELECT entity_id, event_date FROM " + SOBER_HOUSE_SERVICES_TABLE +
+                " WHERE LOWER(recovery_capital_passed) = '" + YES_VALUE + "'" +
+                " AND entity_id IS NOT NULL AND TRIM(entity_id) <> ''" +
+                " AND event_date IS NOT NULL AND TRIM(event_date) <> ''";
+
+        DataMap<SoberHouseClosureTrigger> dataMap = cursor -> new SoberHouseClosureTrigger(
+                getCursorValue(cursor, "entity_id"),
+                getCursorValue(cursor, "event_date")
+        );
+
+        List<SoberHouseClosureTrigger> rows = readData(sql, dataMap);
+        return rows == null ? new ArrayList<>() : rows;
+    }
+
+    @VisibleForTesting
+    static Map<String, DateTime> findEarliestCloseThresholdByClient(List<SoberHouseClosureTrigger> triggers) {
+        Map<String, DateTime> closeThresholdByClient = new LinkedHashMap<>();
+        if (triggers == null || triggers.isEmpty()) {
+            return closeThresholdByClient;
+        }
+
+        for (SoberHouseClosureTrigger trigger : triggers) {
+            if (trigger == null || StringUtils.isBlank(trigger.entityId)) {
+                continue;
+            }
+
+            DateTime triggerDate = parseEventDate(trigger.eventDate);
+            if (triggerDate == null) {
+                continue;
+            }
+
+            DateTime current = closeThresholdByClient.get(trigger.entityId);
+            if (current == null || triggerDate.isBefore(current)) {
+                closeThresholdByClient.put(trigger.entityId, triggerDate);
+            }
+        }
+
+        return closeThresholdByClient;
+    }
+
+    @VisibleForTesting
+    static DateTime parseEventDate(String eventDate) {
+        if (StringUtils.isBlank(eventDate)) {
+            return null;
+        }
+
+        String normalized = eventDate.trim();
+        try {
+            return new DateTime(Long.parseLong(normalized));
+        } catch (NumberFormatException e) {
+            // no-op
+        }
+
+        for (DateTimeFormatter formatter : SUPPORTED_EVENT_DATE_FORMATS) {
+            try {
+                return formatter.parseDateTime(normalized);
+            } catch (IllegalArgumentException e) {
+                // try next supported format
+            }
+        }
+
+        return null;
+    }
+
+    @VisibleForTesting
+    static boolean isEventDateOnOrBeforeCloseThreshold(String eventDate, DateTime closeThreshold) {
+        DateTime parsedEventDate = parseEventDate(eventDate);
+        return parsedEventDate != null && closeThreshold != null && !parsedEventDate.isAfter(closeThreshold);
+    }
+
+    @VisibleForTesting
+    static boolean shouldCloseOpenRecord(boolean isClosed, String eventDate, DateTime closeThreshold) {
+        return !isClosed && isEventDateOnOrBeforeCloseThreshold(eventDate, closeThreshold);
+    }
+
+    private static int countOpenServiceRowsToClose(String clientId, DateTime closeThreshold) {
+        String sql = "SELECT count(*) count FROM " + SOBER_HOUSE_SERVICES_TABLE +
+                " WHERE entity_id = '" + escapeSqlValue(clientId) + "'" +
+                " AND (is_closed = 0 OR is_closed IS NULL)" +
+                " AND event_date IS NOT NULL AND TRIM(event_date) <> ''" +
+                " AND julianday(event_date) <= julianday('" + toSqlDateTime(closeThreshold) + "')";
+        return countRows(sql);
+    }
+
+    private static int countOpenEnrollmentRowsToClose(String clientId, DateTime closeThreshold) {
+        String sql = "SELECT count(*) count FROM " + Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT +
+                " WHERE base_entity_id = '" + escapeSqlValue(clientId) + "'" +
+                " AND (is_closed = 0 OR is_closed IS NULL)" +
+                " AND event_date IS NOT NULL AND TRIM(event_date) <> ''" +
+                " AND julianday(event_date) <= julianday('" + toSqlDateTime(closeThreshold) + "')";
+        return countRows(sql);
+    }
+
+    private static String buildCloseServicesSql(String clientId, DateTime closeThreshold) {
+        return "UPDATE " + SOBER_HOUSE_SERVICES_TABLE +
+                " SET is_closed = 1" +
+                " WHERE entity_id = '" + escapeSqlValue(clientId) + "'" +
+                " AND (is_closed = 0 OR is_closed IS NULL)" +
+                " AND event_date IS NOT NULL AND TRIM(event_date) <> ''" +
+                " AND julianday(event_date) <= julianday('" + toSqlDateTime(closeThreshold) + "')";
+    }
+
+    private static String buildCloseEnrollmentSql(String clientId, DateTime closeThreshold) {
+        return "UPDATE " + Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT +
+                " SET is_closed = 1" +
+                " WHERE base_entity_id = '" + escapeSqlValue(clientId) + "'" +
+                " AND (is_closed = 0 OR is_closed IS NULL)" +
+                " AND event_date IS NOT NULL AND TRIM(event_date) <> ''" +
+                " AND julianday(event_date) <= julianday('" + toSqlDateTime(closeThreshold) + "')";
+    }
+
+    private static int countRows(String sql) {
+        DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
+        List<Integer> rows = readData(sql, dataMap);
+        if (rows == null || rows.isEmpty() || rows.get(0) == null) {
+            return 0;
+        }
+        return rows.get(0);
+    }
+
+    private static String toSqlDateTime(DateTime dateTime) {
+        return SQL_DATE_TIME_FORMAT.print(dateTime.withZone(DateTimeZone.UTC));
+    }
+
+    private static String escapeSqlValue(String value) {
+        return StringUtils.defaultString(value).replace("'", "''");
     }
 
 }

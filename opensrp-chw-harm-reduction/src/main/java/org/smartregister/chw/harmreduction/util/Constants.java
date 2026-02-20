@@ -17,6 +17,7 @@ public interface Constants {
     interface EVENT_TYPE {
         String HARM_REDUCTION_RISK_ASSESSMENT = "Harm Reduction Risk Assessment";
         String HARM_REDUCTION_FOLLOW_UP_VISIT =  "Harm Reduction Follow-up Visit";
+        String HARM_REDUCTION_MAT_CLIENTS_FOLLOWUP = "Harm Reduction MAT Clients Followup";
         String HARM_REDUCTION_SOBER_HOUSE_VISIT = "Harm Reduction Sober House Visit";
         String HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT = "Harm Reduction Sober House Enrollment";
         String VOID_EVENT = "Void Event";

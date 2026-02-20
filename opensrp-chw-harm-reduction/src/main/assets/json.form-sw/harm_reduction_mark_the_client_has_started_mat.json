@@ -79,7 +79,14 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "status",
         "type": "hidden",
-        "value": "started_mat_services"
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mark-the-client-has-started-mat-rules.yml"
+            }
+          }
+        }
       }
     ]
   }

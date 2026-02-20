@@ -3,6 +3,7 @@
     <string name="error_unable_to_start_form">An error occurred when starting the form</string>
     <string name="error_unable_to_save_form">An error occurred when saving the form</string>
     <string name="harm_reduction">Harm Reduction</string>
+    <string name="harm_reduction_mat_clients">MAT Clients</string>
     <string name="harm_reduction_sober_house">Sober House</string>
     <string name="harm_reduction_sober_house_visit">Sober House Visit</string>
     <string name="harm_reduction_sober_house_enrollment">Sober House Enrollment</string>
@@ -14,6 +15,7 @@
     <string name="saving_dialog_title">Saving</string>
     <string name="interpunct" translatable="false">\u00b7</string>
     <string name="record_harm_reduction_community_visit">Record Harm Reduction Visit</string>
+    <string name="record_services_provided_to_mat_clients">Record Services Provided to MAT Clients</string>
     <string name="mark_client_started_mat">Mark client has started MAT</string>
     <string name="record_pre_mat_session">Record Pre-Mat Sessions</string>
     <string name="record_mat_client_followup_visit">Record MAT Client Followup Visit</string>
@@ -26,6 +28,7 @@
 
 
     <string name="harm_reduction_followup_visit">Follow Up Visit</string>
+    <string name="harm_reduction_mat_clients_followup_visit">MAT Clients Followup Visit</string>
     <string name="harm_reduction_pre_mat_session">Pre-Mat Session</string>
     <string name="harm_reduction_pre_mat_session_history">Pre-Mat Sessions History</string>
 

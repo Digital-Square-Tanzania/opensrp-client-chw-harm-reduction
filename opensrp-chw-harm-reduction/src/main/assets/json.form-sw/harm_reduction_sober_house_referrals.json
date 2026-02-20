@@ -1,0 +1,188 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_sober_house_refer_to_facility",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Harm Reduction Sober House Refer To Facility",
+    "fields": [
+      {
+        "key": "facility_referrals_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "facility_referrals_provided",
+        "type": "native_radio",
+        "label": "Je, rufaa ya huduma za kitabibu imetolewa?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
+          }
+        ]
+      },
+      {
+        "key": "facility_referrals",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "facility_referrals",
+        "type": "check_box",
+        "label": "Rufaa ya huduma za kitabibu zilizotolewa",
+        "combine_checkbox_option_values": "true",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-referrals-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "hiv_aids",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hiv_aids",
+            "text": "VVU na UKIMWI"
+          },
+          {
+            "key": "tb_leprosy",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tb_leprosy",
+            "text": "Kifua Kikuu na Ukoma"
+          },
+          {
+            "key": "family_planning",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "family_planning",
+            "text": "Uzazi wa mpango"
+          },
+          {
+            "key": "rmchn_adolescents",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "rmchn_adolescents",
+            "text": "Afya ya uzazi, baba, Mama, Mtoto na Vijana balehe"
+          },
+          {
+            "key": "mental_health",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mental_health",
+            "text": "Afya ya Akili"
+          },
+          {
+            "key": "gender_based_violence",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "gender_based_violence",
+            "text": "Ukatili wa Kijinsia"
+          },
+          {
+            "key": "psychological_support",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "psychological_support",
+            "text": "Msaada wa kisaikolojia"
+          },
+          {
+            "key": "rights_entitlements_special_groups",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "rights_entitlements_special_groups",
+            "text": "Haki stahiki kwa makundi maalumu"
+          },
+          {
+            "key": "stis_reproductive",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stis_reproductive",
+            "text": "Magonjwa ya Ngono na via vya Uzazi"
+          },
+          {
+            "key": "wounds_abscesses",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "wounds_abscesses",
+            "text": "Matibabu ya vidonda na Mabunyufu (majipu)"
+          },
+          {
+            "key": "other",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other",
+            "text": "Mengineyo"
+          }
+        ]
+      },
+      {
+        "key": "facility_referrals_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "facility_referrals_other_specify",
+        "type": "edit_text",
+        "hint": "Mengineyo (Taja)",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-referrals-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

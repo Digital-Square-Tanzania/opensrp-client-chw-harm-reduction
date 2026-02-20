@@ -1,0 +1,146 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_sober_house_link_other_services",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Harm Reduction Sober House Link Other Services",
+    "fields": [
+      {
+        "key": "linkage_to_other_services_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "linkage_to_other_services_provided",
+        "type": "native_radio",
+        "label": "Je, mteja ameunganishwa katika huduma nyingine?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
+          }
+        ]
+      },
+      {
+        "key": "linkage_to_other_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "linkage_to_other_services",
+        "type": "check_box",
+        "label": "Huduma alizounganishwa",
+        "combine_checkbox_option_values": "true",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-linkage-to-other-services-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "gender_based_violence",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "gender_based_violence",
+            "text": "Ukatili wa Kijinsia"
+          },
+          {
+            "key": "rights_entitlements_special_groups",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "rights_entitlements_special_groups",
+            "text": "Haki stahiki kwa makundi maalumu"
+          },
+          {
+            "key": "legal_issues",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "legal_issues",
+            "text": "Masuala ya Kisheria"
+          },
+          {
+            "key": "income_generating_activities",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "income_generating_activities",
+            "text": "Kujikwamua Kiuchumi (IGA)"
+          },
+          {
+            "key": "other",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other",
+            "text": "Mengineyo"
+          }
+        ]
+      },
+      {
+        "key": "linkage_to_other_services_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "linkage_to_other_services_specify",
+        "type": "edit_text",
+        "hint": "Huduma nyinginezo (Taja)",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-linkage-to-other-services-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

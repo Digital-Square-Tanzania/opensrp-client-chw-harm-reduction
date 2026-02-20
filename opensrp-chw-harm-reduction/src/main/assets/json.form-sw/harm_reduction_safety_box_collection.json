@@ -1,0 +1,137 @@
+{
+  "count": "1",
+  "encounter_type": "Harm Reduction Used Needle and Syringes Collection",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Used Needle and Syringes Collection",
+    "fields": [
+      {
+        "key": "date_of_collection",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "date_of_collection",
+        "type": "date_picker",
+        "hint": "Tarehe ya Mkusanyiko"
+      },
+      {
+        "key": "maskani_name",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "maskani_name",
+        "type": "edit_text",
+        "hint": "Jina la Maskani"
+      },
+      {
+        "key": "collection_site_gps",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "collection_site_gps",
+        "type": "gps",
+        "hint": "GPS eneo la tovuti ya ukusanyaji"
+      },
+      {
+        "key": "other_collection",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_collection",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika) katika tovuti Zingine za Mkusanyiko",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali weka nambari halali"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Thamani lazima iwe 0 au zaidi"
+        }
+      },
+      {
+        "key": "fixed_bins",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "fixed_bins",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika) kwenye Mapipa yasiyobadilika",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali weka nambari halali"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Thamani lazima iwe 0 au zaidi"
+        }
+      },
+      {
+        "key": "total_safety_boxes_collected",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "total_safety_boxes_collected",
+        "type": "edit_text",
+        "edit_type": "number",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-safety-box-collection-rules.yml"
+            }
+          }
+        },
+        "hint": "Jumla ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika)"
+      },
+      {
+        "key": "name_of_ow",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "name_of_ow",
+        "type": "edit_text",
+        "hint": "Jina la OW"
+      }
+    ]
+  }
+}

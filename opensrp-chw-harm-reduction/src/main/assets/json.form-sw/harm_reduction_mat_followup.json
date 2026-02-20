@@ -1,0 +1,279 @@
+{
+  "count": "1",
+  "encounter_type": "Harm Reduction MAT Clients Followup",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "harm_reduction_health_education_topics",
+    "fields": [
+      {
+        "key": "health_education_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "health_education_provided",
+        "type": "check_box",
+        "label": "Elimu iliyotolewa",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "meaning_of_drugs",
+            "text": "Maana ya dawa za kulevya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "meaning_of_drugs"
+          },
+          {
+            "key": "types_of_drugs",
+            "text": "Aina za dawa za kulevya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "types_of_drugs"
+          },
+          {
+            "key": "categories_of_drugs",
+            "text": "Makundi ya dawa za kulevya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "categories_of_drugs"
+          },
+          {
+            "key": "reasons_for_drug_use",
+            "text": "Sababu za kutumia dawa za kulevya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "reasons_for_drug_use"
+          },
+          {
+            "key": "methods_of_drug_use",
+            "text": "Njia za matumizi ya dawa za kulevya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methods_of_drug_use"
+          },
+          {
+            "key": "effects_of_drug_use",
+            "text": "Madhara ya dawa za kulevya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "effects_of_drug_use"
+          },
+          {
+            "key": "tuberculosis",
+            "text": "Kifua Kikuu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tuberculosis"
+          },
+          {
+            "key": "hiv_aids",
+            "text": "VVU na UKIMWI",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hiv_aids"
+          },
+          {
+            "key": "hepatitis_bc",
+            "text": "Homa ya ini B na C",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hepatitis_bc"
+          },
+          {
+            "key": "stis_stds",
+            "text": "Magonjwa ya ngono",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stis_stds"
+          },
+          {
+            "key": "covid_19",
+            "text": "Mtihani wa 19",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "covid_19"
+          },
+          {
+            "key": "cholera",
+            "text": "Kipindupindu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cholera"
+          },
+          {
+            "key": "behavior_change",
+            "text": "Mabadiliko ya tabia",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "behavior_change"
+          },
+          {
+            "key": "positive_behavior_adherence",
+            "text": "Ufuasi mzuri wa tabia",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive_behavior_adherence"
+          },
+          {
+            "key": "legal_support_mat_procedures",
+            "text": "Msaada wa kisheria na taratibu za MAT",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "legal_support_mat_procedures"
+          },
+          {
+            "key": "overdose",
+            "text": "Uzidishaji wa kiwango cha dawa za kulevya (Ovadozi)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "overdose"
+          },
+          {
+            "key": "naloxone_use",
+            "text": "Matumizi ya naloxone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "naloxone_use"
+          },
+          {
+            "key": "drug_use_and_women",
+            "text": "Matumizi ya dawa za kulevya na wanawake",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "drug_use_and_women"
+          },
+          {
+            "key": "reproductive_health_services",
+            "text": "Huduma za afya ya uzazi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "reproductive_health_services"
+          },
+          {
+            "key": "correct_condom_use",
+            "text": "Matumizi sahihi ya kondomu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "correct_condom_use"
+          },
+          {
+            "key": "opioid_addiction_treatment_use",
+            "text": "Matumizi sahihi ya matibabu ya uraibu afyuni (Methadone, buprenorphine, suboxone)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "opioid_addiction_treatment_use"
+          },
+          {
+            "key": "take_away_dose",
+            "text": "Matumizi ya dawa tiba nyumbani (take away dose)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "take_away_dose"
+          },
+          {
+            "key": "sti_meaning",
+            "text": "Maana ya magonjwa ya zinaa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sti_meaning"
+          },
+          {
+            "key": "sti_types_and_symptoms",
+            "text": "Aina na dalili za magonjwa ya zinaa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sti_types_and_symptoms"
+          },
+          {
+            "key": "sti_prevention",
+            "text": "Njia za kujikinga na magonjwa ya zinaa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sti_prevention"
+          },
+          {
+            "key": "mental_health",
+            "text": "Afya ya akili",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mental_health"
+          },
+          {
+            "key": "injection_related_diseases",
+            "text": "Magonjwa yatokanayo na ujidunga",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "injection_related_diseases"
+          }
+        ]
+      },
+      {
+        "key": "education_delivery_method",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "education_delivery_method",
+        "type": "check_box",
+        "label": "Njia ya utoaji elimu",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "group_session",
+            "text": "Katika kundi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "group_session"
+          },
+          {
+            "key": "individual_session",
+            "text": "Binafsi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "individual_session"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "count": "1",
+  "encounter_type": "Risky Sexual Behaviors",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Risky Sexual Behaviors",
+    "fields": [
+      {
+        "key": "engaging_in_sexual_activity",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "engaging_in_sexual_activity",
+        "type": "native_radio",
+        "label": "Idadi ya vifaa?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "number_of_sexual_partners",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "number_of_sexual_partners",
+        "type": "edit_text",
+        "hint": "Idadi ya wenza wa kingono",
+        "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Lazima iwe 1 au zaidi"
+        },
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Tafadhali ingiza ingizo halali"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risky-sexual-behaviors-condoms-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "condom_use_during_sex",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "condom_use_during_sex",
+        "type": "native_radio",
+        "label": "Je, unatumia kondomu wakati wa kujamiiana?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risky-sexual-behaviors-condoms-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "condom_education_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "condom_education_prompt",
+        "type": "toaster_notes",
+        "label": "Mwongozo",
+        "text": "Mweleze mteja juu ya umuhimu na matumizi sahihi ya kondomu",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risky-sexual-behaviors-condoms-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "condoms_given",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "condoms_given",
+        "type": "native_radio",
+        "label": "o Ndiyo\no Hapana",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "number_of_condoms",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "number_of_condoms",
+        "type": "edit_text",
+        "hint": "Idadi ya kondomu (vipande) vilivyotolewa",
+        "edit_type": "number",
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Tafadhali ingiza ingizo halali"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risky-sexual-behaviors-condoms-relevance-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

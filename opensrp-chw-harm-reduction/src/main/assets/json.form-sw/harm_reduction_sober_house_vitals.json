@@ -1,0 +1,217 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_sober_house_testing_services",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Harm Reduction Sober House Testing Services",
+    "fields": [
+      {
+        "key": "testing_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "testing_services",
+        "type": "check_box",
+        "label": "Huduma ya Vipimo",
+        "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "not_done"
+        ],
+        "options": [
+          {
+            "key": "weight",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "weight",
+            "text": "Uzito"
+          },
+          {
+            "key": "blood_pressure",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "blood_pressure",
+            "text": "Shinikizo la damu"
+          },
+          {
+            "key": "not_done",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_done",
+            "text": "Haijafanyika"
+          }
+        ]
+      },
+      {
+        "key": "systolic",
+        "type": "edit_text",
+        "hint": "Systolic (Shinikizo la Damu)",
+        "openmrs_entity_id": "systolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza thamani ya systolic"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Thamani ya systolic lazima iwe sawa au zaidi ya 0"
+        },
+        "v_max": {
+          "value": "320",
+          "err": "Thamani ya systolic lazima iwe sawa au chini ya 320"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali ingiza thamani ya systolic"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-vitals-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "diastolic",
+        "type": "edit_text",
+        "hint": "Diastoli (Shinikizo la Damu)",
+        "openmrs_entity_id": "diastolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali weka thamani ya diastoli"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Thamani ya diastoli lazima iwe sawa au zaidi ya 0"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Thamani ya diastoli lazima iwe sawa au chini ya 200"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali weka thamani ya diastoli"
+        },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:systolic)",
+            "err": "Thamani ya diastoli lazima iwe chini ya thamani ya sistoli"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-vitals-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_management_of_hypertension",
+        "type": "toaster_notes",
+        "text": "Dhibiti shinikizo la damu kulingana na miongozo ya kawaida",
+        "openmrs_entity_id": "prompt_for_management_of_hypertension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-vitals-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_management_of_hypotension",
+        "type": "toaster_notes",
+        "text": "Tambua chanzo cha shinikizo la damu la chini na simamia kulingana na miongozo ya kawaida",
+        "openmrs_entity_id": "prompt_for_management_of_hypotension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-vitals-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "weight",
+        "type": "edit_text",
+        "hint": "Uzito (KG)",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "weight",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza uzito"
+        },
+        "v_min": {
+          "value": "20",
+          "err": "Uzito lazima uwe sawasawa au zaidi ya 20 (KG)"
+        },
+        "v_max": {
+          "value": "300",
+          "err": "Uzito lazima uwe sawasawa au chini ya 300 (KG)"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-vitals-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

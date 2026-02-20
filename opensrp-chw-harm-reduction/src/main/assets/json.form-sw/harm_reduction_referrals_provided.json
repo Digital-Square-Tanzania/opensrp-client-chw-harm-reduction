@@ -1,0 +1,284 @@
+{
+  "count": "1",
+  "encounter_type": "Referrals Provided",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Referrals Provided",
+    "fields": [
+      {
+        "key": "referrals_provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "referrals_provided",
+        "type": "check_box",
+        "label": "Tiba ya Methadone",
+        "exclusive": [
+          "none"
+        ],
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "hiv_aids",
+            "text": "VVU na UKIMWI",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hiv_aids"
+          },
+          {
+            "key": "epidemic_diseases",
+            "text": "Magonjwa ya mlipuko",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "epidemic_diseases"
+          },
+          {
+            "key": "communicable_diseases",
+            "text": "Magonjwa ya kuambukiza",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "communicable_diseases"
+          },
+          {
+            "key": "tb_leprosy",
+            "text": "TB/Ukoma",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tb_leprosy"
+          },
+          {
+            "key": "ntds",
+            "text": "Magonjwa ya Kitropiki Yaliyopuuzwa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ntds"
+          },
+          {
+            "key": "family_planning",
+            "text": "Uzazi wa mpango",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "family_planning"
+          },
+          {
+            "key": "reproductive_health",
+            "text": "Afya ya uzazi, baba, mama, mtoto na vijana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "reproductive_health"
+          },
+          {
+            "key": "nutrition",
+            "text": "Lishe",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "nutrition"
+          },
+          {
+            "key": "prep",
+            "text": "PrEP",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "prep"
+          },
+          {
+            "key": "mental_health",
+            "text": "Afya ya akili",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mental_health"
+          },
+          {
+            "key": "substance_abuse",
+            "text": "Matumizi ya dawa za kulevya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "substance_abuse"
+          },
+          {
+            "key": "gbv_vac",
+            "text": "GBV/VAC",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "gbv_vac"
+          },
+          {
+            "key": "psychological_assistance",
+            "text": "Msaada wa kisaikolojia",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "psychological_assistance"
+          },
+          {
+            "key": "rights_vulnerable",
+            "text": "Haki za watu walio katika mazingira magumu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "rights_vulnerable"
+          },
+          {
+            "key": "health_services_advocacy",
+            "text": "Utetezi wa huduma za afya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_services_advocacy"
+          },
+          {
+            "key": "hepatitis_bc",
+            "text": "Hepatitis B/C",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hepatitis_bc"
+          },
+          {
+            "key": "stis_stds",
+            "text": "Magonjwa ya zinaa/STD",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stis_stds"
+          },
+          {
+            "key": "overdose_management",
+            "text": "Usimamizi na kuzuia overdose",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "overdose_management"
+          },
+          {
+            "key": "legal_issues",
+            "text": "Masuala ya kisheria",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "legal_issues"
+          },
+          {
+            "key": "safe_injection",
+            "text": "Udungaji salama",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "safe_injection"
+          },
+          {
+            "key": "methadone_services",
+            "text": "Huduma za Methadone (MAT)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methadone_services"
+          },
+          {
+            "key": "sober_house",
+            "text": "Nyumba ya Upataji Nafuu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sober_house"
+          },
+          {
+            "key": "income_generating",
+            "text": "Shughuli za Kuzalisha Kipato (IGA)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "income_generating"
+          },
+          {
+            "key": "hiv_testing",
+            "text": "Upimaji wa VVU",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hiv_testing"
+          },
+          {
+            "key": "wounds_abscess_treatment",
+            "text": "Matibabu ya vidonda na majipu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "wounds_abscess_treatment"
+          },
+          {
+            "key": "other",
+            "text": "Nyinginezo (Taja)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          },
+          {
+            "key": "none",
+            "text": "Hakuna",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ]
+      },
+      {
+        "key": "referrals_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "referrals_other_specify",
+        "type": "edit_text",
+        "hint": "Ikiwa ni nyinginezo, taja",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-referrals-provided-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "remarks_comments",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "remarks_comments",
+        "type": "edit_text",
+        "hint": "Maoni/Maoni",
+        "v_required": {
+          "value": "false",
+          "err": "Tafadhali weka maoni yako"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "count": "1",
+  "encounter_type": "HIV Infection Status",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "HIV Infection Status",
+    "fields": [
+      {
+        "key": "hiv_tested",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_tested",
+        "type": "native_radio",
+        "label": "Idadi ya kondomu",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "hiv_test_location",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_test_location",
+        "type": "native_radio",
+        "label": "Mtihani ulifanyika wapi",
+        "options": [
+          {
+            "key": "facility",
+            "text": "Kituo cha huduma",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "facility"
+          },
+          {
+            "key": "community",
+            "text": "Jamii",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "community"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "hiv_results",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_results",
+        "type": "native_radio",
+        "label": "Upimaji ulipofanyika",
+        "options": [
+          {
+            "key": "negative",
+            "text": "Hajaambukizwa (Hasi)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "positive",
+            "text": "Ameambukizwa (Chanya)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "unknown",
+            "text": "Haijulikani",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unknown"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "drug_adherence_status_ctc",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "drug_adherence_status_ctc",
+        "type": "native_radio",
+        "label": "Hali ya kuambatana na dawa",
+        "options": [
+          {
+            "key": "good_adherence",
+            "text": "Ufuasi mzuri",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "good_adherence"
+          },
+          {
+            "key": "poor_adherence",
+            "text": "Ufuasi hafifu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "poor_adherence"
+          },
+          {
+            "key": "discontinued",
+            "text": "Ameacha",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "discontinued"
+          },
+          {
+            "key": "not_started",
+            "text": "Hajaanza",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_started"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "adherence_guidance_discontinued",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "adherence_guidance_discontinued",
+        "type": "toaster_notes",
+        "label": "Mwongozo",
+        "text": "Mrejeshe mteja kwa Kliniki ya Matunzo na Tiba (CTC) kwa ushauri nasaha.",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "adherence_guidance_not_started",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "adherence_guidance_not_started",
+        "type": "toaster_notes",
+        "label": "Mwongozo",
+        "text": "Msindikize mteja hadi Kliniki ya Matunzo na Tiba (CTC) kwa huduma.",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

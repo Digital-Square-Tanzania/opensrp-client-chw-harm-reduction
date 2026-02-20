@@ -1,0 +1,1414 @@
+{
+  "count": "1",
+  "encounter_type": "Harm Reduction Risk Assessment",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "global": {},
+  "step1": {
+    "title": "Harm Reduction Risk Assessment",
+    "fields": [
+      {
+        "key": "birth_region",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "birth_region",
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "label_info_title": "Client's Region of Birth",
+        "label_info_text": "",
+        "hint": "Chagua mkoa aliozaliwa mteja",
+        "values": [
+          "Arusha",
+          "Dar es Salaam",
+          "Dodoma",
+          "Geita",
+          "Iringa",
+          "Kagera",
+          "Katavi",
+          "Kigoma",
+          "Kilimanjaro",
+          "Lindi",
+          "Manyara",
+          "Mara",
+          "Mbeya",
+          "Morogoro",
+          "Mtwara",
+          "Mwanza",
+          "Njombe",
+          "Pwani",
+          "Rukwa",
+          "Ruvuma",
+          "Shinyanga",
+          "Simiyu",
+          "Singida",
+          "Songwe",
+          "Tabora",
+          "Tanga"
+        ],
+        "keys": [
+          "Arusha",
+          "Dar es Salaam",
+          "Dodoma",
+          "Geita",
+          "Iringa",
+          "Kagera",
+          "Katavi",
+          "Kigoma",
+          "Kilimanjaro",
+          "Lindi",
+          "Manyara",
+          "Mara",
+          "Mbeya",
+          "Morogoro",
+          "Mtwara",
+          "Mwanza",
+          "Njombe",
+          "Pwani",
+          "Rukwa",
+          "Ruvuma",
+          "Shinyanga",
+          "Simiyu",
+          "Singida",
+          "Songwe",
+          "Tabora",
+          "Tanga"
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua mkoa"
+        }
+      },
+      {
+        "key": "maskani_name",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "maskani_name",
+        "type": "edit_text",
+        "hint": "Jina la Maskani",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza jina"
+        }
+      },
+      {
+        "key": "received_harm_reduction_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "received_harm_reduction_services",
+        "type": "native_radio",
+        "label": "Je, umewahi kupokea huduma za kupunguza madhara (katika shirika, MAT au Nyumba ya Upataji Nafuu)?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "harm_reduction_services_type",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "harm_reduction_services_type",
+        "type": "check_box",
+        "label": "Ni aina gani ya huduma katika utumiaji wa dawa za kulevya uliyoipata",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "nsp",
+            "text": "NSP",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "nsp"
+          },
+          {
+            "key": "mat",
+            "text": "MAT",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mat"
+          },
+          {
+            "key": "other",
+            "text": "Nyinginezo (Taja)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "harm_reduction_services_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "harm_reduction_services_other_specify",
+        "type": "edit_text",
+        "hint": "Bainisha aina nyingine ya kupunguza madhara inayopokelewa",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali bainisha aina nyingine ya kupunguza madhara iliyopokelewa"
+        }
+      },
+      {
+        "key": "living_environment",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "living_environment",
+        "type": "native_radio",
+        "label": "Unaishi katika mazingira yapi?",
+        "options": [
+          {
+            "key": "family_house",
+            "text": "Nyumba ya familia",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "family_house"
+          },
+          {
+            "key": "ghetto",
+            "text": "Gheto",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ghetto"
+          },
+          {
+            "key": "rented",
+            "text": "Imekodishwa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "rented"
+          },
+          {
+            "key": "other",
+            "text": "Nyinginezo (Taja)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "living_environment_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "living_environment_other_specify",
+        "type": "edit_text",
+        "hint": "Taja mazingira mengine ya kuishi",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja mazingira mengine ya kuishi"
+        }
+      },
+      {
+        "key": "route_of_substance_use",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "route_of_substance_use",
+        "type": "check_box",
+        "label": "Unatumia dawa za kulevya kwa njia gani",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "injecting",
+            "text": "Kujidunga",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "injecting"
+          },
+          {
+            "key": "smoking",
+            "text": "Kuvuta",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "smoking"
+          },
+          {
+            "key": "drinking",
+            "text": "Kunywa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "drinking"
+          },
+          {
+            "key": "sniffing",
+            "text": "Kunusa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sniffing"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "substances_used_injecting",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_injecting",
+        "type": "check_box",
+        "label": "Unatumia aina gani za dutu? (Kudunga sindano)",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "heroine",
+            "text": "Mashujaa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "heroine"
+          },
+          {
+            "key": "cocaine",
+            "text": "Cocaine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cocaine"
+          },
+          {
+            "key": "valium",
+            "text": "Valium",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "valium"
+          },
+          {
+            "key": "methamphetamine",
+            "text": "Methamphetamine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methamphetamine"
+          },
+          {
+            "key": "tramadol",
+            "text": "Tramadol",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tramadol"
+          },
+          {
+            "key": "other",
+            "text": "Nyinginezo (Taja)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "substances_used_injecting_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_injecting_other_specify",
+        "type": "edit_text",
+        "hint": "Ikiwa zingine, taja (Kudunga)",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja dutu nyingine"
+        }
+      },
+      {
+        "key": "substances_used_non_injecting",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_non_injecting",
+        "type": "check_box",
+        "label": "Unatumia aina gani za dutu? (Kuvuta/Kunywa/Kunusa)",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "heroine",
+            "text": "Mashujaa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "heroine"
+          },
+          {
+            "key": "marijuana",
+            "text": "Bangi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "marijuana"
+          },
+          {
+            "key": "cocaine",
+            "text": "Cocaine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cocaine"
+          },
+          {
+            "key": "alcohol",
+            "text": "Pombe",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "alcohol"
+          },
+          {
+            "key": "valium",
+            "text": "Valium",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "valium"
+          },
+          {
+            "key": "methamphetamine",
+            "text": "Methamphetamine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methamphetamine"
+          },
+          {
+            "key": "tramadol",
+            "text": "Tramadol",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tramadol"
+          },
+          {
+            "key": "mirungi",
+            "text": "Mirungi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mirungi"
+          },
+          {
+            "key": "tobacco",
+            "text": "Tumbaku",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tobacco"
+          },
+          {
+            "key": "other",
+            "text": "Nyinginezo (Taja)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "substances_used_non_injecting_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_non_injecting_other_specify",
+        "type": "edit_text",
+        "hint": "Ikiwa zingine, taja (Kuvuta Sigara/Kunywa/Kunusa)",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja dutu nyingine"
+        }
+      },
+      {
+        "key": "injection_times_per_day",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "injection_times_per_day",
+        "type": "edit_text",
+        "hint": "Unajidunga mara ngapi kwa siku",
+        "edit_type": "number",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya nyakati"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya nyakati"
+        },
+        "v_min": {
+          "value": "1",
+          "err": "Mara za kujidunga lazima ziwe zaidi ya 1"
+        },
+        "v_max": {
+          "value": "30",
+          "err": "Mara za kujidunga lazima ziwe chini ya 30"
+        },
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Tafadhali ingiza ingizo halali"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "reused_needles",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reused_needles",
+        "type": "native_radio",
+        "label": "Umeshawahi kurudia kutumia mabomba na sindano?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "shared_needles",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "shared_needles",
+        "type": "native_radio",
+        "label": "Umeshawahi kuchangia na mwenzako mabomba na sindano ?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "doses_used_at_once",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "doses_used_at_once",
+        "type": "edit_text",
+        "hint": "Unatumia kete ngapi kwa mara moja",
+        "edit_type": "number",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya dozi"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya dozi"
+        },
+        "v_min": {
+          "value": "1",
+          "err": "Dozi zinazotumiwa mara moja lazima ziwe kubwa kuliko 1"
+        },
+        "v_max": {
+          "value": "30",
+          "err": "Dozi zinazotumiwa mara moja lazima ziwe chini ya 30"
+        },
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Tafadhali ingiza ingizo halali"
+        }
+      },
+      {
+        "key": "controlled_substances_prescribed",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "controlled_substances_prescribed",
+        "type": "check_box",
+        "label": "Je, unatumia aina yoyote ya vitu vinavyodhibitiwa chini ya maagizo ya daktari?",
+        "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "valium",
+            "text": "Valium",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "valium"
+          },
+          {
+            "key": "methadone",
+            "text": "Methadone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methadone"
+          },
+          {
+            "key": "tramadol",
+            "text": "Tramadol",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tramadol"
+          },
+          {
+            "key": "methamphetamine",
+            "text": "Methamphetamine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methamphetamine"
+          },
+          {
+            "key": "other",
+            "text": "Nyinginezo (Taja)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          },
+          {
+            "key": "none",
+            "text": "Hakuna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "controlled_substances_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "controlled_substances_other_specify",
+        "type": "edit_text",
+        "hint": "Ikiwa ni nyinginezo, taja",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja dutu nyingine"
+        }
+      },
+      {
+        "key": "sex_times_per_week",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sex_times_per_week",
+        "type": "edit_text",
+        "hint": "Je, unashiriki tendo la ngono mara ngapi kwa wiki?",
+        "edit_type": "number",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya nyakati kwa wiki"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya nyakati kwa wiki"
+        },
+        "v_max_length": {
+          "value": "2",
+          "is_fixed_size": "true",
+          "err": "Tafadhali ingiza ingizo halali"
+        }
+      },
+      {
+        "key": "multiple_partners",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "multiple_partners",
+        "type": "native_radio",
+        "label": "Unashiriki ngono na mpenzi zaidi ya mmoja?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "condom_use",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "condom_use",
+        "type": "native_radio",
+        "label": "Huwa unatumia kondomu unaposhiriki ngono",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "ever_used_prep",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ever_used_prep",
+        "type": "native_radio",
+        "label": "Umewahi kutumia dawa kinga (PrEP)?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "ever_tested_hiv",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ever_tested_hiv",
+        "type": "native_radio",
+        "label": "Je Umewahi kupima VVU?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "ever_tested_hbv",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ever_tested_hbv",
+        "type": "native_radio",
+        "label": "Je Umewahi kupima Homa ya ini B?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "hbv_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hbv_status",
+        "type": "native_radio",
+        "label": "Hali ya maambukizi ya Homa ya ini B?",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Chanya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Hasi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "dont_know",
+            "text": "Sijui",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dont_know"
+          },
+          {
+            "key": "did_not_consent",
+            "text": "Hakukubali",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "did_not_consent"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "ever_tested_hcv",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ever_tested_hcv",
+        "type": "native_radio",
+        "label": "Je Umewahi kupima Homa ya ini C?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "hcv_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hcv_status",
+        "type": "native_radio",
+        "label": "Hali ya maambukizi ya Homa ya ini C?",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Chanya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Hasi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "dont_know",
+            "text": "Sijui",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dont_know"
+          },
+          {
+            "key": "did_not_consent",
+            "text": "Hakukubali",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "did_not_consent"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "ever_tested_sti",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ever_tested_sti",
+        "type": "native_radio",
+        "label": "Je Umewahi kupima magonjwa ya zinaa?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "sti_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sti_status",
+        "type": "native_radio",
+        "label": "Hali ya maambukizi ya magonjwa ya zinaa?",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Chanya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Hasi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "dont_know",
+            "text": "Sijui",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dont_know"
+          },
+          {
+            "key": "did_not_consent",
+            "text": "Hakukubali",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "did_not_consent"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "with_when_using_substance",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "with_when_using_substance",
+        "type": "check_box",
+        "label": "Unakuwa na nani wakati unatumia dawa za kulevya?",
+        "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "alone"
+        ],
+        "options": [
+          {
+            "key": "alone",
+            "text": "Peke yako",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "alone"
+          },
+          {
+            "key": "friends",
+            "text": "Pamoja na marafiki",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "friends"
+          },
+          {
+            "key": "unknown_people",
+            "text": "Na watu nisiowajua",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unknown_people"
+          },
+          {
+            "key": "partner",
+            "text": "Mshirika",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "partner"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "stress_challenges",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "stress_challenges",
+        "type": "edit_text",
+        "hint": "Ni changamoto gani unazokutana/ulizokutana nazo na kupelekea kupata msongo wa mawazo?"
+      },
+      {
+        "key": "help_received",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "help_received",
+        "type": "edit_text",
+        "hint": "Umewahi kupata msaada gani katika kukabiliana na changamoto hizo?",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali eleza usaidizi uliopokelewa"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "other_health_problem",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_health_problem",
+        "type": "native_radio",
+        "label": "Una tatizo lingine la kiafya?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "health_problem_description",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "health_problem_description",
+        "type": "edit_text",
+        "hint": "Ni tatizo gani la kiafya ulilonalo?",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali eleza tatizo la kiafya"
+        }
+      },
+      {
+        "key": "health_problem_support",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "health_problem_support",
+        "type": "edit_text",
+        "hint": "Unapata msaada gani kuhusiana na tatizo la kiafya?",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali eleza usaidizi uliopokelewa"
+        }
+      },
+      {
+        "key": "pregnant",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "pregnant",
+        "type": "native_radio",
+        "label": "Je una ujauzito?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "started_anc",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "started_anc",
+        "type": "native_radio",
+        "label": "Je, umeanza huduma ya ujauzito?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "pregnancy_challenges",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "pregnancy_challenges",
+        "type": "native_radio",
+        "label": "Umewahi kupata changamoto yoyote kuhusiana na ujauzito?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "roc_mat_pre_session",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "roc_mat_pre_session",
+        "type": "native_radio",
+        "label": "Je mpokea huduma amekuja kwaajili ya mafunzo ya kujiunga na huduma ya MAT",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "status",
+        "type": "hidden",
+        "value": "on_community_service"
+      }
+    ]
+  }
+}

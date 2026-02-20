@@ -55,21 +55,21 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "linkage_to_other_services_provided",
         "type": "native_radio",
-        "label": "Je, mteja ameunganishwa katika huduma nyingine?",
+        "label": "Has the client been linked to other services?",
         "options": [
           {
             "key": "yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes",
-            "text": "Ndiyo"
+            "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no",
-            "text": "Hapana"
+            "text": "No"
           }
         ]
       },
@@ -79,7 +79,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "linkage_to_other_services",
         "type": "check_box",
-        "label": "Huduma alizounganishwa",
+        "label": "Linked services",
         "combine_checkbox_option_values": "true",
         "relevance": {
           "rules-engine": {
@@ -94,35 +94,35 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "gender_based_violence",
-            "text": "Ukatili wa Kijinsia"
+            "text": "Gender-based violence"
           },
           {
             "key": "rights_entitlements_special_groups",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "rights_entitlements_special_groups",
-            "text": "Haki stahiki kwa makundi maalumu"
+            "text": "Rights for vulnerable groups"
           },
           {
             "key": "legal_issues",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "legal_issues",
-            "text": "Masuala ya Kisheria"
+            "text": "Legal issues"
           },
           {
             "key": "income_generating_activities",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "income_generating_activities",
-            "text": "Kujikwamua Kiuchumi (IGA)"
+            "text": "Financial Recovery (IGA)"
           },
           {
             "key": "other",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other",
-            "text": "Mengineyo"
+            "text": "Other"
           }
         ]
       },
@@ -132,7 +132,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "linkage_to_other_services_specify",
         "type": "edit_text",
-        "hint": "Huduma nyinginezo (Taja)",
+        "hint": "Other Services (Specify)",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

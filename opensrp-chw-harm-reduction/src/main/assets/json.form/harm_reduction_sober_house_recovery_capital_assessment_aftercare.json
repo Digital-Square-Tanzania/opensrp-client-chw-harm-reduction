@@ -55,21 +55,21 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "recovery_capital_passed",
         "type": "native_radio",
-        "label": "Je, Mpokea huduma amekidhi vigezo?",
+        "label": "Is the client eligible?",
         "options": [
           {
             "key": "yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes",
-            "text": "Ndiyo"
+            "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no",
-            "text": "Hapana"
+            "text": "No"
           }
         ]
       },
@@ -79,7 +79,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "post_counselling_done",
         "type": "native_radio",
-        "label": "Je, Unasihi baada ya tathmini umefanyika?",
+        "label": "Was post-assessment counseling done?",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -93,14 +93,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes",
-            "text": "Ndiyo"
+            "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no",
-            "text": "Hapana"
+            "text": "No"
           }
         ]
       },
@@ -110,7 +110,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "after_care_plan_done",
         "type": "native_radio",
-        "label": "After Care Plan Imefanyika?",
+        "label": "Has an aftercare plan been completed?",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -124,14 +124,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes",
-            "text": "Ndiyo"
+            "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no",
-            "text": "Hapana"
+            "text": "No"
           }
         ]
       },
@@ -141,7 +141,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "after_care_plan_participants",
         "type": "check_box",
-        "label": "Ushirikishi wa Plan",
+        "label": "Plan participation",
         "combine_checkbox_option_values": "true",
         "relevance": {
           "rules-engine": {
@@ -156,14 +156,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "family",
-            "text": "Familia"
+            "text": "Family"
           },
           {
             "key": "close_supporter",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "close_supporter",
-            "text": "Msaidizi wa Karibu"
+            "text": "Close supporter"
           }
         ]
       }

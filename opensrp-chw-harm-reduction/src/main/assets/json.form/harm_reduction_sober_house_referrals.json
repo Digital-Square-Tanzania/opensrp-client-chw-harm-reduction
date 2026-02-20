@@ -55,21 +55,21 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "facility_referrals_provided",
         "type": "native_radio",
-        "label": "Je, rufaa ya huduma za kitabibu imetolewa?",
+        "label": "Was a referral for medical services provided?",
         "options": [
           {
             "key": "yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes",
-            "text": "Ndiyo"
+            "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no",
-            "text": "Hapana"
+            "text": "No"
           }
         ]
       },
@@ -79,7 +79,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "facility_referrals",
         "type": "check_box",
-        "label": "Rufaa ya huduma za kitabibu zilizotolewa",
+        "label": "Medical service referrals provided",
         "combine_checkbox_option_values": "true",
         "relevance": {
           "rules-engine": {
@@ -94,77 +94,77 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hiv_aids",
-            "text": "VVU na UKIMWI"
+            "text": "HIV and AIDS"
           },
           {
             "key": "tb_leprosy",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb_leprosy",
-            "text": "Kifua Kikuu na Ukoma"
+            "text": "Tuberculosis and Leprosy"
           },
           {
             "key": "family_planning",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "family_planning",
-            "text": "Uzazi wa mpango"
+            "text": "Family planning"
           },
           {
             "key": "rmchn_adolescents",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "rmchn_adolescents",
-            "text": "Afya ya uzazi, baba, Mama, Mtoto na Vijana balehe"
+            "text": "Reproductive health: men, women, children, and adolescents"
           },
           {
             "key": "mental_health",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mental_health",
-            "text": "Afya ya Akili"
+            "text": "Mental Health"
           },
           {
             "key": "gender_based_violence",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "gender_based_violence",
-            "text": "Ukatili wa Kijinsia"
+            "text": "Gender-based violence"
           },
           {
             "key": "psychological_support",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "psychological_support",
-            "text": "Msaada wa kisaikolojia"
+            "text": "Psychological support"
           },
           {
             "key": "rights_entitlements_special_groups",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "rights_entitlements_special_groups",
-            "text": "Haki stahiki kwa makundi maalumu"
+            "text": "Rights for vulnerable groups"
           },
           {
             "key": "stis_reproductive",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "stis_reproductive",
-            "text": "Magonjwa ya Ngono na via vya Uzazi"
+            "text": "Sexual and Reproductive Diseases"
           },
           {
             "key": "wounds_abscesses",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "wounds_abscesses",
-            "text": "Matibabu ya vidonda na Mabunyufu (majipu)"
+            "text": "Wound and abscess treatment"
           },
           {
             "key": "other",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other",
-            "text": "Mengineyo"
+            "text": "Other"
           }
         ]
       },
@@ -174,7 +174,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "facility_referrals_other_specify",
         "type": "edit_text",
-        "hint": "Mengineyo (Taja)",
+        "hint": "Other (Specify)",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

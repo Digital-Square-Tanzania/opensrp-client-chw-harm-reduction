@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "testing_services",
         "type": "check_box",
-        "label": "Huduma ya Vipimo",
+        "label": "Testing services",
         "combine_checkbox_option_values": "true",
         "exclusive": [
           "not_done"
@@ -66,21 +66,21 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "weight",
-            "text": "Uzito"
+            "text": "Weight"
           },
           {
             "key": "blood_pressure",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "blood_pressure",
-            "text": "Shinikizo la damu"
+            "text": "Blood pressure"
           },
           {
             "key": "not_done",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "not_done",
-            "text": "Haijafanyika"
+            "text": "It hasn't happened"
           }
         ]
       },
@@ -188,21 +188,21 @@
       {
         "key": "weight",
         "type": "edit_text",
-        "hint": "Uzito (KG)",
+        "hint": "Weight (KG)",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "weight",
         "openmrs_entity_parent": "",
         "v_numeric": {
           "value": "true",
-          "err": "Tafadhali ingiza uzito"
+          "err": "Please enter weight"
         },
         "v_min": {
           "value": "20",
-          "err": "Uzito lazima uwe sawasawa au zaidi ya 20 (KG)"
+          "err": "Weight must be equal to or more than 20 (KG)"
         },
         "v_max": {
           "value": "300",
-          "err": "Uzito lazima uwe sawasawa au chini ya 300 (KG)"
+          "err": "Weight must be equal to or less than 300 (KG)"
         },
         "relevance": {
           "rules-engine": {

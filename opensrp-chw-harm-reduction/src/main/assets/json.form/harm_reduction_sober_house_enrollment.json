@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "screening_tests_done",
         "type": "check_box",
-        "label": "Vipimo vya Uchunguzi alivyofanyiwa Mpokea Huduma",
+        "label": "Screening tests performed on the client",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -63,70 +63,70 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "stis",
-            "text": "Magonjwa ya Ngono"
+            "text": "Sexually transmitted infections"
           },
           {
             "key": "heart_diseases",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heart_diseases",
-            "text": "Magonjwa ya Moyo"
+            "text": "Heart Diseases"
           },
           {
             "key": "mental_health_conditions",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mental_health_conditions",
-            "text": "Magonjwa ya afya ya Akili"
+            "text": "Mental health disorders"
           },
           {
             "key": "hepatitis_b",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hepatitis_b",
-            "text": "Homa ya Ini aina ya B"
+            "text": "Hepatitis B"
           },
           {
             "key": "hepatitis_c",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hepatitis_c",
-            "text": "Homa ya Ini aina ya C"
+            "text": "Hepatitis C"
           },
           {
             "key": "other_hepatitis",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other_hepatitis",
-            "text": "Homa Nyengine za Ini"
+            "text": "Other Hepatitis"
           },
           {
             "key": "diabetes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "diabetes",
-            "text": "Ugonjwa wa Kisukari"
+            "text": "Diabetes"
           },
           {
             "key": "tuberculosis",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tuberculosis",
-            "text": "Ugonjwa wa Kifua Kikuu"
+            "text": "Tuberculosis"
           },
           {
             "key": "hiv",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hiv",
-            "text": "VVU na UKIMWI"
+            "text": "HIV and AIDS"
           },
           {
             "key": "other_conditions",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other_conditions",
-            "text": "Magonjwa Mengineyo (Taja)"
+            "text": "Other Diseases (Specify)"
           }
         ]
       },
@@ -136,7 +136,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "other_conditions_specify",
         "type": "edit_text",
-        "hint": "Magonjwa Mengineyo (Taja)",
+        "hint": "Other Diseases (Specify)",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -151,7 +151,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "stis_result",
         "type": "native_radio",
-        "label": "Magonjwa ya Ngono - Matokeo",
+        "label": "Sexually transmitted infections - Results",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -165,14 +165,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "has_symptoms",
-            "text": "Ana dalili"
+            "text": "Has symptoms"
           },
           {
             "key": "no_symptoms",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no_symptoms",
-            "text": "Hana dalili"
+            "text": "No symptoms"
           }
         ]
       },
@@ -182,7 +182,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "heart_diseases_result",
         "type": "native_radio",
-        "label": "Magonjwa ya Moyo - Matokeo",
+        "label": "Heart diseases - Results",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -196,14 +196,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "has_symptoms",
-            "text": "Ana dalili"
+            "text": "Has symptoms"
           },
           {
             "key": "no_symptoms",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no_symptoms",
-            "text": "Hana dalili"
+            "text": "No symptoms"
           }
         ]
       },
@@ -213,7 +213,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "mental_health_result",
         "type": "native_radio",
-        "label": "Magonjwa ya afya ya Akili - Matokeo",
+        "label": "Mental health conditions - Results",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -227,14 +227,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "has_symptoms",
-            "text": "Ana dalili"
+            "text": "Has symptoms"
           },
           {
             "key": "no_symptoms",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no_symptoms",
-            "text": "Hana dalili"
+            "text": "No symptoms"
           }
         ]
       },
@@ -244,7 +244,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hepatitis_b_result",
         "type": "native_radio",
-        "label": "Homa ya Ini aina ya B - Matokeo",
+        "label": "Hepatitis B - Results",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -258,14 +258,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "has_symptoms",
-            "text": "Ana dalili"
+            "text": "Has symptoms"
           },
           {
             "key": "no_symptoms",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no_symptoms",
-            "text": "Hana dalili"
+            "text": "No symptoms"
           }
         ]
       },
@@ -275,7 +275,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hepatitis_c_result",
         "type": "native_radio",
-        "label": "Homa ya Ini aina ya C - Matokeo",
+        "label": "Hepatitis C - Results",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -289,14 +289,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "has_symptoms",
-            "text": "Ana dalili"
+            "text": "Has symptoms"
           },
           {
             "key": "no_symptoms",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no_symptoms",
-            "text": "Hana dalili"
+            "text": "No symptoms"
           }
         ]
       },
@@ -306,7 +306,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "diabetes_result",
         "type": "native_radio",
-        "label": "Ugonjwa wa Kisukari - Matokeo",
+        "label": "Diabetes - Results",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -320,14 +320,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "has_symptoms",
-            "text": "Ana dalili"
+            "text": "Has symptoms"
           },
           {
             "key": "no_symptoms",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no_symptoms",
-            "text": "Hana dalili"
+            "text": "No symptoms"
           }
         ]
       },
@@ -337,7 +337,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tuberculosis_result",
         "type": "native_radio",
-        "label": "Ugonjwa wa Kifua Kikuu - Matokeo",
+        "label": "Tuberculosis - Results",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -351,14 +351,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "has_symptoms",
-            "text": "Ana dalili"
+            "text": "Has symptoms"
           },
           {
             "key": "no_symptoms",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no_symptoms",
-            "text": "Hana dalili"
+            "text": "No symptoms"
           }
         ]
       },
@@ -368,7 +368,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_result",
         "type": "native_radio",
-        "label": "VVU na UKIMWI - Matokeo",
+        "label": "HIV and AIDS - Results",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -382,14 +382,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "positive",
-            "text": "Ana Maambukizi"
+            "text": "Has infection"
           },
           {
             "key": "negative",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "negative",
-            "text": "Hana Maambukizi"
+            "text": "No infection"
           }
         ]
       },
@@ -399,7 +399,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "treatment_after_screening",
         "type": "native_radio",
-        "label": "Amefanyiwa matibabu baada ya uchunguzi?",
+        "label": "Has the client received treatment after screening?",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -413,14 +413,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes",
-            "text": "Ndiyo"
+            "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no",
-            "text": "Hapana"
+            "text": "No"
           }
         ]
       },
@@ -430,21 +430,21 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sober_house_eligible",
         "type": "native_radio",
-        "label": "Je, Mpokea huduma amekidhi vigezo?",
+        "label": "Is the client eligible?",
         "options": [
           {
             "key": "yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes",
-            "text": "Ndiyo"
+            "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no",
-            "text": "Hapana"
+            "text": "No"
           }
         ]
       },
@@ -454,8 +454,8 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "enroll_action_prompt",
         "type": "toaster_notes",
-        "label": "Hatua",
-        "text": "Msajili Mpokea huduma katika Nyumba ya Upataji nafuu (Sober House).",
+        "label": "Steps",
+        "text": "Register the client in the Sober House.",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -470,8 +470,8 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "not_eligible_action_prompt",
         "type": "toaster_notes",
-        "label": "Hatua",
-        "text": "Mpokea huduma hajakidhi vigezo, muunganishe na huduma nyingine.",
+        "label": "Steps",
+        "text": "Client does not meet criteria; link to other services.",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -486,7 +486,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "other_services_referral",
         "type": "check_box",
-        "label": "Rufaa ya huduma nyinginezo zilizotolewa",
+        "label": "Other service referrals provided",
         "combine_checkbox_option_values": "true",
         "relevance": {
           "rules-engine": {
@@ -501,35 +501,35 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tuberculosis",
-            "text": "Kifua Kikuu"
+            "text": "Tuberculosis"
           },
           {
             "key": "mental_health",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mental_health",
-            "text": "Magonjwa ya Akili"
+            "text": "Mental health conditions"
           },
           {
             "key": "hepatitis",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hepatitis",
-            "text": "Homa ya Ini"
+            "text": "Hepatitis"
           },
           {
             "key": "skin_diseases",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "skin_diseases",
-            "text": "Magonjwa ya Ngozi"
+            "text": "Skin diseases"
           },
           {
             "key": "none",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "none",
-            "text": "Hajaunganishwa na huduma"
+            "text": "Not linked to services"
           }
         ]
       },
@@ -539,7 +539,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "nickname",
         "type": "edit_text",
-        "hint": "Jina la Utani",
+        "hint": "Nickname",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -555,9 +555,9 @@
         "openmrs_entity_id": "birth_region",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "label_info_title": "Mkoa wa Kuzaliwa kwa Mteja",
+        "label_info_title": "Client's region of birth",
         "label_info_text": "",
-        "hint": "Chagua mkoa aliozaliwa mteja",
+        "hint": "Select the client's region of birth",
         "values": [
           "Arusha",
           "Dar es Salaam",
@@ -616,7 +616,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua mkoa"
+          "err": "Please select the region"
         },
         "relevance": {
           "rules-engine": {
@@ -632,7 +632,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "education_level",
         "type": "native_radio",
-        "label": "Kiwango cha Elimu",
+        "label": "Level of Education",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -646,35 +646,35 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no_education",
-            "text": "Hajasoma"
+            "text": "He has not studied"
           },
           {
             "key": "incomplete_primary",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "incomplete_primary",
-            "text": "Hajamaliza Elimu ya Msingi"
+            "text": "He has not completed Primary Education"
           },
           {
             "key": "completed_primary",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "completed_primary",
-            "text": "Amemaliza Elimu ya Msingi"
+            "text": "He has completed Primary Education"
           },
           {
             "key": "completed_secondary",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "completed_secondary",
-            "text": "Amemaliza Elimu ya Sekondari"
+            "text": "He has completed Secondary Education"
           },
           {
             "key": "university",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "university",
-            "text": "Elimu ya Chuo Kikuu"
+            "text": "University Education"
           }
         ]
       },
@@ -684,7 +684,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_status",
         "type": "edit_text",
-        "hint": "Hali ya Maambukizi ya VVU",
+        "hint": "HIV Infection Status",
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -707,7 +707,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "ctc_id",
         "type": "edit_text",
-        "hint": "Namba ya Utambulisho (CTC)",
+        "hint": "CTC identification number",
         "edit_type": "number",
         "relevance": {
           "rules-engine": {
@@ -723,7 +723,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "substances_leading_to_services",
         "type": "check_box",
-        "label": "Aina za kilevi zilizopelekea kuhitaji huduma",
+        "label": "Types of substances leading to service needs",
         "combine_checkbox_option_values": "true",
         "relevance": {
           "rules-engine": {
@@ -745,14 +745,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "cannabis",
-            "text": "Bangi"
+            "text": "Cannabis"
           },
           {
             "key": "khat",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "khat",
-            "text": "Mirungi"
+            "text": "Khat"
           },
           {
             "key": "heroin",
@@ -794,7 +794,7 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other",
-            "text": "Vilevi Vinginevyo (Taja)"
+            "text": "Other substances (Specify)"
           }
         ]
       },
@@ -804,7 +804,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "other_substances_specify",
         "type": "edit_text",
-        "hint": "Vilevi Vinginevyo (Taja)",
+        "hint": "Other substances (Specify)",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -823,20 +823,20 @@
         "edit_type": "number",
         "v_numeric": {
           "value": "true",
-          "err": "Tafadhali ingiza urefu"
+          "err": "Please enter height"
         },
         "v_min": {
           "value": "100",
-          "err": "Urefu lazima uwe sawasawa au zaidi ya 100 (CM)"
+          "err": "Height must be equal to or greater than 100 (CM)"
         },
         "v_max": {
           "value": "250",
-          "err": "Urefu lazima uwe sawasawa au chini ya 250 (CM)"
+          "err": "Height must be equal to or less than 250 (CM)"
         },
         "v_max_length": {
           "value": "3",
           "is_fixed_size": "true",
-          "err": "Tafadhali jaza urefu sahihi"
+          "err": "Please enter a valid height"
         },
         "relevance": {
           "rules-engine": {
@@ -852,7 +852,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "nationality",
         "type": "native_radio",
-        "label": "Uraia",
+        "label": "Nationality",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -866,14 +866,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tanzanian",
-            "text": "Mtanzania"
+            "text": "Tanzanian"
           },
           {
             "key": "non_tanzanian",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "non_tanzanian",
-            "text": "Sio Mtanzania"
+            "text": "Non-Tanzanian"
           }
         ]
       },
@@ -883,7 +883,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "detoxification_done",
         "type": "native_radio",
-        "label": "Mpokea huduma amefanyiwa Detoxification?",
+        "label": "Has the client undergone detoxification?",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -897,14 +897,14 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes",
-            "text": "Ndiyo"
+            "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no",
-            "text": "Hapana"
+            "text": "No"
           }
         ]
       },
@@ -915,7 +915,7 @@
         "openmrs_entity_id": "detoxification_date",
         "type": "date_picker",
         "max_date": "today",
-        "hint": "Tarehe ya kufanyika detoxification",
+        "hint": "Date of detoxification",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -930,8 +930,8 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "detoxification_referral_prompt",
         "type": "toaster_notes",
-        "label": "Hatua",
-        "text": "Mpeleke kituo cha afya akafanye detoxification.",
+        "label": "Steps",
+        "text": "Refer the client to a health facility for detoxification.",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

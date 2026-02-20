@@ -55,35 +55,35 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "client_type",
         "type": "native_radio",
-        "label": "Aina ya Mteja",
+        "label": "Client type",
         "options": [
           {
             "key": "new_client",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "new_client",
-            "text": "Mpya"
+            "text": "New"
           },
           {
             "key": "returning_client",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "returning_client",
-            "text": "Marudio"
+            "text": "Repeat visit"
           },
           {
             "key": "relapsed_client",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "relapsed_client",
-            "text": "Aliyerudia kutumia dawa za kulevya"
+            "text": "Relapsed client"
           },
           {
             "key": "migrant_client",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "migrant_client",
-            "text": "Muhamiaji"
+            "text": "Transferred-in client"
           }
         ]
       },
@@ -93,7 +93,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "follow_up_status",
         "type": "native_radio",
-        "label": "Hali ya Mpokea huduma",
+        "label": "Client status",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -107,28 +107,28 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "continuing_service",
-            "text": "Anaendelea na Huduma"
+            "text": "Continuing service"
           },
           {
             "key": "absconded",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "absconded",
-            "text": "Ametoroka"
+            "text": "Absconded"
           },
           {
             "key": "died",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "died",
-            "text": "Amefariki"
+            "text": "Died"
           },
           {
             "key": "moved",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "moved",
-            "text": "Amehama"
+            "text": "Moved"
           }
         ]
       }

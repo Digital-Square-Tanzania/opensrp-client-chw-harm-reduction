@@ -50,10 +50,10 @@
     "title": "harm_reduction_health_education_topics",
     "fields": [
       {
-        "key": "elimu_iliyotolewa",
+        "key": "health_education_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "elimu_iliyotolewa",
+        "openmrs_entity_id": "health_education_provided",
         "type": "check_box",
         "label": "Elimu iliyotolewa",
         "combine_checkbox_option_values": "true",
@@ -250,27 +250,27 @@
         ]
       },
       {
-        "key": "njia_utoaji_elimu",
+        "key": "education_delivery_method",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "njia_utoaji_elimu",
+        "openmrs_entity_id": "education_delivery_method",
         "type": "check_box",
         "label": "Njia ya utoaji elimu",
         "combine_checkbox_option_values": "true",
         "options": [
           {
-            "key": "katika_kundi",
+            "key": "group_session",
             "text": "Katika kundi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "katika_kundi"
+            "openmrs_entity_id": "group_session"
           },
           {
-            "key": "binafsi",
+            "key": "individual_session",
             "text": "Binafsi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "binafsi"
+            "openmrs_entity_id": "individual_session"
           }
         ]
       }

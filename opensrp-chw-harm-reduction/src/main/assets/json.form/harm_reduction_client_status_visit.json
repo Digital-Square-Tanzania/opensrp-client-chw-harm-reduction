@@ -325,7 +325,7 @@
           },
           {
             "key": "mirungi",
-            "text": "Mirungi",
+            "text": "Khat",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mirungi"
@@ -375,7 +375,7 @@
           },
           {
             "key": "mirungi",
-            "text": "Mirungi",
+            "text": "Khat",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mirungi"

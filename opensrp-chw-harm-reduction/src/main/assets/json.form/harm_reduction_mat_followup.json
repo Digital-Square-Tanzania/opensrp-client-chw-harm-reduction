@@ -55,194 +55,194 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "health_education_provided",
         "type": "check_box",
-        "label": "Elimu iliyotolewa",
+        "label": "Education provided",
         "combine_checkbox_option_values": "true",
         "options": [
           {
             "key": "meaning_of_drugs",
-            "text": "Maana ya dawa za kulevya",
+            "text": "The meaning of drugs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "meaning_of_drugs"
           },
           {
             "key": "types_of_drugs",
-            "text": "Aina za dawa za kulevya",
+            "text": "Types of drugs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "types_of_drugs"
           },
           {
             "key": "categories_of_drugs",
-            "text": "Makundi ya dawa za kulevya",
+            "text": "Drug groups",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "categories_of_drugs"
           },
           {
             "key": "reasons_for_drug_use",
-            "text": "Sababu za kutumia dawa za kulevya",
+            "text": "Reasons for using drugs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "reasons_for_drug_use"
           },
           {
             "key": "methods_of_drug_use",
-            "text": "Njia za matumizi ya dawa za kulevya",
+            "text": "Methods of drug use",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methods_of_drug_use"
           },
           {
             "key": "effects_of_drug_use",
-            "text": "Madhara ya dawa za kulevya",
+            "text": "Effects of drugs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "effects_of_drug_use"
           },
           {
             "key": "tuberculosis",
-            "text": "Kifua Kikuu",
+            "text": "Tuberculosis",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tuberculosis"
           },
           {
             "key": "hiv_aids",
-            "text": "VVU na UKIMWI",
+            "text": "HIV and AIDS",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hiv_aids"
           },
           {
             "key": "hepatitis_bc",
-            "text": "Homa ya ini B na C",
+            "text": "Hepatitis B and C",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hepatitis_bc"
           },
           {
             "key": "stis_stds",
-            "text": "Magonjwa ya ngono",
+            "text": "Sexually transmitted infections",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "stis_stds"
           },
           {
             "key": "covid_19",
-            "text": "Uviko 19",
+            "text": "COVID-19",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "covid_19"
           },
           {
             "key": "cholera",
-            "text": "Kipindupindu",
+            "text": "Cholera",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "cholera"
           },
           {
             "key": "behavior_change",
-            "text": "Mabadiliko ya tabia",
+            "text": "Behavioral changes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "behavior_change"
           },
           {
             "key": "positive_behavior_adherence",
-            "text": "Ufuasi mzuri wa tabia",
+            "text": "Adherence to positive behavior",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "positive_behavior_adherence"
           },
           {
             "key": "legal_support_mat_procedures",
-            "text": "Msaada wa kisheria na taratibu za MAT",
+            "text": "Legal aid and MAT procedures",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "legal_support_mat_procedures"
           },
           {
             "key": "overdose",
-            "text": "Uzidishaji wa kiwango cha dawa za kulevya (Ovadozi)",
+            "text": "Drug overdose",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "overdose"
           },
           {
             "key": "naloxone_use",
-            "text": "Matumizi ya naloxone",
+            "text": "Use of naloxone",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "naloxone_use"
           },
           {
             "key": "drug_use_and_women",
-            "text": "Matumizi ya dawa za kulevya na wanawake",
+            "text": "Drug use by women",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "drug_use_and_women"
           },
           {
             "key": "reproductive_health_services",
-            "text": "Huduma za afya ya uzazi",
+            "text": "Reproductive health services",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "reproductive_health_services"
           },
           {
             "key": "correct_condom_use",
-            "text": "Matumizi sahihi ya kondomu",
+            "text": "Correct use of condoms",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "correct_condom_use"
           },
           {
             "key": "opioid_addiction_treatment_use",
-            "text": "Matumizi sahihi ya matibabu ya uraibu afyuni (Methadone, buprenorphine, suboxone)",
+            "text": "Appropriate use of opioid addiction treatment (Methadone, buprenorphine, suboxone)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "opioid_addiction_treatment_use"
           },
           {
             "key": "take_away_dose",
-            "text": "Matumizi ya dawa tiba nyumbani (take away dose)",
+            "text": "Use of medicine at home (take away dose)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "take_away_dose"
           },
           {
             "key": "sti_meaning",
-            "text": "Maana ya magonjwa ya zinaa",
+            "text": "The meaning of sexually transmitted diseases",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sti_meaning"
           },
           {
             "key": "sti_types_and_symptoms",
-            "text": "Aina na dalili za magonjwa ya zinaa",
+            "text": "Types and symptoms of sexually transmitted diseases",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sti_types_and_symptoms"
           },
           {
             "key": "sti_prevention",
-            "text": "Njia za kujikinga na magonjwa ya zinaa",
+            "text": "Ways to protect yourself from sexually transmitted diseases",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sti_prevention"
           },
           {
             "key": "mental_health",
-            "text": "Afya ya akili",
+            "text": "Mental health",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mental_health"
           },
           {
             "key": "injection_related_diseases",
-            "text": "Magonjwa yatokanayo na ujidunga",
+            "text": "Diseases caused by injection",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "injection_related_diseases"
@@ -255,19 +255,19 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "education_delivery_method",
         "type": "check_box",
-        "label": "Njia ya utoaji elimu",
+        "label": "Method of providing education",
         "combine_checkbox_option_values": "true",
         "options": [
           {
             "key": "group_session",
-            "text": "Katika kundi",
+            "text": "In a group",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "group_session"
           },
           {
             "key": "individual_session",
-            "text": "Binafsi",
+            "text": "Personally",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "individual_session"

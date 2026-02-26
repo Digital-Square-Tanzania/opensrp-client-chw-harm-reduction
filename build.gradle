@@ -25,8 +25,6 @@ configure(allprojects) { project ->
     }
 }
 
-project.ext.preDexLibs = !project.hasProperty('disablePreDex')
-
 subprojects {
 
     group = 'org.smartregister'
@@ -65,15 +63,6 @@ subprojects {
         resolutionStrategy.force 'net.zetetic:sqlcipher-android:4.5.4'
     }
 
-    // Improve build server performance by allowing disabling of pre-dexing
-    // (see http://tools.android.com/tech-docs/new-build-system/tips#TOC-Improving-Build-Server-performance.)
-    project.plugins.whenPluginAdded { plugin ->
-        if ("com.android.build.gradle.AppPlugin".equals(plugin.class.name)) {
-            project.android.dexOptions.preDexLibraries = rootProject.ext.preDexLibs
-        } else if ("com.android.build.gradle.LibraryPlugin".equals(plugin.class.name)) {
-            project.android.dexOptions.preDexLibraries = rootProject.ext.preDexLibs
-        }
-    }
 }
 
 apply plugin : 'java'
@@ -84,8 +73,12 @@ buildDashboard {
     reports.html.setDestination(file("build/"))
 }
 
-test.reports.html.enabled = false
-test.reports.junitXml.enabled = false
+tasks.withType(Test).configureEach {
+    reports {
+        html.required.set(false)
+        junitXml.required.set(false)
+    }
+}
 
 
 def isReleaseBuild() {

@@ -22,6 +22,7 @@ jacoco {
 }
 
 android {
+    namespace "org.smartregister.chw.harmreduction"
     compileSdkVersion androidCompileSdkVersion
     buildToolsVersion androidBuildToolsVersion
 
@@ -47,10 +48,6 @@ android {
             testCoverageEnabled true
         }
     }
-    dexOptions {
-        javaMaxHeapSize "4g"
-    }
-
     lintOptions {
         abortOnError false
         checkReleaseBuilds false
@@ -165,6 +162,12 @@ tasks.matching {
     dependsOn("clean", "assemble")
 }
 
+tasks.matching {
+    it.name in ["publishBarPublicationToMavenLocal", "publishBarPublicationToGitHubPackagesRepository"]
+}.configureEach {
+    dependsOn("bundleReleaseAar")
+}
+
 tasks.named("assemble").configure {
     mustRunAfter("clean")
 }
@@ -256,12 +259,11 @@ dependencies {
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
 
     reports {
-        xml.enabled = true
-        html.enabled = true
+        xml.required.set(true)
+        html.required.set(true)
+        xml.outputLocation.set(file("${buildDir}/reports/jacoco/jacocoRootReport/merged.xml"))
+        html.outputLocation.set(file("${buildDir}/reports/jacoco/jacocoRootReport/html"))
     }
-
-    getReports().getXml().setDestination(file("${buildDir}/reports/jacoco/jacocoRootReport/merged.xml"))
-    getReports().getHtml().setDestination(file("${buildDir}/reports/jacoco/jacocoRootReport/html"))
 
     def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*', '**/*$ViewBinder*.*']
     def debugTree = fileTree(dir: "$project.buildDir/intermediates/javac/debug/classes", excludes: fileFilter)

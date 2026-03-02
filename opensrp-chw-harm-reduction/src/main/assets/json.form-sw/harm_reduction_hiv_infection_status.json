@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_tested",
         "type": "native_radio",
-        "label": "Idadi ya kondomu",
+        "label": "Je, mteja amewahi kupima VVU?",
         "options": [
           {
             "key": "yes",
@@ -110,7 +110,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_results",
         "type": "native_radio",
-        "label": "Upimaji ulipofanyika",
+        "label": "Matokeo ya kipimo cha VVU",
         "options": [
           {
             "key": "negative",

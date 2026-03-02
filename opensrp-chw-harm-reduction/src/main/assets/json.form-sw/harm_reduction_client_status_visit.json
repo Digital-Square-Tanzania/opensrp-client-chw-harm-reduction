@@ -207,7 +207,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "substances_used_injecting",
         "type": "check_box",
-        "label": "Njia anayotumia",
+        "label": "Dawa anayotumia",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -271,7 +271,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "substances_used_non_injecting",
         "type": "check_box",
-        "label": "Njia anayotumia",
+        "label": "Dawa anayotumia",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -363,7 +363,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "substances_used",
         "type": "check_box",
-        "label": "Njia anayotumia",
+        "label": "Dawa anayotumia",
         "combine_checkbox_option_values": "true",
         "options": [
           {

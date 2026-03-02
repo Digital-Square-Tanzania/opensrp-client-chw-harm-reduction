@@ -240,7 +240,9 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
         } else if (id == R.id.rlFamilyServicesDue) {
             this.openFamilyDueServices();
         } else if (id == R.id.textview_record_harm_reduction_community_visit) {
-            if (textViewRecordHarmReductionVisit.getText().equals(getString(R.string.record_harm_reduction_community_visit)) || textViewRecordHarmReductionVisit.getText().equals(getString(R.string.record_pre_mat_session))) {
+            if (textViewRecordHarmReductionVisit.getText().equals(getString(R.string.record_harm_reduction_client_visit))
+                    || textViewRecordHarmReductionVisit.getText().equals(getString(R.string.record_harm_reduction_community_visit))
+                    || textViewRecordHarmReductionVisit.getText().equals(getString(R.string.record_pre_mat_session))) {
                 this.openRecordClientVisit();
             } else if (textViewRecordHarmReductionVisit.getText().equals(getString(R.string.record_mat_client_followup_visit))) {
                 this.openRecordTbContactVisit();

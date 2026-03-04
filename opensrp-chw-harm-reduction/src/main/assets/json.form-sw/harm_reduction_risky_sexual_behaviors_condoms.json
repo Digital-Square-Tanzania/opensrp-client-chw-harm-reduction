@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "engaging_in_sexual_activity",
         "type": "native_radio",
-        "label": "Idadi ya vifaa?",
+        "label": "Je, mteja anashiriki ngono?",
         "options": [
           {
             "key": "yes",
@@ -151,7 +151,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "condoms_given",
         "type": "native_radio",
-        "label": "o Ndiyo\no Hapana",
+        "label": "Je mteja amepewa Kondomu?",
         "options": [
           {
             "key": "yes",

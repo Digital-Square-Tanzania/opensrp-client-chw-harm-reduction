@@ -14,7 +14,13 @@
     <string name="job_aids">Job Aids</string>
     <string name="saving_dialog_title">Saving</string>
     <string name="interpunct" translatable="false">\u00b7</string>
-    <string name="record_harm_reduction_community_visit">Record Harm Reduction Visit</string>
+
+    <!-- Harm Reduction: client visit recording action (used after enrollment) -->
+    <string name="record_harm_reduction_client_visit">Record Harm Reduction Client Visit</string>
+
+    <!-- Backward compatibility: keep old key, but point to updated label -->
+    <string name="record_harm_reduction_community_visit">@string/record_harm_reduction_client_visit</string>
+
     <string name="record_services_provided_to_mat_clients">Record Services Provided to MAT Clients</string>
     <string name="mark_client_started_mat">Mark client has started MAT</string>
     <string name="record_pre_mat_session">Record Pre-Mat Sessions</string>

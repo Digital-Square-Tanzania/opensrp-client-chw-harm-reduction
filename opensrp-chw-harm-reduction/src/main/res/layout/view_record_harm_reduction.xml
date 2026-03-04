@@ -157,7 +157,7 @@
             android:paddingTop="10dp"
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
-            android:text="@string/record_harm_reduction_community_visit"
+            android:text="@string/record_harm_reduction_client_visit"
             android:visibility="visible"
             android:textColor="@color/white"
             />

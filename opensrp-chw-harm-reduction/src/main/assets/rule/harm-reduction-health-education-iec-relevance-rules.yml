@@ -1,4 +1,11 @@
 ---
+name: step1_health_education_provided
+description: Show health_education_provided only when education was given
+priority: 1
+condition: "step1_health_education_given == 'yes'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_health_education_other_specify
 description: Show health_education_other_specify when its condition is met
 priority: 1
@@ -8,6 +15,13 @@ actions:
 ---
 name: step1_iec_materials_type
 description: Show iec_materials_type when its condition is met
+priority: 1
+condition: "step1_iec_materials_provided == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_iec_materials_count
+description: Show iec_materials_count only when IEC materials were provided
 priority: 1
 condition: "step1_iec_materials_provided == 'yes'"
 actions:

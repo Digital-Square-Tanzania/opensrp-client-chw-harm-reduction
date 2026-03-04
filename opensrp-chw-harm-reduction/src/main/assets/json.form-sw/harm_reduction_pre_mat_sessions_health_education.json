@@ -50,6 +50,30 @@
     "title": "Pre MAT Sessions Health Education",
     "fields": [
       {
+        "key": "health_education_given",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "health_education_given",
+        "type": "native_radio",
+        "label": "Je, elimu imetolewa?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
         "key": "health_education_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -62,6 +86,14 @@
         "sort": false,
         "dialogTitle": "Select health education provided",
         "searchHint": "Health education provided",
+        "label": "Elimu ya afya iliyotolewa",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
         "options": [
           {
             "key": "hiv_aids",
@@ -214,7 +246,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_materials_provided",
         "type": "native_radio",
-        "label": "Elimu Iliyotolewa",
+        "label": "Je, vipeperushi vimetolewa?",
         "options": [
           {
             "key": "yes",
@@ -391,6 +423,30 @@
             }
           }
         ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "iec_materials_count",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "iec_materials_count",
+        "type": "edit_text",
+        "edit_type": "number",
+        "hint": "Idadi ya IEC material iliyotolewa",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali weka nambari halali"
+        },
+        "v_min": {
+          "value": "1",
+          "err": "Thamani lazima iwe 1 au zaidi"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

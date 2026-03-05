@@ -25,12 +25,32 @@
     <string name="record_sober_house_services">Nyumba ya Upataji Nafuu</string>
     <string name="record_sober_house_services_action">Rekodi huduma za Nyumba ya Upataji Nafuu</string>
     <string name="mark_client_started_mat">Thibitisha mteja ameanza MAT</string>
+    <string name="record_pre_mat_session">Rekodi vikao vya awali vya MAT</string>
     <string name="record_mat_client_followup_visit">Rekodi hudhurio la mhisiwa wa ugonjwa wa TB</string>
     <string name="record_harm_reduction_client_followup_visit">Rekodi hudhurio la ufuatiliaji la Harm Reduction</string>
+
+    <string name="harm_reduction_pre_mat_session">Kikao cha awali cha MAT</string>
+    <string name="harm_reduction_pre_mat_session_history">Historia ya vikao vya awali vya MAT</string>
+    <string name="harm_reduction_client_status">Hali ya mteja</string>
+    <string name="harm_reduction_health_education">Elimu ya afya</string>
+    <string name="harm_reduction_safe_injection_services">Huduma salama za sindano</string>
+    <string name="harm_reduction_risky_sexual_behaviors">Tabia hatarishi za ngono</string>
+    <string name="harm_reduction_hiv_infection_status">Hali ya maambukizi ya VVU</string>
+    <string name="harm_reduction_other_diseases_screening">Uchunguzi wa magonjwa mengine</string>
+    <string name="harm_reduction_referrals_provided">Rufaa zilizotolewa</string>
+    <string name="harm_reduction_consent_joining_mat">Ridhaa ya kujiunga na huduma za MAT</string>
+    <string name="harm_reduction_sober_house_client_type_followup_status">Hali ya mteja</string>
+    <string name="harm_reduction_sober_house_vital_sign_check">Ukaguzi wa viashiria muhimu vya mwili</string>
+    <string name="harm_reduction_sober_house_routine_services">Huduma za kawaida</string>
+    <string name="harm_reduction_sober_house_linkage_to_other_services">Uunganishaji na huduma nyingine</string>
+    <string name="harm_reduction_sober_house_referrals">Rufaa zilizotolewa</string>
+    <string name="harm_reduction_sober_house_recovery_capital_assessment_aftercare">Tathmini ya rasilimali za urekebishaji</string>
+    <string name="harm_reduction_sober_house_next_appointment_date">Tarehe ya miadi inayofuata</string>
 
     <string name="optional">Si lazima</string>
     <string name="error_unable_save_visit">Imeshindwa kuhifadhi hudhurio hili</string>
     <string name="view_visit_history">Angalia historia ya huduma</string>
+    <string name="view_pre_mat_session_history">Angalia historia ya vikao vya awali vya MAT</string>
     <string name="observation_results">Angalia historia ya huduma</string>
     <string name="call_no_number_provided">(Hakuna namba iliyotolewa)</string>
     <string name="record_observation_results">Jaza matokeo ya Uchunguzi</string>
@@ -71,10 +91,17 @@
 
     <string name="view_upcoming_services">Angalia huduma zijazo</string>
 
+    <string name="harm_reduction_session">Kikao cha Harm Reduction</string>
     <string name="participants">Waliohamasishwa:</string>
     <string name="date">Tarehe:</string>
+    <string name="harm_reduction_used_needles_collection_label">Ukusanyaji wa sindano na mabomba yaliyotumika</string>
+    <string name="harm_reduction_used_needles_collection_sessions">Vikao vya ukusanyaji wa sindano na mabomba yaliyotumika</string>
+    <string name="harm_reduction_collection_date">Tarehe ya ukusanyaji: %s</string>
+    <string name="harm_reduction_safety_boxes_collected">Sanduku za usalama zilizokusanywa: %s</string>
+    <string name="harm_reduction_safety_boxes_collection">Ukusanyaji wa sanduku za usalama</string>
 
     <string name="harm_reduction_mobilization">Uhamasishaji</string>
     <string name="harm_reduction_contact">Watu wa karibu</string>
+    <string name="refer_the_client">Toa Rufaa</string>
 
 </resources>

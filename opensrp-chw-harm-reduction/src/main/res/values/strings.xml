@@ -101,7 +101,10 @@
     <string name="harm_reduction_safety_boxes_collected">Safety boxes collected: %s</string>
     <string name="harm_reduction_safety_boxes_collection">Safety boxes collection</string>
 
+    <string name="harm_reduction_mobilization">Mobilization</string>
+
     <string name="harm_reduction_contact">Contacts</string>
+    <string name="refer_the_client">Refer the Client</string>
 
 
 </resources>

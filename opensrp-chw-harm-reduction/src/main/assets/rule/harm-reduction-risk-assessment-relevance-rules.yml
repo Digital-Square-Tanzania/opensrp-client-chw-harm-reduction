@@ -69,6 +69,13 @@ condition: "step1_route_of_substance_use != null && step1_route_of_substance_use
 actions:
   - "isRelevant = true"
 ---
+name: step1_doses_used_at_once
+description: Show doses_used_at_once when its condition is met
+priority: 1
+condition: "step1_route_of_substance_use != null && step1_route_of_substance_use.contains('injecting')"
+actions:
+  - "isRelevant = true"
+---
 name: step1_controlled_substances_other_specify
 description: Show controlled_substances_other_specify when its condition is met
 priority: 1

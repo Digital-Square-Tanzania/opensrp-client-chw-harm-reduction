@@ -12,7 +12,7 @@ import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.fragment.BaseHarmReductionCallDialogFragment;
 
 public class BaseHarmReductionFloatingMenu extends LinearLayout implements View.OnClickListener {
-    private final MemberObject MEMBER_OBJECT;
+    public final MemberObject MEMBER_OBJECT;
 
     public BaseHarmReductionFloatingMenu(Context context, MemberObject MEMBER_OBJECT) {
         super(context);

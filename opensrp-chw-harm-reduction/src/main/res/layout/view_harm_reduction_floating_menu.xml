@@ -16,7 +16,7 @@
         android:visibility="invisible">
 
         <RelativeLayout
-            android:id="@+id/harm_reduction_call_layout"
+            android:id="@+id/call_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
@@ -72,7 +72,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/harm_reduction_refer_to_facility_layout"
+            android:id="@+id/refer_to_facility_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_toLeftOf="@+id/harm_reduction_refer_to_facility_fab"
+                android:layout_toLeftOf="@+id/refer_to_facility_fab"
                 android:background="@color/white"
                 android:elevation="2dp"
                 android:gravity="center"
@@ -96,7 +96,7 @@
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/harm_reduction_refer_to_facility_fab"
+                android:id="@+id/refer_to_facility_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"

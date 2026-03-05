@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
+    android:id="@+id/harm_reduction_activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/menu_bar"
+        android:id="@+id/harm_reduction_menu_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tbleprosy_fab"
+        android:layout_above="@+id/harm_reduction_fab"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="24dp"
         android:orientation="vertical"
         android:visibility="invisible">
 
         <RelativeLayout
-            android:id="@+id/call_layout"
+            android:id="@+id/harm_reduction_call_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_toLeftOf="@+id/callFab"
+                android:layout_toLeftOf="@+id/harm_reduction_call_fab"
                 android:background="@color/white"
                 android:elevation="2dp"
                 android:gravity="center"
@@ -37,7 +37,7 @@
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/CallTextView"
+                    android:id="@+id/harm_reduction_call_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -46,12 +46,12 @@
                     android:textColor="@android:color/black" />
 
                 <TextView
-                    android:id="@+id/CallTextViewHint"
+                    android:id="@+id/harm_reduction_call_text_view_hint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
-                    android:layout_toEndOf="@+id/CallTextView"
-                    android:layout_toRightOf="@+id/CallTextView"
+                    android:layout_toEndOf="@+id/harm_reduction_call_text_view"
+                    android:layout_toRightOf="@+id/harm_reduction_call_text_view"
                     android:text="@string/call_no_number_provided"
                     android:textColor="@color/grey"
                     android:textStyle="italic"
@@ -61,7 +61,7 @@
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/callFab"
+                android:id="@+id/harm_reduction_call_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -72,7 +72,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/refer_to_facility_layout"
+            android:id="@+id/harm_reduction_refer_to_facility_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_toLeftOf="@+id/refer_to_facility_fab"
+                android:layout_toLeftOf="@+id/harm_reduction_refer_to_facility_fab"
                 android:background="@color/white"
                 android:elevation="2dp"
                 android:gravity="center"
@@ -96,7 +96,7 @@
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/refer_to_facility_fab"
+                android:id="@+id/harm_reduction_refer_to_facility_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -108,7 +108,7 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/tbleprosy_fab"
+        android:id="@+id/harm_reduction_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"

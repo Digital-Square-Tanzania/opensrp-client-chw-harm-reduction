@@ -21,18 +21,18 @@ public class BaseHarmReductionFloatingMenu extends LinearLayout implements View.
     }
 
     protected void initUi() {
-        inflate(getContext(), R.layout.view_tbleprosy_floating_menu, this);
-        FloatingActionButton fab = findViewById(R.id.tbleprosy_fab);
+        inflate(getContext(), R.layout.view_harm_reduction_floating_menu, this);
+        FloatingActionButton fab = findViewById(R.id.harm_reduction_fab);
         if (fab != null)
             fab.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.tbleprosy_fab) {
+        if (view.getId() == R.id.harm_reduction_fab) {
             Activity activity = (Activity) getContext();
             BaseHarmReductionCallDialogFragment.launchDialog(activity, MEMBER_OBJECT);
-        } else if (view.getId() == R.id.refer_to_facility_layout) {
+        } else if (view.getId() == R.id.harm_reduction_refer_to_facility_layout) {
             Activity activity = (Activity) getContext();
             BaseHarmReductionCallDialogFragment.launchDialog(activity, MEMBER_OBJECT);
         }

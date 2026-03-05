@@ -85,7 +85,7 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     protected RelativeLayout visitDone;
     protected TextView textViewVisitDoneEdit;
     protected String profileType;
-    protected BaseHarmReductionFloatingMenu baseTbLeprosyFloatingMenu;
+    protected BaseHarmReductionFloatingMenu baseHarmReductionFloatingMenu;
     protected CustomFontTextView ivViewHistoryArrow;
     private TextView tvUpComingServices;
     private TextView tvFamilyStatus;
@@ -268,10 +268,10 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
 
     public void initializeFloatingMenu() {
         if (StringUtils.isNotBlank(memberObject.getPhoneNumber())) {
-            baseTbLeprosyFloatingMenu = new BaseHarmReductionFloatingMenu(this, memberObject);
-            baseTbLeprosyFloatingMenu.setGravity(Gravity.BOTTOM | Gravity.RIGHT);
+            baseHarmReductionFloatingMenu = new BaseHarmReductionFloatingMenu(this, memberObject);
+            baseHarmReductionFloatingMenu.setGravity(Gravity.BOTTOM | Gravity.RIGHT);
             LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-            addContentView(baseTbLeprosyFloatingMenu, linearLayoutParams);
+            addContentView(baseHarmReductionFloatingMenu, linearLayoutParams);
         }
     }
 

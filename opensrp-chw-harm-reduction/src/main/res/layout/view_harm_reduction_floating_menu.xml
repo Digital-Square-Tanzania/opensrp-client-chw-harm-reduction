@@ -37,7 +37,7 @@
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/harm_reduction_call_text_view"
+                    android:id="@+id/CallTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -46,12 +46,12 @@
                     android:textColor="@android:color/black" />
 
                 <TextView
-                    android:id="@+id/harm_reduction_call_text_view_hint"
+                    android:id="@+id/CallTextViewHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
-                    android:layout_toEndOf="@+id/harm_reduction_call_text_view"
-                    android:layout_toRightOf="@+id/harm_reduction_call_text_view"
+                    android:layout_toEndOf="@+id/CallTextView"
+                    android:layout_toRightOf="@+id/CallTextView"
                     android:text="@string/call_no_number_provided"
                     android:textColor="@color/grey"
                     android:textStyle="italic"

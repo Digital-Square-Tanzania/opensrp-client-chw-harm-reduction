@@ -636,6 +636,13 @@
         "type": "edit_text",
         "hint": "How many doses do you use at once?",
         "edit_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
         "v_required": {
           "value": "true",
           "err": "Please enter the number of doses"

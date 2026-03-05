@@ -636,6 +636,13 @@
         "type": "edit_text",
         "hint": "Unatumia kete ngapi kwa mara moja",
         "edit_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
         "v_required": {
           "value": "true",
           "err": "Tafadhali weka idadi ya dozi"

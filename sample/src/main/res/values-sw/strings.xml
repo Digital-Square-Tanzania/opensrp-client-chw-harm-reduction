@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">opensrp-chw-testing</string>
+    <string name="harm_reduction_client_profile">Wasifu mpya wa mteja wa Harm Reduction</string>
+    <string name="harm_reduction_contact_visit">"Rekodi hudhurio la mawasiliano ya mteja wa Harm Reduction"</string>
+</resources>

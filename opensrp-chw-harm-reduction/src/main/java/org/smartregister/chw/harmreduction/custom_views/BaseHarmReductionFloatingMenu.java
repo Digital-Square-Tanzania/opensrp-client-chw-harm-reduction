@@ -32,7 +32,7 @@ public class BaseHarmReductionFloatingMenu extends LinearLayout implements View.
         if (view.getId() == R.id.harm_reduction_fab) {
             Activity activity = (Activity) getContext();
             BaseHarmReductionCallDialogFragment.launchDialog(activity, MEMBER_OBJECT);
-        } else if (view.getId() == R.id.harm_reduction_refer_to_facility_layout) {
+        } else if (view.getId() == R.id.refer_to_facility_layout) {
             Activity activity = (Activity) getContext();
             BaseHarmReductionCallDialogFragment.launchDialog(activity, MEMBER_OBJECT);
         }

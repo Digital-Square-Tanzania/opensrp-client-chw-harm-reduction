@@ -492,7 +492,7 @@
           },
           {
             "key": "sharing_saliva",
-            "text": "Kugawana mate",
+            "text": "Kuchangia mate",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sharing_saliva"
@@ -566,7 +566,7 @@
         "options": [
           {
             "key": "sharing_saliva",
-            "text": "Kugawana mate",
+            "text": "Kuchangia mate",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sharing_saliva"

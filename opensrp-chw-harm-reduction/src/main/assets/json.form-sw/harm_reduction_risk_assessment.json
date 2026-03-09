@@ -338,7 +338,7 @@
         "options": [
           {
             "key": "heroine",
-            "text": "Mashujaa",
+            "text": "Heroine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heroine"
@@ -421,7 +421,7 @@
         "options": [
           {
             "key": "heroine",
-            "text": "Mashujaa",
+            "text": "Heroine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heroine"

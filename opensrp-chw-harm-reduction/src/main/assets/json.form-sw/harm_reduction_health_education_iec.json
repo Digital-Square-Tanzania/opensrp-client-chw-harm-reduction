@@ -130,7 +130,7 @@
           },
           {
             "key": "tb_leprosy",
-            "text": "TB/Ukoma",
+            "text": "Kifua Kikuu/Ukoma",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb_leprosy",
@@ -185,7 +185,7 @@
           },
           {
             "key": "prep",
-            "text": "PrEP",
+            "text": "Elimu ya dawa kinga (PrEP)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "prep",
@@ -218,7 +218,7 @@
           },
           {
             "key": "gbv_vac",
-            "text": "GBV/VAC",
+            "text": "Ukatili wa Kijinsia/Watoto",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "gbv_vac",
@@ -240,7 +240,7 @@
           },
           {
             "key": "rights_vulnerable",
-            "text": "Haki za watu walio katika mazingira magumu",
+            "text": "Haki stahiki kwa makundi maalumu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "rights_vulnerable",
@@ -251,7 +251,7 @@
           },
           {
             "key": "health_services_advocacy",
-            "text": "Utetezi wa huduma za afya",
+            "text": "Uhamasishaji wa huduma za Afya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "health_services_advocacy",
@@ -262,7 +262,7 @@
           },
           {
             "key": "hepatitis_bc",
-            "text": "Hepatitis B/C",
+            "text": "Homa ya Ini",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hepatitis_bc",
@@ -273,7 +273,7 @@
           },
           {
             "key": "stis_stds",
-            "text": "Magonjwa ya zinaa/STD",
+            "text": "Magonjwa ya Ngono na Via vya Uzazi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "stis_stds",
@@ -284,7 +284,7 @@
           },
           {
             "key": "overdose_management",
-            "text": "Usimamizi na kuzuia overdose",
+            "text": "Kuzuia na kumudu Overdose",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "overdose_management",
@@ -328,7 +328,7 @@
           },
           {
             "key": "lowering_infection_risk",
-            "text": "Kupunguza hatari ya kuambukizwa",
+            "text": "Kupunguza hatari ya maambukizi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "lowering_infection_risk",
@@ -450,7 +450,7 @@
           },
           {
             "key": "iec_tb_leprosy",
-            "text": "TB/Ukoma",
+            "text": "Kifua Kikuu/Ukoma",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_tb_leprosy",
@@ -505,7 +505,7 @@
           },
           {
             "key": "iec_prep",
-            "text": "PrEP",
+            "text": "Elimu ya dawa kinga (PrEP)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_prep",
@@ -538,7 +538,7 @@
           },
           {
             "key": "iec_gbv_vac",
-            "text": "GBV/VAC",
+            "text": "Ukatili wa Kijinsia/Watoto",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_gbv_vac",
@@ -560,7 +560,7 @@
           },
           {
             "key": "iec_rights_vulnerable",
-            "text": "Haki za watu walio katika mazingira magumu",
+            "text": "Haki stahiki kwa makundi maalumu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_rights_vulnerable",
@@ -571,7 +571,7 @@
           },
           {
             "key": "iec_health_services_advocacy",
-            "text": "Utetezi wa huduma za afya",
+            "text": "Uhamasishaji wa huduma za Afya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_health_services_advocacy",
@@ -582,7 +582,7 @@
           },
           {
             "key": "iec_hepatitis_bc",
-            "text": "Hepatitis B/C",
+            "text": "Homa ya Ini",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_hepatitis_bc",
@@ -593,7 +593,7 @@
           },
           {
             "key": "iec_stis_stds",
-            "text": "Magonjwa ya zinaa/STD",
+            "text": "Magonjwa ya Ngono na Via vya Uzazi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_stis_stds",
@@ -604,7 +604,7 @@
           },
           {
             "key": "iec_overdose_management",
-            "text": "Usimamizi na kuzuia overdose",
+            "text": "Kuzuia na kumudu Overdose",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_overdose_management",
@@ -648,7 +648,7 @@
           },
           {
             "key": "iec_lowering_infection_risk",
-            "text": "Kupunguza hatari ya kuambukizwa",
+            "text": "Kupunguza hatari ya maambukizi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_lowering_infection_risk",

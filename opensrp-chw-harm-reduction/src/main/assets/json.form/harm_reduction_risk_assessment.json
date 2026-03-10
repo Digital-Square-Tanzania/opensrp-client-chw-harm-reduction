@@ -1181,7 +1181,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "stress_challenges",
         "type": "edit_text",
-        "hint": "What challenges are you currently experiencing, or have experienced in the past, that have contributed to stress?"
+        "hint": "What challenges are you currently experiencing, or have experienced in the past, that have contributed to stress?",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter what challenges are you currently experiencing, or have experienced in the past, that have contributed to stress"
+        }
       },
       {
         "key": "help_received",

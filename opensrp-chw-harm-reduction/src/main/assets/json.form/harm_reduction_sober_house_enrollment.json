@@ -128,7 +128,11 @@
             "openmrs_entity_id": "other_conditions",
             "text": "Other Diseases (Specify)"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "other_conditions_specify",
@@ -137,6 +141,10 @@
         "openmrs_entity_id": "other_conditions_specify",
         "type": "edit_text",
         "hint": "Other Diseases (Specify)",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -152,6 +160,10 @@
         "openmrs_entity_id": "stis_result",
         "type": "native_radio",
         "label": "Sexually transmitted infections - Results",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -183,6 +195,10 @@
         "openmrs_entity_id": "heart_diseases_result",
         "type": "native_radio",
         "label": "Heart diseases - Results",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -214,6 +230,10 @@
         "openmrs_entity_id": "mental_health_result",
         "type": "native_radio",
         "label": "Mental health conditions - Results",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -245,6 +265,10 @@
         "openmrs_entity_id": "hepatitis_b_result",
         "type": "native_radio",
         "label": "Hepatitis B - Results",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -276,6 +300,10 @@
         "openmrs_entity_id": "hepatitis_c_result",
         "type": "native_radio",
         "label": "Hepatitis C - Results",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -307,6 +335,10 @@
         "openmrs_entity_id": "diabetes_result",
         "type": "native_radio",
         "label": "Diabetes - Results",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -338,6 +370,10 @@
         "openmrs_entity_id": "tuberculosis_result",
         "type": "native_radio",
         "label": "Tuberculosis - Results",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -369,6 +405,10 @@
         "openmrs_entity_id": "hiv_result",
         "type": "native_radio",
         "label": "HIV and AIDS - Results",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -400,6 +440,10 @@
         "openmrs_entity_id": "treatment_after_screening",
         "type": "native_radio",
         "label": "Has the client received treatment after screening?",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -446,7 +490,11 @@
             "openmrs_entity_id": "no",
             "text": "No"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "enroll_action_prompt",
@@ -488,6 +536,10 @@
         "type": "check_box",
         "label": "Other service referrals provided",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -540,6 +592,10 @@
         "openmrs_entity_id": "nickname",
         "type": "edit_text",
         "hint": "Nickname",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter nickname"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -633,6 +689,10 @@
         "openmrs_entity_id": "education_level",
         "type": "native_radio",
         "label": "Level of Education",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -709,6 +769,10 @@
         "type": "edit_text",
         "hint": "CTC identification number",
         "edit_type": "number",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter cTC identification number"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -725,6 +789,10 @@
         "type": "check_box",
         "label": "Types of substances leading to service needs",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -805,6 +873,10 @@
         "openmrs_entity_id": "other_substances_specify",
         "type": "edit_text",
         "hint": "Other substances (Specify)",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -838,6 +910,10 @@
           "is_fixed_size": "true",
           "err": "Please enter a valid height"
         },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter height"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -853,6 +929,10 @@
         "openmrs_entity_id": "nationality",
         "type": "native_radio",
         "label": "Nationality",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -884,6 +964,10 @@
         "openmrs_entity_id": "detoxification_done",
         "type": "native_radio",
         "label": "Has the client undergone detoxification?",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -916,6 +1000,10 @@
         "type": "date_picker",
         "max_date": "today",
         "hint": "Date of detoxification",
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

@@ -71,7 +71,11 @@
             "openmrs_entity_id": "no",
             "text": "No"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "facility_referrals",
@@ -81,6 +85,10 @@
         "type": "check_box",
         "label": "Medical service referrals provided",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -175,6 +183,10 @@
         "openmrs_entity_id": "facility_referrals_other_specify",
         "type": "edit_text",
         "hint": "Other (Specify)",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

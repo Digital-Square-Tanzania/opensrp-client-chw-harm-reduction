@@ -71,7 +71,11 @@
             "openmrs_entity_id": "no",
             "text": "Hapana"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "post_counselling_done",
@@ -80,6 +84,10 @@
         "openmrs_entity_id": "post_counselling_done",
         "type": "native_radio",
         "label": "Je, Unasihi baada ya tathmini umefanyika?",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -111,6 +119,10 @@
         "openmrs_entity_id": "after_care_plan_done",
         "type": "native_radio",
         "label": "After Care Plan Imefanyika?",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -143,6 +155,10 @@
         "type": "check_box",
         "label": "Ushirikishi wa Plan",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

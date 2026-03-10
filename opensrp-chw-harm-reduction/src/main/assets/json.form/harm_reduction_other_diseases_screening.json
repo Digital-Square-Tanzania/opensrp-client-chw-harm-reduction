@@ -85,7 +85,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "undergoing_treatment"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "tb_screening",
@@ -123,7 +127,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "undergoing_treatment"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "stds_screening",
@@ -161,7 +169,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "undergoing_treatment"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       }
     ]
   }

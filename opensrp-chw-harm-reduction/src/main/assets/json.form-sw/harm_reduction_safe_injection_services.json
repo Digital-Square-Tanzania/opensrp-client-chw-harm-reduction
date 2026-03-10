@@ -100,7 +100,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "needles"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "qty_syringes",
@@ -118,6 +122,10 @@
           "value": "2",
           "is_fixed_size": "true",
           "err": "Tafadhali ingiza ingizo halali"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya zana - Bomba"
         },
         "relevance": {
           "rules-engine": {
@@ -140,6 +148,10 @@
           "is_fixed_size": "true",
           "err": "Tafadhali ingiza ingizo halali"
         },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya zana - Pamba yenye kileo(swabu)"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -160,6 +172,10 @@
           "value": "2",
           "is_fixed_size": "true",
           "err": "Tafadhali ingiza ingizo halali"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya zana - Pamba kavu"
         },
         "relevance": {
           "rules-engine": {
@@ -182,6 +198,10 @@
           "is_fixed_size": "true",
           "err": "Tafadhali ingiza ingizo halali"
         },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya zana - Plasta"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -202,6 +222,10 @@
           "value": "2",
           "is_fixed_size": "true",
           "err": "Tafadhali ingiza ingizo halali"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya zana - Maji"
         },
         "relevance": {
           "rules-engine": {
@@ -227,6 +251,10 @@
           "value": "2",
           "is_fixed_size": "true",
           "err": "Tafadhali ingiza ingizo halali"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya zana - Sindano"
         },
         "relevance": {
           "rules-engine": {

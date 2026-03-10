@@ -71,7 +71,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "idu"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "uic",
@@ -80,7 +84,11 @@
         "openmrs_entity_id": "uic",
         "type": "edit_text",
         "hint": "Namba ya Utambulisho ya Kitengo (UIC)",
-        "edit_type": "number"
+        "edit_type": "number",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza namba ya Utambulisho ya Kitengo (UIC)"
+        }
       },
       {
         "key": "service_start_date",
@@ -88,7 +96,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "service_start_date",
         "type": "date_picker",
-        "hint": "Tarehe ya kuanza huduma"
+        "hint": "Tarehe ya kuanza huduma",
+        "v_required": {
+          "value": "true",
+          "err": "Inahitajika"
+        }
       },
       {
         "key": "maskani_name",
@@ -96,7 +108,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "maskani_name",
         "type": "edit_text",
-        "hint": "Jina la Maskani"
+        "hint": "Jina la Maskani",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza jina la Maskani"
+        }
       }
     ]
   }

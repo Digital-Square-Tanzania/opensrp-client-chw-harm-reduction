@@ -55,7 +55,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "date_of_collection",
         "type": "date_picker",
-        "hint": "Date of Collection"
+        "hint": "Date of Collection",
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
       },
       {
         "key": "maskani_name",
@@ -63,7 +67,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "maskani_name",
         "type": "edit_text",
-        "hint": "Name of Maskani"
+        "hint": "Name of Maskani",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter name of Maskani"
+        }
       },
       {
         "key": "collection_site_gps",
@@ -71,7 +79,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "collection_site_gps",
         "type": "gps",
-        "hint": "GPS location of collection site"
+        "hint": "GPS location of collection site",
+        "v_required": {
+          "value": "true",
+          "err": "Please capture the location"
+        }
       },
       {
         "key": "other_collection",
@@ -88,6 +100,10 @@
         "v_min": {
           "value": "0",
           "err": "Value must be 0 or greater"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of Safety Boxes collected (used syringes) in Other Collection sites"
         }
       },
       {
@@ -105,6 +121,10 @@
         "v_min": {
           "value": "0",
           "err": "Value must be 0 or greater"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of Safety Boxes collected (used syringes) in Fixed Bins"
         }
       },
       {
@@ -130,7 +150,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "name_of_ow",
         "type": "edit_text",
-        "hint": "Name of OW"
+        "hint": "Name of OW",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter name of OW"
+        }
       }
     ]
   }

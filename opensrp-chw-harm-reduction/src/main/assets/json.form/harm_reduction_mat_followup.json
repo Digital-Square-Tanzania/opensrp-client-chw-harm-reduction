@@ -247,7 +247,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "injection_related_diseases"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "education_delivery_method",
@@ -272,7 +276,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "individual_session"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       }
     ]
   }

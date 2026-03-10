@@ -71,7 +71,11 @@
             "openmrs_entity_id": "no",
             "text": "No"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "post_counselling_done",
@@ -80,6 +84,10 @@
         "openmrs_entity_id": "post_counselling_done",
         "type": "native_radio",
         "label": "Was post-assessment counseling done?",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -111,6 +119,10 @@
         "openmrs_entity_id": "after_care_plan_done",
         "type": "native_radio",
         "label": "Has an aftercare plan been completed?",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -143,6 +155,10 @@
         "type": "check_box",
         "label": "Plan participation",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

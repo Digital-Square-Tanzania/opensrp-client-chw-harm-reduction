@@ -71,7 +71,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "health_education_provided",
@@ -87,6 +91,10 @@
         "dialogTitle": "Select health education provided",
         "searchHint": "Health education provided",
         "label": "Health education provided",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -368,6 +376,10 @@
         "openmrs_entity_id": "health_education_other_specify",
         "type": "edit_text",
         "hint": "Specify other health education provided",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -398,7 +410,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "iec_materials_type",
@@ -691,6 +707,10 @@
             }
           }
         ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -706,6 +726,10 @@
         "openmrs_entity_id": "iec_materials_other_specify",
         "type": "edit_text",
         "hint": "Specify other iec materials provided",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -729,6 +753,10 @@
         "v_min": {
           "value": "1",
           "err": "Value must be 1 or greater"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of IEC materials provided"
         },
         "relevance": {
           "rules-engine": {

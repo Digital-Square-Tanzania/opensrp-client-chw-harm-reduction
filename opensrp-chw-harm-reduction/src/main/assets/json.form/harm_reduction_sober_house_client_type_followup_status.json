@@ -85,7 +85,11 @@
             "openmrs_entity_id": "migrant_client",
             "text": "Transferred-in client"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "follow_up_status",
@@ -94,6 +98,10 @@
         "openmrs_entity_id": "follow_up_status",
         "type": "native_radio",
         "label": "Client status",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

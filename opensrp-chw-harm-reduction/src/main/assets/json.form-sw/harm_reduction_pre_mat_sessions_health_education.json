@@ -71,7 +71,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "health_education_provided",
@@ -87,6 +91,10 @@
         "dialogTitle": "Select health education provided",
         "searchHint": "Health education provided",
         "label": "Elimu ya afya iliyotolewa",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -262,7 +270,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "iec_materials_type",
@@ -423,6 +435,10 @@
             }
           }
         ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -446,6 +462,10 @@
         "v_min": {
           "value": "1",
           "err": "Thamani lazima iwe 1 au zaidi"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya IEC material iliyotolewa"
         },
         "relevance": {
           "rules-engine": {

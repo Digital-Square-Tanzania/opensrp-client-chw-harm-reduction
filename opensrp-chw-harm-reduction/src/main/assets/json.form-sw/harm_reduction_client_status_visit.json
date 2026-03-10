@@ -485,7 +485,7 @@
         "options": [
           {
             "key": "sharing_needles_syringes",
-            "text": "Kushirikiana mabomba na sindano",
+            "text": "Kuchangia kifaa cha kujidunga na mtu mwingine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sharing_needles_syringes"
@@ -499,42 +499,42 @@
           },
           {
             "key": "unsafe_sex",
-            "text": "Ngono isiyo salama",
+            "text": "Kufanya ngono bila kinga",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "unsafe_sex"
           },
           {
             "key": "overdose",
-            "text": "Overdose",
+            "text": "Hali ya kuzidisha dawa (Overdose)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "overdose"
           },
           {
             "key": "excessive_alcohol_intake_smoking",
-            "text": "Unywaji wa pombe kupita kiasi/uvutaji sigara",
+            "text": "Unywaji/Uvutaji kupita kiasi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "excessive_alcohol_intake_smoking"
           },
           {
             "key": "non_adherence_injection_hygiene",
-            "text": "Kutofuata itifaki za usafi wa sindano",
+            "text": "Kutokuzingatia usafi wa vifaa",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "non_adherence_injection_hygiene"
           },
           {
             "key": "avoiding_harm_reduction",
-            "text": "Kuepuka huduma za kupunguza madhara",
+            "text": "Kutojihusisha na huduma za kupunguza madhara",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "avoiding_harm_reduction"
           },
           {
             "key": "needles_syringes_reuse",
-            "text": "Kutumia tena mabomba na sindano",
+            "text": "Kurudia kutumia kifaa cha kujidunga",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "needles_syringes_reuse"
@@ -573,45 +573,38 @@
           },
           {
             "key": "unsafe_sex",
-            "text": "Ngono isiyo salama",
+            "text": "Kufanya ngono bila kinga",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "unsafe_sex"
           },
           {
             "key": "overdose",
-            "text": "Overdose",
+            "text": "Hali ya kuzidisha dawa (Overdose)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "overdose"
           },
           {
             "key": "excessive_alcohol_intake_smoking",
-            "text": "Unywaji wa pombe kupita kiasi/uvutaji sigara",
+            "text": "Unywaji/Uvutaji kupita kiasi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "excessive_alcohol_intake_smoking"
           },
           {
             "key": "non_adherence_injection_hygiene",
-            "text": "Kutofuata itifaki za usafi wa sindano",
+            "text": "Kutokuzingatia usafi wa vifaa",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "non_adherence_injection_hygiene"
           },
           {
             "key": "avoiding_harm_reduction",
-            "text": "Kuepuka huduma za kupunguza madhara",
+            "text": "Kutojihusisha na huduma za kupunguza madhara",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "avoiding_harm_reduction"
-          },
-          {
-            "key": "needles_syringes_reuse",
-            "text": "Kutumia tena mabomba na sindano",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "needles_syringes_reuse"
           },
           {
             "key": "other",

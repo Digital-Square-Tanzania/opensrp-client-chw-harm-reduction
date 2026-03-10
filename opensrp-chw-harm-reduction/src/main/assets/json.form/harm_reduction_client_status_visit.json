@@ -607,13 +607,6 @@
             "openmrs_entity_id": "avoiding_harm_reduction"
           },
           {
-            "key": "needles_syringes_reuse",
-            "text": "Needles and syringes reuse",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "needles_syringes_reuse"
-          },
-          {
             "key": "other",
             "text": "Others (Specify)",
             "openmrs_entity_parent": "",

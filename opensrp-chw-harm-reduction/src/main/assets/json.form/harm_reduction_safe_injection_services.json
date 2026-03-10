@@ -110,6 +110,10 @@
         "type": "edit_text",
         "hint": "Number of tools - Syringes",
         "edit_type": "number",
+        "v_max": {
+          "value": "21",
+          "err": "Must be 21 or less"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",

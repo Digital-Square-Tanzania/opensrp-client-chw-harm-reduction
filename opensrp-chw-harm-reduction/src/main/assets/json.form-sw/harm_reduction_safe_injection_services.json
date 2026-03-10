@@ -60,14 +60,14 @@
         "options": [
           {
             "key": "syringes",
-            "text": "Sindano",
+            "text": "Bomba",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "syringes"
           },
           {
             "key": "alcohol_swab",
-            "text": "Kitambaa cha pombe",
+            "text": "Pamba yenye kileo(swabu)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "alcohol_swab"
@@ -88,7 +88,7 @@
           },
           {
             "key": "sterile_water",
-            "text": "Maji Ya Kuzaa",
+            "text": "Maji",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sterile_water"
@@ -108,7 +108,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_syringes",
         "type": "edit_text",
-        "hint": "Idadi ya zana - Sindano",
+        "hint": "Idadi ya zana - Bomba",
         "edit_type": "number",
         "v_max_length": {
           "value": "2",
@@ -129,7 +129,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_alcohol_swab",
         "type": "edit_text",
-        "hint": "Idadi ya zana - Swab ya pombe",
+        "hint": "Idadi ya zana - Pamba yenye kileo(swabu)",
         "edit_type": "number",
         "v_max_length": {
           "value": "2",
@@ -171,7 +171,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_plaster",
         "type": "edit_text",
-        "hint": "Idadi ya zana - Plaster",
+        "hint": "Idadi ya zana - Plasta",
         "edit_type": "number",
         "v_max_length": {
           "value": "2",
@@ -192,7 +192,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_sterile_water",
         "type": "edit_text",
-        "hint": "Idadi ya zana - Maji tasa",
+        "hint": "Idadi ya zana - Maji",
         "edit_type": "number",
         "v_max_length": {
           "value": "2",

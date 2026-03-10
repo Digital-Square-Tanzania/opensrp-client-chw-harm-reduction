@@ -167,7 +167,14 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risky-sexual-behaviors-condoms-relevance-rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "number_of_condoms",

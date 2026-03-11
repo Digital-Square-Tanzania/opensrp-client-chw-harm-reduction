@@ -93,7 +93,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "continue_service"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "pregnancy_breastfeeding_status",
@@ -125,6 +129,10 @@
             "openmrs_entity_id": "not_pregnant"
           }
         ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -178,6 +186,10 @@
             "openmrs_entity_id": "other"
           }
         ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -193,6 +205,10 @@
         "openmrs_entity_id": "substance_use_methods_other_specify",
         "type": "edit_text",
         "hint": "Taja njia nyingine za matumizi ya dawa za kulevya",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -437,6 +453,10 @@
             "openmrs_entity_id": "other"
           }
         ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -466,6 +486,10 @@
         "openmrs_entity_id": "substances_used_other_specify",
         "type": "edit_text",
         "hint": "Taja dawa nyingine za kulevya zilizotumika",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -547,6 +571,10 @@
             "openmrs_entity_id": "other"
           }
         ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -614,6 +642,10 @@
             "openmrs_entity_id": "other"
           }
         ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -643,6 +675,10 @@
         "openmrs_entity_id": "risky_behaviours_other_specify",
         "type": "edit_text",
         "hint": "Ikiwa ni nyinginezo, taja",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

@@ -71,7 +71,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "number_of_sexual_partners",
@@ -89,6 +93,10 @@
           "value": "2",
           "is_fixed_size": "true",
           "err": "Please enter a valid input"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of sexual partners"
         },
         "relevance": {
           "rules-engine": {
@@ -121,6 +129,10 @@
             "openmrs_entity_id": "no"
           }
         ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -168,6 +180,10 @@
             "openmrs_entity_id": "no"
           }
         ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -188,6 +204,10 @@
           "value": "2",
           "is_fixed_size": "true",
           "err": "Please enter a valid input"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of condoms (pieces) provided"
         },
         "relevance": {
           "rules-engine": {

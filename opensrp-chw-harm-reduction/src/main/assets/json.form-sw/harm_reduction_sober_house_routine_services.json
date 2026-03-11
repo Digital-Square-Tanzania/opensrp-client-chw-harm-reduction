@@ -92,7 +92,11 @@
             "openmrs_entity_id": "stable",
             "text": "Yuko Imara / Thabiti"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "attended_recovery_meetings",
@@ -116,7 +120,11 @@
             "openmrs_entity_id": "no",
             "text": "Hapana"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "recovery_meeting_types",
@@ -126,6 +134,10 @@
         "type": "check_box",
         "label": "Aina ya Mikutano",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -164,6 +176,10 @@
         "openmrs_entity_id": "recovery_meeting_special_topic_specify",
         "type": "edit_text",
         "hint": "Mada maalum (Taja)",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -268,7 +284,11 @@
             "openmrs_entity_id": "did_not_attend",
             "text": "Hajashiriki"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "counseling_provided",
@@ -292,7 +312,11 @@
             "openmrs_entity_id": "no",
             "text": "Hapana"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "counseling_type",
@@ -301,6 +325,10 @@
         "openmrs_entity_id": "counseling_type",
         "type": "native_radio",
         "label": "Aina ya Unasihi",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

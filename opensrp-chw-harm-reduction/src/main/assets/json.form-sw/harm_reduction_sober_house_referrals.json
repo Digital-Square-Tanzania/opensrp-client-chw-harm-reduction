@@ -71,7 +71,11 @@
             "openmrs_entity_id": "no",
             "text": "Hapana"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "facility_referrals",
@@ -81,6 +85,10 @@
         "type": "check_box",
         "label": "Rufaa ya huduma za kitabibu zilizotolewa",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -175,6 +183,10 @@
         "openmrs_entity_id": "facility_referrals_other_specify",
         "type": "edit_text",
         "hint": "Mengineyo (Taja)",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

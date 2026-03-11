@@ -71,7 +71,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "idu"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "uic",
@@ -80,7 +84,11 @@
         "openmrs_entity_id": "uic",
         "type": "edit_text",
         "hint": "Unit Identification Code (UIC)",
-        "edit_type": "number"
+        "edit_type": "number",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter unit Identification Code (UIC)"
+        }
       },
       {
         "key": "service_start_date",
@@ -88,7 +96,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "service_start_date",
         "type": "date_picker",
-        "hint": "Service start date"
+        "hint": "Service start date",
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
       },
       {
         "key": "maskani_name",
@@ -96,7 +108,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "maskani_name",
         "type": "edit_text",
-        "hint": "Maskani name"
+        "hint": "Maskani name",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter maskani name"
+        }
       }
     ]
   }

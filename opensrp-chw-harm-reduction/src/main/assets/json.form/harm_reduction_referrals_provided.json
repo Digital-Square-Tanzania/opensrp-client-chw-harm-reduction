@@ -250,7 +250,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "none"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "referrals_other_specify",
@@ -259,6 +263,10 @@
         "openmrs_entity_id": "referrals_other_specify",
         "type": "edit_text",
         "hint": "If others, specify",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

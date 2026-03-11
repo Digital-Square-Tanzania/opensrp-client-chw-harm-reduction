@@ -1181,7 +1181,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "stress_challenges",
         "type": "edit_text",
-        "hint": "Ni changamoto gani unazokutana/ulizokutana nazo na kupelekea kupata msongo wa mawazo?"
+        "hint": "Ni changamoto gani unazokutana/ulizokutana nazo na kupelekea kupata msongo wa mawazo?",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza ni changamoto gani unazokutana/ulizokutana nazo na kupelekea kupata msongo wa mawazo"
+        }
       },
       {
         "key": "help_received",

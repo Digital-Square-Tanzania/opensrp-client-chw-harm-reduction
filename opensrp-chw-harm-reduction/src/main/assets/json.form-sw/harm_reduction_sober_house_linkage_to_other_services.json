@@ -71,7 +71,11 @@
             "openmrs_entity_id": "no",
             "text": "Hapana"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
       },
       {
         "key": "linkage_to_other_services",
@@ -81,6 +85,10 @@
         "type": "check_box",
         "label": "Huduma alizounganishwa",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -133,6 +141,10 @@
         "openmrs_entity_id": "linkage_to_other_services_specify",
         "type": "edit_text",
         "hint": "Huduma nyinginezo (Taja)",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

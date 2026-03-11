@@ -82,7 +82,11 @@
             "openmrs_entity_id": "not_done",
             "text": "It hasn't happened"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "systolic",
@@ -203,6 +207,10 @@
         "v_max": {
           "value": "300",
           "err": "Weight must be equal to or less than 300 (KG)"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter weight"
         },
         "relevance": {
           "rules-engine": {

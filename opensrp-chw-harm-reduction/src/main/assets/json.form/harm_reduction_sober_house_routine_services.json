@@ -92,7 +92,11 @@
             "openmrs_entity_id": "stable",
             "text": "He is stable"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "attended_recovery_meetings",
@@ -116,7 +120,11 @@
             "openmrs_entity_id": "no",
             "text": "No"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "recovery_meeting_types",
@@ -126,6 +134,10 @@
         "type": "check_box",
         "label": "Type of meetings",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -164,6 +176,10 @@
         "openmrs_entity_id": "recovery_meeting_special_topic_specify",
         "type": "edit_text",
         "hint": "Special topic (Specify)",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -268,7 +284,11 @@
             "openmrs_entity_id": "did_not_attend",
             "text": "He has not participated"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "counseling_provided",
@@ -292,7 +312,11 @@
             "openmrs_entity_id": "no",
             "text": "No"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "counseling_type",
@@ -301,6 +325,10 @@
         "openmrs_entity_id": "counseling_type",
         "type": "native_radio",
         "label": "Type of counseling",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

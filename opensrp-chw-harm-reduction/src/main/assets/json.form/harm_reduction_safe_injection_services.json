@@ -100,7 +100,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "needles"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
       },
       {
         "key": "qty_syringes",
@@ -118,6 +122,10 @@
           "value": "2",
           "is_fixed_size": "true",
           "err": "Please enter a valid input"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of tools - Syringes"
         },
         "relevance": {
           "rules-engine": {
@@ -140,6 +148,10 @@
           "is_fixed_size": "true",
           "err": "Please enter a valid input"
         },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of tools - Alcohol swab"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -160,6 +172,10 @@
           "value": "2",
           "is_fixed_size": "true",
           "err": "Please enter a valid input"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of tools - Dry cotton"
         },
         "relevance": {
           "rules-engine": {
@@ -182,6 +198,10 @@
           "is_fixed_size": "true",
           "err": "Please enter a valid input"
         },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of tools - Plaster"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -202,6 +222,10 @@
           "value": "2",
           "is_fixed_size": "true",
           "err": "Please enter a valid input"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of tools - Sterile Water"
         },
         "relevance": {
           "rules-engine": {
@@ -227,6 +251,10 @@
           "value": "2",
           "is_fixed_size": "true",
           "err": "Please enter a valid input"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter number of tools - Needles"
         },
         "relevance": {
           "rules-engine": {

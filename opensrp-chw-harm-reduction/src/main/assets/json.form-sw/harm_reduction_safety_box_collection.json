@@ -55,7 +55,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "date_of_collection",
         "type": "date_picker",
-        "hint": "Tarehe ya Mkusanyiko"
+        "hint": "Tarehe ya Mkusanyiko",
+        "v_required": {
+          "value": "true",
+          "err": "Inahitajika"
+        }
       },
       {
         "key": "maskani_name",
@@ -63,7 +67,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "maskani_name",
         "type": "edit_text",
-        "hint": "Jina la Maskani"
+        "hint": "Jina la Maskani",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza jina la Maskani"
+        }
       },
       {
         "key": "collection_site_gps",
@@ -71,7 +79,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "collection_site_gps",
         "type": "gps",
-        "hint": "GPS eneo la tovuti ya ukusanyaji"
+        "hint": "GPS eneo la tovuti ya ukusanyaji",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka eneo"
+        }
       },
       {
         "key": "other_collection",
@@ -88,6 +100,10 @@
         "v_min": {
           "value": "0",
           "err": "Thamani lazima iwe 0 au zaidi"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika) katika tovuti Zingine za Mkusanyiko"
         }
       },
       {
@@ -105,6 +121,10 @@
         "v_min": {
           "value": "0",
           "err": "Thamani lazima iwe 0 au zaidi"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali weka idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika) kwenye Mapipa yasiyobadilika"
         }
       },
       {
@@ -130,7 +150,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "name_of_ow",
         "type": "edit_text",
-        "hint": "Jina la OW"
+        "hint": "Jina la OW",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza jina la OW"
+        }
       }
     ]
   }

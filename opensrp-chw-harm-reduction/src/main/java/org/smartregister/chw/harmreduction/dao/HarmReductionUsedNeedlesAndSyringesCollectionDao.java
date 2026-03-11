@@ -20,8 +20,9 @@ public class HarmReductionUsedNeedlesAndSyringesCollectionDao extends AbstractDa
                                   String totalSafetyBoxesCollected,
                                   String nameOfOw) {
         String sql = "INSERT INTO " + Constants.TABLES.HARM_REDUCTION_SAFETY_BOX_COLLECTION +
-                "           (id, date_of_collection, maskani_name, collection_site_gps, other_collection, fixed_bins, total_safety_boxes_collected, name_of_ow) " +
+                "           (id, base_entity_id, date_of_collection, maskani_name, collection_site_gps, other_collection, fixed_bins, total_safety_boxes_collected, name_of_ow) " +
                 "           VALUES (" +
+                "                   '" + baseEntityID + "', " +
                 "                   '" + baseEntityID + "', " +
                 "                   '" + dateOfCollection + "', " +
                 "                   '" + maskaniName + "', " +

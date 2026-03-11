@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.domain.VisitDetail;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
+import org.smartregister.chw.harmreduction.util.JsonFormUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,7 @@ public class HarmReductionRiskySexualBehaviorsActionHelper implements BaseHarmRe
 
     private final UnsafeSexProvider unsafeSexProvider;
     private String jsonPayload;
+    private String engagingInSexualActivity;
 
     public HarmReductionRiskySexualBehaviorsActionHelper(UnsafeSexProvider unsafeSexProvider) {
         this.unsafeSexProvider = unsafeSexProvider;
@@ -84,6 +86,12 @@ public class HarmReductionRiskySexualBehaviorsActionHelper implements BaseHarmRe
     @Override
     public void onPayloadReceived(String jsonPayload) {
         this.jsonPayload = jsonPayload;
+        try {
+            JSONObject jsonObject = new JSONObject(jsonPayload);
+            engagingInSexualActivity = JsonFormUtils.getValue(jsonObject, ENGAGING_IN_SEXUAL_ACTIVITY_KEY);
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
     }
 
     @Override
@@ -108,7 +116,7 @@ public class HarmReductionRiskySexualBehaviorsActionHelper implements BaseHarmRe
 
     @Override
     public BaseHarmReductionVisitAction.Status evaluateStatusOnPayload() {
-        return StringUtils.isNotBlank(jsonPayload)
+        return StringUtils.isNotBlank(engagingInSexualActivity)
                 ? BaseHarmReductionVisitAction.Status.COMPLETED
                 : BaseHarmReductionVisitAction.Status.PENDING;
     }

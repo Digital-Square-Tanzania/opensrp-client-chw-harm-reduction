@@ -3,15 +3,21 @@ package org.smartregister.chw.harmreduction.actionhelper;
 import android.content.Context;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.domain.VisitDetail;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
+import org.smartregister.chw.harmreduction.util.JsonFormUtils;
 
 import java.util.List;
 import java.util.Map;
 
-public class HarmReductionConsentJoiningMatActionHelper implements BaseHarmReductionVisitAction.HarmReductionVisitActionHelper {
+import timber.log.Timber;
 
-    private String jsonPayload;
+public class HarmReductionConsentJoiningMatActionHelper implements BaseHarmReductionVisitAction.HarmReductionVisitActionHelper {
+    private static final String ROC_CONSENT_JOINING_MAT_SERVICES_FIELD_KEY = "roc_consent_joining_mat_services";
+
+    private String rocConsentJoiningMatServices;
 
     @Override
     public void onJsonFormLoaded(String jsonPayload, Context context, Map<String, List<VisitDetail>> details) {
@@ -25,7 +31,12 @@ public class HarmReductionConsentJoiningMatActionHelper implements BaseHarmReduc
 
     @Override
     public void onPayloadReceived(String jsonPayload) {
-        this.jsonPayload = jsonPayload;
+        try {
+            JSONObject jsonObject = new JSONObject(jsonPayload);
+            rocConsentJoiningMatServices = JsonFormUtils.getValue(jsonObject, ROC_CONSENT_JOINING_MAT_SERVICES_FIELD_KEY);
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
     }
 
     @Override
@@ -50,7 +61,7 @@ public class HarmReductionConsentJoiningMatActionHelper implements BaseHarmReduc
 
     @Override
     public BaseHarmReductionVisitAction.Status evaluateStatusOnPayload() {
-        return StringUtils.isNotBlank(jsonPayload)
+        return StringUtils.isNotBlank(rocConsentJoiningMatServices)
                 ? BaseHarmReductionVisitAction.Status.COMPLETED
                 : BaseHarmReductionVisitAction.Status.PENDING;
     }

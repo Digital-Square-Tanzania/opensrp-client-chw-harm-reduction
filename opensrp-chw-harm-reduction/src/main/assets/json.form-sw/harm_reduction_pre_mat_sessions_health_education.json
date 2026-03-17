@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "Pre MAT Sessions Health Education",
+    "title": "Elimu ya Afya ya Kabla ya MAT",
     "fields": [
       {
         "key": "health_education_given",
@@ -86,10 +86,10 @@
         "type": "multi_select_list",
         "save_obs_as_array": true,
         "maxSelectable": 4,
-        "buttonText": "+ Add health education provided",
+        "buttonText": "+ Ongeza Elimu Iliyotolewa",
         "sort": false,
-        "dialogTitle": "Select health education provided",
-        "searchHint": "Health education provided",
+        "dialogTitle": "Chagua elimu ya afya iliyotolewa",
+        "searchHint": "Elimu ya afya iliyotolewa",
         "label": "Elimu ya afya iliyotolewa",
         "v_required": {
           "value": "true",
@@ -285,11 +285,11 @@
         "type": "multi_select_list",
         "save_obs_as_array": true,
         "maxSelectable": 4,
-        "buttonText": "+ Add IEC material provided",
+        "buttonText": "+ Ongeza Aina ya Ujumbe katika Vipeperushi",
         "sort": false,
-        "dialogTitle": "Select IEC materials provided",
-        "searchHint": "IEC materials provided",
-        "label": "Aina ya nyenzo za IEC zilizotolewa",
+        "dialogTitle": "Chagua aina ya vipeperushi vilivyotolewa",
+        "searchHint": "Vipeperushi vilivyotolewa",
+        "label": "Vipeperushi vilivyotolewa",
         "options": [
           {
             "key": "iec_hiv_aids",

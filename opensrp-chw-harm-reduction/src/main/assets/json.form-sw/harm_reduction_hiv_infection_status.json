@@ -83,18 +83,18 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_test_location",
         "type": "native_radio",
-        "label": "Mtihani ulifanyika wapi",
+        "label": "Upimaji ulipofanyika",
         "options": [
           {
             "key": "facility",
-            "text": "Kituo cha huduma",
+            "text": "Kituoni",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "facility"
           },
           {
             "key": "community",
-            "text": "Jamii",
+            "text": "Ngazi ya jamii",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "community"
@@ -122,14 +122,14 @@
         "options": [
           {
             "key": "negative",
-            "text": "Hajaambukizwa (Hasi)",
+            "text": "Hana maambukizo(Hasi)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "negative"
           },
           {
             "key": "positive",
-            "text": "Ameambukizwa (Chanya)",
+            "text": "Ana maambukizo(Chanya)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "positive"
@@ -160,18 +160,18 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "drug_adherence_status_ctc",
         "type": "native_radio",
-        "label": "Hali ya kuambatana na dawa",
+        "label": "Hali ya ufuasi wa huduma",
         "options": [
           {
             "key": "good_adherence",
-            "text": "Ufuasi mzuri",
+            "text": "Anahudhuria",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "good_adherence"
           },
           {
             "key": "poor_adherence",
-            "text": "Ufuasi hafifu",
+            "text": "Hajahudhuria",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "poor_adherence"
@@ -210,7 +210,7 @@
         "openmrs_entity_id": "adherence_guidance_discontinued",
         "type": "toaster_notes",
         "label": "Mwongozo",
-        "text": "Mrejeshe mteja kwa Kliniki ya Matunzo na Tiba (CTC) kwa ushauri nasaha.",
+        "text": "Mrudishe kwa mtoa huduma wa Tiba na Matunzo (CTC) kwa unasihi.",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "HIV Infection Status",
+    "title": "Hali ya maambukizi ya VVU",
     "fields": [
       {
         "key": "hiv_tested",

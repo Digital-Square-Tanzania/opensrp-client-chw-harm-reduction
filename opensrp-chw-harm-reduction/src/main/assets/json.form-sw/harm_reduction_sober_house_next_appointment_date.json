@@ -52,7 +52,7 @@
     }
   },
   "step1": {
-    "title": "Next Appointment Date",
+    "title": "Tarehe ya miadi inayofuata",
     "display_back_button": "true",
     "fields": [
       {

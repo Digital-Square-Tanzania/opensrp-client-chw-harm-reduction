@@ -43,7 +43,7 @@ public class HealthEducationIecFormAssetsTest {
             for (String qtyKey : expectedQtyFields.keySet()) {
                 JSONObject qtyField = getField(fields, qtyKey);
                 Assert.assertTrue(qtyField.getBoolean("read_only"));
-                Assert.assertEquals("harm-reduction-health-education-iec-relevance-rules.yml",
+                Assert.assertEquals("harm-reduction-health-education-iec-calculation-rules.yml",
                         qtyField.getJSONObject("calculation")
                                 .getJSONObject("rules-engine")
                                 .getJSONObject("ex-rules")
@@ -63,19 +63,27 @@ public class HealthEducationIecFormAssetsTest {
     public void testIecQuantityRulesMatchFullHealthEducationOptions() throws Exception {
         JSONObject fullForm = readJson("src/main/assets/json.form/harm_reduction_health_education_iec.json");
         Map<String, String> expectedQtyFields = expectedQtyFields(fullForm.getJSONObject("step1").getJSONArray("fields"));
-        String rules = readText("src/main/assets/rule/harm-reduction-health-education-iec-relevance-rules.yml");
+        String relevanceRules = readText("src/main/assets/rule/harm-reduction-health-education-iec-relevance-rules.yml");
+        String calculationRules = readText("src/main/assets/rule/harm-reduction-health-education-iec-calculation-rules.yml");
 
-        Assert.assertFalse(rules.contains("step1_iec_materials_count"));
+        Assert.assertFalse(relevanceRules.contains("step1_iec_materials_count"));
+        Assert.assertFalse(relevanceRules.contains("calculation ="));
 
         for (Map.Entry<String, String> entry : expectedQtyFields.entrySet()) {
             String qtyKey = entry.getKey();
             String optionKey = entry.getValue();
 
-            String ruleBlock = getRuleBlock(rules, "step1_" + qtyKey);
-            Assert.assertTrue("Missing rule condition for " + qtyKey,
-                    ruleBlock.contains("condition: \"step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('" + optionKey + "')\""));
-            Assert.assertTrue("Missing rule calculation for " + qtyKey,
-                    ruleBlock.contains("  - \"calculation = '1'\""));
+            String relevanceRuleBlock = getRuleBlock(relevanceRules, "step1_" + qtyKey);
+            Assert.assertTrue("Missing relevance condition for " + qtyKey,
+                    relevanceRuleBlock.contains("condition: \"step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('" + optionKey + "')\""));
+            Assert.assertTrue("Missing relevance action for " + qtyKey,
+                    relevanceRuleBlock.contains("  - \"isRelevant = true\""));
+
+            String calculationRuleBlock = getRuleBlock(calculationRules, "step1_" + qtyKey);
+            Assert.assertTrue("Missing calculation condition for " + qtyKey,
+                    calculationRuleBlock.contains("condition: \"true\""));
+            Assert.assertTrue("Missing calculation expression for " + qtyKey,
+                    calculationRuleBlock.contains("  - \"calculation = (step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('" + optionKey + "')) ? '1' : '0'\""));
         }
     }
 

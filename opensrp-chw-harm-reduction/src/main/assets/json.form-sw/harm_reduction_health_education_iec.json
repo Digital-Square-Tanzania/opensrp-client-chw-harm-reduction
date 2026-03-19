@@ -773,7 +773,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -813,7 +813,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -853,7 +853,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -893,7 +893,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -933,7 +933,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -973,7 +973,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1013,7 +1013,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1053,7 +1053,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1093,7 +1093,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1133,7 +1133,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1173,7 +1173,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1213,7 +1213,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1253,7 +1253,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1293,7 +1293,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1333,7 +1333,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1373,7 +1373,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1413,7 +1413,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1453,7 +1453,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1493,7 +1493,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1533,7 +1533,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1573,7 +1573,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1613,7 +1613,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1653,7 +1653,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1693,7 +1693,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }
@@ -1733,7 +1733,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
             }
           }
         }

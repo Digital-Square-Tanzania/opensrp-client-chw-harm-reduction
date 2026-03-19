@@ -92,6 +92,13 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "continue_service"
+          },
+          {
+            "key": "improved",
+            "text": "Improved",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "improved"
           }
         ],
         "v_required": {

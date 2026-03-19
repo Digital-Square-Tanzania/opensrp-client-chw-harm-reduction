@@ -744,7 +744,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_status",
         "type": "edit_text",
-        "hint": "Hali ya Maambukizi ya VVU",
+        "hint": "Hali ya Maambukizo ya VVU",
         "read_only": true,
         "calculation": {
           "rules-engine": {

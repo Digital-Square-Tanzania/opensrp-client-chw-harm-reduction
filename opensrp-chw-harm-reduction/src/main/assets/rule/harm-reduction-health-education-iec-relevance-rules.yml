@@ -5,6 +5,7 @@ priority: 1
 condition: "step1_health_education_given == 'yes'"
 actions:
   - "isRelevant = true"
+
 ---
 name: step1_health_education_other_specify
 description: Show health_education_other_specify when its condition is met
@@ -12,6 +13,7 @@ priority: 1
 condition: "step1_health_education_provided != null && step1_health_education_provided.contains('other')"
 actions:
   - "isRelevant = true"
+
 ---
 name: step1_iec_materials_type
 description: Show iec_materials_type when its condition is met
@@ -19,192 +21,211 @@ priority: 1
 condition: "step1_iec_materials_provided == 'yes'"
 actions:
   - "isRelevant = true"
----
-name: step1_iec_materials_count
-description: Show iec_materials_count only when IEC materials were provided
-priority: 1
-condition: "step1_iec_materials_provided == 'yes'"
-actions:
-  - "isRelevant = true"
+
 ---
 name: step1_iec_materials_other_specify
 description: Show iec_materials_other_specify when its condition is met
 priority: 1
-condition: "step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_other')"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_other')"
 actions:
   - "isRelevant = true"
+
 ---
 name: step1_iec_qty_hiv_aids
-description: Calculate iec_qty_hiv_aids from selected materials
+description: Show iec_qty_hiv_aids when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_hiv_aids')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_hiv_aids')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_epidemic_diseases
-description: Calculate iec_qty_epidemic_diseases from selected materials
+description: Show iec_qty_epidemic_diseases when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_epidemic_diseases')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_epidemic_diseases')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_communicable_diseases
-description: Calculate iec_qty_communicable_diseases from selected materials
+description: Show iec_qty_communicable_diseases when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_communicable_diseases')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_communicable_diseases')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_tb_leprosy
-description: Calculate iec_qty_tb_leprosy from selected materials
+description: Show iec_qty_tb_leprosy when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_tb_leprosy')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_tb_leprosy')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_ntds
-description: Calculate iec_qty_ntds from selected materials
+description: Show iec_qty_ntds when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_ntds')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_ntds')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_family_planning
-description: Calculate iec_qty_family_planning from selected materials
+description: Show iec_qty_family_planning when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_family_planning')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_family_planning')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_reproductive_health
-description: Calculate iec_qty_reproductive_health from selected materials
+description: Show iec_qty_reproductive_health when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_reproductive_health')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_reproductive_health')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_nutrition
-description: Calculate iec_qty_nutrition from selected materials
+description: Show iec_qty_nutrition when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_nutrition')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_nutrition')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_prep
-description: Calculate iec_qty_prep from selected materials
+description: Show iec_qty_prep when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_prep')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_prep')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_mental_health
-description: Calculate iec_qty_mental_health from selected materials
+description: Show iec_qty_mental_health when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_mental_health')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_mental_health')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_substance_abuse
-description: Calculate iec_qty_substance_abuse from selected materials
+description: Show iec_qty_substance_abuse when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_substance_abuse')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_substance_abuse')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_gbv_vac
-description: Calculate iec_qty_gbv_vac from selected materials
+description: Show iec_qty_gbv_vac when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_gbv_vac')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_gbv_vac')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_psychological_assistance
-description: Calculate iec_qty_psychological_assistance from selected materials
+description: Show iec_qty_psychological_assistance when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_psychological_assistance')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_psychological_assistance')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_rights_vulnerable
-description: Calculate iec_qty_rights_vulnerable from selected materials
+description: Show iec_qty_rights_vulnerable when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_rights_vulnerable')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_rights_vulnerable')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_health_services_advocacy
-description: Calculate iec_qty_health_services_advocacy from selected materials
+description: Show iec_qty_health_services_advocacy when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_health_services_advocacy')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_health_services_advocacy')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_hepatitis_bc
-description: Calculate iec_qty_hepatitis_bc from selected materials
+description: Show iec_qty_hepatitis_bc when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_hepatitis_bc')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_hepatitis_bc')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_stis_stds
-description: Calculate iec_qty_stis_stds from selected materials
+description: Show iec_qty_stis_stds when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_stis_stds')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_stis_stds')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_overdose_management
-description: Calculate iec_qty_overdose_management from selected materials
+description: Show iec_qty_overdose_management when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_overdose_management')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_overdose_management')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_legal_issues
-description: Calculate iec_qty_legal_issues from selected materials
+description: Show iec_qty_legal_issues when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_legal_issues')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_legal_issues')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_safe_injection
-description: Calculate iec_qty_safe_injection from selected materials
+description: Show iec_qty_safe_injection when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_safe_injection')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_safe_injection')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_methadone_use
-description: Calculate iec_qty_methadone_use from selected materials
+description: Show iec_qty_methadone_use when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_methadone_use')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_methadone_use')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_lowering_infection_risk
-description: Calculate iec_qty_lowering_infection_risk from selected materials
+description: Show iec_qty_lowering_infection_risk when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_lowering_infection_risk')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_lowering_infection_risk')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_social_services
-description: Calculate iec_qty_social_services from selected materials
+description: Show iec_qty_social_services when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_social_services')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_social_services')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_income_generating
-description: Calculate iec_qty_income_generating from selected materials
+description: Show iec_qty_income_generating when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_income_generating')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_income_generating')) ? '1' : '0'"
+  - "isRelevant = true"
+
 ---
 name: step1_iec_qty_other
-description: Calculate iec_qty_other from selected materials
+description: Show iec_qty_other when its condition is met
 priority: 1
-condition: "true"
+condition: "step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_other')"
 actions:
-  - "calculation = (step1_iec_materials_type != null && step1_iec_materials_type.contains('iec_other')) ? '1' : '0'"
+  - "isRelevant = true"

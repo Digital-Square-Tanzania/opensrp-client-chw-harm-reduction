@@ -183,8 +183,8 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
     protected void onResume() {
         super.onResume();
         try {
-            //Auto closing sober house clients who have graduated
-            HarmReductionDao.autoCloseSoberHouseRecordsAfterRecoveryCapitalPass();
+            // Auto close sober house records once the latest client status is graduated.
+            HarmReductionDao.autoCloseSoberHouseRecordsForGraduatedClients();
         } catch (Exception e) {
             Timber.e(e);
         }

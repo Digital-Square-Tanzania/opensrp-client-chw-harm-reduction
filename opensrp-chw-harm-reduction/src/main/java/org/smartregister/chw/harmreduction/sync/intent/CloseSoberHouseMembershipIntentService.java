@@ -18,7 +18,7 @@ public class CloseSoberHouseMembershipIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         try {
-            HarmReductionDao.SoberHouseAutoCloseSummary summary = HarmReductionDao.autoCloseSoberHouseRecordsAfterRecoveryCapitalPass();
+            HarmReductionDao.SoberHouseAutoCloseSummary summary = HarmReductionDao.autoCloseSoberHouseRecordsForGraduatedClients();
             if (summary != null) {
                 Timber.i(
                         "Sober house auto-close completed. affectedClients=%d, serviceRowsUpdated=%d, enrollmentRowsUpdated=%d",

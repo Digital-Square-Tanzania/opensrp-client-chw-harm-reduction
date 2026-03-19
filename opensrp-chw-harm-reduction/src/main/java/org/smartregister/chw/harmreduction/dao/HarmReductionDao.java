@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class HarmReductionDao extends AbstractDao {
     private static final String SOBER_HOUSE_SERVICES_TABLE = "ec_harm_reduction_sober_house_services";
-    private static final String YES_VALUE = "yes";
+    private static final String CLIENT_STATUS_GRADUATED = "graduated";
     private static final DateTimeFormatter SQL_DATE_TIME_FORMAT = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
     private static final DateTimeFormatter[] SUPPORTED_EVENT_DATE_FORMATS = new DateTimeFormatter[]{
             ISODateTimeFormat.dateTimeParser(),
@@ -114,12 +114,28 @@ public class HarmReductionDao extends AbstractDao {
     };
 
     public static String getRegistrationStatus(String baseEntityId) {
-        String status = getClientStatusFromTable(Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT, baseEntityId);
+        String status = getStatusFromTable(Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT, baseEntityId);
         return StringUtils.defaultString(status);
     }
 
-    private static String getClientStatusFromTable(String tableName, String baseEntityId) {
-        String sql = "SELECT status FROM " + tableName + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    public static String getClientStatus(String baseEntityId) {
+        String sql = "SELECT client_status FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT +
+                " WHERE entity_id = '" + escapeSqlValue(baseEntityId) + "'" +
+                " AND client_status IS NOT NULL AND TRIM(client_status) <> ''" +
+                " ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "client_status");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return res.get(0);
+        }
+        return null;
+    }
+
+    private static String getStatusFromTable(String tableName, String baseEntityId) {
+        String sql = "SELECT status FROM " + tableName +
+                " WHERE base_entity_id = '" + escapeSqlValue(baseEntityId) + "'" +
+                " ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "status");
         List<String> res = readData(sql, dataMap);
@@ -169,7 +185,11 @@ public class HarmReductionDao extends AbstractDao {
     }
 
     public static SoberHouseAutoCloseSummary autoCloseSoberHouseRecordsAfterRecoveryCapitalPass() {
-        List<SoberHouseClosureTrigger> triggers = loadRecoveryCapitalPassTriggers();
+        return autoCloseSoberHouseRecordsForGraduatedClients();
+    }
+
+    public static SoberHouseAutoCloseSummary autoCloseSoberHouseRecordsForGraduatedClients() {
+        List<SoberHouseClosureTrigger> triggers = loadGraduatedClientStatusTriggers();
         Map<String, DateTime> closeThresholdByClient = findEarliestCloseThresholdByClient(triggers);
 
         int affectedClients = 0;
@@ -455,11 +475,18 @@ public class HarmReductionDao extends AbstractDao {
         return readData(sql, memberObjectMap);
     }
 
-    private static List<SoberHouseClosureTrigger> loadRecoveryCapitalPassTriggers() {
-        String sql = "SELECT entity_id, event_date FROM " + SOBER_HOUSE_SERVICES_TABLE +
-                " WHERE LOWER(recovery_capital_passed) = '" + YES_VALUE + "'" +
-                " AND entity_id IS NOT NULL AND TRIM(entity_id) <> ''" +
-                " AND event_date IS NOT NULL AND TRIM(event_date) <> ''";
+    private static List<SoberHouseClosureTrigger> loadGraduatedClientStatusTriggers() {
+        String latestClientStatusSql = "SELECT entity_id, MAX(last_interacted_with) AS max_last_interacted_with" +
+                " FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT +
+                " WHERE client_status IS NOT NULL AND TRIM(client_status) <> ''" +
+                " GROUP BY entity_id";
+
+        String sql = "SELECT fv.entity_id, fv.event_date FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT + " fv" +
+                " INNER JOIN (" + latestClientStatusSql + ") latest" +
+                " ON latest.entity_id = fv.entity_id AND latest.max_last_interacted_with = fv.last_interacted_with" +
+                " WHERE LOWER(fv.client_status) = '" + CLIENT_STATUS_GRADUATED + "'" +
+                " AND fv.entity_id IS NOT NULL AND TRIM(fv.entity_id) <> ''" +
+                " AND fv.event_date IS NOT NULL AND TRIM(fv.event_date) <> ''";
 
         DataMap<SoberHouseClosureTrigger> dataMap = cursor -> new SoberHouseClosureTrigger(
                 getCursorValue(cursor, "entity_id"),

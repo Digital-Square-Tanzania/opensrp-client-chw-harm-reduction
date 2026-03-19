@@ -74,8 +74,6 @@ public class BaseHarmReductionVisitAction {
                     e.printStackTrace();
                 }
 
-                HarmReductionJsonFormUtils.addNumberingToTargetMultiSelectLists(jsonObject);
-
                 // update the form details
                 if (details != null && details.size() > 0) {
                     HarmReductionJsonFormUtils.populateForm(jsonObject, details);
@@ -89,7 +87,6 @@ public class BaseHarmReductionVisitAction {
                 String pre_processed = harmReductionVisitActionHelper.getPreProcessed();
                 if (StringUtils.isNotBlank(pre_processed)) {
                     JSONObject jsonObject = new JSONObject(pre_processed);
-                    HarmReductionJsonFormUtils.addNumberingToTargetMultiSelectLists(jsonObject);
                     HarmReductionJsonFormUtils.populateForm(jsonObject, details);
 
                     this.jsonPayload = jsonObject.toString();
@@ -276,7 +273,6 @@ public class BaseHarmReductionVisitAction {
             String preProcessed = harmReductionVisitActionHelper.getPreProcessed();
             if (StringUtils.isNotBlank(preProcessed)) {
                 JSONObject jsonObject = new JSONObject(preProcessed);
-                HarmReductionJsonFormUtils.addNumberingToTargetMultiSelectLists(jsonObject);
                 HarmReductionJsonFormUtils.populateForm(jsonObject, details);
                 this.jsonPayload = jsonObject.toString();
             }

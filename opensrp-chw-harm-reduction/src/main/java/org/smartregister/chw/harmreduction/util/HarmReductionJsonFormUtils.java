@@ -31,11 +31,6 @@ import timber.log.Timber;
 
 public class HarmReductionJsonFormUtils extends org.smartregister.util.JsonFormUtils {
     public static final String METADATA = "metadata";
-    private static final String MULTI_SELECT_LIST = "multi_select_list";
-    private static final List<String> NUMBERED_MULTI_SELECT_FIELD_KEYS = Arrays.asList(
-            "health_education_provided",
-            "iec_materials_type"
-    );
 
     public static Triple<Boolean, JSONObject, JSONArray> validateParameters(String jsonString) {
 
@@ -156,53 +151,7 @@ public class HarmReductionJsonFormUtils extends org.smartregister.util.JsonFormU
     }
 
     public static JSONObject getFormAsJson(String formName) throws Exception {
-        JSONObject jsonObject = FormUtils.getInstance(HarmReductionLibrary.getInstance().context().applicationContext()).getFormJson(formName);
-        return addNumberingToTargetMultiSelectLists(jsonObject);
-    }
-
-    public static JSONObject addNumberingToTargetMultiSelectLists(@Nullable JSONObject jsonForm) {
-        if (jsonForm == null) {
-            return null;
-        }
-
-        JSONArray fields = tbleprosyFormFields(jsonForm);
-        if (fields == null) {
-            return jsonForm;
-        }
-
-        try {
-            for (int fieldIndex = 0; fieldIndex < fields.length(); fieldIndex++) {
-                JSONObject field = fields.optJSONObject(fieldIndex);
-                if (field == null
-                        || !MULTI_SELECT_LIST.equalsIgnoreCase(field.optString(JsonFormConstants.TYPE))
-                        || !NUMBERED_MULTI_SELECT_FIELD_KEYS.contains(field.optString(JsonFormConstants.KEY))) {
-                    continue;
-                }
-
-                JSONArray options = field.optJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME);
-                if (options == null) {
-                    continue;
-                }
-
-                for (int optionIndex = 0; optionIndex < options.length(); optionIndex++) {
-                    JSONObject option = options.optJSONObject(optionIndex);
-                    if (option == null) {
-                        continue;
-                    }
-
-                    String optionText = option.optString(JsonFormConstants.TEXT);
-                    if (StringUtils.isBlank(optionText) || optionText.matches("^\\d+\\.\\s+.*")) {
-                        continue;
-                    }
-
-                    option.put(JsonFormConstants.TEXT, optionIndex + 1 + ". " + optionText);
-                }
-            }
-        } catch (JSONException e) {
-            Timber.e(e);
-        }
-
-        return jsonForm;
+        return FormUtils.getInstance(HarmReductionLibrary.getInstance().context().applicationContext()).getFormJson(formName);
     }
 
     public static Event processVisitJsonForm(AllSharedPreferences allSharedPreferences, String entityId, String encounterType, Map<String, String> jsonStrings, String tableName) {

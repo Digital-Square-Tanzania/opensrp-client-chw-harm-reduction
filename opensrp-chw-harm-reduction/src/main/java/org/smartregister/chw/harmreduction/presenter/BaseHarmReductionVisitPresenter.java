@@ -6,6 +6,7 @@ import org.smartregister.chw.harmreduction.contract.BaseHarmReductionVisitContra
 import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
 import org.smartregister.chw.harmreduction.util.HarmReductionJsonFormUtils;
+import org.smartregister.util.FormUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.LinkedHashMap;
@@ -28,7 +29,7 @@ public class BaseHarmReductionVisitPresenter implements BaseHarmReductionVisitCo
     public void startForm(String formName, String memberID, String currentLocationId) {
         try {
             if (view.get() != null) {
-                JSONObject jsonObject = HarmReductionJsonFormUtils.getFormAsJson(formName);
+                JSONObject jsonObject = FormUtils.getInstance(view.get().getContext()).getFormJson(formName);
                 HarmReductionJsonFormUtils.getRegistrationForm(jsonObject, memberID, currentLocationId);
                 view.get().startFormActivity(jsonObject);
             }

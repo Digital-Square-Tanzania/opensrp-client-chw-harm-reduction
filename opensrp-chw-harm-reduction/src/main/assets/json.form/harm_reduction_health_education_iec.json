@@ -768,6 +768,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -795,6 +803,14 @@
           "err": "Please enter number of IEC materials provided - Epidemic diseases"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -832,6 +848,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -859,6 +883,14 @@
           "err": "Please enter number of IEC materials provided - TB/Leprosy"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -896,6 +928,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -923,6 +963,14 @@
           "err": "Please enter number of IEC materials provided - Family planning"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -960,6 +1008,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -987,6 +1043,14 @@
           "err": "Please enter number of IEC materials provided - Nutrition"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -1024,6 +1088,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -1051,6 +1123,14 @@
           "err": "Please enter number of IEC materials provided - Mental Health"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -1088,6 +1168,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -1115,6 +1203,14 @@
           "err": "Please enter number of IEC materials provided - GBV/VAC"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -1152,6 +1248,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -1179,6 +1283,14 @@
           "err": "Please enter number of IEC materials provided - Rights of vulnerable population"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -1216,6 +1328,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -1243,6 +1363,14 @@
           "err": "Please enter number of IEC materials provided - Hepatitis B/C"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -1280,6 +1408,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -1307,6 +1443,14 @@
           "err": "Please enter number of IEC materials provided - Overdose management and prevention"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -1344,6 +1488,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -1371,6 +1523,14 @@
           "err": "Please enter number of IEC materials provided - Safe injection"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -1408,6 +1568,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -1435,6 +1603,14 @@
           "err": "Please enter number of IEC materials provided - Lowering infection risk"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -1472,6 +1648,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -1504,6 +1688,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -1531,6 +1723,14 @@
           "err": "Please enter number of IEC materials provided - Others (Specify)"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"

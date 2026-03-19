@@ -477,6 +477,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -504,6 +512,14 @@
           "err": "Tafadhali weka idadi ya IEC material iliyotolewa - Magonjwa ya mlipuko"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -541,6 +557,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -568,6 +592,14 @@
           "err": "Tafadhali weka idadi ya IEC material iliyotolewa - Kifua Kikuu/Ukoma"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -605,6 +637,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -632,6 +672,14 @@
           "err": "Tafadhali weka idadi ya IEC material iliyotolewa - Afya ya akili"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -669,6 +717,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -696,6 +752,14 @@
           "err": "Tafadhali weka idadi ya IEC material iliyotolewa - Msaada wa kisaikolojia"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -733,6 +797,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -760,6 +832,14 @@
           "err": "Tafadhali weka idadi ya IEC material iliyotolewa - Magonjwa ya Ngono na Via vya Uzazi"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
@@ -797,6 +877,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -829,6 +917,14 @@
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
             }
           }
+        },
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -856,6 +952,14 @@
           "err": "Tafadhali weka idadi ya IEC material iliyotolewa - Matumizi ya Methadone"
         },
         "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
+            }
+          }
+        },
+        "read_only": true,
+        "calculation": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"

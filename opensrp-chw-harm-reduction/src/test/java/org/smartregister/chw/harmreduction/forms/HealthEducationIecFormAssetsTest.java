@@ -42,6 +42,12 @@ public class HealthEducationIecFormAssetsTest {
 
             for (String qtyKey : expectedQtyFields.keySet()) {
                 JSONObject qtyField = getField(fields, qtyKey);
+                Assert.assertTrue(qtyField.getBoolean("read_only"));
+                Assert.assertEquals("harm-reduction-health-education-iec-relevance-rules.yml",
+                        qtyField.getJSONObject("calculation")
+                                .getJSONObject("rules-engine")
+                                .getJSONObject("ex-rules")
+                                .getString("rules-file"));
                 Assert.assertEquals("1", qtyField.getJSONObject("v_min").getString("value"));
                 Assert.assertEquals("1", qtyField.getJSONObject("v_max").getString("value"));
                 Assert.assertEquals("harm-reduction-health-education-iec-relevance-rules.yml",
@@ -60,15 +66,16 @@ public class HealthEducationIecFormAssetsTest {
         String rules = readText("src/main/assets/rule/harm-reduction-health-education-iec-relevance-rules.yml");
 
         Assert.assertFalse(rules.contains("step1_iec_materials_count"));
-        Assert.assertFalse(rules.contains("calculation ="));
 
         for (Map.Entry<String, String> entry : expectedQtyFields.entrySet()) {
             String qtyKey = entry.getKey();
             String optionKey = entry.getValue();
 
-            Assert.assertTrue("Missing rule for " + qtyKey, rules.contains("name: step1_" + qtyKey));
+            String ruleBlock = getRuleBlock(rules, "step1_" + qtyKey);
             Assert.assertTrue("Missing rule condition for " + qtyKey,
-                    rules.contains("condition: \"step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('" + optionKey + "')\""));
+                    ruleBlock.contains("condition: \"step1_iec_materials_provided == 'yes' && step1_iec_materials_type != null && step1_iec_materials_type.contains('" + optionKey + "')\""));
+            Assert.assertTrue("Missing rule calculation for " + qtyKey,
+                    ruleBlock.contains("  - \"calculation = '1'\""));
         }
     }
 
@@ -126,6 +133,15 @@ public class HealthEducationIecFormAssetsTest {
 
     private static String readText(String relativePath) throws IOException {
         return new String(Files.readAllBytes(resolvePath(relativePath)), StandardCharsets.UTF_8);
+    }
+
+    private static String getRuleBlock(String rules, String ruleName) {
+        String marker = "name: " + ruleName;
+        int start = rules.indexOf(marker);
+        Assert.assertTrue("Missing rule: " + ruleName, start >= 0);
+
+        int next = rules.indexOf("\n---", start);
+        return next >= 0 ? rules.substring(start, next) : rules.substring(start);
     }
 
     private static Path resolvePath(String relativePath) {

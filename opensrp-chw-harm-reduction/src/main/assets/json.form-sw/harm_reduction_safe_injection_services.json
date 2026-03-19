@@ -114,6 +114,10 @@
         "type": "edit_text",
         "hint": "Idadi ya zana - Bomba",
         "edit_type": "number",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza ingizo halali"
+        },
         "v_max": {
           "value": "21",
           "err": "Lazima iwe 21 au chini"
@@ -243,6 +247,10 @@
         "type": "edit_text",
         "hint": "Idadi ya zana - Sindano",
         "edit_type": "number",
+        "v_numeric": {
+          "value": "true",
+          "err": "Tafadhali ingiza ingizo halali"
+        },
         "v_max": {
           "value": "21",
           "err": "Lazima iwe 21 au chini"

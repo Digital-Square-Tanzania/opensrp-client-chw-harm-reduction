@@ -105,7 +105,7 @@
         "options": [
           {
             "key": "hiv_aids",
-            "text": "HIV and AIDS",
+            "text": "1. HIV and AIDS",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hiv_aids",
@@ -116,7 +116,7 @@
           },
           {
             "key": "epidemic_diseases",
-            "text": "Epidemic diseases",
+            "text": "2. Epidemic diseases",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "epidemic_diseases",
@@ -127,7 +127,7 @@
           },
           {
             "key": "communicable_diseases",
-            "text": "Communicable diseases",
+            "text": "3. Communicable diseases",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "communicable_diseases",
@@ -138,7 +138,7 @@
           },
           {
             "key": "tb_leprosy",
-            "text": "TB/Leprosy",
+            "text": "4. TB/Leprosy",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb_leprosy",
@@ -149,7 +149,7 @@
           },
           {
             "key": "prep",
-            "text": "PrEP",
+            "text": "5. PrEP",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "prep",
@@ -160,7 +160,7 @@
           },
           {
             "key": "mental_health",
-            "text": "Mental Health",
+            "text": "6. Mental Health",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mental_health",
@@ -171,7 +171,7 @@
           },
           {
             "key": "substance_abuse",
-            "text": "Substance abuse",
+            "text": "7. Substance abuse",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "substance_abuse",
@@ -182,7 +182,7 @@
           },
           {
             "key": "hepatitis_bc",
-            "text": "Hepatitis B/C",
+            "text": "8. Hepatitis B/C",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hepatitis_bc",
@@ -193,7 +193,7 @@
           },
           {
             "key": "psychological_assistance",
-            "text": "Psychological assistance",
+            "text": "9. Psychological assistance",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "psychological_assistance",
@@ -204,7 +204,7 @@
           },
           {
             "key": "stis_stds",
-            "text": "STIs/STDs",
+            "text": "10. STIs/STDs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "stis_stds",
@@ -215,7 +215,7 @@
           },
           {
             "key": "overdose_management",
-            "text": "Overdose management and prevention",
+            "text": "11. Overdose management and prevention",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "overdose_management",
@@ -226,7 +226,7 @@
           },
           {
             "key": "safe_injection",
-            "text": "Safe injection",
+            "text": "12. Safe injection",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "safe_injection",
@@ -237,7 +237,7 @@
           },
           {
             "key": "methadone_use",
-            "text": "Methadone use",
+            "text": "13. Methadone use",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methadone_use",
@@ -293,7 +293,7 @@
         "options": [
           {
             "key": "iec_hiv_aids",
-            "text": "HIV and AIDS",
+            "text": "1. HIV and AIDS",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_hiv_aids",
@@ -304,7 +304,7 @@
           },
           {
             "key": "iec_epidemic_diseases",
-            "text": "Epidemic diseases",
+            "text": "2. Epidemic diseases",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_epidemic_diseases",
@@ -315,7 +315,7 @@
           },
           {
             "key": "iec_communicable_diseases",
-            "text": "Communicable diseases",
+            "text": "3. Communicable diseases",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_communicable_diseases",
@@ -326,7 +326,7 @@
           },
           {
             "key": "iec_tb_leprosy",
-            "text": "TB/Leprosy",
+            "text": "4. TB/Leprosy",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_tb_leprosy",
@@ -337,7 +337,7 @@
           },
           {
             "key": "iec_prep",
-            "text": "PrEP",
+            "text": "5. PrEP",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_prep",
@@ -348,7 +348,7 @@
           },
           {
             "key": "iec_mental_health",
-            "text": "Mental Health",
+            "text": "6. Mental Health",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_mental_health",
@@ -359,7 +359,7 @@
           },
           {
             "key": "iec_substance_abuse",
-            "text": "Substance abuse",
+            "text": "7. Substance abuse",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_substance_abuse",
@@ -370,7 +370,7 @@
           },
           {
             "key": "iec_psychological_assistance",
-            "text": "Psychological assistance",
+            "text": "8. Psychological assistance",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_psychological_assistance",
@@ -381,7 +381,7 @@
           },
           {
             "key": "iec_hepatitis_bc",
-            "text": "Hepatitis B/C",
+            "text": "9. Hepatitis B/C",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_hepatitis_bc",
@@ -392,7 +392,7 @@
           },
           {
             "key": "iec_stis_stds",
-            "text": "STIs/STDs",
+            "text": "10. STIs/STDs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_stis_stds",
@@ -403,7 +403,7 @@
           },
           {
             "key": "iec_overdose_management",
-            "text": "Overdose management and prevention",
+            "text": "11. Overdose management and prevention",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_overdose_management",
@@ -414,7 +414,7 @@
           },
           {
             "key": "iec_safe_injection",
-            "text": "Safe injection",
+            "text": "12. Safe injection",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_safe_injection",
@@ -425,7 +425,7 @@
           },
           {
             "key": "iec_methadone_use",
-            "text": "Methadone use",
+            "text": "13. Methadone use",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_methadone_use",

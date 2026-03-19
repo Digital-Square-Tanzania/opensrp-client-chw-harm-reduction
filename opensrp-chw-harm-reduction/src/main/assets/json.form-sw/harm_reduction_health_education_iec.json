@@ -105,7 +105,7 @@
         "options": [
           {
             "key": "hiv_aids",
-            "text": "VVU na UKIMWI",
+            "text": "1. VVU na UKIMWI",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hiv_aids",
@@ -116,7 +116,7 @@
           },
           {
             "key": "epidemic_diseases",
-            "text": "Magonjwa ya mlipuko",
+            "text": "2. Magonjwa ya mlipuko",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "epidemic_diseases",
@@ -127,7 +127,7 @@
           },
           {
             "key": "communicable_diseases",
-            "text": "Magonjwa ya kuambukiza",
+            "text": "3. Magonjwa ya kuambukiza",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "communicable_diseases",
@@ -138,7 +138,7 @@
           },
           {
             "key": "tb_leprosy",
-            "text": "Kifua Kikuu/Ukoma",
+            "text": "4. Kifua Kikuu/Ukoma",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb_leprosy",
@@ -149,7 +149,7 @@
           },
           {
             "key": "ntds",
-            "text": "Magonjwa ya Kitropiki Yaliyopuuzwa",
+            "text": "5. Magonjwa ya Kitropiki Yaliyopuuzwa",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "ntds",
@@ -160,7 +160,7 @@
           },
           {
             "key": "family_planning",
-            "text": "Uzazi wa mpango",
+            "text": "6. Uzazi wa mpango",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "family_planning",
@@ -171,7 +171,7 @@
           },
           {
             "key": "reproductive_health",
-            "text": "Afya ya uzazi, baba, mama, mtoto na vijana",
+            "text": "7. Afya ya uzazi, baba, mama, mtoto na vijana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "reproductive_health",
@@ -182,7 +182,7 @@
           },
           {
             "key": "nutrition",
-            "text": "Lishe",
+            "text": "8. Lishe",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "nutrition",
@@ -193,7 +193,7 @@
           },
           {
             "key": "prep",
-            "text": "Elimu ya dawa kinga (PrEP)",
+            "text": "9. Elimu ya dawa kinga (PrEP)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "prep",
@@ -204,7 +204,7 @@
           },
           {
             "key": "mental_health",
-            "text": "Afya ya akili",
+            "text": "10. Afya ya akili",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mental_health",
@@ -215,7 +215,7 @@
           },
           {
             "key": "substance_abuse",
-            "text": "Matumizi ya dawa za kulevya",
+            "text": "11. Matumizi ya dawa za kulevya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "substance_abuse",
@@ -226,7 +226,7 @@
           },
           {
             "key": "gbv_vac",
-            "text": "Ukatili wa Kijinsia/Watoto",
+            "text": "12. Ukatili wa Kijinsia/Watoto",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "gbv_vac",
@@ -237,7 +237,7 @@
           },
           {
             "key": "psychological_assistance",
-            "text": "Msaada wa kisaikolojia",
+            "text": "13. Msaada wa kisaikolojia",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "psychological_assistance",
@@ -248,7 +248,7 @@
           },
           {
             "key": "rights_vulnerable",
-            "text": "Haki stahiki kwa makundi maalumu",
+            "text": "14. Haki stahiki kwa makundi maalumu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "rights_vulnerable",
@@ -259,7 +259,7 @@
           },
           {
             "key": "health_services_advocacy",
-            "text": "Uhamasishaji wa huduma za Afya",
+            "text": "15. Uhamasishaji wa huduma za Afya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "health_services_advocacy",
@@ -270,7 +270,7 @@
           },
           {
             "key": "hepatitis_bc",
-            "text": "Homa ya Ini",
+            "text": "16. Homa ya Ini",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hepatitis_bc",
@@ -281,7 +281,7 @@
           },
           {
             "key": "stis_stds",
-            "text": "Magonjwa ya Ngono na Via vya Uzazi",
+            "text": "17. Magonjwa ya Ngono na Via vya Uzazi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "stis_stds",
@@ -292,7 +292,7 @@
           },
           {
             "key": "overdose_management",
-            "text": "Kuzuia na kumudu Overdose",
+            "text": "18. Kuzuia na kumudu Overdose",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "overdose_management",
@@ -303,7 +303,7 @@
           },
           {
             "key": "legal_issues",
-            "text": "Masuala ya kisheria",
+            "text": "19. Masuala ya kisheria",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "legal_issues",
@@ -314,7 +314,7 @@
           },
           {
             "key": "safe_injection",
-            "text": "Udungaji salama",
+            "text": "20. Udungaji salama",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "safe_injection",
@@ -325,7 +325,7 @@
           },
           {
             "key": "methadone_use",
-            "text": "Matumizi ya Methadone",
+            "text": "21. Matumizi ya Methadone",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methadone_use",
@@ -336,7 +336,7 @@
           },
           {
             "key": "lowering_infection_risk",
-            "text": "Kupunguza hatari ya maambukizi",
+            "text": "22. Kupunguza hatari ya maambukizi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "lowering_infection_risk",
@@ -347,7 +347,7 @@
           },
           {
             "key": "social_services",
-            "text": "Huduma za kijamii",
+            "text": "23. Huduma za kijamii",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "social_services",
@@ -358,7 +358,7 @@
           },
           {
             "key": "other",
-            "text": "Nyinginezo (Taja)",
+            "text": "24. Nyinginezo (Taja)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other",
@@ -433,7 +433,7 @@
         "options": [
           {
             "key": "iec_hiv_aids",
-            "text": "VVU na UKIMWI",
+            "text": "1. VVU na UKIMWI",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_hiv_aids",
@@ -444,7 +444,7 @@
           },
           {
             "key": "iec_epidemic_diseases",
-            "text": "Magonjwa ya mlipuko",
+            "text": "2. Magonjwa ya mlipuko",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_epidemic_diseases",
@@ -455,7 +455,7 @@
           },
           {
             "key": "iec_communicable_diseases",
-            "text": "Magonjwa ya kuambukiza",
+            "text": "3. Magonjwa ya kuambukiza",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_communicable_diseases",
@@ -466,7 +466,7 @@
           },
           {
             "key": "iec_tb_leprosy",
-            "text": "Kifua Kikuu/Ukoma",
+            "text": "4. Kifua Kikuu/Ukoma",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_tb_leprosy",
@@ -477,7 +477,7 @@
           },
           {
             "key": "iec_ntds",
-            "text": "Magonjwa ya Kitropiki Yaliyopuuzwa",
+            "text": "5. Magonjwa ya Kitropiki Yaliyopuuzwa",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_ntds",
@@ -488,7 +488,7 @@
           },
           {
             "key": "iec_family_planning",
-            "text": "Uzazi wa mpango",
+            "text": "6. Uzazi wa mpango",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_family_planning",
@@ -499,7 +499,7 @@
           },
           {
             "key": "iec_reproductive_health",
-            "text": "Afya ya uzazi, baba, mama, mtoto na vijana",
+            "text": "7. Afya ya uzazi, baba, mama, mtoto na vijana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_reproductive_health",
@@ -510,7 +510,7 @@
           },
           {
             "key": "iec_nutrition",
-            "text": "Lishe",
+            "text": "8. Lishe",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_nutrition",
@@ -521,7 +521,7 @@
           },
           {
             "key": "iec_prep",
-            "text": "Elimu ya dawa kinga (PrEP)",
+            "text": "9. Elimu ya dawa kinga (PrEP)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_prep",
@@ -532,7 +532,7 @@
           },
           {
             "key": "iec_mental_health",
-            "text": "Afya ya akili",
+            "text": "10. Afya ya akili",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_mental_health",
@@ -543,7 +543,7 @@
           },
           {
             "key": "iec_substance_abuse",
-            "text": "Matumizi ya dawa za kulevya",
+            "text": "11. Matumizi ya dawa za kulevya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_substance_abuse",
@@ -554,7 +554,7 @@
           },
           {
             "key": "iec_gbv_vac",
-            "text": "Ukatili wa Kijinsia/Watoto",
+            "text": "12. Ukatili wa Kijinsia/Watoto",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_gbv_vac",
@@ -565,7 +565,7 @@
           },
           {
             "key": "iec_psychological_assistance",
-            "text": "Msaada wa kisaikolojia",
+            "text": "13. Msaada wa kisaikolojia",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_psychological_assistance",
@@ -576,7 +576,7 @@
           },
           {
             "key": "iec_rights_vulnerable",
-            "text": "Haki stahiki kwa makundi maalumu",
+            "text": "14. Haki stahiki kwa makundi maalumu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_rights_vulnerable",
@@ -587,7 +587,7 @@
           },
           {
             "key": "iec_health_services_advocacy",
-            "text": "Uhamasishaji wa huduma za Afya",
+            "text": "15. Uhamasishaji wa huduma za Afya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_health_services_advocacy",
@@ -598,7 +598,7 @@
           },
           {
             "key": "iec_hepatitis_bc",
-            "text": "Homa ya Ini",
+            "text": "16. Homa ya Ini",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_hepatitis_bc",
@@ -609,7 +609,7 @@
           },
           {
             "key": "iec_stis_stds",
-            "text": "Magonjwa ya Ngono na Via vya Uzazi",
+            "text": "17. Magonjwa ya Ngono na Via vya Uzazi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_stis_stds",
@@ -620,7 +620,7 @@
           },
           {
             "key": "iec_overdose_management",
-            "text": "Kuzuia na kumudu Overdose",
+            "text": "18. Kuzuia na kumudu Overdose",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_overdose_management",
@@ -631,7 +631,7 @@
           },
           {
             "key": "iec_legal_issues",
-            "text": "Masuala ya kisheria",
+            "text": "19. Masuala ya kisheria",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_legal_issues",
@@ -642,7 +642,7 @@
           },
           {
             "key": "iec_safe_injection",
-            "text": "Udungaji salama",
+            "text": "20. Udungaji salama",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_safe_injection",
@@ -653,7 +653,7 @@
           },
           {
             "key": "iec_methadone_use",
-            "text": "Matumizi ya Methadone",
+            "text": "21. Matumizi ya Methadone",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_methadone_use",
@@ -664,7 +664,7 @@
           },
           {
             "key": "iec_lowering_infection_risk",
-            "text": "Kupunguza hatari ya maambukizi",
+            "text": "22. Kupunguza hatari ya maambukizi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_lowering_infection_risk",
@@ -675,7 +675,7 @@
           },
           {
             "key": "iec_social_services",
-            "text": "Huduma za kijamii",
+            "text": "23. Huduma za kijamii",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_social_services",
@@ -686,7 +686,7 @@
           },
           {
             "key": "iec_income_generating",
-            "text": "Shughuli za Kuzalisha Kipato",
+            "text": "24. Shughuli za Kuzalisha Kipato",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_income_generating",
@@ -697,7 +697,7 @@
           },
           {
             "key": "iec_other",
-            "text": "Nyinginezo (Taja)",
+            "text": "25. Nyinginezo (Taja)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_other",

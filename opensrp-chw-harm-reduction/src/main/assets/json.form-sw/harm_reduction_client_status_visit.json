@@ -88,7 +88,7 @@
           },
           {
             "key": "continue_service",
-            "text": "Endelea na huduma",
+            "text": "Anaendelea na huduma",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "continue_service"

@@ -329,6 +329,41 @@
         ]
       },
       {
+        "key": "other_hepatitis_result",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_hepatitis_result",
+        "type": "native_radio",
+        "label": "Other Hepatitis - Results",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "has_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms",
+            "text": "Has symptoms"
+          },
+          {
+            "key": "no_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms",
+            "text": "No symptoms"
+          }
+        ]
+      },
+      {
         "key": "diabetes_result",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

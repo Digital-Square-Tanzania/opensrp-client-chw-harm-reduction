@@ -30,7 +30,6 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     private static final String CLIENT_STATUS_FIELD = "client_status";
     private static final String CLIENT_STATUS_NEW = "new";
     private static final String CLIENT_STATUS_CONTINUE_SERVICE = "continue_service";
-    private static final String CLIENT_STATUS_IMPROVED = "improved";
     private static final String IS_IDU_FIELD = "is_idu";
     private static final String YES_VALUE = "yes";
 
@@ -200,8 +199,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     private boolean isClientStatusEligible() {
         String status = getClientStatusValue(CLIENT_STATUS_FIELD);
         return CLIENT_STATUS_NEW.equalsIgnoreCase(status)
-                || CLIENT_STATUS_CONTINUE_SERVICE.equalsIgnoreCase(status)
-                || CLIENT_STATUS_IMPROVED.equalsIgnoreCase(status);
+                || CLIENT_STATUS_CONTINUE_SERVICE.equalsIgnoreCase(status);
     }
 
     private BaseHarmReductionVisitAction.Validator safeInjectionVisibilityValidator() {

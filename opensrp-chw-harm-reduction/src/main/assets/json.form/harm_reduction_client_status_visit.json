@@ -94,11 +94,11 @@
             "openmrs_entity_id": "continue_service"
           },
           {
-            "key": "improved",
-            "text": "Improved",
+            "key": "graduated",
+            "text": "Graduated",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "improved"
+            "openmrs_entity_id": "graduated"
           }
         ],
         "v_required": {

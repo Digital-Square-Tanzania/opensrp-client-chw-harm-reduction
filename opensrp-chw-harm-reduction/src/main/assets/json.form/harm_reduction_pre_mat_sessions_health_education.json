@@ -452,7 +452,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_hiv_aids",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - HIV and AIDS",
         "v_numeric": {
@@ -471,13 +471,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - HIV and AIDS"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -492,7 +485,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_epidemic_diseases",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - Epidemic diseases",
         "v_numeric": {
@@ -511,13 +504,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - Epidemic diseases"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -532,7 +518,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_communicable_diseases",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - Communicable diseases",
         "v_numeric": {
@@ -551,13 +537,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - Communicable diseases"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -572,7 +551,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_tb_leprosy",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - TB/Leprosy",
         "v_numeric": {
@@ -591,13 +570,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - TB/Leprosy"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -612,7 +584,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_prep",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - PrEP",
         "v_numeric": {
@@ -631,13 +603,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - PrEP"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -652,7 +617,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_mental_health",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - Mental Health",
         "v_numeric": {
@@ -671,13 +636,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - Mental Health"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -692,7 +650,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_substance_abuse",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - Substance abuse",
         "v_numeric": {
@@ -711,13 +669,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - Substance abuse"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -732,7 +683,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_psychological_assistance",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - Psychological assistance",
         "v_numeric": {
@@ -751,13 +702,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - Psychological assistance"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -772,7 +716,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_hepatitis_bc",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - Hepatitis B/C",
         "v_numeric": {
@@ -791,13 +735,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - Hepatitis B/C"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -812,7 +749,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_stis_stds",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - STIs/STDs",
         "v_numeric": {
@@ -831,13 +768,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - STIs/STDs"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -852,7 +782,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_overdose_management",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - Overdose management and prevention",
         "v_numeric": {
@@ -871,13 +801,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - Overdose management and prevention"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -892,7 +815,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_safe_injection",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - Safe injection",
         "v_numeric": {
@@ -911,13 +834,6 @@
           "value": "true",
           "err": "Please enter number of IEC materials provided - Safe injection"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
-        },
         "read_only": true,
         "calculation": {
           "rules-engine": {
@@ -932,7 +848,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "iec_qty_methadone_use",
-        "type": "edit_text",
+        "type": "hidden",
         "edit_type": "number",
         "hint": "Number of IEC materials provided - Methadone use",
         "v_numeric": {
@@ -950,13 +866,6 @@
         "v_required": {
           "value": "true",
           "err": "Please enter number of IEC materials provided - Methadone use"
-        },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-relevance-rules.yml"
-            }
-          }
         },
         "read_only": true,
         "calculation": {

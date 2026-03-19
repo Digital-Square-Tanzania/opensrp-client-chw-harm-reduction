@@ -114,6 +114,10 @@
         "type": "edit_text",
         "hint": "Number of tools - Syringes",
         "edit_type": "number",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter a valid number"
+        },
         "v_max": {
           "value": "21",
           "err": "Must be 21 or less"
@@ -243,6 +247,10 @@
         "type": "edit_text",
         "hint": "Number of tools - Needles",
         "edit_type": "number",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter a valid number"
+        },
         "v_max": {
           "value": "21",
           "err": "Must be 21 or less"

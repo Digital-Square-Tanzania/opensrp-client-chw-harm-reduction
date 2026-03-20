@@ -34,10 +34,10 @@ condition: "step1_client_type == 'returning_client'"
 actions:
   - "isRelevant = true"
 ---
-name: step1_died_prompt
-description: Show died_prompt when its condition is met
+name: step1_client_deceased_prompt
+description: Show client_deceased_prompt when its condition is met
 priority: 1
-condition: "step1_client_type == 'returning_client' && step1_follow_up_status == 'died'"
+condition: "step1_client_type == 'returning_client' && step1_follow_up_status == 'client_deceased'"
 actions:
   - "isRelevant = true"
 ---

@@ -94,13 +94,6 @@
             "openmrs_entity_id": "moved"
           },
           {
-            "key": "died",
-            "text": "Amefariki",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "died"
-          },
-          {
             "key": "discontinued_service",
             "text": "Ameacha huduma",
             "openmrs_entity_parent": "",

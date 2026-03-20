@@ -25,8 +25,6 @@ public class HarmReductionDao extends AbstractDao {
     private static final String SOBER_HOUSE_SERVICES_TABLE = "ec_harm_reduction_sober_house_services";
     private static final String FOLLOW_UP_STATUS_COLUMN = "follow_up_status";
     private static final String CLIENT_STATUS_COLUMN = "client_status";
-    private static final String DIED_STATUS = "died";
-    private static final String DECEASED_STATUS = "deceased";
     private static final String CLIENT_DECEASED_STATUS = "client_deceased";
     private static final String YES_VALUE = "yes";
     private static final DateTimeFormatter SQL_DATE_TIME_FORMAT = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
@@ -188,9 +186,7 @@ public class HarmReductionDao extends AbstractDao {
     @VisibleForTesting
     static boolean isDeceasedFollowUpStatus(String followUpStatus) {
         String normalizedStatus = StringUtils.trimToEmpty(followUpStatus).toLowerCase(Locale.ENGLISH);
-        return DIED_STATUS.equals(normalizedStatus)
-                || DECEASED_STATUS.equals(normalizedStatus)
-                || CLIENT_DECEASED_STATUS.equals(normalizedStatus);
+        return CLIENT_DECEASED_STATUS.equals(normalizedStatus);
     }
 
     @VisibleForTesting

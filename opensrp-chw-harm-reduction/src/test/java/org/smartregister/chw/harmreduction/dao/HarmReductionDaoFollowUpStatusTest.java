@@ -6,13 +6,13 @@ import org.junit.Test;
 public class HarmReductionDaoFollowUpStatusTest {
 
     @Test
-    public void isDeceasedFollowUpStatusShouldReturnTrueForDied() {
-        Assert.assertTrue(HarmReductionDao.isDeceasedFollowUpStatus("died"));
+    public void isDeceasedFollowUpStatusShouldReturnTrueForClientDeceased() {
+        Assert.assertTrue(HarmReductionDao.isDeceasedFollowUpStatus("client_deceased"));
     }
 
     @Test
-    public void isDeceasedFollowUpStatusShouldReturnTrueForDeceased() {
-        Assert.assertTrue(HarmReductionDao.isDeceasedFollowUpStatus("deceased"));
+    public void isDeceasedFollowUpStatusShouldReturnFalseForDied() {
+        Assert.assertFalse(HarmReductionDao.isDeceasedFollowUpStatus("died"));
     }
 
     @Test

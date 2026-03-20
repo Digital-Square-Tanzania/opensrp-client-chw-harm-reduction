@@ -23,6 +23,9 @@ import timber.log.Timber;
 
 public class HarmReductionDao extends AbstractDao {
     private static final String SOBER_HOUSE_SERVICES_TABLE = "ec_harm_reduction_sober_house_services";
+    private static final String FOLLOW_UP_STATUS_COLUMN = "follow_up_status";
+    private static final String CLIENT_STATUS_COLUMN = "client_status";
+    private static final String CLIENT_DECEASED_STATUS = "client_deceased";
     private static final String YES_VALUE = "yes";
     private static final DateTimeFormatter SQL_DATE_TIME_FORMAT = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
     private static final DateTimeFormatter[] SUPPORTED_EVENT_DATE_FORMATS = new DateTimeFormatter[]{
@@ -143,6 +146,57 @@ public class HarmReductionDao extends AbstractDao {
         }
         Integer count = res.get(0);
         return count != null && count > 0;
+    }
+
+    public static String getLatestCommunityFollowUpStatus(String baseEntityId) {
+        String followUpStatus = getLatestStatusFromTable(Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT, FOLLOW_UP_STATUS_COLUMN, baseEntityId);
+        if (StringUtils.isBlank(followUpStatus)) {
+            return getLatestStatusFromTable(Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT, CLIENT_STATUS_COLUMN, baseEntityId);
+        }
+        return followUpStatus;
+    }
+
+    public static String getLatestSoberHouseFollowUpStatus(String baseEntityId) {
+        return getLatestStatusFromTable(SOBER_HOUSE_SERVICES_TABLE, FOLLOW_UP_STATUS_COLUMN, baseEntityId);
+    }
+
+    public static boolean isCommunityClientDeceased(String baseEntityId) {
+        return isDeceasedFollowUpStatus(getLatestCommunityFollowUpStatus(baseEntityId));
+    }
+
+    public static boolean isSoberHouseClientDeceased(String baseEntityId) {
+        return isDeceasedFollowUpStatus(getLatestSoberHouseFollowUpStatus(baseEntityId));
+    }
+
+    private static String getLatestStatusFromTable(String tableName, String statusColumn, String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId) || StringUtils.isBlank(tableName) || StringUtils.isBlank(statusColumn)) {
+            return "";
+        }
+
+        String sql = buildLatestStatusQuery(tableName, statusColumn, baseEntityId);
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, statusColumn, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+        return "";
+    }
+
+    @VisibleForTesting
+    static boolean isDeceasedFollowUpStatus(String followUpStatus) {
+        String normalizedStatus = StringUtils.trimToEmpty(followUpStatus).toLowerCase(Locale.ENGLISH);
+        return CLIENT_DECEASED_STATUS.equals(normalizedStatus);
+    }
+
+    @VisibleForTesting
+    static String buildLatestStatusQuery(String tableName, String statusColumn, String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId) || StringUtils.isBlank(tableName) || StringUtils.isBlank(statusColumn)) {
+            return "";
+        }
+
+        return "SELECT " + statusColumn + " FROM " + tableName +
+                " WHERE is_closed = 0 AND entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
     }
 
     public static String getEnrollmentDate(String baseEntityId) {

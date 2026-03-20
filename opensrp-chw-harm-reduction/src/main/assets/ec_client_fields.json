@@ -585,6 +585,14 @@
           }
         },
         {
+          "column_name": "follow_up_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "client_status"
+          }
+        },
+        {
           "column_name": "pregnancy_breastfeeding_status",
           "type": "Event",
           "json_mapping": {

@@ -81,7 +81,7 @@
         "type": "gps",
         "hint": "GPS location of collection site",
         "v_required": {
-          "value": "true",
+          "value": true,
           "err": "Please capture the location"
         }
       },

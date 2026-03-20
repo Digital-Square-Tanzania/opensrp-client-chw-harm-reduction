@@ -81,7 +81,7 @@
         "type": "gps",
         "hint": "GPS eneo la tovuti ya ukusanyaji",
         "v_required": {
-          "value": "true",
+          "value": true,
           "err": "Tafadhali weka eneo"
         }
       },

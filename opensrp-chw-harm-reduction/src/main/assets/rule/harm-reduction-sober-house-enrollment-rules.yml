@@ -13,10 +13,24 @@ condition: "step1_screening_tests_done != null && step1_screening_tests_done.con
 actions:
   - "isRelevant = true"
 ---
+name: step1_stis_treatment_after_screening
+description: Show stis_treatment_after_screening when its condition is met
+priority: 1
+condition: "step1_stis_result == 'has_symptoms'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_heart_diseases_result
 description: Show heart_diseases_result when its condition is met
 priority: 1
 condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('heart_diseases')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_heart_diseases_treatment_after_screening
+description: Show heart_diseases_treatment_after_screening when its condition is met
+priority: 1
+condition: "step1_heart_diseases_result == 'has_symptoms'"
 actions:
   - "isRelevant = true"
 ---
@@ -27,10 +41,24 @@ condition: "step1_screening_tests_done != null && step1_screening_tests_done.con
 actions:
   - "isRelevant = true"
 ---
+name: step1_mental_health_treatment_after_screening
+description: Show mental_health_treatment_after_screening when its condition is met
+priority: 1
+condition: "step1_mental_health_result == 'has_symptoms'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_hepatitis_b_result
 description: Show hepatitis_b_result when its condition is met
 priority: 1
 condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('hepatitis_b')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_hepatitis_b_treatment_after_screening
+description: Show hepatitis_b_treatment_after_screening when its condition is met
+priority: 1
+condition: "step1_hepatitis_b_result == 'has_symptoms'"
 actions:
   - "isRelevant = true"
 ---
@@ -41,10 +69,24 @@ condition: "step1_screening_tests_done != null && step1_screening_tests_done.con
 actions:
   - "isRelevant = true"
 ---
+name: step1_hepatitis_c_treatment_after_screening
+description: Show hepatitis_c_treatment_after_screening when its condition is met
+priority: 1
+condition: "step1_hepatitis_c_result == 'has_symptoms'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_other_hepatitis_result
 description: Show other_hepatitis_result when its condition is met
 priority: 1
 condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('other_hepatitis')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_other_hepatitis_treatment_after_screening
+description: Show other_hepatitis_treatment_after_screening when its condition is met
+priority: 1
+condition: "step1_other_hepatitis_result == 'has_symptoms'"
 actions:
   - "isRelevant = true"
 ---
@@ -55,6 +97,13 @@ condition: "step1_screening_tests_done != null && step1_screening_tests_done.con
 actions:
   - "isRelevant = true"
 ---
+name: step1_diabetes_treatment_after_screening
+description: Show diabetes_treatment_after_screening when its condition is met
+priority: 1
+condition: "step1_diabetes_result == 'has_symptoms'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_tuberculosis_result
 description: Show tuberculosis_result when its condition is met
 priority: 1
@@ -62,17 +111,17 @@ condition: "step1_screening_tests_done != null && step1_screening_tests_done.con
 actions:
   - "isRelevant = true"
 ---
+name: step1_tuberculosis_treatment_after_screening
+description: Show tuberculosis_treatment_after_screening when its condition is met
+priority: 1
+condition: "step1_tuberculosis_result == 'has_symptoms'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_hiv_result
 description: Show hiv_result when its condition is met
 priority: 1
 condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('hiv')"
-actions:
-  - "isRelevant = true"
----
-name: step1_treatment_after_screening
-description: Show treatment_after_screening when its condition is met
-priority: 1
-condition: "step1_stis_result == 'has_symptoms' || step1_heart_diseases_result == 'has_symptoms' || step1_mental_health_result == 'has_symptoms' || step1_hepatitis_b_result == 'has_symptoms' || step1_hepatitis_c_result == 'has_symptoms' || step1_other_hepatitis_result == 'has_symptoms' || step1_diabetes_result == 'has_symptoms' || step1_tuberculosis_result == 'has_symptoms'"
 actions:
   - "isRelevant = true"
 ---

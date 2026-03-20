@@ -1110,11 +1110,75 @@
           }
         },
         {
+          "column_name": "other_hepatitis_result",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_hepatitis_result"
+          }
+        },
+        {
           "column_name": "diabetes_result",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "diabetes_result"
+          }
+        },
+        {
+          "column_name": "stis_treatment_after_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "stis_treatment_after_screening"
+          }
+        },
+        {
+          "column_name": "heart_diseases_treatment_after_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "heart_diseases_treatment_after_screening"
+          }
+        },
+        {
+          "column_name": "mental_health_treatment_after_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "mental_health_treatment_after_screening"
+          }
+        },
+        {
+          "column_name": "hepatitis_b_treatment_after_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hepatitis_b_treatment_after_screening"
+          }
+        },
+        {
+          "column_name": "hepatitis_c_treatment_after_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hepatitis_c_treatment_after_screening"
+          }
+        },
+        {
+          "column_name": "other_hepatitis_treatment_after_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_hepatitis_treatment_after_screening"
+          }
+        },
+        {
+          "column_name": "diabetes_treatment_after_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "diabetes_treatment_after_screening"
           }
         },
         {
@@ -1126,19 +1190,19 @@
           }
         },
         {
+          "column_name": "tuberculosis_treatment_after_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "tuberculosis_treatment_after_screening"
+          }
+        },
+        {
           "column_name": "hiv_result",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "hiv_result"
-          }
-        },
-        {
-          "column_name": "treatment_after_screening",
-          "type": "Event",
-          "json_mapping": {
-            "field": "obs.fieldCode",
-            "concept": "treatment_after_screening"
           }
         },
         {

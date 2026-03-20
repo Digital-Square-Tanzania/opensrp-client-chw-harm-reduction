@@ -1,4 +1,53 @@
 ---
+name: step1_cause_of_death
+description: Show cause_of_death when its condition is met
+priority: 1
+condition: "step1_client_status == 'client_deceased'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_cause_of_death_other_specify
+description: Show cause_of_death_other_specify when its condition is met
+priority: 1
+condition: "step1_client_status == 'client_deceased' && step1_cause_of_death == 'other'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_place_of_death
+description: Show place_of_death when its condition is met
+priority: 1
+condition: "step1_client_status == 'client_deceased'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_death_action_taken
+description: Show death_action_taken when its condition is met
+priority: 1
+condition: "step1_client_status == 'client_deceased'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_overdose_reason
+description: Show overdose_reason when its condition is met
+priority: 1
+condition: "step1_client_status == 'overdose'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_place_of_overdose
+description: Show place_of_overdose when its condition is met
+priority: 1
+condition: "step1_client_status == 'overdose'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_overdose_action_taken
+description: Show overdose_action_taken when its condition is met
+priority: 1
+condition: "step1_client_status == 'overdose'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_substance_use_methods_other_specify
 description: Show substance_use_methods_other_specify when its condition is met
 priority: 1

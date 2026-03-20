@@ -329,6 +329,41 @@
         ]
       },
       {
+        "key": "other_hepatitis_result",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_hepatitis_result",
+        "type": "native_radio",
+        "label": "Homa Nyengine za Ini - Matokeo",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "has_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms",
+            "text": "Ana dalili"
+          },
+          {
+            "key": "no_symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms",
+            "text": "Hana dalili"
+          }
+        ]
+      },
+      {
         "key": "diabetes_result",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

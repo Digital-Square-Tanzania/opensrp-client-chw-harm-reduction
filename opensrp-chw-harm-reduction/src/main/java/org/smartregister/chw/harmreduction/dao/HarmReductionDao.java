@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import timber.log.Timber;
+
 public class HarmReductionDao extends AbstractDao {
     private static final String SOBER_HOUSE_SERVICES_TABLE = "ec_harm_reduction_sober_house_services";
     private static final String YES_VALUE = "yes";
@@ -582,6 +584,28 @@ public class HarmReductionDao extends AbstractDao {
 
     private static String escapeSqlValue(String value) {
         return StringUtils.defaultString(value).replace("'", "''");
+    }
+
+    public boolean hasStartedMat(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return false;
+        }
+
+        try {
+            String sql = "SELECT client_started_mat FROM " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                    " WHERE base_entity_id = '" + baseEntityId + "' AND is_closed = 0 " +
+                    "ORDER BY last_interacted_with DESC LIMIT 1";
+
+            DataMap<String> dataMap = cursor -> getCursorValue(cursor, "client_started_mat");
+            List<String> res = readData(sql, dataMap);
+            if (res != null && !res.isEmpty() && res.get(0) != null) {
+                return res.get(0).equalsIgnoreCase("yes");
+            }
+            return false;
+        } catch (Exception e) {
+            Timber.e(e);
+            return false;
+        }
     }
 
 }

@@ -87,6 +87,7 @@
     <string name="harm_reduction_contraindication">Shughulikia vizuizi kabla ya kuendelea na huduma</string>
     <string name="no_phone_number">Hakuna nambari ya simu</string>
     <string name="return_to_harm_reduction_clients">Rudi kwenye wateja wote wa Harm Reduction</string>
+    <string name="return_to_sober_house_clients">Rudi kwenye wateja wote wa Nyumba ya Upataji Nafuu</string>
     <string name="number_not_filled">Nambari ya simu ya mteja haijajazwa</string>
 
     <string name="view_upcoming_services">Angalia huduma zijazo</string>

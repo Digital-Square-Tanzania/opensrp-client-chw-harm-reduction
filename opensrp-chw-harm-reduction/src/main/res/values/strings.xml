@@ -89,6 +89,7 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="return_to_harm_reduction_clients">Return to Harm Reduction Clients</string>
+    <string name="return_to_sober_house_clients">Return to Sober House Clients</string>
     <string name="number_not_filled">client phone number, not filled</string>
     <string name="view_upcoming_services">View Upcoming Services</string>
 

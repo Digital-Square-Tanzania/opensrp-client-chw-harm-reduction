@@ -94,6 +94,13 @@
             "openmrs_entity_id": "moved"
           },
           {
+            "key": "died",
+            "text": "Died",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "died"
+          },
+          {
             "key": "discontinued_service",
             "text": "Discontinued service",
             "openmrs_entity_parent": "",

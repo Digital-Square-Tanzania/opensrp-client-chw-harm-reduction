@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
@@ -416,5 +417,48 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
 
     protected boolean isVisitOnProgress(Visit visit) {
         return visit != null && !visit.getProcessed();
+    }
+
+    protected void updateDeceasedClientStatusTag(boolean isClientDeceased, @StringRes int statusTextRes) {
+        TextView clientStatusTag = getClientStatusTagView();
+        if (clientStatusTag == null) {
+            return;
+        }
+
+        if (isClientDeceased) {
+            clientStatusTag.setText(statusTextRes);
+            clientStatusTag.setVisibility(View.VISIBLE);
+            return;
+        }
+
+        clientStatusTag.setVisibility(View.GONE);
+    }
+
+    @Nullable
+    protected TextView getClientStatusTagView() {
+        try {
+            return findViewById(R.id.family_tbleprosy_head);
+        } catch (Throwable throwable) {
+            Timber.e(throwable);
+            return null;
+        }
+    }
+
+    protected void hideDeceasedClientActionViews() {
+        if (textViewRecordHarmReductionVisit != null) {
+            textViewRecordHarmReductionVisit.setVisibility(View.GONE);
+        }
+        if (textViewRecordSoberHouseVisit != null) {
+            textViewRecordSoberHouseVisit.setVisibility(View.GONE);
+        }
+        if (textViewMarkClientStartedMat != null) {
+            textViewMarkClientStartedMat.setVisibility(View.GONE);
+        }
+        if (manualProcessVisit != null) {
+            manualProcessVisit.setVisibility(View.GONE);
+        }
+        if (textViewContinueTbLeprosy != null) {
+            textViewContinueTbLeprosy.setVisibility(View.GONE);
+        }
     }
 }

@@ -125,10 +125,10 @@
             "text": "Absconded"
           },
           {
-            "key": "died",
+            "key": "client_deceased",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "died",
+            "openmrs_entity_id": "client_deceased",
             "text": "Died"
           },
           {

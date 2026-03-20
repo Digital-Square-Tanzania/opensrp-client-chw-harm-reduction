@@ -73,6 +73,20 @@
             "openmrs_entity_id": "lost"
           },
           {
+            "key": "client_deceased",
+            "text": "Died",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "client_deceased"
+          },
+          {
+            "key": "overdose",
+            "text": "Overdose",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "overdose"
+          },
+          {
             "key": "moved",
             "text": "Moved",
             "openmrs_entity_parent": "",
@@ -97,6 +111,187 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        }
+      },
+      {
+        "key": "cause_of_death",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "cause_of_death",
+        "type": "native_radio",
+        "label": "Cause of death",
+        "options": [
+          {
+            "key": "accident",
+            "text": "Accident",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "accident"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "cause_of_death_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "cause_of_death_other_specify",
+        "type": "edit_text",
+        "hint": "Specify other cause of death",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "place_of_death",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "place_of_death",
+        "type": "native_radio",
+        "label": "Place where death occurred",
+        "options": [
+          {
+            "key": "home",
+            "text": "Home",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "home"
+          },
+          {
+            "key": "maskani",
+            "text": "Maskani",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "maskani"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "death_action_taken",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "death_action_taken",
+        "type": "edit_text",
+        "hint": "What was done",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "overdose_reason",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "overdose_reason",
+        "type": "edit_text",
+        "hint": "Reason for overdose",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "place_of_overdose",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "place_of_overdose",
+        "type": "native_radio",
+        "label": "Place where overdose occurred",
+        "options": [
+          {
+            "key": "home",
+            "text": "Home",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "home"
+          },
+          {
+            "key": "maskani",
+            "text": "Maskani",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "maskani"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "overdose_action_taken",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "overdose_action_taken",
+        "type": "edit_text",
+        "hint": "What was done",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
         }
       },
       {

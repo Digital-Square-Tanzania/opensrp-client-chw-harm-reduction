@@ -16,7 +16,7 @@ actions:
 name: step1_condom_education_prompt
 description: Show condom_education_prompt when its condition is met
 priority: 1
-condition: "step1_engaging_in_sexual_activity == 'no' || (step1_engaging_in_sexual_activity == 'yes' && step1_condom_use_during_sex == 'no')"
+condition: "(step1_engaging_in_sexual_activity == 'yes' && step1_condom_use_during_sex == 'no')"
 actions:
   - "isRelevant = true"
 ---

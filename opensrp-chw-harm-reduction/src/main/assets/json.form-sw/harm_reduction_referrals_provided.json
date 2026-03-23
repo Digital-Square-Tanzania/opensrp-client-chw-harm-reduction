@@ -281,7 +281,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "remarks_comments",
         "type": "edit_text",
-        "hint": "Maoni/Maoni",
+        "hint": "Maoni",
         "v_required": {
           "value": "false",
           "err": "Tafadhali weka maoni yako"

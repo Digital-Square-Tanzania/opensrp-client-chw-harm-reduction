@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "safe_injection_tools",
         "type": "check_box",
-        "label": "Huduma za sindano salama zinazotolewa - Aina ya zana",
+        "label": "Huduma za sindano salama zinazotolewa - Aina ya vifaa",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -112,7 +112,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_syringes",
         "type": "edit_text",
-        "hint": "Idadi ya zana - Bomba",
+        "hint": "Idadi ya vifaa - Bomba",
         "edit_type": "number",
         "v_numeric": {
           "value": "true",
@@ -129,7 +129,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali weka idadi ya zana - Bomba"
+          "err": "Tafadhali weka idadi ya vifaa - Bomba"
         },
         "relevance": {
           "rules-engine": {
@@ -145,7 +145,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_alcohol_swab",
         "type": "edit_text",
-        "hint": "Idadi ya zana - Pamba yenye kileo(swabu)",
+        "hint": "Idadi ya vifaa - Pamba yenye kileo(swabu)",
         "edit_type": "number",
         "v_max_length": {
           "value": "2",
@@ -154,7 +154,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali weka idadi ya zana - Pamba yenye kileo(swabu)"
+          "err": "Tafadhali weka idadi ya vifaa - Pamba yenye kileo(swabu)"
         },
         "relevance": {
           "rules-engine": {
@@ -170,7 +170,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_dry_cotton",
         "type": "edit_text",
-        "hint": "Idadi ya zana - Pamba kavu",
+        "hint": "Idadi ya vifaa - Pamba kavu",
         "edit_type": "number",
         "v_max_length": {
           "value": "2",
@@ -179,7 +179,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali weka idadi ya zana - Pamba kavu"
+          "err": "Tafadhali weka idadi ya vifaa - Pamba kavu"
         },
         "relevance": {
           "rules-engine": {
@@ -195,7 +195,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_plaster",
         "type": "edit_text",
-        "hint": "Idadi ya zana - Plasta",
+        "hint": "Idadi ya vifaa - Plasta",
         "edit_type": "number",
         "v_max_length": {
           "value": "2",
@@ -204,7 +204,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali weka idadi ya zana - Plasta"
+          "err": "Tafadhali weka idadi ya vifaa - Plasta"
         },
         "relevance": {
           "rules-engine": {
@@ -220,7 +220,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_sterile_water",
         "type": "edit_text",
-        "hint": "Idadi ya zana - Maji",
+        "hint": "Idadi ya vifaa - Maji",
         "edit_type": "number",
         "v_max_length": {
           "value": "2",
@@ -229,7 +229,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali weka idadi ya zana - Maji"
+          "err": "Tafadhali weka idadi ya vifaa - Maji"
         },
         "relevance": {
           "rules-engine": {
@@ -245,7 +245,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_needles",
         "type": "edit_text",
-        "hint": "Idadi ya zana - Sindano",
+        "hint": "Idadi ya vifaa - Sindano",
         "edit_type": "number",
         "v_numeric": {
           "value": "true",
@@ -262,7 +262,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali weka idadi ya zana - Sindano"
+          "err": "Tafadhali weka idadi ya vifaa - Sindano"
         },
         "relevance": {
           "rules-engine": {

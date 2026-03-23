@@ -173,3 +173,10 @@ priority: 1
 condition: "step1_received_harm_reduction_services == 'yes'"
 actions:
   - "isRelevant = true"
+---
+name: step1_roc_group_type
+description: Calculate roc_group_type from route_of_substance_use
+priority: 1
+condition: "true"
+actions:
+  - "calculation = ((step1_route_of_substance_use == null || step1_route_of_substance_use == '') ? '-' : (step1_route_of_substance_use.contains('injecting') ? 'idu' : 'nidu'))"

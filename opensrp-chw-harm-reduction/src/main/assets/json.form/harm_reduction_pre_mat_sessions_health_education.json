@@ -202,19 +202,8 @@
             }
           },
           {
-            "key": "stis_stds",
-            "text": "10. STIs/STDs",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "stis_stds",
-            "property": {
-              "presumed-id": "stis_stds",
-              "confirmed-id": "stis_stds"
-            }
-          },
-          {
             "key": "overdose_management",
-            "text": "11. Overdose management and prevention",
+            "text": "10. Overdose management and prevention",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "overdose_management",
@@ -225,7 +214,7 @@
           },
           {
             "key": "safe_injection",
-            "text": "12. Safe injection",
+            "text": "11. Safe injection",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "safe_injection",
@@ -236,7 +225,7 @@
           },
           {
             "key": "methadone_use",
-            "text": "13. Methadone use",
+            "text": "12. Methadone use",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methadone_use",

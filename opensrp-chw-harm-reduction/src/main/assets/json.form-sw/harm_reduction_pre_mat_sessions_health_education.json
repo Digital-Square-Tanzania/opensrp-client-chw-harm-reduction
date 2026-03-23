@@ -202,19 +202,8 @@
             }
           },
           {
-            "key": "stis_stds",
-            "text": "10. Magonjwa ya Ngono na Via vya Uzazi",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "stis_stds",
-            "property": {
-              "presumed-id": "stis_stds",
-              "confirmed-id": "stis_stds"
-            }
-          },
-          {
             "key": "overdose_management",
-            "text": "11. Kuzuia na kumudu Overdose",
+            "text": "10. Kuzuia na kumudu Overdose",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "overdose_management",
@@ -225,7 +214,7 @@
           },
           {
             "key": "safe_injection",
-            "text": "12. Udungaji salama",
+            "text": "11. Udungaji salama",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "safe_injection",
@@ -236,7 +225,7 @@
           },
           {
             "key": "methadone_use",
-            "text": "13. Matumizi ya Methadone",
+            "text": "12. Matumizi ya Methadone",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methadone_use",

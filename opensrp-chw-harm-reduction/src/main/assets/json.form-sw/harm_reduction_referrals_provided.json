@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "referrals_provided",
         "type": "check_box",
-        "label": "Tiba ya Methadone",
+        "label": "Rufaa zilizotolewa",
         "exclusive": [
           "none"
         ],

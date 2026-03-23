@@ -333,7 +333,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "substances_used_injecting",
         "type": "check_box",
-        "label": "Unatumia aina gani za dutu? (Kudunga sindano)",
+        "label": "Unatumia aina gani za dawa? (Kudunga sindano)",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -407,7 +407,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali taja dutu nyingine"
+          "err": "Tafadhali taja dawa nyingine"
         }
       },
       {
@@ -416,7 +416,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "substances_used_non_injecting",
         "type": "check_box",
-        "label": "Unatumia aina gani za dutu? (Kuvuta/Kunywa/Kunusa)",
+        "label": "Unatumia aina gani za dawa? (Kuvuta/Kunywa/Kunusa)",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -518,7 +518,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali taja dutu nyingine"
+          "err": "Tafadhali taja dawa nyingine"
         }
       },
       {
@@ -740,7 +740,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali taja dutu nyingine"
+          "err": "Tafadhali taja dawa nyingine"
         }
       },
       {

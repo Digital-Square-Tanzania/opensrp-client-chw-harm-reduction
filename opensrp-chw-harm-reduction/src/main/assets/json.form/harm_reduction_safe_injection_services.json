@@ -118,6 +118,10 @@
           "value": "true",
           "err": "Please enter a valid number"
         },
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
+        },
         "v_max": {
           "value": "21",
           "err": "Must be 21 or less"
@@ -147,6 +151,10 @@
         "type": "edit_text",
         "hint": "Number of tools - Alcohol swab",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -172,6 +180,10 @@
         "type": "edit_text",
         "hint": "Number of tools - Dry cotton",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -197,6 +209,10 @@
         "type": "edit_text",
         "hint": "Number of tools - Plaster",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -222,6 +238,10 @@
         "type": "edit_text",
         "hint": "Number of tools - Sterile Water",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -250,6 +270,10 @@
         "v_numeric": {
           "value": "true",
           "err": "Please enter a valid number"
+        },
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
         },
         "v_max": {
           "value": "21",

@@ -118,6 +118,10 @@
           "value": "true",
           "err": "Tafadhali ingiza ingizo halali"
         },
+        "v_min": {
+          "value": "1",
+          "err": "Lazima iwe 1 au zaidi"
+        },
         "v_max": {
           "value": "21",
           "err": "Lazima iwe 21 au chini"
@@ -147,6 +151,10 @@
         "type": "edit_text",
         "hint": "Idadi ya Pamba yenye kileo(swabu)",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Lazima iwe 1 au zaidi"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -172,6 +180,10 @@
         "type": "edit_text",
         "hint": "Idadi ya Pamba kavu",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Lazima iwe 1 au zaidi"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -197,6 +209,10 @@
         "type": "edit_text",
         "hint": "Idadi ya Plasta",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Lazima iwe 1 au zaidi"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -222,6 +238,10 @@
         "type": "edit_text",
         "hint": "Idadi ya Maji",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Lazima iwe 1 au zaidi"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -250,6 +270,10 @@
         "v_numeric": {
           "value": "true",
           "err": "Tafadhali ingiza ingizo halali"
+        },
+        "v_min": {
+          "value": "1",
+          "err": "Lazima iwe 1 au zaidi"
         },
         "v_max": {
           "value": "21",

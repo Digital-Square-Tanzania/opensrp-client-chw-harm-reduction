@@ -227,11 +227,9 @@ public class BaseVisitActivity extends SecuredActivity implements BaseHarmReduct
 
     @Override
     public void redrawHeader(MemberObject memberObject) {
-        int age = new Period(new DateTime(memberObject.getAge()),
-                new DateTime()).getYears();
         tvTitle.setText(MessageFormat.format("{0}, {1}",
                 memberObject.getFullName(),
-                String.valueOf(age)));
+                String.valueOf(memberObject.getAge())));
     }
 
     @Override

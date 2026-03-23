@@ -1137,9 +1137,6 @@
         "type": "check_box",
         "label": "Unakuwa na nani wakati unatumia dawa za kulevya?",
         "combine_checkbox_option_values": "true",
-        "exclusive": [
-          "alone"
-        ],
         "options": [
           {
             "key": "alone",

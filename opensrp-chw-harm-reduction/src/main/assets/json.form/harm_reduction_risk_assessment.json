@@ -1137,9 +1137,6 @@
         "type": "check_box",
         "label": "Who are you usually with when using substance?",
         "combine_checkbox_option_values": "true",
-        "exclusive": [
-          "alone"
-        ],
         "options": [
           {
             "key": "alone",

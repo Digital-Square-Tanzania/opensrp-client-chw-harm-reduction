@@ -50,6 +50,41 @@
     "title": "Huduma kwa wateja walioanza MAT",
     "fields": [
       {
+        "key": "methadone_treatment_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "methadone_treatment_status",
+        "type": "native_radio",
+        "label": "Tiba ya Methadone?",
+        "options": [
+          {
+            "key": "continuing_methadone_treatment",
+            "text": "Anaendelea na Tiba ya Methadone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "continuing_methadone_treatment"
+          },
+          {
+            "key": "stopped_using_methadone",
+            "text": "Ameacha kutumia Methadone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stopped_using_methadone"
+          },
+          {
+            "key": "completed_methadone_treatment",
+            "text": "Amemaliza Tiba ya Methadone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "completed_methadone_treatment"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
         "key": "health_education_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -59,190 +94,99 @@
         "combine_checkbox_option_values": "true",
         "options": [
           {
-            "key": "meaning_of_drugs",
-            "text": "Maana ya dawa za kulevya",
+            "key": "drug_education",
+            "text": "Elimu ya Dawa za Kulevya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "meaning_of_drugs"
+            "openmrs_entity_id": "drug_education"
           },
           {
-            "key": "types_of_drugs",
-            "text": "Aina za dawa za kulevya",
+            "key": "drug_use_related_diseases",
+            "text": "Elimu ya Magonjwa Yanayoambatana na Matumizi ya Dawa za Kulevya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "types_of_drugs"
+            "openmrs_entity_id": "drug_use_related_diseases"
           },
           {
-            "key": "categories_of_drugs",
-            "text": "Makundi ya dawa za kulevya",
+            "key": "epidemic_diseases",
+            "text": "Elimu ya Magonjwa ya Mlipuko",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "categories_of_drugs"
-          },
-          {
-            "key": "reasons_for_drug_use",
-            "text": "Sababu za kutumia dawa za kulevya",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "reasons_for_drug_use"
-          },
-          {
-            "key": "methods_of_drug_use",
-            "text": "Njia za matumizi ya dawa za kulevya",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "methods_of_drug_use"
-          },
-          {
-            "key": "effects_of_drug_use",
-            "text": "Madhara ya dawa za kulevya",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "effects_of_drug_use"
-          },
-          {
-            "key": "tuberculosis",
-            "text": "Kifua Kikuu",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "tuberculosis"
-          },
-          {
-            "key": "hiv_aids",
-            "text": "VVU na UKIMWI",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hiv_aids"
-          },
-          {
-            "key": "hepatitis_bc",
-            "text": "Homa ya ini B na C",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hepatitis_bc"
-          },
-          {
-            "key": "stis_stds",
-            "text": "Magonjwa ya ngono",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "stis_stds"
-          },
-          {
-            "key": "covid_19",
-            "text": "Mtihani wa 19",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "covid_19"
-          },
-          {
-            "key": "cholera",
-            "text": "Kipindupindu",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "cholera"
+            "openmrs_entity_id": "epidemic_diseases"
           },
           {
             "key": "behavior_change",
-            "text": "Mabadiliko ya tabia",
+            "text": "Elimu ya Mabadiliko ya Tabia",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "behavior_change"
           },
           {
-            "key": "positive_behavior_adherence",
-            "text": "Ufuasi mzuri wa tabia",
+            "key": "treatment_adherence",
+            "text": "Elimu ya Ufuasi Mzuri wa Tiba",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "positive_behavior_adherence"
+            "openmrs_entity_id": "treatment_adherence"
           },
           {
             "key": "legal_support_mat_procedures",
-            "text": "Msaada wa kisheria na taratibu za MAT",
+            "text": "Elimu ya Msaada wa Kisheria na Taratibu za MAT",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "legal_support_mat_procedures"
           },
           {
             "key": "overdose",
-            "text": "Uzidishaji wa kiwango cha dawa za kulevya (Ovadozi)",
+            "text": "Elimu ya Uzidishaji wa Kiwango cha Dawa za Kulevya (Overdose)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "overdose"
           },
           {
-            "key": "naloxone_use",
-            "text": "Matumizi ya naloxone",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "naloxone_use"
-          },
-          {
             "key": "drug_use_and_women",
-            "text": "Matumizi ya dawa za kulevya na wanawake",
+            "text": "Elimu ya Matumizi ya Dawa za Kulevya na Wanawake",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "drug_use_and_women"
           },
           {
             "key": "reproductive_health_services",
-            "text": "Huduma za afya ya uzazi",
+            "text": "Elimu ya Huduma za Afya ya Uzazi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "reproductive_health_services"
           },
           {
             "key": "correct_condom_use",
-            "text": "Matumizi sahihi ya kondomu",
+            "text": "Elimu ya Matumizi Sahihi ya Kondomu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "correct_condom_use"
           },
           {
             "key": "opioid_addiction_treatment_use",
-            "text": "Matumizi sahihi ya matibabu ya uraibu afyuni (Methadone, buprenorphine, suboxone)",
+            "text": "Elimu ya Matumizi Sahihi ya Matibabu ya Uraibu Afyuni (Methadone, Buprenorphine, Suboxone)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "opioid_addiction_treatment_use"
           },
           {
-            "key": "take_away_dose",
-            "text": "Matumizi ya dawa tiba nyumbani (take away dose)",
+            "key": "life_and_job_skills",
+            "text": "Elimu ya Stadi za Maisha na Stadi za Kazi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "take_away_dose"
-          },
-          {
-            "key": "sti_meaning",
-            "text": "Maana ya magonjwa ya zinaa",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "sti_meaning"
-          },
-          {
-            "key": "sti_types_and_symptoms",
-            "text": "Aina na dalili za magonjwa ya zinaa",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "sti_types_and_symptoms"
-          },
-          {
-            "key": "sti_prevention",
-            "text": "Njia za kujikinga na magonjwa ya zinaa",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "sti_prevention"
+            "openmrs_entity_id": "life_and_job_skills"
           },
           {
             "key": "mental_health",
-            "text": "Afya ya akili",
+            "text": "Elimu ya Afya ya Akili",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mental_health"
           },
           {
             "key": "injection_related_diseases",
-            "text": "Magonjwa yatokanayo na ujidunga",
+            "text": "Elimu ya Magonjwa Yatokanayo na Ujidunga",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "injection_related_diseases"
@@ -251,6 +195,35 @@
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mat-followup-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "next_appointment_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "next_appointment_date",
+        "type": "date_picker",
+        "min_date": "today",
+        "max_date": "today+5y",
+        "expanded": false,
+        "hint": "Tarehe ya Hudhurio lijalo",
+        "v_required": {
+          "value": "true",
+          "err": "Inahitajika"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mat-followup-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -280,6 +253,13 @@
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mat-followup-relevance-rules.yml"
+            }
+          }
         }
       }
     ]

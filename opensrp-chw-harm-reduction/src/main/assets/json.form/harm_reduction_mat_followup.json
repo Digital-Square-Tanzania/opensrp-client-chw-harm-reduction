@@ -50,6 +50,41 @@
     "title": "Harm Reduction MAT Clients Followup",
     "fields": [
       {
+        "key": "methadone_treatment_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "methadone_treatment_status",
+        "type": "native_radio",
+        "label": "Methadone treatment?",
+        "options": [
+          {
+            "key": "continuing_methadone_treatment",
+            "text": "Continuing Methadone treatment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "continuing_methadone_treatment"
+          },
+          {
+            "key": "stopped_using_methadone",
+            "text": "Stopped using Methadone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stopped_using_methadone"
+          },
+          {
+            "key": "completed_methadone_treatment",
+            "text": "Completed Methadone treatment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "completed_methadone_treatment"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
         "key": "health_education_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -59,190 +94,99 @@
         "combine_checkbox_option_values": "true",
         "options": [
           {
-            "key": "meaning_of_drugs",
-            "text": "The meaning of drugs",
+            "key": "drug_education",
+            "text": "Drug education",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "meaning_of_drugs"
+            "openmrs_entity_id": "drug_education"
           },
           {
-            "key": "types_of_drugs",
-            "text": "Types of drugs",
+            "key": "drug_use_related_diseases",
+            "text": "Education on diseases associated with drug use",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "types_of_drugs"
+            "openmrs_entity_id": "drug_use_related_diseases"
           },
           {
-            "key": "categories_of_drugs",
-            "text": "Drug groups",
+            "key": "epidemic_diseases",
+            "text": "Education on epidemic diseases",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "categories_of_drugs"
-          },
-          {
-            "key": "reasons_for_drug_use",
-            "text": "Reasons for using drugs",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "reasons_for_drug_use"
-          },
-          {
-            "key": "methods_of_drug_use",
-            "text": "Methods of drug use",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "methods_of_drug_use"
-          },
-          {
-            "key": "effects_of_drug_use",
-            "text": "Effects of drugs",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "effects_of_drug_use"
-          },
-          {
-            "key": "tuberculosis",
-            "text": "Tuberculosis",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "tuberculosis"
-          },
-          {
-            "key": "hiv_aids",
-            "text": "HIV and AIDS",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hiv_aids"
-          },
-          {
-            "key": "hepatitis_bc",
-            "text": "Hepatitis B and C",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hepatitis_bc"
-          },
-          {
-            "key": "stis_stds",
-            "text": "Sexually transmitted infections",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "stis_stds"
-          },
-          {
-            "key": "covid_19",
-            "text": "COVID-19",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "covid_19"
-          },
-          {
-            "key": "cholera",
-            "text": "Cholera",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "cholera"
+            "openmrs_entity_id": "epidemic_diseases"
           },
           {
             "key": "behavior_change",
-            "text": "Behavioral changes",
+            "text": "Behavior change education",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "behavior_change"
           },
           {
-            "key": "positive_behavior_adherence",
-            "text": "Adherence to positive behavior",
+            "key": "treatment_adherence",
+            "text": "Good treatment adherence education",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "positive_behavior_adherence"
+            "openmrs_entity_id": "treatment_adherence"
           },
           {
             "key": "legal_support_mat_procedures",
-            "text": "Legal aid and MAT procedures",
+            "text": "Education on legal support and MAT procedures",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "legal_support_mat_procedures"
           },
           {
             "key": "overdose",
-            "text": "Drug overdose",
+            "text": "Education on drug overdose",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "overdose"
           },
           {
-            "key": "naloxone_use",
-            "text": "Use of naloxone",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "naloxone_use"
-          },
-          {
             "key": "drug_use_and_women",
-            "text": "Drug use by women",
+            "text": "Education on drug use and women",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "drug_use_and_women"
           },
           {
             "key": "reproductive_health_services",
-            "text": "Reproductive health services",
+            "text": "Education on reproductive health services",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "reproductive_health_services"
           },
           {
             "key": "correct_condom_use",
-            "text": "Correct use of condoms",
+            "text": "Education on correct condom use",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "correct_condom_use"
           },
           {
             "key": "opioid_addiction_treatment_use",
-            "text": "Appropriate use of opioid addiction treatment (Methadone, buprenorphine, suboxone)",
+            "text": "Education on correct use of opioid addiction treatment (Methadone, Buprenorphine, Suboxone)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "opioid_addiction_treatment_use"
           },
           {
-            "key": "take_away_dose",
-            "text": "Use of medicine at home (take away dose)",
+            "key": "life_and_job_skills",
+            "text": "Life and job skills education",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "take_away_dose"
-          },
-          {
-            "key": "sti_meaning",
-            "text": "The meaning of sexually transmitted diseases",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "sti_meaning"
-          },
-          {
-            "key": "sti_types_and_symptoms",
-            "text": "Types and symptoms of sexually transmitted diseases",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "sti_types_and_symptoms"
-          },
-          {
-            "key": "sti_prevention",
-            "text": "Ways to protect yourself from sexually transmitted diseases",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "sti_prevention"
+            "openmrs_entity_id": "life_and_job_skills"
           },
           {
             "key": "mental_health",
-            "text": "Mental health",
+            "text": "Mental health education",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "mental_health"
           },
           {
             "key": "injection_related_diseases",
-            "text": "Diseases caused by injection",
+            "text": "Education on injection-related diseases",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "injection_related_diseases"
@@ -251,6 +195,35 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mat-followup-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "next_appointment_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "next_appointment_date",
+        "type": "date_picker",
+        "min_date": "today",
+        "max_date": "today+5y",
+        "expanded": false,
+        "hint": "Next attendance date",
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mat-followup-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -280,6 +253,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mat-followup-relevance-rules.yml"
+            }
+          }
         }
       }
     ]

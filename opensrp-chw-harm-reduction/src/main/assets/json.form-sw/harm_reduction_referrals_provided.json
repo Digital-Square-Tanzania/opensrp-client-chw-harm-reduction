@@ -217,7 +217,7 @@
           },
           {
             "key": "income_generating",
-            "text": "Kujikwamua kiuchumi (IGA)",
+            "text": "Shughuli za kujikwamua kiuchumi (IGA)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "income_generating"

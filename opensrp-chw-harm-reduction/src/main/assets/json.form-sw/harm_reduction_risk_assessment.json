@@ -671,7 +671,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "controlled_substances_prescribed",
         "type": "check_box",
-        "label": "Je, unatumia aina yoyote ya vitu vinavyodhibitiwa chini ya maagizo ya daktari?",
+        "label": "Unatumia aina yoyote ya dawa tiba yenye asili ya kulevya kwa maelekezo ya daktari?",
         "combine_checkbox_option_values": "true",
         "exclusive": [
           "none"

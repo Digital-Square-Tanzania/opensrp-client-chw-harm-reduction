@@ -1032,13 +1032,6 @@
               "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
             }
           }
-        },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
-            }
-          }
         }
       },
       {

@@ -1023,17 +1023,10 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_status",
-        "type": "edit_text",
+        "type": "hidden",
         "hint": "HIV Infection Status",
         "read_only": true,
         "calculation": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
-            }
-          }
-        },
-        "relevance": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"

@@ -77,6 +77,25 @@ public class SoberHouseEnrollmentFormAssetsTest {
         }
     }
 
+    @Test
+    public void testEnrollmentFormsKeepHivStatusHidden() throws Exception {
+        for (String formPath : ENROLLMENT_FORM_PATHS) {
+            JSONObject form = readJson(formPath);
+            JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
+            JSONObject hivStatusField = getField(fields, "hiv_status");
+
+            Assert.assertEquals("hiv_status should stay hidden in " + formPath,
+                    "hidden", hivStatusField.getString("type"));
+            Assert.assertFalse("hiv_status should not have UI relevance in " + formPath,
+                    hivStatusField.has("relevance"));
+            Assert.assertEquals("harm-reduction-sober-house-enrollment-rules.yml",
+                    hivStatusField.getJSONObject("calculation")
+                            .getJSONObject("rules-engine")
+                            .getJSONObject("ex-rules")
+                            .getString("rules-file"));
+        }
+    }
+
     private static Map<String, String> expectedFollowUpFields(JSONArray fields) throws Exception {
         Map<String, String> expected = new LinkedHashMap<>();
 

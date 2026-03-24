@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "date_of_collection",
         "type": "date_picker",
-        "hint": "Tarehe ya Mkusanyiko",
+        "hint": "Tarehe ya ukusanyaji",
         "v_required": {
           "value": "true",
           "err": "Inahitajika"
@@ -92,7 +92,7 @@
         "openmrs_entity_id": "other_collection",
         "type": "edit_text",
         "edit_type": "number",
-        "hint": "Idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika) katika tovuti Zingine za Mkusanyiko",
+        "hint": "Idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika)",
         "v_numeric": {
           "value": "true",
           "err": "Tafadhali weka nambari halali"
@@ -103,7 +103,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali weka idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika) katika tovuti Zingine za Mkusanyiko"
+          "err": "Tafadhali weka idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika) "
         }
       },
       {

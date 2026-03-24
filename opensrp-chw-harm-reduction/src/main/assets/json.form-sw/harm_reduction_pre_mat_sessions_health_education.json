@@ -378,19 +378,8 @@
             }
           },
           {
-            "key": "iec_stis_stds",
-            "text": "10. Magonjwa ya Ngono na Via vya Uzazi",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "iec_stis_stds",
-            "property": {
-              "presumed-id": "iec_stis_stds",
-              "confirmed-id": "iec_stis_stds"
-            }
-          },
-          {
             "key": "iec_overdose_management",
-            "text": "11. Kuzuia na kumudu Overdose",
+            "text": "10. Kuzuia na kumudu Overdose",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_overdose_management",
@@ -401,7 +390,7 @@
           },
           {
             "key": "iec_safe_injection",
-            "text": "12. Udungaji salama",
+            "text": "11. Udungaji salama",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_safe_injection",
@@ -412,7 +401,7 @@
           },
           {
             "key": "iec_methadone_use",
-            "text": "13. Matumizi ya Methadone",
+            "text": "12. Matumizi ya Methadone",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "iec_methadone_use",
@@ -721,39 +710,6 @@
         "v_required": {
           "value": "true",
           "err": "Tafadhali weka idadi ya IEC material iliyotolewa - Homa ya Ini"
-        },
-        "read_only": true,
-        "calculation": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-health-education-iec-calculation-rules.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "iec_qty_stis_stds",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "iec_qty_stis_stds",
-        "type": "hidden",
-        "edit_type": "number",
-        "hint": "Idadi ya IEC material iliyotolewa - Magonjwa ya Ngono na Via vya Uzazi",
-        "v_numeric": {
-          "value": "true",
-          "err": "Tafadhali weka nambari halali"
-        },
-        "v_min": {
-          "value": "1",
-          "err": "Idadi lazima iwe 1"
-        },
-        "v_max": {
-          "value": "1",
-          "err": "Idadi lazima iwe 1"
-        },
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali weka idadi ya IEC material iliyotolewa - Magonjwa ya Ngono na Via vya Uzazi"
         },
         "read_only": true,
         "calculation": {

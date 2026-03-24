@@ -65,6 +65,8 @@ public class MatFollowUpFormAssetsTest {
                 "src/main/assets/json.form/harm_reduction_mat_followup.json",
                 "Methadone treatment?",
                 ENGLISH_METHADONE_OPTIONS,
+                "Next attendance date",
+                "Required",
                 "Education provided",
                 ENGLISH_EXPECTED_OPTIONS,
                 "Method of providing education",
@@ -77,6 +79,8 @@ public class MatFollowUpFormAssetsTest {
                 "src/main/assets/json.form-sw/harm_reduction_mat_followup.json",
                 "Tiba ya Methadone?",
                 SWAHILI_METHADONE_OPTIONS,
+                "Tarehe ya Hudhurio lijalo",
+                "Inahitajika",
                 "Elimu iliyotolewa",
                 SWAHILI_EXPECTED_OPTIONS,
                 "Njia ya utoaji elimu",
@@ -86,6 +90,8 @@ public class MatFollowUpFormAssetsTest {
     private static void assertMethadoneGateAndOptions(String relativePath,
                                                       String expectedMethadoneLabel,
                                                       String[][] expectedMethadoneOptions,
+                                                      String expectedNextAppointmentHint,
+                                                      String expectedNextAppointmentError,
                                                       String expectedEducationLabel,
                                                       String[][] expectedEducationOptions,
                                                       String expectedDeliveryMethodLabel,
@@ -106,6 +112,16 @@ public class MatFollowUpFormAssetsTest {
                         .getJSONObject("ex-rules")
                         .getString("rules-file"));
         assertOptions(healthEducationField.getJSONArray("options"), relativePath, expectedEducationOptions);
+
+        JSONObject nextAppointmentField = getField(fields, "next_appointment_date");
+        Assert.assertEquals("date_picker", nextAppointmentField.getString("type"));
+        Assert.assertEquals(expectedNextAppointmentHint, nextAppointmentField.getString("hint"));
+        Assert.assertEquals(expectedNextAppointmentError, nextAppointmentField.getJSONObject("v_required").getString("err"));
+        Assert.assertEquals("harm-reduction-mat-followup-relevance-rules.yml",
+                nextAppointmentField.getJSONObject("relevance")
+                        .getJSONObject("rules-engine")
+                        .getJSONObject("ex-rules")
+                        .getString("rules-file"));
 
         JSONObject deliveryMethodField = getField(fields, "education_delivery_method");
         Assert.assertEquals(expectedDeliveryMethodLabel, deliveryMethodField.getString("label"));

@@ -205,6 +205,28 @@
         }
       },
       {
+        "key": "next_appointment_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "next_appointment_date",
+        "type": "date_picker",
+        "min_date": "today",
+        "max_date": "today+5y",
+        "expanded": false,
+        "hint": "Tarehe ya Hudhurio lijalo",
+        "v_required": {
+          "value": "true",
+          "err": "Inahitajika"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mat-followup-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "education_delivery_method",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

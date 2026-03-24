@@ -6,6 +6,13 @@ condition: "step1_methadone_treatment_status == 'continuing_methadone_treatment'
 actions:
   - "isRelevant = true"
 ---
+name: step1_next_appointment_date
+description: Show next_appointment_date when the client is continuing Methadone treatment
+priority: 1
+condition: "step1_methadone_treatment_status == 'continuing_methadone_treatment'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_education_delivery_method
 description: Show education_delivery_method after education is provided for a client continuing Methadone treatment
 priority: 1

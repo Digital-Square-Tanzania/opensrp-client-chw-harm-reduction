@@ -81,7 +81,7 @@
           },
           {
             "key": "overdose",
-            "text": "Amezidish dozi ya dawa",
+            "text": "Amezidisha dozi ya dawa",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "overdose"

@@ -13,6 +13,18 @@ import java.nio.file.Paths;
 
 public class MatFollowUpFormAssetsTest {
 
+    private static final String[][] ENGLISH_METHADONE_OPTIONS = {
+            {"continuing_methadone_treatment", "Continuing Methadone treatment"},
+            {"stopped_using_methadone", "Stopped using Methadone"},
+            {"completed_methadone_treatment", "Completed Methadone treatment"}
+    };
+
+    private static final String[][] SWAHILI_METHADONE_OPTIONS = {
+            {"continuing_methadone_treatment", "Anaendelea na Tiba ya Methadone"},
+            {"stopped_using_methadone", "Ameacha kutumia Methadone"},
+            {"completed_methadone_treatment", "Amemaliza Tiba ya Methadone"}
+    };
+
     private static final String[][] ENGLISH_EXPECTED_OPTIONS = {
             {"drug_education", "Drug education"},
             {"drug_use_related_diseases", "Education on diseases associated with drug use"},
@@ -49,23 +61,63 @@ public class MatFollowUpFormAssetsTest {
 
     @Test
     public void testEnglishMatFollowUpOptionsMatchApprovedList() throws Exception {
-        assertOptions("src/main/assets/json.form/harm_reduction_mat_followup.json", ENGLISH_EXPECTED_OPTIONS);
+        assertMethadoneGateAndOptions(
+                "src/main/assets/json.form/harm_reduction_mat_followup.json",
+                "Methadone treatment?",
+                ENGLISH_METHADONE_OPTIONS,
+                "Education provided",
+                ENGLISH_EXPECTED_OPTIONS,
+                "Method of providing education",
+                "Please select an option");
     }
 
     @Test
     public void testSwahiliMatFollowUpOptionsMatchApprovedList() throws Exception {
-        assertOptions("src/main/assets/json.form-sw/harm_reduction_mat_followup.json", SWAHILI_EXPECTED_OPTIONS);
+        assertMethadoneGateAndOptions(
+                "src/main/assets/json.form-sw/harm_reduction_mat_followup.json",
+                "Tiba ya Methadone?",
+                SWAHILI_METHADONE_OPTIONS,
+                "Elimu iliyotolewa",
+                SWAHILI_EXPECTED_OPTIONS,
+                "Njia ya utoaji elimu",
+                "Tafadhali chagua chaguo moja");
     }
 
-    private static void assertOptions(String relativePath, String[][] expectedOptions) throws Exception {
+    private static void assertMethadoneGateAndOptions(String relativePath,
+                                                      String expectedMethadoneLabel,
+                                                      String[][] expectedMethadoneOptions,
+                                                      String expectedEducationLabel,
+                                                      String[][] expectedEducationOptions,
+                                                      String expectedDeliveryMethodLabel,
+                                                      String requiredError) throws Exception {
         JSONObject form = new JSONObject(readText(relativePath));
-        JSONArray options = form.getJSONObject("step1")
-                .getJSONArray("fields")
-                .getJSONObject(0)
-                .getJSONArray("options");
+        JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
+        JSONObject firstField = fields.getJSONObject(0);
+        Assert.assertEquals("methadone_treatment_status", firstField.getString("key"));
+        Assert.assertEquals(expectedMethadoneLabel, firstField.getString("label"));
+        Assert.assertEquals(requiredError, firstField.getJSONObject("v_required").getString("err"));
+        assertOptions(firstField.getJSONArray("options"), relativePath, expectedMethadoneOptions);
 
+        JSONObject healthEducationField = getField(fields, "health_education_provided");
+        Assert.assertEquals(expectedEducationLabel, healthEducationField.getString("label"));
+        Assert.assertEquals("harm-reduction-mat-followup-relevance-rules.yml",
+                healthEducationField.getJSONObject("relevance")
+                        .getJSONObject("rules-engine")
+                        .getJSONObject("ex-rules")
+                        .getString("rules-file"));
+        assertOptions(healthEducationField.getJSONArray("options"), relativePath, expectedEducationOptions);
+
+        JSONObject deliveryMethodField = getField(fields, "education_delivery_method");
+        Assert.assertEquals(expectedDeliveryMethodLabel, deliveryMethodField.getString("label"));
+        Assert.assertEquals("harm-reduction-mat-followup-relevance-rules.yml",
+                deliveryMethodField.getJSONObject("relevance")
+                        .getJSONObject("rules-engine")
+                        .getJSONObject("ex-rules")
+                        .getString("rules-file"));
+    }
+
+    private static void assertOptions(JSONArray options, String relativePath, String[][] expectedOptions) throws Exception {
         Assert.assertEquals("Unexpected option count in " + relativePath, expectedOptions.length, options.length());
-
         for (int i = 0; i < expectedOptions.length; i++) {
             JSONObject option = options.getJSONObject(i);
             Assert.assertEquals("Unexpected key at index " + i + " in " + relativePath,
@@ -75,6 +127,16 @@ public class MatFollowUpFormAssetsTest {
             Assert.assertEquals("Expected openmrs_entity_id to match key at index " + i + " in " + relativePath,
                     expectedOptions[i][0], option.getString("openmrs_entity_id"));
         }
+    }
+
+    private static JSONObject getField(JSONArray fields, String key) throws Exception {
+        for (int i = 0; i < fields.length(); i++) {
+            JSONObject field = fields.getJSONObject(i);
+            if (key.equals(field.getString("key"))) {
+                return field;
+            }
+        }
+        throw new AssertionError("Missing field " + key);
     }
 
     private static String readText(String relativePath) throws IOException {

@@ -50,6 +50,41 @@
     "title": "Harm Reduction MAT Clients Followup",
     "fields": [
       {
+        "key": "methadone_treatment_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "methadone_treatment_status",
+        "type": "native_radio",
+        "label": "Methadone treatment?",
+        "options": [
+          {
+            "key": "continuing_methadone_treatment",
+            "text": "Continuing Methadone treatment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "continuing_methadone_treatment"
+          },
+          {
+            "key": "stopped_using_methadone",
+            "text": "Stopped using Methadone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stopped_using_methadone"
+          },
+          {
+            "key": "completed_methadone_treatment",
+            "text": "Completed Methadone treatment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "completed_methadone_treatment"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
         "key": "health_education_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -160,6 +195,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mat-followup-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -189,6 +231,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mat-followup-relevance-rules.yml"
+            }
+          }
         }
       }
     ]

@@ -50,6 +50,41 @@
     "title": "Huduma kwa wateja walioanza MAT",
     "fields": [
       {
+        "key": "methadone_treatment_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "methadone_treatment_status",
+        "type": "native_radio",
+        "label": "Tiba ya Methadone?",
+        "options": [
+          {
+            "key": "continuing_methadone_treatment",
+            "text": "Anaendelea na Tiba ya Methadone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "continuing_methadone_treatment"
+          },
+          {
+            "key": "stopped_using_methadone",
+            "text": "Ameacha kutumia Methadone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stopped_using_methadone"
+          },
+          {
+            "key": "completed_methadone_treatment",
+            "text": "Amemaliza Tiba ya Methadone",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "completed_methadone_treatment"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
         "key": "health_education_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -160,6 +195,13 @@
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mat-followup-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -189,6 +231,13 @@
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-mat-followup-relevance-rules.yml"
+            }
+          }
         }
       }
     ]

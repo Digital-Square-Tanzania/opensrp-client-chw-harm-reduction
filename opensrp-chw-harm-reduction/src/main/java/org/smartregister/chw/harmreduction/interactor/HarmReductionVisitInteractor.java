@@ -41,8 +41,10 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     protected void populateActionList(BaseHarmReductionVisitContract.InteractorCallBack callBack) {
         final Runnable runnable = () -> {
             try {
+                boolean shouldStartPreMatSession = HarmReductionDao.shouldStartPreMatSession(memberObject.getBaseEntityId());
+                boolean hasMatConsent = HarmReductionDao.getRocConsentForJoiningMatServices(memberObject.getBaseEntityId()).equalsIgnoreCase("yes");
                 evaluateClientStatus(details);
-                if (HarmReductionDao.getRocConsentForJoiningMatServices(memberObject.getBaseEntityId()).equalsIgnoreCase("yes")) {
+                if (shouldStartPreMatSession) {
                     evaluatePreMatServicesHealthEducation(details);
                 } else {
                     evaluateHealthEducation(details);
@@ -52,7 +54,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 evaluateHivInfectionStatus(details);
                 evaluateOtherDiseasesScreening(details);
                 evaluateReferralsProvided(details);
-                if (!HarmReductionDao.getRocConsentForJoiningMatServices(memberObject.getBaseEntityId()).equalsIgnoreCase("yes")) {
+                if (!hasMatConsent) {
                     evaluateConsentJoiningMat(details);
                 }
             } catch (BaseHarmReductionVisitAction.ValidationException e) {

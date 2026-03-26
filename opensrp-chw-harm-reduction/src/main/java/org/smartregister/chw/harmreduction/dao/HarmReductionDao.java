@@ -433,6 +433,25 @@ public class HarmReductionDao extends AbstractDao {
 
     }
 
+    public static String getRiskAssessmentPregnancyStatus(String baseEntityID) {
+        String sql = "select pregnant from " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " where base_entity_id = '" + baseEntityID + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> map = cursor -> getCursorValue(cursor, "pregnant");
+        List<String> res = readData(sql, map);
+
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
+            return res.get(0);
+        } else
+            return "";
+
+    }
+
+    public static boolean shouldStartPreMatSession(String baseEntityID) {
+        return "yes".equalsIgnoreCase(getRocMatPreSession(baseEntityID))
+                || "yes".equalsIgnoreCase(getRocConsentForJoiningMatServices(baseEntityID));
+    }
+
 
     public static String getVisitDateForRocConsentForJoiningMatServices(String baseEntityID) {
         String sql = "select dateCreated from " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT +

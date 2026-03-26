@@ -14,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseClientTypeFollowupStatusActionHelper;
+import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseLifeSkillsParticipationActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseLinkageToOtherServicesActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseNextAppointmentDateActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseRecoveryCapitalAssessmentAftercareActionHelper;
@@ -55,6 +56,7 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
                 evaluateClientTypeFollowupStatus(details);
                 evaluateVitalSignCheck(details);
                 evaluateRoutineServices(details);
+                evaluateLifeSkillsParticipation(details);
                 evaluateLinkageToOtherServices(details);
                 evaluateReferrals(details);
                 evaluateRecoveryCapitalAssessmentAftercare(details);
@@ -107,6 +109,18 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
                 .withFormName(Constants.FORMS.HARM_REDUCTION_SOBER_HOUSE_ROUTINE_SERVICES)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_sober_house_routine_services), action);
+    }
+
+    private void evaluateLifeSkillsParticipation(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {
+        HarmReductionSoberHouseLifeSkillsParticipationActionHelper actionHelper = new HarmReductionSoberHouseLifeSkillsParticipationActionHelper();
+        BaseHarmReductionVisitAction action = getBuilder(context.getString(R.string.harm_reduction_sober_house_life_skills_participation))
+                .withOptional(false)
+                .withDetails(details)
+                .withHelper(actionHelper)
+                .withValidator(continuingServiceValidator())
+                .withFormName(Constants.FORMS.HARM_REDUCTION_SOBER_HOUSE_LIFE_SKILLS_PARTICIPATION)
+                .build();
+        actionList.put(context.getString(R.string.harm_reduction_sober_house_life_skills_participation), action);
     }
 
     private void evaluateLinkageToOtherServices(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {

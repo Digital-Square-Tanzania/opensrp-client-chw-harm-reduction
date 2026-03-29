@@ -41,6 +41,7 @@ public interface Constants {
         String HARM_REDUCTION_SOBER_HOUSE_ROUTINE_SERVICES = "harm_reduction_sober_house_routine_services";
         String HARM_REDUCTION_SOBER_HOUSE_CLIENT_TYPE_FOLLOWUP_STATUS = "harm_reduction_sober_house_client_type_followup_status";
         String HARM_REDUCTION_SOBER_HOUSE_VITAL_SIGN_CHECK = "harm_reduction_sober_house_vitals";
+        String HARM_REDUCTION_SOBER_HOUSE_LIFE_SKILLS_PARTICIPATION = "harm_reduction_sober_house_life_skills_participation";
         String HARM_REDUCTION_SOBER_HOUSE_LINKAGE_TO_OTHER_SERVICES = "harm_reduction_sober_house_linkage_to_other_services";
         String HARM_REDUCTION_SOBER_HOUSE_REFERRALS = "harm_reduction_sober_house_referrals";
         String HARM_REDUCTION_SOBER_HOUSE_RECOVERY_CAPITAL_ASSESSMENT_AFTERCARE = "harm_reduction_sober_house_recovery_capital_assessment_aftercare";

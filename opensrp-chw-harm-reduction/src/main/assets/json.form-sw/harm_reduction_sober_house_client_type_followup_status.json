@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "client_type",
         "type": "native_radio",
-        "label": "Aina ya Mteja",
+        "label": "Aina ya mpokea huduma",
         "options": [
           {
             "key": "new_client",

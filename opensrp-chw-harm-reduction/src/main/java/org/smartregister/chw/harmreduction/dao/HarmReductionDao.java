@@ -134,9 +134,12 @@ public class HarmReductionDao extends AbstractDao {
         return null;
     }
 
-    public static boolean hasHarmReductionVisit(String baseEntityId) {
-        String sql = "SELECT count(p.entity_id) count FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT + " p " +
-                " WHERE p.entity_id = '" + baseEntityId + "'";
+    public static boolean hasPreviousHarmReductionFollowUpVisit(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return false;
+        }
+
+        String sql = buildHasPreviousHarmReductionFollowUpVisitQuery(baseEntityId);
 
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
 
@@ -146,6 +149,16 @@ public class HarmReductionDao extends AbstractDao {
         }
         Integer count = res.get(0);
         return count != null && count > 0;
+    }
+
+    @VisibleForTesting
+    static String buildHasPreviousHarmReductionFollowUpVisitQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT count(p.entity_id) count FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT + " p" +
+                " WHERE p.entity_id = '" + baseEntityId + "'";
     }
 
     public static String getLatestCommunityFollowUpStatus(String baseEntityId) {

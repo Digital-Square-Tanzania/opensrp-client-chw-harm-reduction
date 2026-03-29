@@ -87,7 +87,7 @@ public class HarmReductionClientStatusActionHelperTest {
         }
 
         @Override
-        protected boolean hasHarmReductionVisit() {
+        protected boolean hasPreviousFollowUpVisit() {
             return hasVisit;
         }
 

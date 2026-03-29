@@ -108,7 +108,7 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
             return;
         }
 
-        if (!hasHarmReductionVisit()) {
+        if (!hasPreviousFollowUpVisit()) {
             return;
         }
 
@@ -154,7 +154,7 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
         if (memberObject == null
                 || StringUtils.isBlank(memberObject.getBaseEntityId())
                 || !StringUtils.equalsIgnoreCase(memberObject.getGender(), "female")
-                || hasHarmReductionVisit()) {
+                || hasPreviousFollowUpVisit()) {
             return;
         }
 
@@ -193,8 +193,8 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
         }
     }
 
-    protected boolean hasHarmReductionVisit() {
-        return memberObject != null && HarmReductionDao.hasHarmReductionVisit(memberObject.getBaseEntityId());
+    protected boolean hasPreviousFollowUpVisit() {
+        return memberObject != null && HarmReductionDao.hasPreviousHarmReductionFollowUpVisit(memberObject.getBaseEntityId());
     }
 
     protected String getRiskAssessmentPregnancyStatus() {

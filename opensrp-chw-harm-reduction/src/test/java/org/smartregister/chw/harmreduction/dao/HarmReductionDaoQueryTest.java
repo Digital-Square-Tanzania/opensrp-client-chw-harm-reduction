@@ -32,4 +32,14 @@ public class HarmReductionDaoQueryTest {
                 query
         );
     }
+
+    @Test
+    public void buildHasPreviousHarmReductionFollowUpVisitQueryShouldTargetCommunityFollowUpTable() {
+        String query = HarmReductionDao.buildHasPreviousHarmReductionFollowUpVisitQuery("base-id");
+
+        Assert.assertEquals(
+                "SELECT count(p.entity_id) count FROM ec_harm_reduction_followup_visit p WHERE p.entity_id = 'base-id'",
+                query
+        );
+    }
 }

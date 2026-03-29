@@ -23,6 +23,11 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
     private static final String GLOBAL = "global";
     private static final String CLIENT_STATUS_FIELD_KEY = "client_status";
     private static final String CLIENT_STATUS_NEW_OPTION = "new";
+    private static final String PREGNANCY_BREASTFEEDING_STATUS_FIELD_KEY = "pregnancy_breastfeeding_status";
+    private static final String PREGNANT_FIELD_VALUE = "pregnant";
+    private static final String NOT_PREGNANT_FIELD_VALUE = "not_pregnant";
+    private static final String YES = "yes";
+    private static final String NO = "no";
 
     protected MemberObject memberObject;
     protected String clientStatus;
@@ -48,6 +53,7 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
             }
             global.put("sex", memberObject.getGender().toLowerCase());
             removeNewClientStatusOption(jsonObject);
+            prefillPregnancyBreastfeedingStatus(jsonObject);
             return jsonObject.toString();
         } catch (JSONException e) {
             Timber.e(e);
@@ -102,7 +108,7 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
             return;
         }
 
-        if (!HarmReductionDao.hasHarmReductionVisit(memberObject.getBaseEntityId())) {
+        if (!hasPreviousFollowUpVisit()) {
             return;
         }
 
@@ -142,5 +148,56 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
         } catch (JSONException e) {
             Timber.e(e);
         }
+    }
+
+    private void prefillPregnancyBreastfeedingStatus(JSONObject jsonObject) {
+        if (memberObject == null
+                || StringUtils.isBlank(memberObject.getBaseEntityId())
+                || !StringUtils.equalsIgnoreCase(memberObject.getGender(), "female")
+                || hasPreviousFollowUpVisit()) {
+            return;
+        }
+
+        try {
+            JSONObject stepOne = jsonObject.optJSONObject(JsonFormConstants.STEP1);
+            if (stepOne == null) {
+                return;
+            }
+
+            JSONArray fields = stepOne.optJSONArray(JsonFormConstants.FIELDS);
+            if (fields == null) {
+                return;
+            }
+
+            JSONObject field = null;
+            for (int i = 0; i < fields.length(); i++) {
+                JSONObject currentField = fields.optJSONObject(i);
+                if (currentField != null && PREGNANCY_BREASTFEEDING_STATUS_FIELD_KEY.equalsIgnoreCase(currentField.optString(JsonFormConstants.KEY))) {
+                    field = currentField;
+                    break;
+                }
+            }
+
+            if (field == null || StringUtils.isNotBlank(field.optString(JsonFormConstants.VALUE))) {
+                return;
+            }
+
+            String riskAssessmentPregnancyStatus = getRiskAssessmentPregnancyStatus();
+            if (YES.equalsIgnoreCase(riskAssessmentPregnancyStatus)) {
+                field.put(JsonFormConstants.VALUE, PREGNANT_FIELD_VALUE);
+            } else if (NO.equalsIgnoreCase(riskAssessmentPregnancyStatus)) {
+                field.put(JsonFormConstants.VALUE, NOT_PREGNANT_FIELD_VALUE);
+            }
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
+    }
+
+    protected boolean hasPreviousFollowUpVisit() {
+        return memberObject != null && HarmReductionDao.hasPreviousHarmReductionFollowUpVisit(memberObject.getBaseEntityId());
+    }
+
+    protected String getRiskAssessmentPregnancyStatus() {
+        return memberObject == null ? "" : HarmReductionDao.getRiskAssessmentPregnancyStatus(memberObject.getBaseEntityId());
     }
 }

@@ -1,4 +1,11 @@
 ---
+name: step1_roc_group_type
+description: Calculate roc_group_type from route_of_substance_use
+priority: 1
+condition: "true"
+actions:
+  - "calculation = ((step1_route_of_substance_use == null || step1_route_of_substance_use == '') ? '-' : (step1_route_of_substance_use.contains('injecting') ? 'idu' : 'nidu'))"
+---
 name: step1_status
 description: Mirror follow_up_status into status for register visibility
 priority: 1

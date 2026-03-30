@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_register_existing_client",
+  "encounter_type": "Harm Reduction Risk Assessment",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "harm_reduction_register_existing_client",
+    "title": "Existing Client Registration",
     "fields": [
       {
         "key": "roc_group_type",
@@ -70,6 +70,13 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "idu"
+          },
+          {
+            "key": "group_use",
+            "text": "Matumizi ya Kundi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "group_use"
           }
         ],
         "v_required": {
@@ -88,6 +95,62 @@
         "v_required": {
           "value": "true",
           "err": "Please enter unit Identification Code (UIC)"
+        }
+      },
+      {
+        "key": "follow_up_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "follow_up_status",
+        "type": "native_radio",
+        "label": "Follow-up status",
+        "options": [
+          {
+            "key": "on_community_service",
+            "text": "On community service",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "on_community_service"
+          },
+          {
+            "key": "started_mat_services",
+            "text": "Started MAT services",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "started_mat_services"
+          },
+          {
+            "key": "refused_mat_services",
+            "text": "Refused MAT services",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "refused_mat_services"
+          },
+          {
+            "key": "moved_out",
+            "text": "Moved out",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "moved_out"
+          },
+          {
+            "key": "interrupted_services",
+            "text": "Interrupted services",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "interrupted_services"
+          },
+          {
+            "key": "deceased",
+            "text": "Deceased",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "deceased"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -112,6 +175,36 @@
         "v_required": {
           "value": "true",
           "err": "Please enter maskani name"
+        }
+      },
+      {
+        "key": "status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "status",
+        "type": "hidden",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "client_started_mat",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_started_mat",
+        "type": "hidden",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
         }
       }
     ]

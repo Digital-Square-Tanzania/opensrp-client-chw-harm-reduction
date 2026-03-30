@@ -1,0 +1,14 @@
+---
+name: step1_status
+description: Mirror follow_up_status into status for register visibility
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step1_follow_up_status"
+---
+name: step1_client_started_mat
+description: Mark MAT clients from their selected follow_up_status
+priority: 1
+condition: "true"
+actions:
+  - "calculation = (step1_follow_up_status == 'started_mat_services' ? 'yes' : 'no')"

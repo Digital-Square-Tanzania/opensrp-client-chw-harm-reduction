@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_register_existing_client",
+  "encounter_type": "Harm Reduction Risk Assessment",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,73 +47,384 @@
     }
   },
   "step1": {
-    "title": "Mteja aliyesajiliwa",
-    "fields": [
-      {
-        "key": "roc_group_type",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "roc_group_type",
-        "type": "native_radio",
-        "label": "Aina ya kundi la RoC",
-        "options": [
-          {
-            "key": "nidu",
-            "text": "NIDU",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "nidu"
-          },
-          {
-            "key": "idu",
-            "text": "IDU",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "idu"
+      "title": "Usajili wa Mteja Aliyekuwepo",
+      "fields": [
+        {
+          "key": "route_of_substance_use",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "route_of_substance_use",
+          "type": "check_box",
+          "label": "Unatumia dawa za kulevya kwa njia gani",
+          "combine_checkbox_option_values": "true",
+          "options": [
+            {
+              "key": "injecting",
+              "text": "Kujidunga",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "injecting"
+            },
+            {
+              "key": "smoking",
+              "text": "Kuvuta",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "smoking"
+            },
+            {
+              "key": "drinking",
+              "text": "Kunywa",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "drinking"
+            },
+            {
+              "key": "sniffing",
+              "text": "Kunusa",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "sniffing"
+            }
+          ],
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali chagua chaguo moja"
           }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
+        },
+        {
+          "key": "uic",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "uic",
+          "type": "edit_text",
+          "hint": "Namba ya Utambulisho ya Kitengo (UIC)",
+          "edit_type": "number",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali ingiza namba ya Utambulisho ya Kitengo (UIC)"
+          }
+        },
+        {
+          "key": "follow_up_status",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "follow_up_status",
+          "type": "native_radio",
+          "label": "Hali ya ufuatiliaji",
+          "options": [
+            {
+              "key": "continue_service",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "continue_service",
+              "text": "Anaendelea na Huduma"
+            },
+            {
+              "key": "started_mat_services",
+              "text": "Ameanza huduma za MAT",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "started_mat_services"
+            },
+            {
+              "key": "lost",
+              "text": "Amepotea",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "lost"
+            },
+            {
+              "key": "moved",
+              "text": "Amehama",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "moved"
+            },
+            {
+              "key": "discontinued_service",
+              "text": "Ameacha huduma",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "discontinued_service"
+            },
+            {
+              "key": "overdose",
+              "text": "Amezidisha dozi ya dawa",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "overdose"
+            },
+            {
+              "key": "client_deceased",
+              "text": "Amefariki",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "client_deceased"
+            }
+          ],
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali chagua chaguo moja"
+          }
+        },
+        {
+          "key": "service_start_date",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "service_start_date",
+          "type": "date_picker",
+          "hint": "Tarehe ya kuanza huduma",
+          "v_required": {
+            "value": "true",
+            "err": "Inahitajika"
+          }
+        },
+        {
+          "key": "maskani_name",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "maskani_name",
+          "type": "edit_text",
+          "hint": "Jina la Maskani",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali ingiza jina la Maskani"
+          }
+        },
+        {
+          "key": "cause_of_death",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "cause_of_death",
+          "type": "native_radio",
+          "label": "Sababu ya kifo",
+          "options": [
+            {
+              "key": "accident",
+              "text": "Ajali",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "accident"
+            },
+            {
+              "key": "overdose",
+              "text": "Overdose",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "overdose"
+            },
+            {
+              "key": "other",
+              "text": "Nyinginezo (Taja)",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "other"
+            }
+          ],
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali chagua chaguo moja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "cause_of_death_other_specify",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "cause_of_death_other_specify",
+          "type": "edit_text",
+          "hint": "Taja sababu nyingine ya kifo",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali taja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "place_of_death",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "place_of_death",
+          "type": "native_radio",
+          "label": "Mahali kifo kilipotokea",
+          "options": [
+            {
+              "key": "home",
+              "text": "Nyumbani",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "home"
+            },
+            {
+              "key": "maskani",
+              "text": "Maskani",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "maskani"
+            }
+          ],
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali chagua chaguo moja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "death_action_taken",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "death_action_taken",
+          "type": "edit_text",
+          "hint": "Nini kilifanyika",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali taja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "overdose_reason",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "overdose_reason",
+          "type": "edit_text",
+          "hint": "Sababu ya kuzidisha dozi ya dawa (overdose)",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali taja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "place_of_overdose",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "place_of_overdose",
+          "type": "native_radio",
+          "label": "Mahali Overdose ilipotokea",
+          "options": [
+            {
+              "key": "home",
+              "text": "Nyumbani",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "home"
+            },
+            {
+              "key": "maskani",
+              "text": "Maskani",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "maskani"
+            }
+          ],
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali chagua chaguo moja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "overdose_action_taken",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "overdose_action_taken",
+          "type": "edit_text",
+          "hint": "Nini kilifanyika",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali taja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "roc_group_type",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "roc_group_type",
+          "type": "hidden",
+          "read_only": true,
+          "calculation": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "status",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "status",
+          "type": "hidden",
+          "read_only": true,
+          "calculation": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "client_started_mat",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "client_started_mat",
+          "type": "hidden",
+          "read_only": true,
+          "calculation": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
         }
-      },
-      {
-        "key": "uic",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "uic",
-        "type": "edit_text",
-        "hint": "Namba ya Utambulisho ya Kitengo (UIC)",
-        "edit_type": "number",
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali ingiza namba ya Utambulisho ya Kitengo (UIC)"
-        }
-      },
-      {
-        "key": "service_start_date",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "service_start_date",
-        "type": "date_picker",
-        "hint": "Tarehe ya kuanza huduma",
-        "v_required": {
-          "value": "true",
-          "err": "Inahitajika"
-        }
-      },
-      {
-        "key": "maskani_name",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "maskani_name",
-        "type": "edit_text",
-        "hint": "Jina la Maskani",
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali ingiza jina la Maskani"
-        }
-      }
-    ]
+      ]
+    }
   }
-}

@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "harm_reduction_register_existing_client",
+  "encounter_type": "Harm Reduction Risk Assessment",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -47,29 +47,44 @@
     }
   },
   "step1": {
-    "title": "harm_reduction_register_existing_client",
+    "title": "Existing Client Registration",
     "fields": [
       {
-        "key": "roc_group_type",
+        "key": "route_of_substance_use",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "roc_group_type",
-        "type": "native_radio",
-        "label": "RoC group type",
+        "openmrs_entity_id": "route_of_substance_use",
+        "type": "check_box",
+        "label": "Route of substance use",
+        "combine_checkbox_option_values": "true",
         "options": [
           {
-            "key": "nidu",
-            "text": "NIDU",
+            "key": "injecting",
+            "text": "Injecting",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "nidu"
+            "openmrs_entity_id": "injecting"
           },
           {
-            "key": "idu",
-            "text": "IDU",
+            "key": "smoking",
+            "text": "Smoking",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "idu"
+            "openmrs_entity_id": "smoking"
+          },
+          {
+            "key": "drinking",
+            "text": "Drinking",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "drinking"
+          },
+          {
+            "key": "sniffing",
+            "text": "Sniffing",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sniffing"
           }
         ],
         "v_required": {
@@ -88,6 +103,69 @@
         "v_required": {
           "value": "true",
           "err": "Please enter unit Identification Code (UIC)"
+        }
+      },
+      {
+        "key": "follow_up_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "follow_up_status",
+        "type": "native_radio",
+        "label": "Follow-up status",
+        "options": [
+          {
+            "key": "continue_service",
+            "text": "Continue service",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "continue_service"
+          },
+          {
+            "key": "started_mat_services",
+            "text": "Started MAT services",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "started_mat_services"
+          },
+          {
+            "key": "lost",
+            "text": "Lost",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "lost"
+          },
+          {
+            "key": "moved",
+            "text": "Moved",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "moved"
+          },
+          {
+            "key": "discontinued_service",
+            "text": "Discontinued service",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "discontinued_service"
+          },
+          {
+            "key": "overdose",
+            "text": "Overdose",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "overdose"
+          },
+          {
+            "key": "client_deceased",
+            "text": "Died",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "client_deceased"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         }
       },
       {
@@ -112,6 +190,239 @@
         "v_required": {
           "value": "true",
           "err": "Please enter maskani name"
+        }
+      },
+      {
+        "key": "cause_of_death",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "cause_of_death",
+        "type": "native_radio",
+        "label": "Cause of death",
+        "options": [
+          {
+            "key": "accident",
+            "text": "Accident",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "accident"
+          },
+          {
+            "key": "overdose",
+            "text": "Overdose",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "overdose"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "cause_of_death_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "cause_of_death_other_specify",
+        "type": "edit_text",
+        "hint": "Specify other cause of death",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "place_of_death",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "place_of_death",
+        "type": "native_radio",
+        "label": "Place where death occurred",
+        "options": [
+          {
+            "key": "home",
+            "text": "Home",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "home"
+          },
+          {
+            "key": "maskani",
+            "text": "Maskani",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "maskani"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "death_action_taken",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "death_action_taken",
+        "type": "edit_text",
+        "hint": "What was done",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "overdose_reason",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "overdose_reason",
+        "type": "edit_text",
+        "hint": "Reason for overdose",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "place_of_overdose",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "place_of_overdose",
+        "type": "native_radio",
+        "label": "Place where overdose occurred",
+        "options": [
+          {
+            "key": "home",
+            "text": "Home",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "home"
+          },
+          {
+            "key": "maskani",
+            "text": "Maskani",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "maskani"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "overdose_action_taken",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "overdose_action_taken",
+        "type": "edit_text",
+        "hint": "What was done",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "roc_group_type",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "roc_group_type",
+        "type": "hidden",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "status",
+        "type": "hidden",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "client_started_mat",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_started_mat",
+        "type": "hidden",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
         }
       }
     ]

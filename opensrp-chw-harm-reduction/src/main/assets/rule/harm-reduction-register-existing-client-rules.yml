@@ -1,0 +1,70 @@
+---
+name: step1_cause_of_death
+description: Show cause_of_death when follow_up_status is client_deceased
+priority: 1
+condition: "step1_follow_up_status == 'client_deceased'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_cause_of_death_other_specify
+description: Show cause_of_death_other_specify when follow_up_status is client_deceased and cause is other
+priority: 1
+condition: "step1_follow_up_status == 'client_deceased' && step1_cause_of_death == 'other'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_place_of_death
+description: Show place_of_death when follow_up_status is client_deceased
+priority: 1
+condition: "step1_follow_up_status == 'client_deceased'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_death_action_taken
+description: Show death_action_taken when follow_up_status is client_deceased
+priority: 1
+condition: "step1_follow_up_status == 'client_deceased'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_overdose_reason
+description: Show overdose_reason when follow_up_status is overdose
+priority: 1
+condition: "step1_follow_up_status == 'overdose'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_place_of_overdose
+description: Show place_of_overdose when follow_up_status is overdose
+priority: 1
+condition: "step1_follow_up_status == 'overdose'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_overdose_action_taken
+description: Show overdose_action_taken when follow_up_status is overdose
+priority: 1
+condition: "step1_follow_up_status == 'overdose'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_roc_group_type
+description: Calculate roc_group_type from route_of_substance_use
+priority: 1
+condition: "true"
+actions:
+  - "calculation = ((step1_route_of_substance_use == null || step1_route_of_substance_use == '') ? '-' : (step1_route_of_substance_use.contains('injecting') ? 'idu' : 'nidu'))"
+---
+name: step1_status
+description: Mirror follow_up_status into status for register visibility
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step1_follow_up_status.contains('started_mat_services')?'started_mat_services':'on_community_service'"
+---
+name: step1_client_started_mat
+description: Mark MAT clients from their selected follow_up_status
+priority: 1
+condition: "true"
+actions:
+  - "calculation = (step1_follow_up_status == 'started_mat_services' ? 'yes' : 'no')"

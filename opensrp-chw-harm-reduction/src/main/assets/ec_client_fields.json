@@ -223,6 +223,22 @@
           }
         },
         {
+          "column_name": "uic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "uic"
+          }
+        },
+        {
+          "column_name": "service_start_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "service_start_date"
+          }
+        },
+        {
           "column_name": "received_harm_reduction_services",
           "type": "Event",
           "json_mapping": {
@@ -516,6 +532,22 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "roc_mat_pre_session"
+          }
+        },
+        {
+          "column_name": "roc_group_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "roc_group_type"
+          }
+        },
+        {
+          "column_name": "follow_up_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "follow_up_status"
           }
         },
         {

@@ -36,6 +36,7 @@ public interface Constants {
         String HARM_REDUCTION_OTHER_DISEASES_SCREENING = "harm_reduction_other_diseases_screening";
         String HARM_REDUCTION_REFERRALS_PROVIDED = "harm_reduction_referrals_provided";
         String HARM_REDUCTION_RISK_ASSESSMENT = "harm_reduction_risk_assessment";
+        String HARM_REDUCTION_REGISTER_EXISTING_CLIENT = "harm_reduction_register_existing_client";
         String HARM_REDUCTION_RISKY_SEXUAL_BEHAVIORS = "harm_reduction_risky_sexual_behaviors_condoms";
         String HARM_REDUCTION_SAFE_INJECTION_SERVICES = "harm_reduction_safe_injection_services";
         String HARM_REDUCTION_SOBER_HOUSE_ROUTINE_SERVICES = "harm_reduction_sober_house_routine_services";

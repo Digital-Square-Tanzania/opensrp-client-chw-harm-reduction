@@ -1,4 +1,53 @@
 ---
+name: step1_cause_of_death
+description: Show cause_of_death when follow_up_status is client_deceased
+priority: 1
+condition: "step1_follow_up_status == 'client_deceased'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_cause_of_death_other_specify
+description: Show cause_of_death_other_specify when follow_up_status is client_deceased and cause is other
+priority: 1
+condition: "step1_follow_up_status == 'client_deceased' && step1_cause_of_death == 'other'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_place_of_death
+description: Show place_of_death when follow_up_status is client_deceased
+priority: 1
+condition: "step1_follow_up_status == 'client_deceased'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_death_action_taken
+description: Show death_action_taken when follow_up_status is client_deceased
+priority: 1
+condition: "step1_follow_up_status == 'client_deceased'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_overdose_reason
+description: Show overdose_reason when follow_up_status is overdose
+priority: 1
+condition: "step1_follow_up_status == 'overdose'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_place_of_overdose
+description: Show place_of_overdose when follow_up_status is overdose
+priority: 1
+condition: "step1_follow_up_status == 'overdose'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_overdose_action_taken
+description: Show overdose_action_taken when follow_up_status is overdose
+priority: 1
+condition: "step1_follow_up_status == 'overdose'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_roc_group_type
 description: Calculate roc_group_type from route_of_substance_use
 priority: 1

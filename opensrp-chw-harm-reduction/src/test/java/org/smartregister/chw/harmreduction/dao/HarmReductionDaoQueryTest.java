@@ -44,6 +44,26 @@ public class HarmReductionDaoQueryTest {
     }
 
     @Test
+    public void buildHasPreviousSoberHouseServiceVisitQueryShouldTargetSoberHouseServiceTable() {
+        String query = HarmReductionDao.buildHasPreviousSoberHouseServiceVisitQuery("base-id");
+
+        Assert.assertEquals(
+                "SELECT count(p.entity_id) count FROM ec_harm_reduction_sober_house_services p WHERE p.entity_id = 'base-id'",
+                query
+        );
+    }
+
+    @Test
+    public void buildLatestSoberHouseEnrollmentClientStatusQueryShouldTargetEnrollmentTable() {
+        String query = HarmReductionDao.buildLatestSoberHouseEnrollmentClientStatusQuery("base-id");
+
+        Assert.assertEquals(
+                "SELECT client_status FROM ec_harm_reduction_sober_house_enrollment WHERE is_closed = 0 AND base_entity_id = 'base-id' ORDER BY last_interacted_with DESC LIMIT 1",
+                query
+        );
+    }
+
+    @Test
     public void buildSoberHouseMemberQueryShouldRequireDetoxification() {
         String query = HarmReductionDao.buildSoberHouseMemberQuery("base-id");
 

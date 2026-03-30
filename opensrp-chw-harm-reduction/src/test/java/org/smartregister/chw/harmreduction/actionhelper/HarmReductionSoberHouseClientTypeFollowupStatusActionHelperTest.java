@@ -14,7 +14,7 @@ public class HarmReductionSoberHouseClientTypeFollowupStatusActionHelperTest {
     @Test
     public void getPreProcessedShouldRemoveNewClientWhenSoberHouseServiceVisitExists() throws Exception {
         HarmReductionSoberHouseClientTypeFollowupStatusActionHelper helper =
-                new TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper(getMemberObject(), true, "new");
+                new TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper(getMemberObject(), true, "new_client");
         helper.onJsonFormLoaded(getClientTypeForm(), null, null);
 
         JSONObject form = new JSONObject(helper.getPreProcessed());
@@ -37,7 +37,7 @@ public class HarmReductionSoberHouseClientTypeFollowupStatusActionHelperTest {
     @Test
     public void getPreProcessedShouldKeepNewClientWhenNoServiceVisitExistsAndEnrollmentStatusIsNew() throws Exception {
         HarmReductionSoberHouseClientTypeFollowupStatusActionHelper helper =
-                new TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper(getMemberObject(), false, "new");
+                new TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper(getMemberObject(), false, "new_client");
         helper.onJsonFormLoaded(getClientTypeForm(), null, null);
 
         JSONObject form = new JSONObject(helper.getPreProcessed());

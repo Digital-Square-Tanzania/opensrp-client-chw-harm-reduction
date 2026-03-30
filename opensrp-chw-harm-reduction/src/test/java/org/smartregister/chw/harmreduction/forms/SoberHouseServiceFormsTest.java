@@ -10,6 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class SoberHouseServiceFormsTest {
 
@@ -33,6 +35,8 @@ public class SoberHouseServiceFormsTest {
         JSONObject swahiliContinuationField = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "service_continuation_status");
         JSONObject englishReasonField = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "discontinued_reason");
         JSONObject swahiliReasonField = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "discontinued_reason");
+        JSONObject englishOtherReasonField = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "discontinued_other_reason");
+        JSONObject swahiliOtherReasonField = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "discontinued_other_reason");
         JSONObject englishFollowUpStatus = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "follow_up_status");
         JSONObject swahiliFollowUpStatus = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "follow_up_status");
 
@@ -42,6 +46,10 @@ public class SoberHouseServiceFormsTest {
         Assert.assertEquals(2, swahiliContinuationField.getJSONArray("options").length());
         Assert.assertEquals(4, englishReasonField.getJSONArray("options").length());
         Assert.assertEquals(4, swahiliReasonField.getJSONArray("options").length());
+        Assert.assertEquals("edit_text", englishOtherReasonField.getString("type"));
+        Assert.assertEquals("edit_text", swahiliOtherReasonField.getString("type"));
+        Assert.assertEquals("Please specify other reason", englishOtherReasonField.getString("hint"));
+        Assert.assertEquals("Tafadhali taja sababu nyingine", swahiliOtherReasonField.getString("hint"));
         Assert.assertEquals("hidden", englishFollowUpStatus.getString("type"));
         Assert.assertEquals("hidden", swahiliFollowUpStatus.getString("type"));
     }
@@ -56,8 +64,19 @@ public class SoberHouseServiceFormsTest {
         String reasonRule = getRuleBlock(rules, "step1_discontinued_reason");
         Assert.assertTrue(reasonRule.contains("step1_client_type == 'returning_client' && step1_service_continuation_status == 'discontinued_service'"));
 
+        String otherReasonRule = getRuleBlock(rules, "step1_discontinued_other_reason");
+        Assert.assertTrue(otherReasonRule.contains("step1_discontinued_reason == 'other'"));
+
         String storedStatusRule = getRuleBlock(rules, "step1_follow_up_status");
         Assert.assertTrue(storedStatusRule.contains("step1_service_continuation_status == 'continuing_service' ? 'continuing_service' : step1_discontinued_reason"));
+    }
+
+    @Test
+    public void testSoberHouseFollowUpOtherReasonFieldIsMapped() throws Exception {
+        JSONObject clientFields = readJson("src/main/assets/ec_client_fields.json");
+        Set<String> mappedColumns = mappedColumns(clientFields);
+
+        Assert.assertTrue(mappedColumns.contains("discontinued_other_reason"));
     }
 
     @Test
@@ -113,6 +132,24 @@ public class SoberHouseServiceFormsTest {
 
     private static JSONObject readJson(String relativePath) throws Exception {
         return new JSONObject(readText(relativePath));
+    }
+
+    private static Set<String> mappedColumns(JSONObject clientFields) throws Exception {
+        Set<String> columns = new LinkedHashSet<>();
+        JSONArray bindObjects = clientFields.getJSONArray("bindobjects");
+
+        for (int i = 0; i < bindObjects.length(); i++) {
+            JSONArray mappedColumns = bindObjects.getJSONObject(i).optJSONArray("columns");
+            if (mappedColumns == null) {
+                continue;
+            }
+
+            for (int j = 0; j < mappedColumns.length(); j++) {
+                columns.add(mappedColumns.getJSONObject(j).optString("column_name"));
+            }
+        }
+
+        return columns;
     }
 
     private static String getRuleBlock(String rules, String ruleName) {

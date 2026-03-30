@@ -80,7 +80,7 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "not_done",
-            "text": "It hasn't happened"
+            "text": "Vitals not captured"
           }
         ],
         "v_required": {

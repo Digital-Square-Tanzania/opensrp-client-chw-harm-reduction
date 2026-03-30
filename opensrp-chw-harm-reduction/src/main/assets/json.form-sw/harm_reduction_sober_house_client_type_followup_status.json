@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "Hali ya mteja",
+    "title": "Hali ya Ufuatiliaji",
     "fields": [
       {
         "key": "client_type",
@@ -92,12 +92,12 @@
         }
       },
       {
-        "key": "follow_up_status",
+        "key": "service_continuation_status",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "follow_up_status",
+        "openmrs_entity_id": "service_continuation_status",
         "type": "native_radio",
-        "label": "Hali ya Mpokea huduma",
+        "label": "Hali ya Ufuatiliaji",
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo moja"
@@ -118,6 +118,34 @@
             "text": "Anaendelea na Huduma"
           },
           {
+            "key": "discontinued_service",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "discontinued_service",
+            "text": "Haendelei na Huduma"
+          }
+        ]
+      },
+      {
+        "key": "discontinued_reason",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "discontinued_reason",
+        "type": "native_radio",
+        "label": "Sababu ya kutokuendelea na huduma",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
             "key": "absconded",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
@@ -137,8 +165,49 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "moved",
             "text": "Amehama"
+          },
+          {
+            "key": "other",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other",
+            "text": "Nyinginezo"
           }
         ]
+      },
+      {
+        "key": "discontinued_other_reason",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "discontinued_other_reason",
+        "type": "edit_text",
+        "hint": "Tafadhali taja sababu nyingine",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "follow_up_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "follow_up_status",
+        "type": "hidden",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
       }
     ]
   }

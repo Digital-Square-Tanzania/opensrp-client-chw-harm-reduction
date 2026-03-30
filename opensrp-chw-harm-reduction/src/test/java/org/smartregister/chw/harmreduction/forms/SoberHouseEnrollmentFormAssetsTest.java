@@ -64,10 +64,10 @@ public class SoberHouseEnrollmentFormAssetsTest {
         Assert.assertTrue(mappedColumns.contains("client_status"));
 
         String screeningRule = getRuleBlock(rules, "step1_screening_tests_done");
-        Assert.assertTrue(screeningRule.contains("step1_client_status == 'new' || step1_client_status == 'relapsed'"));
+        Assert.assertTrue(screeningRule.contains("step1_client_status == 'new_client' || step1_client_status == 'relapsed'"));
 
         String eligibilityRule = getRuleBlock(rules, "step1_sober_house_eligible");
-        Assert.assertTrue(eligibilityRule.contains("step1_client_status == 'new' || step1_client_status == 'relapsed'"));
+        Assert.assertTrue(eligibilityRule.contains("step1_client_status == 'new_client' || step1_client_status == 'relapsed'"));
 
         String nicknameRule = getRuleBlock(rules, "step1_nickname");
         Assert.assertTrue(nicknameRule.contains("step1_client_status == 'existing'"));
@@ -79,7 +79,7 @@ public class SoberHouseEnrollmentFormAssetsTest {
 
             String ruleBlock = getRuleBlock(rules, "step1_" + followUpKey);
             Assert.assertTrue("Missing client-status gate for " + followUpKey,
-                    ruleBlock.contains("step1_client_status == 'new' || step1_client_status == 'relapsed'"));
+                    ruleBlock.contains("step1_client_status == 'new_client' || step1_client_status == 'relapsed'"));
             Assert.assertTrue("Missing treatment relevance condition for " + followUpKey,
                     ruleBlock.contains("step1_" + resultKey + " == 'has_symptoms'"));
             Assert.assertTrue("Missing relevance action for " + followUpKey,
@@ -119,7 +119,7 @@ public class SoberHouseEnrollmentFormAssetsTest {
 
             JSONObject clientStatusField = getField(fields, "client_status");
             Assert.assertEquals(3, clientStatusField.getJSONArray("options").length());
-            Assert.assertTrue(hasOption(clientStatusField, "new"));
+            Assert.assertTrue(hasOption(clientStatusField, "new_client"));
             Assert.assertTrue(hasOption(clientStatusField, "existing"));
             Assert.assertTrue(hasOption(clientStatusField, "relapsed"));
 

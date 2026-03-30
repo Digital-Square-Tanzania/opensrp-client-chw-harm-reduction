@@ -23,6 +23,7 @@ import timber.log.Timber;
 
 public class HarmReductionDao extends AbstractDao {
     private static final String SOBER_HOUSE_SERVICES_TABLE = "ec_harm_reduction_sober_house_services";
+    private static final String SOBER_HOUSE_ENROLLMENT_TABLE = Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT;
     private static final String FOLLOW_UP_STATUS_COLUMN = "follow_up_status";
     private static final String CLIENT_STATUS_COLUMN = "client_status";
     private static final String CLIENT_DECEASED_STATUS = "client_deceased";
@@ -151,6 +152,24 @@ public class HarmReductionDao extends AbstractDao {
         return count != null && count > 0;
     }
 
+    public static boolean hasPreviousSoberHouseServiceVisit(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return false;
+        }
+
+        String sql = buildHasPreviousSoberHouseServiceVisitQuery(baseEntityId);
+
+        DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
+
+        List<Integer> res = readData(sql, dataMap);
+        if (res == null || res.size() != 1) {
+            return false;
+        }
+
+        Integer count = res.get(0);
+        return count != null && count > 0;
+    }
+
     @VisibleForTesting
     static String buildHasPreviousHarmReductionFollowUpVisitQuery(String baseEntityId) {
         if (StringUtils.isBlank(baseEntityId)) {
@@ -158,6 +177,16 @@ public class HarmReductionDao extends AbstractDao {
         }
 
         return "SELECT count(p.entity_id) count FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT + " p" +
+                " WHERE p.entity_id = '" + baseEntityId + "'";
+    }
+
+    @VisibleForTesting
+    static String buildHasPreviousSoberHouseServiceVisitQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT count(p.entity_id) count FROM " + SOBER_HOUSE_SERVICES_TABLE + " p" +
                 " WHERE p.entity_id = '" + baseEntityId + "'";
     }
 
@@ -171,6 +200,21 @@ public class HarmReductionDao extends AbstractDao {
 
     public static String getLatestSoberHouseFollowUpStatus(String baseEntityId) {
         return getLatestStatusFromTable(SOBER_HOUSE_SERVICES_TABLE, FOLLOW_UP_STATUS_COLUMN, baseEntityId);
+    }
+
+    public static String getLatestSoberHouseEnrollmentClientStatus(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        String sql = buildLatestSoberHouseEnrollmentClientStatusQuery(baseEntityId);
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, CLIENT_STATUS_COLUMN, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+
+        return "";
     }
 
     public static boolean isCommunityClientDeceased(String baseEntityId) {
@@ -210,6 +254,16 @@ public class HarmReductionDao extends AbstractDao {
 
         return "SELECT " + statusColumn + " FROM " + tableName +
                 " WHERE is_closed = 0 AND entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    }
+
+    @VisibleForTesting
+    static String buildLatestSoberHouseEnrollmentClientStatusQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT " + CLIENT_STATUS_COLUMN + " FROM " + SOBER_HOUSE_ENROLLMENT_TABLE +
+                " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
     }
 
     public static String getEnrollmentDate(String baseEntityId) {

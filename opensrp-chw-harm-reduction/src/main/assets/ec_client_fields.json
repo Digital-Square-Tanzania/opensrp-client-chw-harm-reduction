@@ -1455,6 +1455,14 @@
           }
         },
         {
+          "column_name": "discontinued_other_reason",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "discontinued_other_reason"
+          }
+        },
+        {
           "column_name": "linkage_to_other_services_provided",
           "type": "Event",
           "json_mapping": {

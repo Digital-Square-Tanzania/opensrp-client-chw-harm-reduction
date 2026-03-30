@@ -1,49 +1,28 @@
 ---
-name: step1_client_type_guidance_new
-description: Show client_type_guidance_new when its condition is met
-priority: 1
-condition: "step1_client_type == 'new_client'"
-actions:
-  - "isRelevant = true"
----
-name: step1_client_type_guidance_returning
-description: Show client_type_guidance_returning when its condition is met
+name: step1_service_continuation_status
+description: Show service_continuation_status when its condition is met
 priority: 1
 condition: "step1_client_type == 'returning_client'"
 actions:
   - "isRelevant = true"
 ---
-name: step1_client_type_guidance_relapse
-description: Show client_type_guidance_relapse when its condition is met
+name: step1_discontinued_reason
+description: Show discontinued_reason when its condition is met
 priority: 1
-condition: "step1_client_type == 'relapsed_client'"
+condition: "step1_client_type == 'returning_client' && step1_service_continuation_status == 'discontinued_service'"
 actions:
   - "isRelevant = true"
 ---
-name: step1_client_type_guidance_migrant
-description: Show client_type_guidance_migrant when its condition is met
+name: step1_discontinued_other_reason
+description: Show discontinued_other_reason when discontinued_reason is other
 priority: 1
-condition: "step1_client_type == 'migrant_client'"
+condition: "step1_client_type == 'returning_client' && step1_service_continuation_status == 'discontinued_service' && step1_discontinued_reason == 'other'"
 actions:
   - "isRelevant = true"
 ---
 name: step1_follow_up_status
-description: Show follow_up_status when its condition is met
+description: Calculate follow_up_status from the continuation choice and discontinued reason
 priority: 1
-condition: "step1_client_type == 'returning_client'"
+condition: "true"
 actions:
-  - "isRelevant = true"
----
-name: step1_client_deceased_prompt
-description: Show client_deceased_prompt when its condition is met
-priority: 1
-condition: "step1_client_type == 'returning_client' && step1_follow_up_status == 'client_deceased'"
-actions:
-  - "isRelevant = true"
----
-name: step1_discontinued_prompt
-description: Show discontinued_prompt when its condition is met
-priority: 1
-condition: "step1_client_type == 'returning_client' && step1_follow_up_status == 'absconded'"
-actions:
-  - "isRelevant = true"
+  - "calculation = (step1_service_continuation_status == 'continuing_service' ? 'continuing_service' : step1_discontinued_reason)"

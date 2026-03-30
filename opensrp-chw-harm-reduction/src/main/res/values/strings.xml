@@ -46,7 +46,7 @@
     <string name="harm_reduction_other_diseases_screening">Screening of Other Diseases</string>
     <string name="harm_reduction_referrals_provided">Referrals Provided</string>
     <string name="harm_reduction_consent_joining_mat">Consent for Joining MAT Services</string>
-    <string name="harm_reduction_sober_house_client_type_followup_status">Client Status</string>
+    <string name="harm_reduction_sober_house_client_type_followup_status">Follow-up Status</string>
     <string name="harm_reduction_sober_house_vital_sign_check">Testing Services</string>
     <string name="harm_reduction_sober_house_routine_services">Routine Services</string>
     <string name="harm_reduction_sober_house_life_skills_participation">Life Skills Participation</string>

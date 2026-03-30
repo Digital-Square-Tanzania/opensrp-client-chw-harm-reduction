@@ -10,6 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class SoberHouseServiceFormsTest {
 
@@ -19,6 +21,62 @@ public class SoberHouseServiceFormsTest {
         JSONObject clientTypeField = getField(form.getJSONObject("step1").getJSONArray("fields"), "client_type");
 
         Assert.assertEquals("Aina ya mpokea huduma", clientTypeField.getString("label"));
+    }
+
+    @Test
+    public void testSoberHouseFollowUpFormRequiresContinuationStatusAndDiscontinuedReason() throws Exception {
+        JSONObject englishForm = readJson("src/main/assets/json.form/harm_reduction_sober_house_client_type_followup_status.json");
+        JSONObject swahiliForm = readJson("src/main/assets/json.form-sw/harm_reduction_sober_house_client_type_followup_status.json");
+
+        Assert.assertEquals("Harm Reduction Sober House Follow-up Status", englishForm.getJSONObject("step1").getString("title"));
+        Assert.assertEquals("Hali ya Ufuatiliaji", swahiliForm.getJSONObject("step1").getString("title"));
+
+        JSONObject englishContinuationField = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "service_continuation_status");
+        JSONObject swahiliContinuationField = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "service_continuation_status");
+        JSONObject englishReasonField = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "discontinued_reason");
+        JSONObject swahiliReasonField = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "discontinued_reason");
+        JSONObject englishOtherReasonField = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "discontinued_other_reason");
+        JSONObject swahiliOtherReasonField = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "discontinued_other_reason");
+        JSONObject englishFollowUpStatus = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "follow_up_status");
+        JSONObject swahiliFollowUpStatus = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "follow_up_status");
+
+        Assert.assertEquals("Follow-up status", englishContinuationField.getString("label"));
+        Assert.assertEquals("Hali ya Ufuatiliaji", swahiliContinuationField.getString("label"));
+        Assert.assertEquals(2, englishContinuationField.getJSONArray("options").length());
+        Assert.assertEquals(2, swahiliContinuationField.getJSONArray("options").length());
+        Assert.assertEquals(4, englishReasonField.getJSONArray("options").length());
+        Assert.assertEquals(4, swahiliReasonField.getJSONArray("options").length());
+        Assert.assertEquals("edit_text", englishOtherReasonField.getString("type"));
+        Assert.assertEquals("edit_text", swahiliOtherReasonField.getString("type"));
+        Assert.assertEquals("Please specify other reason", englishOtherReasonField.getString("hint"));
+        Assert.assertEquals("Tafadhali taja sababu nyingine", swahiliOtherReasonField.getString("hint"));
+        Assert.assertEquals("hidden", englishFollowUpStatus.getString("type"));
+        Assert.assertEquals("hidden", swahiliFollowUpStatus.getString("type"));
+    }
+
+    @Test
+    public void testSoberHouseFollowUpRulesDriveReasonVisibilityAndStoredStatus() throws Exception {
+        String rules = readText("src/main/assets/rule/harm-reduction-sober-house-client-type-followup-status-rules.yml");
+
+        String continuationRule = getRuleBlock(rules, "step1_service_continuation_status");
+        Assert.assertTrue(continuationRule.contains("step1_client_type == 'returning_client'"));
+
+        String reasonRule = getRuleBlock(rules, "step1_discontinued_reason");
+        Assert.assertTrue(reasonRule.contains("step1_client_type == 'returning_client' && step1_service_continuation_status == 'discontinued_service'"));
+
+        String otherReasonRule = getRuleBlock(rules, "step1_discontinued_other_reason");
+        Assert.assertTrue(otherReasonRule.contains("step1_discontinued_reason == 'other'"));
+
+        String storedStatusRule = getRuleBlock(rules, "step1_follow_up_status");
+        Assert.assertTrue(storedStatusRule.contains("step1_service_continuation_status == 'continuing_service' ? 'continuing_service' : step1_discontinued_reason"));
+    }
+
+    @Test
+    public void testSoberHouseFollowUpOtherReasonFieldIsMapped() throws Exception {
+        JSONObject clientFields = readJson("src/main/assets/ec_client_fields.json");
+        Set<String> mappedColumns = mappedColumns(clientFields);
+
+        Assert.assertTrue(mappedColumns.contains("discontinued_other_reason"));
     }
 
     @Test
@@ -74,6 +132,33 @@ public class SoberHouseServiceFormsTest {
 
     private static JSONObject readJson(String relativePath) throws Exception {
         return new JSONObject(readText(relativePath));
+    }
+
+    private static Set<String> mappedColumns(JSONObject clientFields) throws Exception {
+        Set<String> columns = new LinkedHashSet<>();
+        JSONArray bindObjects = clientFields.getJSONArray("bindobjects");
+
+        for (int i = 0; i < bindObjects.length(); i++) {
+            JSONArray mappedColumns = bindObjects.getJSONObject(i).optJSONArray("columns");
+            if (mappedColumns == null) {
+                continue;
+            }
+
+            for (int j = 0; j < mappedColumns.length(); j++) {
+                columns.add(mappedColumns.getJSONObject(j).optString("column_name"));
+            }
+        }
+
+        return columns;
+    }
+
+    private static String getRuleBlock(String rules, String ruleName) {
+        String marker = "name: " + ruleName;
+        int start = rules.indexOf(marker);
+        Assert.assertTrue("Missing rule: " + ruleName, start >= 0);
+
+        int next = rules.indexOf("\n---", start);
+        return next >= 0 ? rules.substring(start, next) : rules.substring(start);
     }
 
     private static String readText(String relativePath) throws IOException {

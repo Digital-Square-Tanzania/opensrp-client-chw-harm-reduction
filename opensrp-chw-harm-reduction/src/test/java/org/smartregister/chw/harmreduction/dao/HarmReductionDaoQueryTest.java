@@ -42,4 +42,12 @@ public class HarmReductionDaoQueryTest {
                 query
         );
     }
+
+    @Test
+    public void buildSoberHouseMemberQueryShouldRequireDetoxification() {
+        String query = HarmReductionDao.buildSoberHouseMemberQuery("base-id");
+
+        Assert.assertTrue(query.contains("inner join ec_harm_reduction_sober_house_enrollment sh on sh.base_entity_id = m.base_entity_id"));
+        Assert.assertTrue(query.contains("where sh.is_closed = 0 AND sh.detoxification_done = 'yes' AND m.base_entity_id ='base-id'"));
+    }
 }

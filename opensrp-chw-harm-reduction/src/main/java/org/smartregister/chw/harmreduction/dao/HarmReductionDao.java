@@ -363,7 +363,17 @@ public class HarmReductionDao extends AbstractDao {
     }
 
     public static MemberObject getSoberHouseMember(String baseEntityID) {
-        String sql = "select " +
+        String sql = buildSoberHouseMemberQuery(baseEntityID);
+        List<MemberObject> res = readData(sql, memberObjectMap);
+        if (res == null || res.size() != 1)
+            return null;
+
+        return res.get(0);
+    }
+
+    @VisibleForTesting
+    static String buildSoberHouseMemberQuery(String baseEntityID) {
+        return "select " +
                 "m.base_entity_id , " +
                 "m.unique_id , " +
                 "m.relational_id , " +
@@ -394,12 +404,7 @@ public class HarmReductionDao extends AbstractDao {
                 "inner join " + Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT + " sh on sh.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
-                "where sh.is_closed = 0 AND m.base_entity_id ='" + baseEntityID + "' ";
-        List<MemberObject> res = readData(sql, memberObjectMap);
-        if (res == null || res.size() != 1)
-            return null;
-
-        return res.get(0);
+                "where sh.is_closed = 0 AND sh.detoxification_done = 'yes' AND m.base_entity_id ='" + baseEntityID + "' ";
     }
 
     public static String getMemberSex(String baseEntityID) {

@@ -50,6 +50,41 @@
     "title": "Sober House Enrollment",
     "fields": [
       {
+        "key": "client_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_status",
+        "type": "native_radio",
+        "label": "Client status",
+        "options": [
+          {
+            "key": "new",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "new",
+            "text": "New"
+          },
+          {
+            "key": "existing",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "existing",
+            "text": "Existing"
+          },
+          {
+            "key": "relapsed",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "relapsed",
+            "text": "Relapsed"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
         "key": "screening_tests_done",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -132,6 +167,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
         }
       },
       {
@@ -774,6 +816,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
         }
       },
       {

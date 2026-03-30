@@ -27,7 +27,7 @@ public class SoberHouseServiceFormsTest {
         JSONObject swahiliForm = readJson("src/main/assets/json.form-sw/harm_reduction_sober_house_vitals.json");
 
         Assert.assertEquals("Testing Services", englishForm.getJSONObject("step1").getString("title"));
-        Assert.assertEquals("Huduma za vipimo", swahiliForm.getJSONObject("step1").getString("title"));
+        Assert.assertEquals("Huduma za Vipimo", swahiliForm.getJSONObject("step1").getString("title"));
     }
 
     @Test

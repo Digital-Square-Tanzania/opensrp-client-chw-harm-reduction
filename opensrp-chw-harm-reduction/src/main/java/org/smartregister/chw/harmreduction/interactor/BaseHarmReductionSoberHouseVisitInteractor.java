@@ -231,10 +231,15 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
     private boolean isContinuingService() {
         String status = getFollowUpStatusValue(FOLLOW_UP_STATUS_FIELD);
         String clientType = getFollowUpStatusValue(CLIENT_TYPE);
-        return CONTINUING_SERVICE_VALUE.equalsIgnoreCase(status) ||
-                NEW_CLIENT_VALUE.equalsIgnoreCase(clientType) ||
-                RELAPSED_CLIENT_VALUE.equalsIgnoreCase(clientType) ||
-                MIGRANT_CLIENT_VALUE.equalsIgnoreCase(clientType);
+        return shouldContinueSoberHouseServices(status, clientType);
+    }
+
+    @VisibleForTesting
+    static boolean shouldContinueSoberHouseServices(String followUpStatus, String clientType) {
+        return CONTINUING_SERVICE_VALUE.equalsIgnoreCase(StringUtils.trimToEmpty(followUpStatus)) ||
+                NEW_CLIENT_VALUE.equalsIgnoreCase(StringUtils.trimToEmpty(clientType)) ||
+                RELAPSED_CLIENT_VALUE.equalsIgnoreCase(StringUtils.trimToEmpty(clientType)) ||
+                MIGRANT_CLIENT_VALUE.equalsIgnoreCase(StringUtils.trimToEmpty(clientType));
     }
 
     private boolean isNextAppointmentDateVisible() {

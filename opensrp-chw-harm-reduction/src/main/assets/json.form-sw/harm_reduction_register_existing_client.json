@@ -114,10 +114,10 @@
           "label": "Hali ya ufuatiliaji",
           "options": [
             {
-              "key": "continuing_service",
+              "key": "continue_service",
               "openmrs_entity_parent": "",
               "openmrs_entity": "concept",
-              "openmrs_entity_id": "continuing_service",
+              "openmrs_entity_id": "continue_service",
               "text": "Anaendelea na Huduma"
             },
             {
@@ -190,6 +190,194 @@
           "v_required": {
             "value": "true",
             "err": "Tafadhali ingiza jina la Maskani"
+          }
+        },
+        {
+          "key": "cause_of_death",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "cause_of_death",
+          "type": "native_radio",
+          "label": "Sababu ya kifo",
+          "options": [
+            {
+              "key": "accident",
+              "text": "Ajali",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "accident"
+            },
+            {
+              "key": "overdose",
+              "text": "Overdose",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "overdose"
+            },
+            {
+              "key": "other",
+              "text": "Nyinginezo (Taja)",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "other"
+            }
+          ],
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali chagua chaguo moja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "cause_of_death_other_specify",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "cause_of_death_other_specify",
+          "type": "edit_text",
+          "hint": "Taja sababu nyingine ya kifo",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali taja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "place_of_death",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "place_of_death",
+          "type": "native_radio",
+          "label": "Mahali kifo kilipotokea",
+          "options": [
+            {
+              "key": "home",
+              "text": "Nyumbani",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "home"
+            },
+            {
+              "key": "maskani",
+              "text": "Maskani",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "maskani"
+            }
+          ],
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali chagua chaguo moja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "death_action_taken",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "death_action_taken",
+          "type": "edit_text",
+          "hint": "Nini kilifanyika",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali taja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "overdose_reason",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "overdose_reason",
+          "type": "edit_text",
+          "hint": "Sababu ya kuzidisha dozi ya dawa (overdose)",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali taja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "place_of_overdose",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "place_of_overdose",
+          "type": "native_radio",
+          "label": "Mahali Overdose ilipotokea",
+          "options": [
+            {
+              "key": "home",
+              "text": "Nyumbani",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "home"
+            },
+            {
+              "key": "maskani",
+              "text": "Maskani",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "maskani"
+            }
+          ],
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali chagua chaguo moja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "overdose_action_taken",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "overdose_action_taken",
+          "type": "edit_text",
+          "hint": "Nini kilifanyika",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali taja"
+          },
+          "relevance": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
           }
         },
         {

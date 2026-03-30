@@ -47,166 +47,196 @@
     }
   },
   "step1": {
-    "title": "Usajili wa Mteja Aliyekuwepo",
-    "fields": [
-      {
-        "key": "roc_group_type",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "roc_group_type",
-        "type": "native_radio",
-        "label": "Aina ya kundi la RoC",
-        "options": [
-          {
-            "key": "nidu",
-            "text": "NIDU",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "nidu"
-          },
-          {
-            "key": "idu",
-            "text": "IDU",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "idu"
-          },
-          {
-            "key": "group_use",
-            "text": "Matumizi ya Kundi",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "group_use"
+      "title": "Usajili wa Mteja Aliyekuwepo",
+      "fields": [
+        {
+          "key": "route_of_substance_use",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "route_of_substance_use",
+          "type": "check_box",
+          "label": "Unatumia dawa za kulevya kwa njia gani",
+          "combine_checkbox_option_values": "true",
+          "options": [
+            {
+              "key": "injecting",
+              "text": "Kujidunga",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "injecting"
+            },
+            {
+              "key": "smoking",
+              "text": "Kuvuta",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "smoking"
+            },
+            {
+              "key": "drinking",
+              "text": "Kunywa",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "drinking"
+            },
+            {
+              "key": "sniffing",
+              "text": "Kunusa",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "sniffing"
+            }
+          ],
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali chagua chaguo moja"
           }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
-        }
-      },
-      {
-        "key": "uic",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "uic",
-        "type": "edit_text",
-        "hint": "Namba ya Utambulisho ya Kitengo (UIC)",
-        "edit_type": "number",
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali ingiza namba ya Utambulisho ya Kitengo (UIC)"
-        }
-      },
-      {
-        "key": "follow_up_status",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "follow_up_status",
-        "type": "native_radio",
-        "label": "Hali ya ufuatiliaji",
-        "options": [
-          {
-            "key": "on_community_service",
-            "text": "Yuko kwenye huduma za kijamii",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "on_community_service"
-          },
-          {
-            "key": "started_mat_services",
-            "text": "Ameanza huduma za MAT",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "started_mat_services"
-          },
-          {
-            "key": "refused_mat_services",
-            "text": "Amekataa huduma za MAT",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "refused_mat_services"
-          },
-          {
-            "key": "moved_out",
-            "text": "Amehama",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "moved_out"
-          },
-          {
-            "key": "interrupted_services",
-            "text": "Amesitisha huduma",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "interrupted_services"
-          },
-          {
-            "key": "deceased",
-            "text": "Amefariki",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "deceased"
+        },
+        {
+          "key": "uic",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "uic",
+          "type": "edit_text",
+          "hint": "Namba ya Utambulisho ya Kitengo (UIC)",
+          "edit_type": "number",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali ingiza namba ya Utambulisho ya Kitengo (UIC)"
           }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
-        }
-      },
-      {
-        "key": "service_start_date",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "service_start_date",
-        "type": "date_picker",
-        "hint": "Tarehe ya kuanza huduma",
-        "v_required": {
-          "value": "true",
-          "err": "Inahitajika"
-        }
-      },
-      {
-        "key": "maskani_name",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "maskani_name",
-        "type": "edit_text",
-        "hint": "Jina la Maskani",
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali ingiza jina la Maskani"
-        }
-      },
-      {
-        "key": "status",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "status",
-        "type": "hidden",
-        "read_only": true,
-        "calculation": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+        },
+        {
+          "key": "follow_up_status",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "follow_up_status",
+          "type": "native_radio",
+          "label": "Hali ya ufuatiliaji",
+          "options": [
+            {
+              "key": "continuing_service",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "continuing_service",
+              "text": "Anaendelea na Huduma"
+            },
+            {
+              "key": "started_mat_services",
+              "text": "Ameanza huduma za MAT",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "started_mat_services"
+            },
+            {
+              "key": "lost",
+              "text": "Amepotea",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "lost"
+            },
+            {
+              "key": "moved",
+              "text": "Amehama",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "moved"
+            },
+            {
+              "key": "discontinued_service",
+              "text": "Ameacha huduma",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "discontinued_service"
+            },
+            {
+              "key": "overdose",
+              "text": "Amezidisha dozi ya dawa",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "overdose"
+            },
+            {
+              "key": "client_deceased",
+              "text": "Amefariki",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "client_deceased"
+            }
+          ],
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali chagua chaguo moja"
+          }
+        },
+        {
+          "key": "service_start_date",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "service_start_date",
+          "type": "date_picker",
+          "hint": "Tarehe ya kuanza huduma",
+          "v_required": {
+            "value": "true",
+            "err": "Inahitajika"
+          }
+        },
+        {
+          "key": "maskani_name",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "maskani_name",
+          "type": "edit_text",
+          "hint": "Jina la Maskani",
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali ingiza jina la Maskani"
+          }
+        },
+        {
+          "key": "roc_group_type",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "roc_group_type",
+          "type": "hidden",
+          "read_only": true,
+          "calculation": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "status",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "status",
+          "type": "hidden",
+          "read_only": true,
+          "calculation": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
+            }
+          }
+        },
+        {
+          "key": "client_started_mat",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "client_started_mat",
+          "type": "hidden",
+          "read_only": true,
+          "calculation": {
+            "rules-engine": {
+              "ex-rules": {
+                "rules-file": "harm-reduction-register-existing-client-rules.yml"
+              }
             }
           }
         }
-      },
-      {
-        "key": "client_started_mat",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "client_started_mat",
-        "type": "hidden",
-        "read_only": true,
-        "calculation": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-register-existing-client-rules.yml"
-            }
-          }
-        }
-      }
-    ]
+      ]
+    }
   }
-}

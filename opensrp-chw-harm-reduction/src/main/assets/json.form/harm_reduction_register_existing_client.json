@@ -50,33 +50,41 @@
     "title": "Existing Client Registration",
     "fields": [
       {
-        "key": "roc_group_type",
+        "key": "route_of_substance_use",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "roc_group_type",
-        "type": "native_radio",
-        "label": "RoC group type",
+        "openmrs_entity_id": "route_of_substance_use",
+        "type": "check_box",
+        "label": "Route of substance use",
+        "combine_checkbox_option_values": "true",
         "options": [
           {
-            "key": "nidu",
-            "text": "NIDU",
+            "key": "injecting",
+            "text": "Injecting",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "nidu"
+            "openmrs_entity_id": "injecting"
           },
           {
-            "key": "idu",
-            "text": "IDU",
+            "key": "smoking",
+            "text": "Smoking",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "idu"
+            "openmrs_entity_id": "smoking"
           },
           {
-            "key": "group_use",
-            "text": "Matumizi ya Kundi",
+            "key": "drinking",
+            "text": "Drinking",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "group_use"
+            "openmrs_entity_id": "drinking"
+          },
+          {
+            "key": "sniffing",
+            "text": "Sniffing",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sniffing"
           }
         ],
         "v_required": {
@@ -106,11 +114,11 @@
         "label": "Follow-up status",
         "options": [
           {
-            "key": "on_community_service",
-            "text": "On community service",
+            "key": "continue_service",
+            "text": "Continue service",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "on_community_service"
+            "openmrs_entity_id": "continue_service"
           },
           {
             "key": "started_mat_services",
@@ -120,32 +128,39 @@
             "openmrs_entity_id": "started_mat_services"
           },
           {
-            "key": "refused_mat_services",
-            "text": "Refused MAT services",
+            "key": "lost",
+            "text": "Lost",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "refused_mat_services"
+            "openmrs_entity_id": "lost"
           },
           {
-            "key": "moved_out",
-            "text": "Moved out",
+            "key": "moved",
+            "text": "Moved",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "moved_out"
+            "openmrs_entity_id": "moved"
           },
           {
-            "key": "interrupted_services",
-            "text": "Interrupted services",
+            "key": "discontinued_service",
+            "text": "Discontinued service",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "interrupted_services"
+            "openmrs_entity_id": "discontinued_service"
           },
           {
-            "key": "deceased",
-            "text": "Deceased",
+            "key": "overdose",
+            "text": "Overdose",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "deceased"
+            "openmrs_entity_id": "overdose"
+          },
+          {
+            "key": "client_deceased",
+            "text": "Died",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "client_deceased"
           }
         ],
         "v_required": {
@@ -175,6 +190,21 @@
         "v_required": {
           "value": "true",
           "err": "Please enter maskani name"
+        }
+      },
+      {
+        "key": "roc_group_type",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "roc_group_type",
+        "type": "hidden",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-register-existing-client-rules.yml"
+            }
+          }
         }
       },
       {

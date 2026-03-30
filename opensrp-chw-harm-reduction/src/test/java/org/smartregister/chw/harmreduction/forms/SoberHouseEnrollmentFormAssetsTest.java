@@ -61,14 +61,27 @@ public class SoberHouseEnrollmentFormAssetsTest {
 
         Assert.assertFalse(rules.contains("name: step1_treatment_after_screening"));
         Assert.assertFalse(mappedColumns.contains("treatment_after_screening"));
+        Assert.assertTrue(mappedColumns.contains("client_status"));
+
+        String screeningRule = getRuleBlock(rules, "step1_screening_tests_done");
+        Assert.assertTrue(screeningRule.contains("step1_client_status == 'new' || step1_client_status == 'relapsed'"));
+
+        String eligibilityRule = getRuleBlock(rules, "step1_sober_house_eligible");
+        Assert.assertTrue(eligibilityRule.contains("step1_client_status == 'new' || step1_client_status == 'relapsed'"));
+
+        String nicknameRule = getRuleBlock(rules, "step1_nickname");
+        Assert.assertTrue(nicknameRule.contains("step1_client_status == 'existing'"));
+        Assert.assertTrue(nicknameRule.contains("step1_sober_house_eligible == 'yes'"));
 
         for (Map.Entry<String, String> entry : expectedFollowUpFields.entrySet()) {
             String followUpKey = entry.getKey();
             String resultKey = entry.getValue();
 
             String ruleBlock = getRuleBlock(rules, "step1_" + followUpKey);
+            Assert.assertTrue("Missing client-status gate for " + followUpKey,
+                    ruleBlock.contains("step1_client_status == 'new' || step1_client_status == 'relapsed'"));
             Assert.assertTrue("Missing treatment relevance condition for " + followUpKey,
-                    ruleBlock.contains("condition: \"step1_" + resultKey + " == 'has_symptoms'\""));
+                    ruleBlock.contains("step1_" + resultKey + " == 'has_symptoms'"));
             Assert.assertTrue("Missing relevance action for " + followUpKey,
                     ruleBlock.contains("  - \"isRelevant = true\""));
 
@@ -90,6 +103,36 @@ public class SoberHouseEnrollmentFormAssetsTest {
                     hivStatusField.has("relevance"));
             Assert.assertEquals("harm-reduction-sober-house-enrollment-rules.yml",
                     hivStatusField.getJSONObject("calculation")
+                            .getJSONObject("rules-engine")
+                            .getJSONObject("ex-rules")
+                            .getString("rules-file"));
+        }
+    }
+
+    @Test
+    public void testEnrollmentFormsCollectClientStatusBeforeScreening() throws Exception {
+        for (String formPath : ENROLLMENT_FORM_PATHS) {
+            JSONObject form = readJson(formPath);
+            JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
+
+            Assert.assertEquals("client_status", fields.getJSONObject(0).optString("key"));
+
+            JSONObject clientStatusField = getField(fields, "client_status");
+            Assert.assertEquals(3, clientStatusField.getJSONArray("options").length());
+            Assert.assertTrue(hasOption(clientStatusField, "new"));
+            Assert.assertTrue(hasOption(clientStatusField, "existing"));
+            Assert.assertTrue(hasOption(clientStatusField, "relapsed"));
+
+            JSONObject screeningField = getField(fields, "screening_tests_done");
+            Assert.assertEquals("harm-reduction-sober-house-enrollment-rules.yml",
+                    screeningField.getJSONObject("relevance")
+                            .getJSONObject("rules-engine")
+                            .getJSONObject("ex-rules")
+                            .getString("rules-file"));
+
+            JSONObject eligibilityField = getField(fields, "sober_house_eligible");
+            Assert.assertEquals("harm-reduction-sober-house-enrollment-rules.yml",
+                    eligibilityField.getJSONObject("relevance")
                             .getJSONObject("rules-engine")
                             .getJSONObject("ex-rules")
                             .getString("rules-file"));

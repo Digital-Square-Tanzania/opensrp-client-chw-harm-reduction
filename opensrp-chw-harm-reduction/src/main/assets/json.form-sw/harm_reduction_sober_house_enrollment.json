@@ -50,6 +50,41 @@
     "title": "Usajili wa Nyumba ya Upataji Nafuu",
     "fields": [
       {
+        "key": "client_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_status",
+        "type": "native_radio",
+        "label": "Hali ya mpokea huduma",
+        "options": [
+          {
+            "key": "new",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "new",
+            "text": "Mpya"
+          },
+          {
+            "key": "existing",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "existing",
+            "text": "Aliyesajiliwa"
+          },
+          {
+            "key": "relapsed",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "relapsed",
+            "text": "Aliyerudia kutumia dawa za kulevya"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
         "key": "screening_tests_done",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -132,6 +167,13 @@
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
         }
       },
       {
@@ -774,6 +816,13 @@
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
         }
       },
       {

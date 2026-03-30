@@ -77,7 +77,7 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
     }
 
     private void evaluateClientTypeFollowupStatus(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {
-        HarmReductionSoberHouseClientTypeFollowupStatusActionHelper actionHelper = new HarmReductionSoberHouseClientTypeFollowupStatusActionHelper();
+        HarmReductionSoberHouseClientTypeFollowupStatusActionHelper actionHelper = new HarmReductionSoberHouseClientTypeFollowupStatusActionHelper(memberObject);
         BaseHarmReductionVisitAction action = getBuilder(context.getString(R.string.harm_reduction_sober_house_client_type_followup_status))
                 .withOptional(false)
                 .withDetails(details)

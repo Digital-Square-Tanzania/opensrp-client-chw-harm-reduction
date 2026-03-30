@@ -58,10 +58,10 @@
         "label": "Hali ya mpokea huduma",
         "options": [
           {
-            "key": "new",
+            "key": "new_client",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "new",
+            "openmrs_entity_id": "new_client",
             "text": "Mpya"
           },
           {

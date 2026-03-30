@@ -22,7 +22,8 @@ import timber.log.Timber;
 public class HarmReductionSoberHouseClientTypeFollowupStatusActionHelper implements BaseHarmReductionVisitAction.HarmReductionVisitActionHelper {
     private static final String CLIENT_TYPE_FIELD_KEY = "client_type";
     private static final String NEW_CLIENT_OPTION_KEY = "new_client";
-    private static final String NEW_ENROLLMENT_STATUS = "new";
+    private static final String NEW_ENROLLMENT_STATUS = "new_client";
+    private static final String LEGACY_NEW_ENROLLMENT_STATUS = "new";
 
     private final MemberObject memberObject;
     private String jsonPayload;
@@ -156,7 +157,7 @@ public class HarmReductionSoberHouseClientTypeFollowupStatusActionHelper impleme
 
         String enrollmentClientStatus = StringUtils.trimToEmpty(getSoberHouseEnrollmentClientStatus());
         return StringUtils.isNotBlank(enrollmentClientStatus)
-                && !NEW_ENROLLMENT_STATUS.equalsIgnoreCase(enrollmentClientStatus);
+                && !isNewEnrollmentStatus(enrollmentClientStatus);
     }
 
     protected boolean hasPreviousSoberHouseServiceVisit() {
@@ -165,6 +166,11 @@ public class HarmReductionSoberHouseClientTypeFollowupStatusActionHelper impleme
 
     protected String getSoberHouseEnrollmentClientStatus() {
         return HarmReductionDao.getLatestSoberHouseEnrollmentClientStatus(memberObject.getBaseEntityId());
+    }
+
+    private boolean isNewEnrollmentStatus(String enrollmentClientStatus) {
+        return NEW_ENROLLMENT_STATUS.equalsIgnoreCase(enrollmentClientStatus)
+                || LEGACY_NEW_ENROLLMENT_STATUS.equalsIgnoreCase(enrollmentClientStatus);
     }
 
     private String getClientTypeValue(JSONObject jsonObject) {

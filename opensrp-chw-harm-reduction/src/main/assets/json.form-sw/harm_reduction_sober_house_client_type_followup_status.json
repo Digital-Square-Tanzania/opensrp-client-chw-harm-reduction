@@ -176,6 +176,25 @@
         ]
       },
       {
+        "key": "discontinued_other_reason",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "discontinued_other_reason",
+        "type": "edit_text",
+        "hint": "Tafadhali taja sababu nyingine",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "follow_up_status",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

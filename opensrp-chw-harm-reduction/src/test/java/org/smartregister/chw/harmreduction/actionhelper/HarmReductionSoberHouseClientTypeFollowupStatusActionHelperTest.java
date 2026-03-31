@@ -1,8 +1,5 @@
 package org.smartregister.chw.harmreduction.actionhelper;
 
-import com.vijay.jsonwizard.constants.JsonFormConstants;
-
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,100 +9,93 @@ import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
 public class HarmReductionSoberHouseClientTypeFollowupStatusActionHelperTest {
 
     @Test
-    public void getPreProcessedShouldRemoveNewClientWhenSoberHouseServiceVisitExists() throws Exception {
+    public void getPreProcessedShouldHideAndPrefillContinuationStatusForNewClientFirstVisit() throws Exception {
+        MemberObject memberObject = new MemberObject();
+        memberObject.setBaseEntityId("base-id");
+
         HarmReductionSoberHouseClientTypeFollowupStatusActionHelper helper =
-                new TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper(getMemberObject(), true, "new_client");
-        helper.onJsonFormLoaded(getClientTypeForm(), null, null);
+                new TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper(
+                        memberObject,
+                        "new_client",
+                        false
+                );
+        helper.onJsonFormLoaded(getFollowUpForm(), null, null);
 
         JSONObject form = new JSONObject(helper.getPreProcessed());
+        JSONObject continuationField = getField(form, "service_continuation_status");
 
-        Assert.assertFalse(hasOption(getClientTypeOptions(form), "new_client"));
-        Assert.assertTrue(hasOption(getClientTypeOptions(form), "returning_client"));
+        Assert.assertEquals("hidden", continuationField.getString("type"));
+        Assert.assertEquals("continuing_service", continuationField.getString("value"));
+        Assert.assertTrue(continuationField.getBoolean("read_only"));
     }
 
     @Test
-    public void getPreProcessedShouldRemoveNewClientWhenEnrollmentStatusIsNotNew() throws Exception {
+    public void getPreProcessedShouldLeaveContinuationFieldVisibleForExistingClient() throws Exception {
+        MemberObject memberObject = new MemberObject();
+        memberObject.setBaseEntityId("base-id");
+
         HarmReductionSoberHouseClientTypeFollowupStatusActionHelper helper =
-                new TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper(getMemberObject(), false, "existing");
-        helper.onJsonFormLoaded(getClientTypeForm(), null, null);
+                new TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper(
+                        memberObject,
+                        "existing",
+                        false
+                );
+        helper.onJsonFormLoaded(getFollowUpForm(), null, null);
 
         JSONObject form = new JSONObject(helper.getPreProcessed());
+        JSONObject continuationField = getField(form, "service_continuation_status");
 
-        Assert.assertFalse(hasOption(getClientTypeOptions(form), "new_client"));
+        Assert.assertEquals("native_radio", continuationField.getString("type"));
+        Assert.assertFalse(continuationField.has("value"));
+        Assert.assertFalse(continuationField.optBoolean("read_only"));
     }
 
     @Test
-    public void getPreProcessedShouldKeepNewClientWhenNoServiceVisitExistsAndEnrollmentStatusIsNew() throws Exception {
+    public void getPreProcessedShouldLeaveContinuationFieldVisibleForNewClientWithPreviousVisit() throws Exception {
+        MemberObject memberObject = new MemberObject();
+        memberObject.setBaseEntityId("base-id");
+
         HarmReductionSoberHouseClientTypeFollowupStatusActionHelper helper =
-                new TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper(getMemberObject(), false, "new_client");
-        helper.onJsonFormLoaded(getClientTypeForm(), null, null);
+                new TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper(
+                        memberObject,
+                        "new_client",
+                        true
+                );
+        helper.onJsonFormLoaded(getFollowUpForm(), null, null);
 
         JSONObject form = new JSONObject(helper.getPreProcessed());
+        JSONObject continuationField = getField(form, "service_continuation_status");
 
-        Assert.assertTrue(hasOption(getClientTypeOptions(form), "new_client"));
-        Assert.assertEquals(3, getClientTypeOptions(form).length());
+        Assert.assertEquals("native_radio", continuationField.getString("type"));
+        Assert.assertFalse(continuationField.has("value"));
+        Assert.assertFalse(continuationField.optBoolean("read_only"));
     }
 
     @Test
-    public void evaluateStatusOnPayloadShouldRemainBasedOnSelectedClientType() {
+    public void evaluateStatusOnPayloadShouldBeCompletedWhenFollowUpStatusIsPresent() {
         HarmReductionSoberHouseClientTypeFollowupStatusActionHelper helper =
-                new HarmReductionSoberHouseClientTypeFollowupStatusActionHelper(getMemberObject());
+                new HarmReductionSoberHouseClientTypeFollowupStatusActionHelper();
 
-        helper.onPayloadReceived(getClientTypePayload("returning_client"));
+        helper.onPayloadReceived(getFollowUpStatusPayload("continuing_service"));
         Assert.assertEquals(BaseHarmReductionVisitAction.Status.COMPLETED, helper.evaluateStatusOnPayload());
+    }
 
-        helper.onPayloadReceived(getClientTypePayload(""));
+    @Test
+    public void evaluateStatusOnPayloadShouldRemainPendingWhenFollowUpStatusIsMissing() {
+        HarmReductionSoberHouseClientTypeFollowupStatusActionHelper helper =
+                new HarmReductionSoberHouseClientTypeFollowupStatusActionHelper();
+
+        helper.onPayloadReceived(getFollowUpStatusPayload(""));
         Assert.assertEquals(BaseHarmReductionVisitAction.Status.PENDING, helper.evaluateStatusOnPayload());
     }
 
-    private static MemberObject getMemberObject() {
-        MemberObject memberObject = new MemberObject();
-        memberObject.setBaseEntityId("base-id");
-        return memberObject;
-    }
-
-    private static JSONArray getClientTypeOptions(JSONObject form) throws Exception {
-        return form.getJSONObject(JsonFormConstants.STEP1)
-                .getJSONArray(JsonFormConstants.FIELDS)
-                .getJSONObject(0)
-                .getJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME);
-    }
-
-    private static boolean hasOption(JSONArray options, String key) throws Exception {
-        for (int i = 0; i < options.length(); i++) {
-            if (key.equals(options.getJSONObject(i).optString(JsonFormConstants.KEY))) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private static String getClientTypeForm() {
+    private static String getFollowUpStatusPayload(String value) {
         return "{"
                 + "\"step1\":{"
                 + "\"fields\":["
                 + "{"
-                + "\"key\":\"client_type\","
-                + "\"type\":\"native_radio\","
-                + "\"options\":["
-                + "{\"key\":\"new_client\",\"text\":\"New\"},"
-                + "{\"key\":\"returning_client\",\"text\":\"Repeat visit\"},"
-                + "{\"key\":\"relapsed_client\",\"text\":\"Relapsed client\"}"
-                + "]"
-                + "}"
-                + "]"
-                + "}"
-                + "}";
-    }
-
-    private static String getClientTypePayload(String value) {
-        return "{"
-                + "\"step1\":{"
-                + "\"fields\":["
-                + "{"
-                + "\"key\":\"client_type\","
-                + "\"type\":\"native_radio\","
+                + "\"key\":\"follow_up_status\","
+                + "\"type\":\"hidden\","
                 + "\"value\":\"" + value + "\""
                 + "}"
                 + "]"
@@ -113,27 +103,59 @@ public class HarmReductionSoberHouseClientTypeFollowupStatusActionHelperTest {
                 + "}";
     }
 
+    private static String getFollowUpForm() {
+        return "{"
+                + "\"step1\":{"
+                + "\"fields\":["
+                + "{"
+                + "\"key\":\"service_continuation_status\","
+                + "\"type\":\"native_radio\""
+                + "},"
+                + "{"
+                + "\"key\":\"discontinued_reason\","
+                + "\"type\":\"native_radio\""
+                + "},"
+                + "{"
+                + "\"key\":\"follow_up_status\","
+                + "\"type\":\"hidden\""
+                + "}"
+                + "]"
+                + "}"
+                + "}";
+    }
+
+    private static JSONObject getField(JSONObject form, String key) throws Exception {
+        for (int i = 0; i < form.getJSONObject("step1").getJSONArray("fields").length(); i++) {
+            JSONObject field = form.getJSONObject("step1").getJSONArray("fields").getJSONObject(i);
+            if (key.equals(field.optString("key"))) {
+                return field;
+            }
+        }
+
+        throw new AssertionError("Missing field: " + key);
+    }
+
     private static class TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper
             extends HarmReductionSoberHouseClientTypeFollowupStatusActionHelper {
-        private final boolean hasServiceVisit;
-        private final String enrollmentClientStatus;
+        private final String latestEnrollmentClientStatus;
+        private final boolean hasPreviousVisit;
 
         TestHarmReductionSoberHouseClientTypeFollowupStatusActionHelper(MemberObject memberObject,
-                                                                        boolean hasServiceVisit,
-                                                                        String enrollmentClientStatus) {
+                                                                        String latestEnrollmentClientStatus,
+                                                                        boolean hasPreviousVisit) {
             super(memberObject);
-            this.hasServiceVisit = hasServiceVisit;
-            this.enrollmentClientStatus = enrollmentClientStatus;
+            this.latestEnrollmentClientStatus = latestEnrollmentClientStatus;
+            this.hasPreviousVisit = hasPreviousVisit;
         }
 
         @Override
         protected boolean hasPreviousSoberHouseServiceVisit() {
-            return hasServiceVisit;
+            return hasPreviousVisit;
         }
 
         @Override
-        protected String getSoberHouseEnrollmentClientStatus() {
-            return enrollmentClientStatus;
+        protected String getLatestSoberHouseEnrollmentClientStatus() {
+            return latestEnrollmentClientStatus;
         }
     }
 }

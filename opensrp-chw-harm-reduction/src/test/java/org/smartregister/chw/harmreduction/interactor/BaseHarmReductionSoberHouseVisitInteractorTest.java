@@ -83,22 +83,14 @@ public class BaseHarmReductionSoberHouseVisitInteractorTest {
     }
 
     @Test
-    public void testContinuingServicesAllowedForReturningClientOnlyWhenContinuingStatusSelected() {
+    public void testContinuingServicesAllowedOnlyWhenContinuingStatusSelected() {
         Assert.assertTrue(BaseHarmReductionSoberHouseVisitInteractor
-                .shouldContinueSoberHouseServices("continuing_service", "returning_client"));
+                .shouldContinueSoberHouseServices("continuing_service"));
         Assert.assertFalse(BaseHarmReductionSoberHouseVisitInteractor
-                .shouldContinueSoberHouseServices("absconded", "returning_client"));
+                .shouldContinueSoberHouseServices("absconded"));
         Assert.assertFalse(BaseHarmReductionSoberHouseVisitInteractor
-                .shouldContinueSoberHouseServices("other", "returning_client"));
-    }
-
-    @Test
-    public void testContinuingServicesAllowedForEnrollmentClientTypesWithoutReturningStatus() {
-        Assert.assertTrue(BaseHarmReductionSoberHouseVisitInteractor
-                .shouldContinueSoberHouseServices("", "new_client"));
-        Assert.assertTrue(BaseHarmReductionSoberHouseVisitInteractor
-                .shouldContinueSoberHouseServices("", "relapsed_client"));
-        Assert.assertTrue(BaseHarmReductionSoberHouseVisitInteractor
-                .shouldContinueSoberHouseServices("", "migrant_client"));
+                .shouldContinueSoberHouseServices("other"));
+        Assert.assertFalse(BaseHarmReductionSoberHouseVisitInteractor
+                .shouldContinueSoberHouseServices(""));
     }
 }

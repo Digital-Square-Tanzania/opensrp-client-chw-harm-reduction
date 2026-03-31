@@ -16,11 +16,12 @@ import java.util.Set;
 public class SoberHouseServiceFormsTest {
 
     @Test
-    public void testSwahiliClientTypeFormUsesMpokeaHudumaLabel() throws Exception {
-        JSONObject form = readJson("src/main/assets/json.form-sw/harm_reduction_sober_house_client_type_followup_status.json");
-        JSONObject clientTypeField = getField(form.getJSONObject("step1").getJSONArray("fields"), "client_type");
+    public void testSoberHouseFollowUpFormDoesNotRepeatClientTypeField() throws Exception {
+        JSONObject englishForm = readJson("src/main/assets/json.form/harm_reduction_sober_house_client_type_followup_status.json");
+        JSONObject swahiliForm = readJson("src/main/assets/json.form-sw/harm_reduction_sober_house_client_type_followup_status.json");
 
-        Assert.assertEquals("Aina ya mpokea huduma", clientTypeField.getString("label"));
+        Assert.assertFalse(hasField(englishForm.getJSONObject("step1").getJSONArray("fields"), "client_type"));
+        Assert.assertFalse(hasField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "client_type"));
     }
 
     @Test
@@ -42,6 +43,8 @@ public class SoberHouseServiceFormsTest {
 
         Assert.assertEquals("Follow-up status", englishContinuationField.getString("label"));
         Assert.assertEquals("Hali ya Ufuatiliaji", swahiliContinuationField.getString("label"));
+        Assert.assertFalse(englishContinuationField.has("relevance"));
+        Assert.assertFalse(swahiliContinuationField.has("relevance"));
         Assert.assertEquals(2, englishContinuationField.getJSONArray("options").length());
         Assert.assertEquals(2, swahiliContinuationField.getJSONArray("options").length());
         Assert.assertEquals(4, englishReasonField.getJSONArray("options").length());
@@ -58,13 +61,14 @@ public class SoberHouseServiceFormsTest {
     public void testSoberHouseFollowUpRulesDriveReasonVisibilityAndStoredStatus() throws Exception {
         String rules = readText("src/main/assets/rule/harm-reduction-sober-house-client-type-followup-status-rules.yml");
 
-        String continuationRule = getRuleBlock(rules, "step1_service_continuation_status");
-        Assert.assertTrue(continuationRule.contains("step1_client_type == 'returning_client'"));
+        Assert.assertFalse(rules.contains("name: step1_service_continuation_status"));
 
         String reasonRule = getRuleBlock(rules, "step1_discontinued_reason");
-        Assert.assertTrue(reasonRule.contains("step1_client_type == 'returning_client' && step1_service_continuation_status == 'discontinued_service'"));
+        Assert.assertTrue(reasonRule.contains("step1_service_continuation_status == 'discontinued_service'"));
+        Assert.assertFalse(reasonRule.contains("step1_client_type"));
 
         String otherReasonRule = getRuleBlock(rules, "step1_discontinued_other_reason");
+        Assert.assertTrue(otherReasonRule.contains("step1_service_continuation_status == 'discontinued_service'"));
         Assert.assertTrue(otherReasonRule.contains("step1_discontinued_reason == 'other'"));
 
         String storedStatusRule = getRuleBlock(rules, "step1_follow_up_status");

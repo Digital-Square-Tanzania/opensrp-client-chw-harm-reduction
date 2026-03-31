@@ -23,6 +23,7 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
     private static final String GLOBAL = "global";
     private static final String FOLLOW_UP_STATUS_FIELD_KEY = "follow_up_status";
     private static final String CONTINUE_SERVICE_FIELD_VALUE = "continue_service";
+    private static final String NEW_CLIENT_FIELD_VALUE = "new_client";
     private static final String PREGNANCY_BREASTFEEDING_STATUS_FIELD_KEY = "pregnancy_breastfeeding_status";
     private static final String PREGNANT_FIELD_VALUE = "pregnant";
     private static final String NOT_PREGNANT_FIELD_VALUE = "not_pregnant";
@@ -134,7 +135,7 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
     }
 
     private void prefillFollowUpStatusForFirstVisit(JSONObject jsonObject) {
-        if (memberObject == null || StringUtils.isBlank(memberObject.getBaseEntityId()) || hasPreviousFollowUpVisit()) {
+        if (!isNewClientFirstFollowUpVisit()) {
             return;
         }
 
@@ -208,6 +209,17 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
 
     protected boolean hasPreviousFollowUpVisit() {
         return memberObject != null && HarmReductionDao.hasPreviousHarmReductionFollowUpVisit(memberObject.getBaseEntityId());
+    }
+
+    protected String getRiskAssessmentClientStatus() {
+        return memberObject == null ? "" : HarmReductionDao.getLatestRiskAssessmentClientStatus(memberObject.getBaseEntityId());
+    }
+
+    protected boolean isNewClientFirstFollowUpVisit() {
+        return memberObject != null
+                && StringUtils.isNotBlank(memberObject.getBaseEntityId())
+                && StringUtils.equalsIgnoreCase(getRiskAssessmentClientStatus(), NEW_CLIENT_FIELD_VALUE)
+                && !hasPreviousFollowUpVisit();
     }
 
     protected String getRiskAssessmentPregnancyStatus() {

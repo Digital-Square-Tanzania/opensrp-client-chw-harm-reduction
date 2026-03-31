@@ -202,6 +202,21 @@ public class HarmReductionDao extends AbstractDao {
         return getLatestStatusFromTable(SOBER_HOUSE_SERVICES_TABLE, FOLLOW_UP_STATUS_COLUMN, baseEntityId);
     }
 
+    public static String getLatestRiskAssessmentClientStatus(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        String sql = buildLatestRiskAssessmentClientStatusQuery(baseEntityId);
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, CLIENT_STATUS_COLUMN, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+
+        return "";
+    }
+
     public static String getLatestSoberHouseEnrollmentClientStatus(String baseEntityId) {
         if (StringUtils.isBlank(baseEntityId)) {
             return "";
@@ -263,6 +278,16 @@ public class HarmReductionDao extends AbstractDao {
         }
 
         return "SELECT " + CLIENT_STATUS_COLUMN + " FROM " + SOBER_HOUSE_ENROLLMENT_TABLE +
+                " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    }
+
+    @VisibleForTesting
+    static String buildLatestRiskAssessmentClientStatusQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT " + CLIENT_STATUS_COLUMN + " FROM " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
                 " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
     }
 

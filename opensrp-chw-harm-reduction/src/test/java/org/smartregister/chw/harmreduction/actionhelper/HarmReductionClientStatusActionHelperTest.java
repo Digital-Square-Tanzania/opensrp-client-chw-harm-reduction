@@ -14,7 +14,7 @@ public class HarmReductionClientStatusActionHelperTest {
 
     @Test
     public void getPreProcessedShouldHideFollowUpStatusAndPrefillPregnancyStatusForFirstVisit() throws Exception {
-        HarmReductionClientStatusActionHelper helper = new TestHarmReductionClientStatusActionHelper(getMemberObject(), false, "yes");
+        HarmReductionClientStatusActionHelper helper = new TestHarmReductionClientStatusActionHelper(getMemberObject(), false, "new_client", "yes");
         helper.onJsonFormLoaded(getClientStatusForm(), null, null);
 
         JSONObject form = new JSONObject(helper.getPreProcessed());
@@ -30,8 +30,23 @@ public class HarmReductionClientStatusActionHelperTest {
     }
 
     @Test
+    public void getPreProcessedShouldKeepFollowUpStatusVisibleForNonNewClientFirstVisit() throws Exception {
+        HarmReductionClientStatusActionHelper helper = new TestHarmReductionClientStatusActionHelper(getMemberObject(), false, "existing_client", "yes");
+        helper.onJsonFormLoaded(getClientStatusForm(), null, null);
+
+        JSONObject form = new JSONObject(helper.getPreProcessed());
+        JSONObject followUpStatusField = getField(form, "follow_up_status");
+        JSONObject pregnancyStatusField = getField(form, "pregnancy_breastfeeding_status");
+
+        Assert.assertEquals("native_radio", followUpStatusField.getString("type"));
+        Assert.assertFalse(followUpStatusField.has(JsonFormConstants.VALUE));
+        Assert.assertFalse(followUpStatusField.optBoolean("read_only"));
+        Assert.assertEquals("pregnant", pregnancyStatusField.getString(JsonFormConstants.VALUE));
+    }
+
+    @Test
     public void getPreProcessedShouldKeepFollowUpStatusVisibleAndNotOverridePregnancyStatusAfterFirstVisit() throws Exception {
-        HarmReductionClientStatusActionHelper helper = new TestHarmReductionClientStatusActionHelper(getMemberObject(), true, "yes");
+        HarmReductionClientStatusActionHelper helper = new TestHarmReductionClientStatusActionHelper(getMemberObject(), true, "new_client", "yes");
         helper.onJsonFormLoaded(getClientStatusForm(), null, null);
 
         JSONObject form = new JSONObject(helper.getPreProcessed());
@@ -116,17 +131,24 @@ public class HarmReductionClientStatusActionHelperTest {
 
     private static class TestHarmReductionClientStatusActionHelper extends HarmReductionClientStatusActionHelper {
         private final boolean hasVisit;
+        private final String riskAssessmentClientStatus;
         private final String pregnancyStatus;
 
-        TestHarmReductionClientStatusActionHelper(MemberObject memberObject, boolean hasVisit, String pregnancyStatus) {
+        TestHarmReductionClientStatusActionHelper(MemberObject memberObject, boolean hasVisit, String riskAssessmentClientStatus, String pregnancyStatus) {
             super(memberObject);
             this.hasVisit = hasVisit;
+            this.riskAssessmentClientStatus = riskAssessmentClientStatus;
             this.pregnancyStatus = pregnancyStatus;
         }
 
         @Override
         protected boolean hasPreviousFollowUpVisit() {
             return hasVisit;
+        }
+
+        @Override
+        protected String getRiskAssessmentClientStatus() {
+            return riskAssessmentClientStatus;
         }
 
         @Override

@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.domain.VisitDetail;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
+import org.smartregister.chw.harmreduction.dao.HarmReductionDao;
 import org.smartregister.chw.harmreduction.util.JsonFormUtils;
 
 import java.util.List;
@@ -19,24 +20,42 @@ import java.util.Map;
 import timber.log.Timber;
 
 public class HarmReductionSoberHouseClientTypeFollowupStatusActionHelper implements BaseHarmReductionVisitAction.HarmReductionVisitActionHelper {
+    private static final String SERVICE_CONTINUATION_STATUS_FIELD_KEY = "service_continuation_status";
     private static final String FOLLOW_UP_STATUS_FIELD_KEY = "follow_up_status";
+    private static final String CONTINUING_SERVICE_VALUE = "continuing_service";
+    private static final String NEW_CLIENT_VALUE = "new_client";
+
+    protected MemberObject memberObject;
+    private String jsonPayload;
     private String followUpStatus;
 
     public HarmReductionSoberHouseClientTypeFollowupStatusActionHelper() {
         // no-op
     }
 
-    public HarmReductionSoberHouseClientTypeFollowupStatusActionHelper(MemberObject ignoredMemberObject) {
-        // no-op
+    public HarmReductionSoberHouseClientTypeFollowupStatusActionHelper(MemberObject memberObject) {
+        this.memberObject = memberObject;
     }
 
     @Override
     public void onJsonFormLoaded(String jsonPayload, Context context, Map<String, List<VisitDetail>> details) {
-        // no-op
+        this.jsonPayload = jsonPayload;
     }
 
     @Override
     public String getPreProcessed() {
+        if (StringUtils.isBlank(jsonPayload)) {
+            return null;
+        }
+
+        try {
+            JSONObject jsonObject = new JSONObject(jsonPayload);
+            prefillServiceContinuationStatusForNewClientFirstVisit(jsonObject);
+            return jsonObject.toString();
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
+
         return null;
     }
 
@@ -106,5 +125,52 @@ public class HarmReductionSoberHouseClientTypeFollowupStatusActionHelper impleme
         }
 
         return "";
+    }
+
+    private void prefillServiceContinuationStatusForNewClientFirstVisit(JSONObject jsonObject) {
+        if (!isNewClientFirstSoberHouseVisit()) {
+            return;
+        }
+
+        try {
+            JSONObject stepOne = jsonObject.optJSONObject(JsonFormConstants.STEP1);
+            if (stepOne == null) {
+                return;
+            }
+
+            JSONArray fields = stepOne.optJSONArray(JsonFormConstants.FIELDS);
+            if (fields == null) {
+                return;
+            }
+
+            for (int i = 0; i < fields.length(); i++) {
+                JSONObject field = fields.optJSONObject(i);
+                if (field == null || !SERVICE_CONTINUATION_STATUS_FIELD_KEY.equalsIgnoreCase(field.optString(JsonFormConstants.KEY))) {
+                    continue;
+                }
+
+                field.put(JsonFormConstants.VALUE, CONTINUING_SERVICE_VALUE);
+                field.put("type", "hidden");
+                field.put("read_only", true);
+                return;
+            }
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
+    }
+
+    protected boolean isNewClientFirstSoberHouseVisit() {
+        return memberObject != null
+                && StringUtils.isNotBlank(memberObject.getBaseEntityId())
+                && StringUtils.equalsIgnoreCase(getLatestSoberHouseEnrollmentClientStatus(), NEW_CLIENT_VALUE)
+                && !hasPreviousSoberHouseServiceVisit();
+    }
+
+    protected boolean hasPreviousSoberHouseServiceVisit() {
+        return memberObject != null && HarmReductionDao.hasPreviousSoberHouseServiceVisit(memberObject.getBaseEntityId());
+    }
+
+    protected String getLatestSoberHouseEnrollmentClientStatus() {
+        return memberObject == null ? "" : HarmReductionDao.getLatestSoberHouseEnrollmentClientStatus(memberObject.getBaseEntityId());
     }
 }

@@ -43,6 +43,8 @@ public class SoberHouseServiceFormsTest {
 
         Assert.assertEquals("Follow-up status", englishContinuationField.getString("label"));
         Assert.assertEquals("Hali ya Ufuatiliaji", swahiliContinuationField.getString("label"));
+        Assert.assertFalse(englishContinuationField.has("relevance"));
+        Assert.assertFalse(swahiliContinuationField.has("relevance"));
         Assert.assertEquals(2, englishContinuationField.getJSONArray("options").length());
         Assert.assertEquals(2, swahiliContinuationField.getJSONArray("options").length());
         Assert.assertEquals(4, englishReasonField.getJSONArray("options").length());

@@ -424,6 +424,14 @@
             }
           }
         }
+      },
+      {
+        "key": "client_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_status",
+        "type": "hidden",
+        "value": "continue_service"
       }
     ]
   }

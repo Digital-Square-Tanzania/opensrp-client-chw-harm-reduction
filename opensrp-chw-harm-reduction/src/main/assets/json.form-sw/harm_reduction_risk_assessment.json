@@ -1431,6 +1431,14 @@
         "openmrs_entity_id": "status",
         "type": "hidden",
         "value": "on_community_service"
+      },
+      {
+        "key": "client_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_status",
+        "type": "hidden",
+        "value": "new_client"
       }
     ]
   }

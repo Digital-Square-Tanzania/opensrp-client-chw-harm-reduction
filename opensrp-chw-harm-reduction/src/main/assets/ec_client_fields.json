@@ -559,6 +559,14 @@
           }
         },
         {
+          "column_name": "client_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "client_status"
+          }
+        },
+        {
           "column_name": "roc_consent_joining_mat_services",
           "type": "Event",
           "json_mapping": {

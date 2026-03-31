@@ -2,21 +2,21 @@
 name: step1_service_continuation_status
 description: Show service_continuation_status when its condition is met
 priority: 1
-condition: "step1_client_type == 'returning_client'"
+condition: "true"
 actions:
   - "isRelevant = true"
 ---
 name: step1_discontinued_reason
 description: Show discontinued_reason when its condition is met
 priority: 1
-condition: "step1_client_type == 'returning_client' && step1_service_continuation_status == 'discontinued_service'"
+condition: "step1_service_continuation_status == 'discontinued_service'"
 actions:
   - "isRelevant = true"
 ---
 name: step1_discontinued_other_reason
 description: Show discontinued_other_reason when discontinued_reason is other
 priority: 1
-condition: "step1_client_type == 'returning_client' && step1_service_continuation_status == 'discontinued_service' && step1_discontinued_reason == 'other'"
+condition: "step1_service_continuation_status == 'discontinued_service' && step1_discontinued_reason == 'other'"
 actions:
   - "isRelevant = true"
 ---

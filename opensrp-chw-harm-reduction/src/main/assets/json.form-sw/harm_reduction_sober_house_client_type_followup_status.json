@@ -50,48 +50,6 @@
     "title": "Hali ya Ufuatiliaji",
     "fields": [
       {
-        "key": "client_type",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "client_type",
-        "type": "native_radio",
-        "label": "Aina ya mpokea huduma",
-        "options": [
-          {
-            "key": "new_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "new_client",
-            "text": "Mpya"
-          },
-          {
-            "key": "returning_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "returning_client",
-            "text": "Marudio"
-          },
-          {
-            "key": "relapsed_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "relapsed_client",
-            "text": "Aliyerudia kutumia dawa za kulevya"
-          },
-          {
-            "key": "migrant_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "migrant_client",
-            "text": "Muhamiaji"
-          }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
-        }
-      },
-      {
         "key": "service_continuation_status",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

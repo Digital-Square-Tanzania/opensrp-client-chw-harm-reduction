@@ -50,48 +50,6 @@
     "title": "Harm Reduction Sober House Follow-up Status",
     "fields": [
       {
-        "key": "client_type",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "client_type",
-        "type": "native_radio",
-        "label": "Client type",
-        "options": [
-          {
-            "key": "new_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "new_client",
-            "text": "New"
-          },
-          {
-            "key": "returning_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "returning_client",
-            "text": "Repeat visit"
-          },
-          {
-            "key": "relapsed_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "relapsed_client",
-            "text": "Relapsed client"
-          },
-          {
-            "key": "migrant_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "migrant_client",
-            "text": "Transferred-in client"
-          }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Please select an option"
-        }
-      },
-      {
         "key": "service_continuation_status",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

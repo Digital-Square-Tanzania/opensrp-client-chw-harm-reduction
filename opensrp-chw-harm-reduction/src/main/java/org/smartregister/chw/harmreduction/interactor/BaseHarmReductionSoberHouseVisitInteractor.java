@@ -37,11 +37,7 @@ import timber.log.Timber;
 public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductionVisitInteractor {
     private static final int RECOVERY_CAPITAL_ASSESSMENT_DELAY_MONTHS = 3;
     private static final String FOLLOW_UP_STATUS_FIELD = "follow_up_status";
-    private static final String CLIENT_TYPE = "client_type";
     private static final String CONTINUING_SERVICE_VALUE = "continuing_service";
-    private static final String NEW_CLIENT_VALUE = "new_client";
-    private static final String RELAPSED_CLIENT_VALUE = "relapsed_client";
-    private static final String MIGRANT_CLIENT_VALUE = "migrant_client";
     private static final String RECOVERY_CAPITAL_PASSED_FIELD = "recovery_capital_passed";
     private static final String YES_VALUE = "yes";
 
@@ -230,16 +226,12 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
 
     private boolean isContinuingService() {
         String status = getFollowUpStatusValue(FOLLOW_UP_STATUS_FIELD);
-        String clientType = getFollowUpStatusValue(CLIENT_TYPE);
-        return shouldContinueSoberHouseServices(status, clientType);
+        return shouldContinueSoberHouseServices(status);
     }
 
     @VisibleForTesting
-    static boolean shouldContinueSoberHouseServices(String followUpStatus, String clientType) {
-        return CONTINUING_SERVICE_VALUE.equalsIgnoreCase(StringUtils.trimToEmpty(followUpStatus)) ||
-                NEW_CLIENT_VALUE.equalsIgnoreCase(StringUtils.trimToEmpty(clientType)) ||
-                RELAPSED_CLIENT_VALUE.equalsIgnoreCase(StringUtils.trimToEmpty(clientType)) ||
-                MIGRANT_CLIENT_VALUE.equalsIgnoreCase(StringUtils.trimToEmpty(clientType));
+    static boolean shouldContinueSoberHouseServices(String followUpStatus) {
+        return CONTINUING_SERVICE_VALUE.equalsIgnoreCase(StringUtils.trimToEmpty(followUpStatus));
     }
 
     private boolean isNextAppointmentDateVisible() {

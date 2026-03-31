@@ -1,11 +1,3 @@
----
-name: step1_service_continuation_status
-description: Show service_continuation_status when its condition is met
-priority: 1
-condition: "true"
-actions:
-  - "isRelevant = true"
----
 name: step1_discontinued_reason
 description: Show discontinued_reason when its condition is met
 priority: 1

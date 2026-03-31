@@ -60,13 +60,6 @@
           "value": "true",
           "err": "Please select an option"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
-            }
-          }
-        },
         "options": [
           {
             "key": "continuing_service",

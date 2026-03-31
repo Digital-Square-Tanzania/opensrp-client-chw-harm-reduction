@@ -60,13 +60,6 @@
           "value": "true",
           "err": "Tafadhali chagua chaguo moja"
         },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
-            }
-          }
-        },
         "options": [
           {
             "key": "continuing_service",

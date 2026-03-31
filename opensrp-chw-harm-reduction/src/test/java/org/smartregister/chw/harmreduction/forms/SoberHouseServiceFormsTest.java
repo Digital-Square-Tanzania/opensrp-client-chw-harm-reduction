@@ -61,8 +61,7 @@ public class SoberHouseServiceFormsTest {
     public void testSoberHouseFollowUpRulesDriveReasonVisibilityAndStoredStatus() throws Exception {
         String rules = readText("src/main/assets/rule/harm-reduction-sober-house-client-type-followup-status-rules.yml");
 
-        String continuationRule = getRuleBlock(rules, "step1_service_continuation_status");
-        Assert.assertTrue(continuationRule.contains("condition: \"true\""));
+        Assert.assertFalse(rules.contains("name: step1_service_continuation_status"));
 
         String reasonRule = getRuleBlock(rules, "step1_discontinued_reason");
         Assert.assertTrue(reasonRule.contains("step1_service_continuation_status == 'discontinued_service'"));

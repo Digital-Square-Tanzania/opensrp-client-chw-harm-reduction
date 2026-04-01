@@ -204,6 +204,73 @@
         }
       },
       {
+        "key": "enrolled_into_ctc_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "enrolled_into_ctc_services",
+        "type": "native_radio",
+        "label": "Is the client enrolled into Care and Treatment Services (CTC)?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "ctc_id",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ctc_id",
+        "type": "mask_edit_text",
+        "mask": "##-##-####-######",
+        "mask_hint": "12345678912345",
+        "allowed_chars": "0123456789",
+        "hint": "CTC identification number",
+        "edit_type": "number",
+        "v_regex": {
+          "value": "(\\d{2}-\\d{2}-\\d{4}-\\d{6})?",
+          "err": "CTC identification number should be of the format (XX-XX-XXXX-XXXXXX)"
+        },
+        "v_max_length": {
+          "value": "17",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid CTC identification number"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter a valid CTC identification number"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "adherence_guidance_discontinued",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

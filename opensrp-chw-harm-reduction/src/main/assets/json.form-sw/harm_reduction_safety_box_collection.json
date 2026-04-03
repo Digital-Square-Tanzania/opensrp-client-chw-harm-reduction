@@ -150,7 +150,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "name_of_ow",
         "type": "edit_text",
-        "hint": "Jina la OW",
+        "hint": "Jina la Outreach Worker (OW)",
         "v_required": {
           "value": "true",
           "err": "Tafadhali ingiza jina la OW"

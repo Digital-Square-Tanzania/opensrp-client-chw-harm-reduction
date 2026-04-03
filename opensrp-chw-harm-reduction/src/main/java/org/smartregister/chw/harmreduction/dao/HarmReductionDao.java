@@ -26,6 +26,11 @@ public class HarmReductionDao extends AbstractDao {
     private static final String SOBER_HOUSE_ENROLLMENT_TABLE = Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT;
     private static final String FOLLOW_UP_STATUS_COLUMN = "follow_up_status";
     private static final String CLIENT_STATUS_COLUMN = "client_status";
+    private static final String HIV_TESTED_COLUMN = "hiv_tested";
+    private static final String HIV_TEST_LOCATION_COLUMN = "hiv_test_location";
+    private static final String HIV_RESULTS_COLUMN = "hiv_results";
+    private static final String ENROLLED_INTO_CTC_SERVICES_COLUMN = "enrolled_into_ctc_services";
+    private static final String CTC_ID_COLUMN = "ctc_id";
     private static final String CLIENT_DECEASED_STATUS = "client_deceased";
     private static final String YES_VALUE = "yes";
     private static final DateTimeFormatter SQL_DATE_TIME_FORMAT = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
@@ -202,6 +207,26 @@ public class HarmReductionDao extends AbstractDao {
         return getLatestStatusFromTable(SOBER_HOUSE_SERVICES_TABLE, FOLLOW_UP_STATUS_COLUMN, baseEntityId);
     }
 
+    public static String getLatestHivTested(String baseEntityId) {
+        return getLatestFollowUpVisitField(HIV_TESTED_COLUMN, baseEntityId);
+    }
+
+    public static String getLatestHivTestLocation(String baseEntityId) {
+        return getLatestFollowUpVisitField(HIV_TEST_LOCATION_COLUMN, baseEntityId);
+    }
+
+    public static String getLatestHivResults(String baseEntityId) {
+        return getLatestFollowUpVisitField(HIV_RESULTS_COLUMN, baseEntityId);
+    }
+
+    public static String getLatestEnrolledIntoCtcServices(String baseEntityId) {
+        return getLatestFollowUpVisitField(ENROLLED_INTO_CTC_SERVICES_COLUMN, baseEntityId);
+    }
+
+    public static String getLatestCtcId(String baseEntityId) {
+        return getLatestFollowUpVisitField(CTC_ID_COLUMN, baseEntityId);
+    }
+
     public static String getLatestRiskAssessmentClientStatus(String baseEntityId) {
         if (StringUtils.isBlank(baseEntityId)) {
             return "";
@@ -253,6 +278,10 @@ public class HarmReductionDao extends AbstractDao {
             return StringUtils.defaultString(res.get(0));
         }
         return "";
+    }
+
+    private static String getLatestFollowUpVisitField(String columnName, String baseEntityId) {
+        return getLatestStatusFromTable(Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT, columnName, baseEntityId);
     }
 
     @VisibleForTesting

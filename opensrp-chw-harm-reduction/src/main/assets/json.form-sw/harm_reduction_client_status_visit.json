@@ -66,13 +66,6 @@
             "text": "Anaendelea na Huduma"
           },
           {
-            "key": "started_mat_services",
-            "text": "Ameanza huduma za MAT",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "started_mat_services"
-          },
-          {
             "key": "lost",
             "text": "Amepotea",
             "openmrs_entity_parent": "",

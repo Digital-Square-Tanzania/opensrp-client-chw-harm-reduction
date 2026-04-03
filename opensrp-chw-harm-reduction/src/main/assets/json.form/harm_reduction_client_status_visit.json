@@ -66,13 +66,6 @@
             "openmrs_entity_id": "continue_service"
           },
           {
-            "key": "started_mat_services",
-            "text": "Started MAT services",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "started_mat_services"
-          },
-          {
             "key": "lost",
             "text": "Lost",
             "openmrs_entity_parent": "",

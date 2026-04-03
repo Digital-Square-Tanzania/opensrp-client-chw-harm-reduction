@@ -204,6 +204,73 @@
         }
       },
       {
+        "key": "enrolled_into_ctc_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "enrolled_into_ctc_services",
+        "type": "native_radio",
+        "label": "Je, mpokea huduma amejiunga na huduma za matibabu na matunzo (CTC)?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "ctc_id",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ctc_id",
+        "type": "mask_edit_text",
+        "mask": "##-##-####-######",
+        "mask_hint": "12345678912345",
+        "allowed_chars": "0123456789",
+        "hint": "Namba ya Utambulisho (CTC)",
+        "edit_type": "number",
+        "v_regex": {
+          "value": "(\\d{2}-\\d{2}-\\d{4}-\\d{6})?",
+          "err": "Namba ya Utambulisho (CTC) inapaswa kuwa katika muundo (XX-XX-XXXX-XXXXXX)"
+        },
+        "v_max_length": {
+          "value": "17",
+          "is_fixed_size": "true",
+          "err": "Tafadhali ingiza namba sahihi ya Utambulisho (CTC)"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza namba sahihi ya Utambulisho (CTC)"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "adherence_guidance_discontinued",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

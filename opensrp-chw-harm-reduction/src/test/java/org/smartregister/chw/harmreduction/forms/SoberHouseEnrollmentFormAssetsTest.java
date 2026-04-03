@@ -62,12 +62,20 @@ public class SoberHouseEnrollmentFormAssetsTest {
         Assert.assertFalse(rules.contains("name: step1_treatment_after_screening"));
         Assert.assertFalse(mappedColumns.contains("treatment_after_screening"));
         Assert.assertTrue(mappedColumns.contains("client_status"));
+        Assert.assertTrue(mappedColumns.contains("enrolled_into_ctc_services"));
 
         String screeningRule = getRuleBlock(rules, "step1_screening_tests_done");
         Assert.assertTrue(screeningRule.contains("step1_client_status == 'new_client' || step1_client_status == 'relapsed'"));
 
         String eligibilityRule = getRuleBlock(rules, "step1_sober_house_eligible");
         Assert.assertTrue(eligibilityRule.contains("step1_client_status == 'new_client' || step1_client_status == 'relapsed'"));
+
+        String ctcEnrollmentRule = getRuleBlock(rules, "step1_enrolled_into_ctc_services");
+        Assert.assertTrue(ctcEnrollmentRule.contains("step1_hiv_result == 'positive'"));
+
+        String ctcIdRule = getRuleBlock(rules, "step1_ctc_id");
+        Assert.assertTrue(ctcIdRule.contains("step1_hiv_result == 'positive'"));
+        Assert.assertTrue(ctcIdRule.contains("step1_enrolled_into_ctc_services == 'yes'"));
 
         String nicknameRule = getRuleBlock(rules, "step1_nickname");
         Assert.assertTrue(nicknameRule.contains("step1_client_status == 'existing'"));
@@ -103,6 +111,34 @@ public class SoberHouseEnrollmentFormAssetsTest {
                     hivStatusField.has("relevance"));
             Assert.assertEquals("harm-reduction-sober-house-enrollment-rules.yml",
                     hivStatusField.getJSONObject("calculation")
+                            .getJSONObject("rules-engine")
+                            .getJSONObject("ex-rules")
+                            .getString("rules-file"));
+        }
+    }
+
+    @Test
+    public void testEnrollmentFormsAskAboutCtcEnrollmentBeforeCtcId() throws Exception {
+        for (String formPath : ENROLLMENT_FORM_PATHS) {
+            JSONObject form = readJson(formPath);
+            JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
+
+            JSONObject ctcEnrollmentField = getField(fields, "enrolled_into_ctc_services");
+            JSONObject ctcIdField = getField(fields, "ctc_id");
+
+            Assert.assertTrue("CTC enrollment question should be placed before CTC ID in " + formPath,
+                    indexOf(fields, "enrolled_into_ctc_services") < indexOf(fields, "ctc_id"));
+            Assert.assertEquals("native_radio", ctcEnrollmentField.getString("type"));
+            Assert.assertEquals(2, ctcEnrollmentField.getJSONArray("options").length());
+            Assert.assertTrue(hasOption(ctcEnrollmentField, "yes"));
+            Assert.assertTrue(hasOption(ctcEnrollmentField, "no"));
+            Assert.assertEquals("harm-reduction-sober-house-enrollment-rules.yml",
+                    ctcEnrollmentField.getJSONObject("relevance")
+                            .getJSONObject("rules-engine")
+                            .getJSONObject("ex-rules")
+                            .getString("rules-file"));
+            Assert.assertEquals("harm-reduction-sober-house-enrollment-rules.yml",
+                    ctcIdField.getJSONObject("relevance")
                             .getJSONObject("rules-engine")
                             .getJSONObject("ex-rules")
                             .getString("rules-file"));
@@ -207,6 +243,16 @@ public class SoberHouseEnrollmentFormAssetsTest {
         }
 
         return false;
+    }
+
+    private static int indexOf(JSONArray fields, String key) throws Exception {
+        for (int i = 0; i < fields.length(); i++) {
+            if (key.equals(fields.getJSONObject(i).optString("key"))) {
+                return i;
+            }
+        }
+
+        throw new AssertionError("Missing field: " + key);
     }
 
     private static JSONObject getField(JSONArray fields, String key) throws Exception {

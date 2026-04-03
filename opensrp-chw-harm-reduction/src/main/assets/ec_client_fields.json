@@ -1342,6 +1342,14 @@
           }
         },
         {
+          "column_name": "enrolled_into_ctc_services",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "enrolled_into_ctc_services"
+          }
+        },
+        {
           "column_name": "ctc_id",
           "type": "Event",
           "json_mapping": {

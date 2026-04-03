@@ -44,6 +44,16 @@ public class HarmReductionDaoQueryTest {
     }
 
     @Test
+    public void buildHasPreviousPositiveHivFollowUpVisitQueryShouldRequirePositiveHistory() {
+        String query = HarmReductionDao.buildHasPreviousPositiveHivFollowUpVisitQuery("base-id");
+
+        Assert.assertEquals(
+                "SELECT count(p.entity_id) count FROM ec_harm_reduction_followup_visit p WHERE p.entity_id = 'base-id' AND p.hiv_results = 'positive'",
+                query
+        );
+    }
+
+    @Test
     public void buildHasPreviousSoberHouseServiceVisitQueryShouldTargetSoberHouseServiceTable() {
         String query = HarmReductionDao.buildHasPreviousSoberHouseServiceVisitQuery("base-id");
 
@@ -69,6 +79,16 @@ public class HarmReductionDaoQueryTest {
 
         Assert.assertEquals(
                 "SELECT client_status FROM ec_harm_reduction_risk_assessment WHERE is_closed = 0 AND base_entity_id = 'base-id' ORDER BY last_interacted_with DESC LIMIT 1",
+                query
+        );
+    }
+
+    @Test
+    public void buildLatestPositiveHivFollowUpVisitFieldQueryShouldTargetPositiveFollowUpRows() {
+        String query = HarmReductionDao.buildLatestPositiveHivFollowUpVisitFieldQuery("ctc_id", "base-id");
+
+        Assert.assertEquals(
+                "SELECT ctc_id FROM ec_harm_reduction_followup_visit WHERE is_closed = 0 AND entity_id = 'base-id' AND hiv_results = 'positive' ORDER BY last_interacted_with DESC LIMIT 1",
                 query
         );
     }

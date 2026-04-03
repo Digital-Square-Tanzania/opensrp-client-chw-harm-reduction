@@ -133,7 +133,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     }
 
     private void evaluateHivInfectionStatus(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {
-        HarmReductionHivInfectionStatusActionHelper actionHelper = new HarmReductionHivInfectionStatusActionHelper();
+        HarmReductionHivInfectionStatusActionHelper actionHelper = new HarmReductionHivInfectionStatusActionHelper(memberObject);
         BaseHarmReductionVisitAction action = getBuilder(context.getString(R.string.harm_reduction_hiv_infection_status))
                 .withOptional(false)
                 .withDetails(details)

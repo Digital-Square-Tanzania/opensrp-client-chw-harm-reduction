@@ -26,6 +26,10 @@ public class HarmReductionDao extends AbstractDao {
     private static final String SOBER_HOUSE_ENROLLMENT_TABLE = Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT;
     private static final String FOLLOW_UP_STATUS_COLUMN = "follow_up_status";
     private static final String CLIENT_STATUS_COLUMN = "client_status";
+    private static final String HIV_TEST_LOCATION_COLUMN = "hiv_test_location";
+    private static final String ENROLLED_INTO_CTC_SERVICES_COLUMN = "enrolled_into_ctc_services";
+    private static final String CTC_ID_COLUMN = "ctc_id";
+    private static final String POSITIVE_VALUE = "positive";
     private static final String CLIENT_DECEASED_STATUS = "client_deceased";
     private static final String YES_VALUE = "yes";
     private static final DateTimeFormatter SQL_DATE_TIME_FORMAT = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
@@ -202,6 +206,34 @@ public class HarmReductionDao extends AbstractDao {
         return getLatestStatusFromTable(SOBER_HOUSE_SERVICES_TABLE, FOLLOW_UP_STATUS_COLUMN, baseEntityId);
     }
 
+    public static boolean hasPreviousPositiveHivFollowUpVisit(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return false;
+        }
+
+        String sql = buildHasPreviousPositiveHivFollowUpVisitQuery(baseEntityId);
+        DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
+        List<Integer> res = readData(sql, dataMap);
+        if (res == null || res.size() != 1) {
+            return false;
+        }
+
+        Integer count = res.get(0);
+        return count != null && count > 0;
+    }
+
+    public static String getLatestPositiveHivTestLocation(String baseEntityId) {
+        return getLatestPositiveHivFollowUpVisitField(HIV_TEST_LOCATION_COLUMN, baseEntityId);
+    }
+
+    public static String getLatestPositiveEnrolledIntoCtcServices(String baseEntityId) {
+        return getLatestPositiveHivFollowUpVisitField(ENROLLED_INTO_CTC_SERVICES_COLUMN, baseEntityId);
+    }
+
+    public static String getLatestPositiveCtcId(String baseEntityId) {
+        return getLatestPositiveHivFollowUpVisitField(CTC_ID_COLUMN, baseEntityId);
+    }
+
     public static String getLatestRiskAssessmentClientStatus(String baseEntityId) {
         if (StringUtils.isBlank(baseEntityId)) {
             return "";
@@ -255,6 +287,20 @@ public class HarmReductionDao extends AbstractDao {
         return "";
     }
 
+    private static String getLatestPositiveHivFollowUpVisitField(String columnName, String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId) || StringUtils.isBlank(columnName)) {
+            return "";
+        }
+
+        String sql = buildLatestPositiveHivFollowUpVisitFieldQuery(columnName, baseEntityId);
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, columnName, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+        return "";
+    }
+
     @VisibleForTesting
     static boolean isDeceasedFollowUpStatus(String followUpStatus) {
         String normalizedStatus = StringUtils.trimToEmpty(followUpStatus).toLowerCase(Locale.ENGLISH);
@@ -269,6 +315,27 @@ public class HarmReductionDao extends AbstractDao {
 
         return "SELECT " + statusColumn + " FROM " + tableName +
                 " WHERE is_closed = 0 AND entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    }
+
+    @VisibleForTesting
+    static String buildHasPreviousPositiveHivFollowUpVisitQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT count(p.entity_id) count FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT + " p" +
+                " WHERE p.entity_id = '" + baseEntityId + "' AND p.hiv_results = '" + POSITIVE_VALUE + "'";
+    }
+
+    @VisibleForTesting
+    static String buildLatestPositiveHivFollowUpVisitFieldQuery(String columnName, String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId) || StringUtils.isBlank(columnName)) {
+            return "";
+        }
+
+        return "SELECT " + columnName + " FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT +
+                " WHERE is_closed = 0 AND entity_id = '" + baseEntityId + "' AND hiv_results = '" + POSITIVE_VALUE +
+                "' ORDER BY last_interacted_with DESC LIMIT 1";
     }
 
     @VisibleForTesting

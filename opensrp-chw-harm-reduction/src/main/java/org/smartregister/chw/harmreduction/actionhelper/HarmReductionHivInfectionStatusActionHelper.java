@@ -25,6 +25,10 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
     private static final String HIV_RESULTS_FIELD_KEY = "hiv_results";
     private static final String ENROLLED_INTO_CTC_SERVICES_FIELD_KEY = "enrolled_into_ctc_services";
     private static final String CTC_ID_FIELD_KEY = "ctc_id";
+    private static final String POSITIVE_VALUE = "positive";
+    private static final String YES_VALUE = "yes";
+    private static final String READ_ONLY = "read_only";
+    private static final String EDITABLE = "editable";
 
     protected MemberObject memberObject;
     private String jsonPayload;
@@ -45,18 +49,18 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
 
     @Override
     public String getPreProcessed() {
-        if (StringUtils.isBlank(jsonPayload) || !hasPreviousFollowUpVisit()) {
+        if (StringUtils.isBlank(jsonPayload) || !hasPreviousFollowUpVisit() || !hasPreviousPositiveHivVisit()) {
             return null;
         }
 
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
             boolean wasUpdated = false;
-            wasUpdated |= prefillField(jsonObject, HIV_TESTED_FIELD_KEY, getLatestHivTested());
-            wasUpdated |= prefillField(jsonObject, HIV_TEST_LOCATION_FIELD_KEY, getLatestHivTestLocation());
-            wasUpdated |= prefillField(jsonObject, HIV_RESULTS_FIELD_KEY, getLatestHivResults());
-            wasUpdated |= prefillField(jsonObject, ENROLLED_INTO_CTC_SERVICES_FIELD_KEY, getLatestEnrolledIntoCtcServices());
-            wasUpdated |= prefillField(jsonObject, CTC_ID_FIELD_KEY, getLatestCtcId());
+            wasUpdated |= prefillLockedField(jsonObject, HIV_TESTED_FIELD_KEY, YES_VALUE);
+            wasUpdated |= prefillLockedField(jsonObject, HIV_TEST_LOCATION_FIELD_KEY, getLatestPositiveHivTestLocation());
+            wasUpdated |= prefillLockedField(jsonObject, HIV_RESULTS_FIELD_KEY, POSITIVE_VALUE);
+            wasUpdated |= prefillLockedField(jsonObject, ENROLLED_INTO_CTC_SERVICES_FIELD_KEY, getLatestPositiveEnrolledIntoCtcServices());
+            wasUpdated |= prefillLockedField(jsonObject, CTC_ID_FIELD_KEY, getLatestPositiveCtcId());
             return wasUpdated ? jsonObject.toString() : null;
         } catch (JSONException e) {
             Timber.e(e);
@@ -107,7 +111,7 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
         // no-op
     }
 
-    private boolean prefillField(JSONObject jsonObject, String fieldKey, String value) throws JSONException {
+    private boolean prefillLockedField(JSONObject jsonObject, String fieldKey, String value) throws JSONException {
         if (StringUtils.isBlank(value)) {
             return false;
         }
@@ -118,6 +122,8 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
         }
 
         field.put(JsonFormConstants.VALUE, value);
+        field.put(READ_ONLY, true);
+        field.put(EDITABLE, false);
         JSONArray options = field.optJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME);
         if (options != null) {
             for (int i = 0; i < options.length(); i++) {
@@ -157,23 +163,19 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
         return memberObject != null && HarmReductionDao.hasPreviousHarmReductionFollowUpVisit(memberObject.getBaseEntityId());
     }
 
-    protected String getLatestHivTested() {
-        return memberObject == null ? "" : HarmReductionDao.getLatestHivTested(memberObject.getBaseEntityId());
+    protected boolean hasPreviousPositiveHivVisit() {
+        return memberObject != null && HarmReductionDao.hasPreviousPositiveHivFollowUpVisit(memberObject.getBaseEntityId());
     }
 
-    protected String getLatestHivTestLocation() {
-        return memberObject == null ? "" : HarmReductionDao.getLatestHivTestLocation(memberObject.getBaseEntityId());
+    protected String getLatestPositiveHivTestLocation() {
+        return memberObject == null ? "" : HarmReductionDao.getLatestPositiveHivTestLocation(memberObject.getBaseEntityId());
     }
 
-    protected String getLatestHivResults() {
-        return memberObject == null ? "" : HarmReductionDao.getLatestHivResults(memberObject.getBaseEntityId());
+    protected String getLatestPositiveEnrolledIntoCtcServices() {
+        return memberObject == null ? "" : HarmReductionDao.getLatestPositiveEnrolledIntoCtcServices(memberObject.getBaseEntityId());
     }
 
-    protected String getLatestEnrolledIntoCtcServices() {
-        return memberObject == null ? "" : HarmReductionDao.getLatestEnrolledIntoCtcServices(memberObject.getBaseEntityId());
-    }
-
-    protected String getLatestCtcId() {
-        return memberObject == null ? "" : HarmReductionDao.getLatestCtcId(memberObject.getBaseEntityId());
+    protected String getLatestPositiveCtcId() {
+        return memberObject == null ? "" : HarmReductionDao.getLatestPositiveCtcId(memberObject.getBaseEntityId());
     }
 }

@@ -10,16 +10,15 @@ import org.smartregister.chw.harmreduction.domain.MemberObject;
 public class HarmReductionHivInfectionStatusActionHelperTest {
 
     @Test
-    public void getPreProcessedShouldPrefillPreviousHivStatusButKeepAdherenceEditable() throws Exception {
+    public void getPreProcessedShouldPrefillAndLockFieldsWhenClientHasPreviousPositiveHivVisit() throws Exception {
         MemberObject memberObject = new MemberObject();
         memberObject.setBaseEntityId("base-id");
 
         HarmReductionHivInfectionStatusActionHelper helper = new TestHarmReductionHivInfectionStatusActionHelper(
                 memberObject,
                 true,
-                "yes",
+                true,
                 "facility",
-                "positive",
                 "yes",
                 "12-34-5678-901234"
         );
@@ -28,13 +27,24 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
         JSONObject form = new JSONObject(helper.getPreProcessed());
 
         Assert.assertEquals("yes", getField(form, "hiv_tested").getString("value"));
+        Assert.assertTrue(getField(form, "hiv_tested").getBoolean("read_only"));
+        Assert.assertFalse(getField(form, "hiv_tested").getBoolean("editable"));
         Assert.assertEquals("facility", getField(form, "hiv_test_location").getString("value"));
+        Assert.assertTrue(getField(form, "hiv_test_location").getBoolean("read_only"));
+        Assert.assertFalse(getField(form, "hiv_test_location").getBoolean("editable"));
         Assert.assertEquals("positive", getField(form, "hiv_results").getString("value"));
+        Assert.assertTrue(getField(form, "hiv_results").getBoolean("read_only"));
+        Assert.assertFalse(getField(form, "hiv_results").getBoolean("editable"));
         Assert.assertEquals("yes", getField(form, "enrolled_into_ctc_services").getString("value"));
+        Assert.assertTrue(getField(form, "enrolled_into_ctc_services").getBoolean("read_only"));
+        Assert.assertFalse(getField(form, "enrolled_into_ctc_services").getBoolean("editable"));
         Assert.assertEquals("12-34-5678-901234", getField(form, "ctc_id").getString("value"));
+        Assert.assertTrue(getField(form, "ctc_id").getBoolean("read_only"));
+        Assert.assertFalse(getField(form, "ctc_id").getBoolean("editable"));
         Assert.assertEquals("", getField(form, "drug_adherence_status_ctc").optString("value"));
         Assert.assertEquals("native_radio", getField(form, "drug_adherence_status_ctc").getString("type"));
         Assert.assertFalse(getField(form, "drug_adherence_status_ctc").has("read_only"));
+        Assert.assertFalse(getField(form, "drug_adherence_status_ctc").has("editable"));
     }
 
     @Test
@@ -45,9 +55,26 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
         HarmReductionHivInfectionStatusActionHelper helper = new TestHarmReductionHivInfectionStatusActionHelper(
                 memberObject,
                 false,
-                "yes",
+                true,
                 "facility",
-                "positive",
+                "yes",
+                "12-34-5678-901234"
+        );
+        helper.onJsonFormLoaded(getHivInfectionStatusForm(), null, null);
+
+        Assert.assertNull(helper.getPreProcessed());
+    }
+
+    @Test
+    public void getPreProcessedShouldReturnNullWhenClientHasNoPreviousPositiveHivVisit() {
+        MemberObject memberObject = new MemberObject();
+        memberObject.setBaseEntityId("base-id");
+
+        HarmReductionHivInfectionStatusActionHelper helper = new TestHarmReductionHivInfectionStatusActionHelper(
+                memberObject,
+                true,
+                false,
+                "facility",
                 "yes",
                 "12-34-5678-901234"
         );
@@ -123,26 +150,23 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
 
     private static class TestHarmReductionHivInfectionStatusActionHelper extends HarmReductionHivInfectionStatusActionHelper {
         private final boolean hasPreviousVisit;
-        private final String latestHivTested;
-        private final String latestHivTestLocation;
-        private final String latestHivResults;
-        private final String latestEnrolledIntoCtcServices;
-        private final String latestCtcId;
+        private final boolean hasPreviousPositiveVisit;
+        private final String latestPositiveHivTestLocation;
+        private final String latestPositiveEnrolledIntoCtcServices;
+        private final String latestPositiveCtcId;
 
         TestHarmReductionHivInfectionStatusActionHelper(MemberObject memberObject,
                                                         boolean hasPreviousVisit,
-                                                        String latestHivTested,
-                                                        String latestHivTestLocation,
-                                                        String latestHivResults,
-                                                        String latestEnrolledIntoCtcServices,
-                                                        String latestCtcId) {
+                                                        boolean hasPreviousPositiveVisit,
+                                                        String latestPositiveHivTestLocation,
+                                                        String latestPositiveEnrolledIntoCtcServices,
+                                                        String latestPositiveCtcId) {
             super(memberObject);
             this.hasPreviousVisit = hasPreviousVisit;
-            this.latestHivTested = latestHivTested;
-            this.latestHivTestLocation = latestHivTestLocation;
-            this.latestHivResults = latestHivResults;
-            this.latestEnrolledIntoCtcServices = latestEnrolledIntoCtcServices;
-            this.latestCtcId = latestCtcId;
+            this.hasPreviousPositiveVisit = hasPreviousPositiveVisit;
+            this.latestPositiveHivTestLocation = latestPositiveHivTestLocation;
+            this.latestPositiveEnrolledIntoCtcServices = latestPositiveEnrolledIntoCtcServices;
+            this.latestPositiveCtcId = latestPositiveCtcId;
         }
 
         @Override
@@ -151,28 +175,23 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
         }
 
         @Override
-        protected String getLatestHivTested() {
-            return latestHivTested;
+        protected boolean hasPreviousPositiveHivVisit() {
+            return hasPreviousPositiveVisit;
         }
 
         @Override
-        protected String getLatestHivTestLocation() {
-            return latestHivTestLocation;
+        protected String getLatestPositiveHivTestLocation() {
+            return latestPositiveHivTestLocation;
         }
 
         @Override
-        protected String getLatestHivResults() {
-            return latestHivResults;
+        protected String getLatestPositiveEnrolledIntoCtcServices() {
+            return latestPositiveEnrolledIntoCtcServices;
         }
 
         @Override
-        protected String getLatestEnrolledIntoCtcServices() {
-            return latestEnrolledIntoCtcServices;
-        }
-
-        @Override
-        protected String getLatestCtcId() {
-            return latestCtcId;
+        protected String getLatestPositiveCtcId() {
+            return latestPositiveCtcId;
         }
     }
 }

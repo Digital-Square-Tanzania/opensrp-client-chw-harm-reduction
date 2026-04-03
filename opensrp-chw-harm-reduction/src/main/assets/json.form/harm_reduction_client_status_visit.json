@@ -51,19 +51,26 @@
     "title": "Client Status",
     "fields": [
       {
-        "key": "client_status",
+        "key": "follow_up_status",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "client_status",
+        "openmrs_entity_id": "follow_up_status",
         "type": "native_radio",
-        "label": "Client Status",
+        "label": "Follow-up status",
         "options": [
           {
-            "key": "new",
-            "text": "New",
+            "key": "continue_service",
+            "text": "Continue service",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "new"
+            "openmrs_entity_id": "continue_service"
+          },
+          {
+            "key": "started_mat_services",
+            "text": "Started MAT services",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "started_mat_services"
           },
           {
             "key": "lost",
@@ -71,20 +78,6 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "lost"
-          },
-          {
-            "key": "client_deceased",
-            "text": "Died",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "client_deceased"
-          },
-          {
-            "key": "overdose",
-            "text": "Overdose",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "overdose"
           },
           {
             "key": "moved",
@@ -101,11 +94,18 @@
             "openmrs_entity_id": "discontinued_service"
           },
           {
-            "key": "continue_service",
-            "text": "Continue service",
+            "key": "overdose",
+            "text": "Overdose",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "continue_service"
+            "openmrs_entity_id": "overdose"
+          },
+          {
+            "key": "client_deceased",
+            "text": "Died",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "client_deceased"
           }
         ],
         "v_required": {

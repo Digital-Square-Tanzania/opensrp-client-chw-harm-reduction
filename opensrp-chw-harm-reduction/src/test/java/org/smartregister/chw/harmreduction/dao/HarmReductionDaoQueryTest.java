@@ -64,6 +64,16 @@ public class HarmReductionDaoQueryTest {
     }
 
     @Test
+    public void buildLatestRiskAssessmentClientStatusQueryShouldTargetRiskAssessmentTable() {
+        String query = HarmReductionDao.buildLatestRiskAssessmentClientStatusQuery("base-id");
+
+        Assert.assertEquals(
+                "SELECT client_status FROM ec_harm_reduction_risk_assessment WHERE is_closed = 0 AND base_entity_id = 'base-id' ORDER BY last_interacted_with DESC LIMIT 1",
+                query
+        );
+    }
+
+    @Test
     public void buildSoberHouseMemberQueryShouldRequireDetoxification() {
         String query = HarmReductionDao.buildSoberHouseMemberQuery("base-id");
 

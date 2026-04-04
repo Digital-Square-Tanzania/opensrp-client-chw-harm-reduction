@@ -1,5 +1,7 @@
 package org.smartregister.chw.harmreduction.actionhelper;
 
+import static org.smartregister.client.utils.constants.JsonFormConstants.TYPE;
+
 import android.content.Context;
 
 import com.vijay.jsonwizard.constants.JsonFormConstants;
@@ -124,6 +126,7 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
         field.put(JsonFormConstants.VALUE, value);
         field.put(READ_ONLY, true);
         field.put(EDITABLE, false);
+        field.put(TYPE, "hidden");
         JSONArray options = field.optJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME);
         if (options != null) {
             for (int i = 0; i < options.length(); i++) {

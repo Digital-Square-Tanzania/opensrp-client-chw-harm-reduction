@@ -150,7 +150,6 @@ public class HarmReductionSoberHouseClientTypeFollowupStatusActionHelper impleme
                 }
 
                 field.put(JsonFormConstants.VALUE, CONTINUING_SERVICE_VALUE);
-                field.put("type", "hidden");
                 field.put("read_only", true);
                 return;
             }

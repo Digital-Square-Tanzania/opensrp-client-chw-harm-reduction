@@ -26,7 +26,6 @@ public class ClientStatusVisitFormAssetsTest {
     public void testClientStatusVisitFormsCollectFollowUpStatus() throws Exception {
         Set<String> expectedOptions = new LinkedHashSet<>(Arrays.asList(
                 "continue_service",
-                "started_mat_services",
                 "lost",
                 "moved",
                 "discontinued_service",
@@ -43,6 +42,14 @@ public class ClientStatusVisitFormAssetsTest {
 
             JSONObject followUpStatusField = getField(fields, "follow_up_status");
             Assert.assertEquals(expectedOptions, optionKeys(followUpStatusField));
+
+            JSONObject causeOfDeathField = getField(fields, "cause_of_death");
+            Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
+                    "accident",
+                    "overdose",
+                    "unknown",
+                    "other"
+            )), optionKeys(causeOfDeathField));
         }
     }
 

@@ -200,26 +200,33 @@
         "openmrs_entity_id": "cause_of_death",
         "type": "native_radio",
         "label": "Cause of death",
-        "options": [
-          {
-            "key": "accident",
-            "text": "Accident",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "accident"
-          },
-          {
-            "key": "overdose",
-            "text": "Overdose",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "overdose"
-          },
-          {
-            "key": "other",
-            "text": "Others (Specify)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
+          "options": [
+            {
+              "key": "accident",
+              "text": "Accident",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "accident"
+            },
+            {
+              "key": "overdose",
+              "text": "Overdose",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "overdose"
+            },
+            {
+              "key": "unknown",
+              "text": "Unknown",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "unknown"
+            },
+            {
+              "key": "other",
+              "text": "Others (Specify)",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }
         ],

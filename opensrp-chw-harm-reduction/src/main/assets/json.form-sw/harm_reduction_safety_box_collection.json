@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "Huduma ya vifaa vya kujidunga salama",
+    "title": "Ukusanyaji wa sindano na mabomba yaliyotumika",
     "fields": [
       {
         "key": "date_of_collection",
@@ -74,25 +74,13 @@
         }
       },
       {
-        "key": "collection_site_gps",
+        "key": "number_of_used_needles_and_syringes_collected",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "collection_site_gps",
-        "type": "gps",
-        "hint": "GPS eneo la tovuti ya ukusanyaji",
-        "v_required": {
-          "value": true,
-          "err": "Tafadhali weka eneo"
-        }
-      },
-      {
-        "key": "other_collection",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "other_collection",
+        "openmrs_entity_id": "number_of_used_needles_and_syringes_collected",
         "type": "edit_text",
         "edit_type": "number",
-        "hint": "Idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika)",
+        "hint": "Idadi ya sindano na mabomba yaliyotumika yaliyokusanywa",
         "v_numeric": {
           "value": "true",
           "err": "Tafadhali weka nambari halali"
@@ -103,58 +91,16 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali weka idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika) "
+          "err": "Tafadhali weka idadi ya sindano na mabomba yaliyotumika yaliyokusanywa"
         }
       },
       {
-        "key": "fixed_bins",
+        "key": "issues_challenges_related_to_collection_of_used_needles_and_syringes",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "fixed_bins",
+        "openmrs_entity_id": "issues_challenges_related_to_collection_of_used_needles_and_syringes",
         "type": "edit_text",
-        "edit_type": "number",
-        "hint": "Idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika) kwenye Mapipa yasiyobadilika",
-        "v_numeric": {
-          "value": "true",
-          "err": "Tafadhali weka nambari halali"
-        },
-        "v_min": {
-          "value": "0",
-          "err": "Thamani lazima iwe 0 au zaidi"
-        },
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali weka idadi ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika) kwenye Mapipa yasiyobadilika"
-        }
-      },
-      {
-        "key": "total_safety_boxes_collected",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "total_safety_boxes_collected",
-        "type": "edit_text",
-        "edit_type": "number",
-        "read_only": true,
-        "calculation": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-safety-box-collection-rules.yml"
-            }
-          }
-        },
-        "hint": "Jumla ya Sanduku za Usalama zilizokusanywa (sindano zilizotumika)"
-      },
-      {
-        "key": "name_of_ow",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "name_of_ow",
-        "type": "edit_text",
-        "hint": "Jina la Outreach Worker (OW)",
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali ingiza jina la OW"
-        }
+        "hint": "Changamoto zinazohusiana na ukusanyaji wa sindano na mabomba yaliyotumika"
       }
     ]
   }

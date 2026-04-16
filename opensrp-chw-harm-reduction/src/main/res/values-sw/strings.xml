@@ -99,8 +99,8 @@
     <string name="harm_reduction_used_needles_collection_label">Ukusanyaji wa sindano na mabomba yaliyotumika</string>
     <string name="harm_reduction_used_needles_collection_sessions">Vikao vya ukusanyaji wa sindano na mabomba yaliyotumika</string>
     <string name="harm_reduction_collection_date">Tarehe ya ukusanyaji: %s</string>
-    <string name="harm_reduction_safety_boxes_collected">Sanduku za usalama zilizokusanywa: %s</string>
-    <string name="harm_reduction_safety_boxes_collection">Ukusanyaji wa sanduku za usalama</string>
+    <string name="harm_reduction_used_needles_and_syringes_collected">Sindano na mabomba yaliyotumika yaliyokusanywa: %s</string>
+    <string name="harm_reduction_safety_boxes_collection">Ukusanyaji wa sindano na mabomba yaliyotumika</string>
 
     <string name="harm_reduction_mobilization">Uhamasishaji</string>
     <string name="harm_reduction_contact">Watu wa karibu</string>

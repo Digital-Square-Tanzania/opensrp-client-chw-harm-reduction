@@ -1,6 +1,7 @@
 package org.smartregister.chw.harmreduction.dao;
 
 import android.annotation.SuppressLint;
+import android.database.Cursor;
 
 import org.smartregister.chw.harmreduction.model.HarmReductionUsedNeedlesAndSyringesCollectionModel;
 import org.smartregister.chw.harmreduction.util.Constants;
@@ -14,30 +15,21 @@ public class HarmReductionUsedNeedlesAndSyringesCollectionDao extends AbstractDa
     public static void updateData(String baseEntityID,
                                   String dateOfCollection,
                                   String maskaniName,
-                                  String collectionSiteGps,
-                                  String otherCollection,
-                                  String fixedBins,
-                                  String totalSafetyBoxesCollected,
-                                  String nameOfOw) {
+                                  String numberOfUsedNeedlesAndSyringesCollected,
+                                  String issuesChallengesRelatedToCollectionOfUsedNeedlesAndSyringes) {
         String sql = "INSERT INTO " + Constants.TABLES.HARM_REDUCTION_SAFETY_BOX_COLLECTION +
-                "           (id, base_entity_id, date_of_collection, maskani_name, collection_site_gps, other_collection, fixed_bins, total_safety_boxes_collected, name_of_ow) " +
+                "           (id, base_entity_id, date_of_collection, maskani_name, number_of_used_needles_and_syringes_collected, issues_challenges_related_to_collection_of_used_needles_and_syringes) " +
                 "           VALUES (" +
                 "                   '" + baseEntityID + "', " +
                 "                   '" + baseEntityID + "', " +
                 "                   '" + dateOfCollection + "', " +
                 "                   '" + maskaniName + "', " +
-                "                   '" + collectionSiteGps + "', " +
-                "                   '" + otherCollection + "', " +
-                "                   '" + fixedBins + "', " +
-                "                   '" + totalSafetyBoxesCollected + "', " +
-                "                   '" + nameOfOw + "') " +
+                "                   '" + numberOfUsedNeedlesAndSyringesCollected + "', " +
+                "                   '" + issuesChallengesRelatedToCollectionOfUsedNeedlesAndSyringes + "') " +
                 " ON CONFLICT (id) DO UPDATE SET date_of_collection = EXCLUDED.date_of_collection, " +
                 "                               maskani_name = EXCLUDED.maskani_name, " +
-                "                               collection_site_gps = EXCLUDED.collection_site_gps, " +
-                "                               other_collection = EXCLUDED.other_collection, " +
-                "                               fixed_bins = EXCLUDED.fixed_bins, " +
-                "                               total_safety_boxes_collected = EXCLUDED.total_safety_boxes_collected, " +
-                "                               name_of_ow = EXCLUDED.name_of_ow;";
+                "                               number_of_used_needles_and_syringes_collected = EXCLUDED.number_of_used_needles_and_syringes_collected, " +
+                "                               issues_challenges_related_to_collection_of_used_needles_and_syringes = EXCLUDED.issues_challenges_related_to_collection_of_used_needles_and_syringes;";
 
         updateDB(sql);
     }
@@ -50,17 +42,14 @@ public class HarmReductionUsedNeedlesAndSyringesCollectionDao extends AbstractDa
 
         @SuppressLint("Range") DataMap<HarmReductionUsedNeedlesAndSyringesCollectionModel> dataMap = cursor -> {
             HarmReductionUsedNeedlesAndSyringesCollectionModel collectionModel = new HarmReductionUsedNeedlesAndSyringesCollectionModel();
-            collectionModel.setCollectionId(cursor.getString(cursor.getColumnIndex(DBConstants.KEY.BASE_ENTITY_ID)));
-            collectionModel.setCollectionDate(cursor.getString(cursor.getColumnIndex(DBConstants.KEY.DATE_OF_COLLECTION)));
-
-            String totalSafetyBoxesCollected = cursor.getString(cursor.getColumnIndex(DBConstants.KEY.TOTAL_SAFETY_BOXES_COLLECTED));
-            if (totalSafetyBoxesCollected == null || totalSafetyBoxesCollected.isEmpty()) {
-                totalSafetyBoxesCollected = computeTotalSafetyBoxes(
-                        cursor.getString(cursor.getColumnIndex(DBConstants.KEY.OTHER_COLLECTION)),
-                        cursor.getString(cursor.getColumnIndex(DBConstants.KEY.FIXED_BINS))
-                );
-            }
-            collectionModel.setTotalSafetyBoxesCollected(totalSafetyBoxesCollected);
+            collectionModel.setCollectionId(getColumnValue(cursor, DBConstants.KEY.BASE_ENTITY_ID));
+            collectionModel.setCollectionDate(getColumnValue(cursor, DBConstants.KEY.DATE_OF_COLLECTION));
+            collectionModel.setUsedNeedlesAndSyringesCollected(resolveCollectedNeedlesAndSyringesValue(
+                    getColumnValue(cursor, DBConstants.KEY.NUMBER_OF_USED_NEEDLES_AND_SYRINGES_COLLECTED),
+                    getColumnValue(cursor, DBConstants.KEY.TOTAL_SAFETY_BOXES_COLLECTED),
+                    getColumnValue(cursor, DBConstants.KEY.OTHER_COLLECTION),
+                    getColumnValue(cursor, DBConstants.KEY.FIXED_BINS)
+            ));
             return collectionModel;
         };
 
@@ -71,13 +60,37 @@ public class HarmReductionUsedNeedlesAndSyringesCollectionDao extends AbstractDa
         return res;
     }
 
-    private static String computeTotalSafetyBoxes(String otherCollection, String fixedBins) {
+    static String resolveCollectedNeedlesAndSyringesValue(String currentCount,
+                                                          String legacyTotalSafetyBoxesCollected,
+                                                          String otherCollection,
+                                                          String fixedBins) {
+        if (hasValue(currentCount)) {
+            return currentCount;
+        }
+
+        if (hasValue(legacyTotalSafetyBoxesCollected)) {
+            return legacyTotalSafetyBoxesCollected;
+        }
+
+        return computeLegacyTotalSafetyBoxes(otherCollection, fixedBins);
+    }
+
+    private static String computeLegacyTotalSafetyBoxes(String otherCollection, String fixedBins) {
         try {
             int sum = Integer.parseInt(defaultZero(otherCollection)) + Integer.parseInt(defaultZero(fixedBins));
             return String.valueOf(sum);
         } catch (Exception e) {
             return null;
         }
+    }
+
+    private static String getColumnValue(Cursor cursor, String columnName) {
+        int index = cursor.getColumnIndex(columnName);
+        return index >= 0 ? cursor.getString(index) : null;
+    }
+
+    private static boolean hasValue(String value) {
+        return value != null && !value.trim().isEmpty();
     }
 
     private static String defaultZero(String value) {

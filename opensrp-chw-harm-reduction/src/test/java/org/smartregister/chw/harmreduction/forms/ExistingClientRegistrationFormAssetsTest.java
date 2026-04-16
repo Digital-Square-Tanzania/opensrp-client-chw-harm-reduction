@@ -37,17 +37,26 @@ public class ExistingClientRegistrationFormAssetsTest {
             Assert.assertTrue(hasField(fields, "maskani_name"));
 
             JSONObject rocGroupType = getField(fields, "roc_group_type");
-            Assert.assertEquals(new LinkedHashSet<>(Arrays.asList("nidu", "idu", "group_use")), optionKeys(rocGroupType));
+            Assert.assertEquals("hidden", rocGroupType.getString("type"));
 
             JSONObject followUpStatus = getField(fields, "follow_up_status");
             Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
-                    "on_community_service",
+                    "continue_service",
                     "started_mat_services",
-                    "refused_mat_services",
-                    "moved_out",
-                    "interrupted_services",
-                    "deceased"
+                    "lost",
+                    "moved",
+                    "discontinued_service",
+                    "overdose",
+                    "client_deceased"
             )), optionKeys(followUpStatus));
+
+            JSONObject causeOfDeath = getField(fields, "cause_of_death");
+            Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
+                    "accident",
+                    "overdose",
+                    "unknown",
+                    "other"
+            )), optionKeys(causeOfDeath));
         }
     }
 

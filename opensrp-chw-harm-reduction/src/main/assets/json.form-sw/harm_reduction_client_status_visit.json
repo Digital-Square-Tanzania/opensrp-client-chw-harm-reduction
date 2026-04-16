@@ -122,6 +122,20 @@
             "openmrs_entity_id": "accident"
           },
           {
+            "key": "overdose",
+            "text": "Overdose",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "overdose"
+          },
+          {
+            "key": "unknown",
+            "text": "Haijulikani",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unknown"
+          },
+          {
             "key": "other",
             "text": "Nyinginezo (Taja)",
             "openmrs_entity_parent": "",

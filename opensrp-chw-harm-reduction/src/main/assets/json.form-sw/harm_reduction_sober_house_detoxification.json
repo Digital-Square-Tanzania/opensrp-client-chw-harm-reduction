@@ -84,7 +84,7 @@
         "openmrs_entity_id": "detoxification_referral_prompt",
         "type": "label",
         "label": "Hatua Inahitajika",
-        "text": "Mpeleke mteja kwenye kituo cha afya kwa huduma za uondoaji sumu mwilini.",
+        "text": "Mpeleke mpokea huduma kwenye kituo cha afya kwa huduma za uondoaji sumu mwilini.",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

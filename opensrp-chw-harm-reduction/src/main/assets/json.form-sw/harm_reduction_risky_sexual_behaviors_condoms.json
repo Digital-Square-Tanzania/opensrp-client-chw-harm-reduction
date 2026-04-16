@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "engaging_in_sexual_activity",
         "type": "native_radio",
-        "label": "Je, mteja anashiriki ngono?",
+        "label": "Je, mpokea huduma anashiriki ngono?",
         "options": [
           {
             "key": "yes",
@@ -148,7 +148,7 @@
         "openmrs_entity_id": "condom_education_prompt",
         "type": "toaster_notes",
         "label": "Mwongozo",
-        "text": "Mweleze mteja juu ya umuhimu na matumizi sahihi ya kondomu",
+        "text": "Mweleze mpokea huduma juu ya umuhimu na matumizi sahihi ya kondomu",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -163,7 +163,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "condoms_given",
         "type": "native_radio",
-        "label": "Je mteja amepewa Kondomu?",
+        "label": "Je mpokea huduma amepewa Kondomu?",
         "options": [
           {
             "key": "yes",

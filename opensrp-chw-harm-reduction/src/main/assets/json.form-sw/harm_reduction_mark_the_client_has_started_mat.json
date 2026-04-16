@@ -47,7 +47,7 @@
     }
   },
   "step1": {
-    "title": "Thibitisha mteja ameanza MAT",
+    "title": "Thibitisha mpokea huduma ameanza MAT",
     "fields": [
       {
         "key": "client_started_mat",
@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "client_started_mat",
         "type": "native_radio",
-        "label": "Je, mteja ameanza MAT?",
+        "label": "Je, mpokea huduma ameanza MAT?",
         "options": [
           {
             "key": "yes",

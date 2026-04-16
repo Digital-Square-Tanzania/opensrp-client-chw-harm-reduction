@@ -940,9 +940,9 @@
         "openmrs_entity_id": "birth_region",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "label_info_title": "Mkoa wa Kuzaliwa kwa Mteja",
+        "label_info_title": "Mkoa wa Kuzaliwa kwa Mpokea Huduma",
         "label_info_text": "",
-        "hint": "Chagua mkoa aliozaliwa mteja",
+        "hint": "Chagua mkoa aliozaliwa mpokea huduma",
         "values": [
           "Arusha",
           "Dar es Salaam",

@@ -38,6 +38,10 @@ public class SoberHouseServiceFormsTest {
         JSONObject swahiliReasonField = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "discontinued_reason");
         JSONObject englishOtherReasonField = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "discontinued_other_reason");
         JSONObject swahiliOtherReasonField = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "discontinued_other_reason");
+        JSONObject englishCauseOfDeathField = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "cause_of_death");
+        JSONObject swahiliCauseOfDeathField = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "cause_of_death");
+        JSONObject englishCauseOfDeathOtherField = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "cause_of_death_other_specify");
+        JSONObject swahiliCauseOfDeathOtherField = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "cause_of_death_other_specify");
         JSONObject englishFollowUpStatus = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "follow_up_status");
         JSONObject swahiliFollowUpStatus = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "follow_up_status");
 
@@ -49,10 +53,18 @@ public class SoberHouseServiceFormsTest {
         Assert.assertEquals(2, swahiliContinuationField.getJSONArray("options").length());
         Assert.assertEquals(4, englishReasonField.getJSONArray("options").length());
         Assert.assertEquals(4, swahiliReasonField.getJSONArray("options").length());
+        Assert.assertEquals("Cause of death", englishCauseOfDeathField.getString("label"));
+        Assert.assertEquals("Sababu ya kifo", swahiliCauseOfDeathField.getString("label"));
+        Assert.assertEquals(3, englishCauseOfDeathField.getJSONArray("options").length());
+        Assert.assertEquals(3, swahiliCauseOfDeathField.getJSONArray("options").length());
         Assert.assertEquals("edit_text", englishOtherReasonField.getString("type"));
         Assert.assertEquals("edit_text", swahiliOtherReasonField.getString("type"));
         Assert.assertEquals("Please specify other reason", englishOtherReasonField.getString("hint"));
         Assert.assertEquals("Tafadhali taja sababu nyingine", swahiliOtherReasonField.getString("hint"));
+        Assert.assertEquals("edit_text", englishCauseOfDeathOtherField.getString("type"));
+        Assert.assertEquals("edit_text", swahiliCauseOfDeathOtherField.getString("type"));
+        Assert.assertEquals("Please specify other cause of death", englishCauseOfDeathOtherField.getString("hint"));
+        Assert.assertEquals("Taja sababu nyingine ya kifo", swahiliCauseOfDeathOtherField.getString("hint"));
         Assert.assertEquals("hidden", englishFollowUpStatus.getString("type"));
         Assert.assertEquals("hidden", swahiliFollowUpStatus.getString("type"));
     }
@@ -71,6 +83,14 @@ public class SoberHouseServiceFormsTest {
         Assert.assertTrue(otherReasonRule.contains("step1_service_continuation_status == 'discontinued_service'"));
         Assert.assertTrue(otherReasonRule.contains("step1_discontinued_reason == 'other'"));
 
+        String deathRule = getRuleBlock(rules, "step1_cause_of_death");
+        Assert.assertTrue(deathRule.contains("step1_service_continuation_status == 'discontinued_service'"));
+        Assert.assertTrue(deathRule.contains("step1_discontinued_reason == 'client_deceased'"));
+
+        String deathOtherRule = getRuleBlock(rules, "step1_cause_of_death_other_specify");
+        Assert.assertTrue(deathOtherRule.contains("step1_discontinued_reason == 'client_deceased'"));
+        Assert.assertTrue(deathOtherRule.contains("step1_cause_of_death == 'other'"));
+
         String storedStatusRule = getRuleBlock(rules, "step1_follow_up_status");
         Assert.assertTrue(storedStatusRule.contains("step1_service_continuation_status == 'continuing_service' ? 'continuing_service' : step1_discontinued_reason"));
     }
@@ -81,6 +101,8 @@ public class SoberHouseServiceFormsTest {
         Set<String> mappedColumns = mappedColumns(clientFields);
 
         Assert.assertTrue(mappedColumns.contains("discontinued_other_reason"));
+        Assert.assertTrue(mappedColumns.contains("cause_of_death"));
+        Assert.assertTrue(mappedColumns.contains("cause_of_death_other_specify"));
     }
 
     @Test

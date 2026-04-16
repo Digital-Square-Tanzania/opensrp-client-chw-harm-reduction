@@ -1495,6 +1495,22 @@
           }
         },
         {
+          "column_name": "cause_of_death",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cause_of_death"
+          }
+        },
+        {
+          "column_name": "cause_of_death_other_specify",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cause_of_death_other_specify"
+          }
+        },
+        {
           "column_name": "linkage_to_other_services_provided",
           "type": "Event",
           "json_mapping": {

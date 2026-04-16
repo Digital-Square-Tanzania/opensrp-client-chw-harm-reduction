@@ -146,6 +146,67 @@
         }
       },
       {
+        "key": "cause_of_death",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "cause_of_death",
+        "type": "native_radio",
+        "label": "Cause of death",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "accident",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "accident",
+            "text": "Accident"
+          },
+          {
+            "key": "unknown",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unknown",
+            "text": "Unknown"
+          },
+          {
+            "key": "other",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other",
+            "text": "Other"
+          }
+        ]
+      },
+      {
+        "key": "cause_of_death_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "cause_of_death_other_specify",
+        "type": "edit_text",
+        "hint": "Please specify other cause of death",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "follow_up_status",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

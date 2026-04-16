@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "linkage_to_other_services_provided",
         "type": "native_radio",
-        "label": "Je, mteja ameunganishwa katika huduma nyingine?",
+        "label": "Je, mpokea huduma ameunganishwa katika huduma nyingine?",
         "options": [
           {
             "key": "yes",

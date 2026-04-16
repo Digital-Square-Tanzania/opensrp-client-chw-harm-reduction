@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_tested",
         "type": "native_radio",
-        "label": "Je, mteja amewahi kupima VVU?",
+        "label": "Je, mpokea huduma amewahi kupima VVU?",
         "options": [
           {
             "key": "yes",
@@ -293,7 +293,7 @@
         "openmrs_entity_id": "adherence_guidance_not_started",
         "type": "toaster_notes",
         "label": "Mwongozo",
-        "text": "Msindikize mteja hadi Kliniki ya Matunzo na Tiba (CTC) kwa huduma.",
+        "text": "Msindikize mpokea huduma hadi Kliniki ya Matunzo na Tiba (CTC) kwa huduma.",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

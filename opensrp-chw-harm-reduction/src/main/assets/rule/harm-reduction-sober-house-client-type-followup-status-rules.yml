@@ -12,6 +12,20 @@ condition: "step1_service_continuation_status == 'discontinued_service' && step1
 actions:
   - "isRelevant = true"
 ---
+name: step1_cause_of_death
+description: Show cause_of_death when discontinued_reason is client_deceased
+priority: 1
+condition: "step1_service_continuation_status == 'discontinued_service' && step1_discontinued_reason == 'client_deceased'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_cause_of_death_other_specify
+description: Show cause_of_death_other_specify when cause_of_death is other
+priority: 1
+condition: "step1_service_continuation_status == 'discontinued_service' && step1_discontinued_reason == 'client_deceased' && step1_cause_of_death == 'other'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_follow_up_status
 description: Calculate follow_up_status from the continuation choice and discontinued reason
 priority: 1

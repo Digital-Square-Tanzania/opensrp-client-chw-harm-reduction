@@ -155,6 +155,41 @@
         }
       },
       {
+        "key": "enrolled_into_ctc_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "enrolled_into_ctc_services",
+        "type": "native_radio",
+        "label": "Is the client enrolled into Care and Treatment Services (CTC)?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "drug_adherence_status_ctc",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -189,41 +224,6 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "not_started"
-          }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Please select an option"
-        },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "enrolled_into_ctc_services",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "enrolled_into_ctc_services",
-        "type": "native_radio",
-        "label": "Is the client enrolled into Care and Treatment Services (CTC)?",
-        "options": [
-          {
-            "key": "yes",
-            "text": "Yes",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
-          },
-          {
-            "key": "no",
-            "text": "No",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
           }
         ],
         "v_required": {

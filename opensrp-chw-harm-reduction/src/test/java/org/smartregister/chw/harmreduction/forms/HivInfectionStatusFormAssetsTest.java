@@ -23,17 +23,21 @@ public class HivInfectionStatusFormAssetsTest {
     );
 
     @Test
-    public void testHivInfectionStatusFormsAskAboutCtcEnrollmentBeforeCtcId() throws Exception {
+    public void testHivInfectionStatusFormsAskAboutCtcEnrollmentBeforeAdherenceAndCtcId() throws Exception {
         for (String formPath : FORM_PATHS) {
             JSONObject form = readJson(formPath);
             JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
 
             JSONObject ctcEnrollmentField = getField(fields, "enrolled_into_ctc_services");
+            JSONObject adherenceField = getField(fields, "drug_adherence_status_ctc");
             JSONObject ctcIdField = getField(fields, "ctc_id");
 
-            Assert.assertTrue("CTC enrollment question should be placed before CTC ID in " + formPath,
-                    indexOf(fields, "enrolled_into_ctc_services") < indexOf(fields, "ctc_id"));
+            Assert.assertTrue("CTC enrollment question should be placed before adherence in " + formPath,
+                    indexOf(fields, "enrolled_into_ctc_services") < indexOf(fields, "drug_adherence_status_ctc"));
+            Assert.assertTrue("Adherence question should be placed before CTC ID in " + formPath,
+                    indexOf(fields, "drug_adherence_status_ctc") < indexOf(fields, "ctc_id"));
             Assert.assertEquals("native_radio", ctcEnrollmentField.getString("type"));
+            Assert.assertEquals("native_radio", adherenceField.getString("type"));
             Assert.assertEquals(2, ctcEnrollmentField.getJSONArray("options").length());
             Assert.assertTrue(hasOption(ctcEnrollmentField, "yes"));
             Assert.assertTrue(hasOption(ctcEnrollmentField, "no"));
@@ -59,6 +63,10 @@ public class HivInfectionStatusFormAssetsTest {
 
         String ctcEnrollmentRule = getRuleBlock(rules, "step1_enrolled_into_ctc_services");
         Assert.assertTrue(ctcEnrollmentRule.contains("step1_hiv_results == 'positive'"));
+
+        String adherenceRule = getRuleBlock(rules, "step1_drug_adherence_status_ctc");
+        Assert.assertTrue(adherenceRule.contains("step1_hiv_results == 'positive'"));
+        Assert.assertTrue(adherenceRule.contains("step1_enrolled_into_ctc_services == 'yes'"));
 
         String ctcIdRule = getRuleBlock(rules, "step1_ctc_id");
         Assert.assertTrue(ctcIdRule.contains("step1_hiv_results == 'positive'"));

@@ -54,10 +54,65 @@ public class ClientStatusVisitFormAssetsTest {
     }
 
     @Test
+    public void testClientStatusVisitFormsFilterSubstancesPerSelectedRoute() throws Exception {
+        for (String formPath : FORM_PATHS) {
+            JSONObject form = readJson(formPath);
+            JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
+
+            Assert.assertFalse(hasField(fields, "substances_used_injecting_only"));
+            Assert.assertFalse(hasField(fields, "substances_used_non_injecting_only"));
+            Assert.assertFalse(hasField(fields, "substances_used_all"));
+
+            Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
+                    "heroine",
+                    "cocaine",
+                    "controlled_drugs",
+                    "methamphetamine"
+            )), optionKeys(getField(fields, "substances_used_injecting_route")));
+
+            Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
+                    "heroine",
+                    "cocaine",
+                    "marijuana",
+                    "methamphetamine",
+                    "tobacco",
+                    "hashish",
+                    "other"
+            )), optionKeys(getField(fields, "substances_used_smoking_route")));
+
+            Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
+                    "alcohol",
+                    "tobacco",
+                    "mirungi",
+                    "controlled_drugs",
+                    "other"
+            )), optionKeys(getField(fields, "substances_used_drinking_route")));
+
+            Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
+                    "heroine",
+                    "cocaine",
+                    "methamphetamine",
+                    "controlled_drugs",
+                    "other"
+            )), optionKeys(getField(fields, "substances_used_sniffing_route")));
+
+            Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
+                    "alcohol",
+                    "petrol",
+                    "glue",
+                    "other"
+            )), optionKeys(getField(fields, "substances_used_other_route")));
+        }
+    }
+
+    @Test
     public void testClientStatusVisitRulesUseFollowUpStatus() throws Exception {
         String rules = readText("src/main/assets/rule/harm-reduction-client-status-visit-relevance-rules.yml");
 
         Assert.assertFalse(rules.contains("step1_client_status"));
+        Assert.assertFalse(rules.contains("name: step1_substances_used_injecting_only"));
+        Assert.assertFalse(rules.contains("name: step1_substances_used_non_injecting_only"));
+        Assert.assertFalse(rules.contains("name: step1_substances_used_all"));
 
         String deathRule = getRuleBlock(rules, "step1_cause_of_death");
         Assert.assertTrue(deathRule.contains("step1_follow_up_status == 'client_deceased'"));
@@ -67,6 +122,28 @@ public class ClientStatusVisitFormAssetsTest {
 
         String serviceRule = getRuleBlock(rules, "step1_substance_use_methods");
         Assert.assertTrue(serviceRule.contains("step1_follow_up_status == 'continue_service'"));
+
+        String injectingRouteRule = getRuleBlock(rules, "step1_substances_used_injecting_route");
+        Assert.assertTrue(injectingRouteRule.contains("step1_substance_use_methods.contains('injecting')"));
+
+        String smokingRouteRule = getRuleBlock(rules, "step1_substances_used_smoking_route");
+        Assert.assertTrue(smokingRouteRule.contains("step1_substance_use_methods.contains('smoking')"));
+
+        String drinkingRouteRule = getRuleBlock(rules, "step1_substances_used_drinking_route");
+        Assert.assertTrue(drinkingRouteRule.contains("step1_substance_use_methods.contains('drinking')"));
+
+        String sniffingRouteRule = getRuleBlock(rules, "step1_substances_used_sniffing_route");
+        Assert.assertTrue(sniffingRouteRule.contains("step1_substance_use_methods.contains('sniffing')"));
+
+        String otherRouteRule = getRuleBlock(rules, "step1_substances_used_other_route");
+        Assert.assertTrue(otherRouteRule.contains("step1_substance_use_methods.contains('other')"));
+
+        String substancesRule = getRuleBlock(rules, "step1_substances_used");
+        Assert.assertTrue(substancesRule.contains("step1_substances_used_injecting_route"));
+        Assert.assertTrue(substancesRule.contains("step1_substances_used_smoking_route"));
+        Assert.assertTrue(substancesRule.contains("step1_substances_used_drinking_route"));
+        Assert.assertTrue(substancesRule.contains("step1_substances_used_sniffing_route"));
+        Assert.assertTrue(substancesRule.contains("step1_substances_used_other_route"));
     }
 
     @Test
@@ -136,7 +213,7 @@ public class ClientStatusVisitFormAssetsTest {
     }
 
     private static String getRuleBlock(String rules, String ruleName) {
-        String marker = "name: " + ruleName;
+        String marker = "name: " + ruleName + "\n";
         int start = rules.indexOf(marker);
         Assert.assertTrue("Missing rule: " + ruleName, start >= 0);
 

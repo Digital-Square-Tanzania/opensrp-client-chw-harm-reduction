@@ -1075,6 +1075,14 @@
           }
         },
         {
+          "column_name": "collection_site_gps",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "collection_site_gps"
+          }
+        },
+        {
           "column_name": "number_of_used_needles_and_syringes_collected",
           "type": "Event",
           "json_mapping": {

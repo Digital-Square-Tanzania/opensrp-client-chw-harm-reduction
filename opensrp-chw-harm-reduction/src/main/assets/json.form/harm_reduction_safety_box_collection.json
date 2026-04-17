@@ -74,6 +74,18 @@
         }
       },
       {
+        "key": "collection_site_gps",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "collection_site_gps",
+        "type": "gps",
+        "hint": "GPS location of collection site",
+        "v_required": {
+          "value": true,
+          "err": "Please capture the location"
+        }
+      },
+      {
         "key": "number_of_used_needles_and_syringes_collected",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

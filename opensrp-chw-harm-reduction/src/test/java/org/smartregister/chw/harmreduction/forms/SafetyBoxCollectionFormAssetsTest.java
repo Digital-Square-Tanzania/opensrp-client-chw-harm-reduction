@@ -27,8 +27,11 @@ public class SafetyBoxCollectionFormAssetsTest {
                 "Issues/Challenges related to collection of used syringes",
                 getField(fields, "issues_challenges_related_to_collection_of_used_needles_and_syringes").getString("hint")
         );
+        Assert.assertEquals(
+                "GPS location of collection site",
+                getField(fields, "collection_site_gps").getString("hint")
+        );
 
-        assertMissingField(fields, "collection_site_gps");
         assertMissingField(fields, "other_collection");
         assertMissingField(fields, "fixed_bins");
         assertMissingField(fields, "total_safety_boxes_collected");
@@ -49,8 +52,11 @@ public class SafetyBoxCollectionFormAssetsTest {
                 "Changamoto zinazohusiana na ukusanyaji wa sindano na mabomba yaliyotumika",
                 getField(fields, "issues_challenges_related_to_collection_of_used_needles_and_syringes").getString("hint")
         );
+        Assert.assertEquals(
+                "GPS eneo la tovuti ya ukusanyaji",
+                getField(fields, "collection_site_gps").getString("hint")
+        );
 
-        assertMissingField(fields, "collection_site_gps");
         assertMissingField(fields, "other_collection");
         assertMissingField(fields, "fixed_bins");
         assertMissingField(fields, "total_safety_boxes_collected");

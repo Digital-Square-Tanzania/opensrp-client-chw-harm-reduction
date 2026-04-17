@@ -15,19 +15,22 @@ public class HarmReductionUsedNeedlesAndSyringesCollectionDao extends AbstractDa
     public static void updateData(String baseEntityID,
                                   String dateOfCollection,
                                   String maskaniName,
+                                  String collectionSiteGps,
                                   String numberOfUsedNeedlesAndSyringesCollected,
                                   String issuesChallengesRelatedToCollectionOfUsedNeedlesAndSyringes) {
         String sql = "INSERT INTO " + Constants.TABLES.HARM_REDUCTION_SAFETY_BOX_COLLECTION +
-                "           (id, base_entity_id, date_of_collection, maskani_name, number_of_used_needles_and_syringes_collected, issues_challenges_related_to_collection_of_used_needles_and_syringes) " +
+                "           (id, base_entity_id, date_of_collection, maskani_name, collection_site_gps, number_of_used_needles_and_syringes_collected, issues_challenges_related_to_collection_of_used_needles_and_syringes) " +
                 "           VALUES (" +
                 "                   '" + baseEntityID + "', " +
                 "                   '" + baseEntityID + "', " +
                 "                   '" + dateOfCollection + "', " +
                 "                   '" + maskaniName + "', " +
+                "                   '" + collectionSiteGps + "', " +
                 "                   '" + numberOfUsedNeedlesAndSyringesCollected + "', " +
                 "                   '" + issuesChallengesRelatedToCollectionOfUsedNeedlesAndSyringes + "') " +
                 " ON CONFLICT (id) DO UPDATE SET date_of_collection = EXCLUDED.date_of_collection, " +
                 "                               maskani_name = EXCLUDED.maskani_name, " +
+                "                               collection_site_gps = EXCLUDED.collection_site_gps, " +
                 "                               number_of_used_needles_and_syringes_collected = EXCLUDED.number_of_used_needles_and_syringes_collected, " +
                 "                               issues_challenges_related_to_collection_of_used_needles_and_syringes = EXCLUDED.issues_challenges_related_to_collection_of_used_needles_and_syringes;";
 

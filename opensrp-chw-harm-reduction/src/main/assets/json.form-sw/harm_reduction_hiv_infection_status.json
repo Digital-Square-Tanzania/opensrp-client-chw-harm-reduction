@@ -155,6 +155,41 @@
         }
       },
       {
+        "key": "enrolled_into_ctc_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "enrolled_into_ctc_services",
+        "type": "native_radio",
+        "label": "Je, mpokea huduma amejiunga na huduma za matibabu na matunzo (CTC)?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "drug_adherence_status_ctc",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -189,41 +224,6 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "not_started"
-          }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
-        },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-hiv-infection-status-relevance-rules.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "enrolled_into_ctc_services",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "enrolled_into_ctc_services",
-        "type": "native_radio",
-        "label": "Je, mpokea huduma amejiunga na huduma za matibabu na matunzo (CTC)?",
-        "options": [
-          {
-            "key": "yes",
-            "text": "Ndiyo",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
-          },
-          {
-            "key": "no",
-            "text": "Hapana",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
           }
         ],
         "v_required": {

@@ -328,10 +328,10 @@
         }
       },
       {
-        "key": "substances_used_injecting",
+        "key": "substances_used_injecting_route",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "substances_used_injecting",
+        "openmrs_entity_id": "substances_used_injecting_route",
         "type": "check_box",
         "label": "What types of substance do you use? (Injecting)",
         "combine_checkbox_option_values": "true",
@@ -392,6 +392,20 @@
         }
       },
       {
+        "key": "substances_used_injecting",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_injecting",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "substances_used_injecting_other_specify",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -411,12 +425,12 @@
         }
       },
       {
-        "key": "substances_used_non_injecting",
+        "key": "substances_used_smoking_route",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "substances_used_non_injecting",
+        "openmrs_entity_id": "substances_used_smoking_route",
         "type": "check_box",
-        "label": "What types of substance do you use? (Smoking/Drinking/Sniffing)",
+        "label": "What types of substance do you use? (Smoking)",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -441,6 +455,49 @@
             "openmrs_entity_id": "cocaine"
           },
           {
+            "key": "methamphetamine",
+            "text": "Methamphetamine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methamphetamine"
+          },
+          {
+            "key": "tobacco",
+            "text": "Tobacco",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tobacco"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "substances_used_drinking_route",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_drinking_route",
+        "type": "check_box",
+        "label": "What types of substance do you use? (Drinking)",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
             "key": "alcohol",
             "text": "Alcohol",
             "openmrs_entity_parent": "",
@@ -453,13 +510,6 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "valium"
-          },
-          {
-            "key": "methamphetamine",
-            "text": "Methamphetamine",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "methamphetamine"
           },
           {
             "key": "tramadol",
@@ -500,6 +550,84 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        }
+      },
+      {
+        "key": "substances_used_sniffing_route",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_sniffing_route",
+        "type": "check_box",
+        "label": "What types of substance do you use? (Sniffing)",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "heroine",
+            "text": "Heroine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "heroine"
+          },
+          {
+            "key": "cocaine",
+            "text": "Cocaine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cocaine"
+          },
+          {
+            "key": "valium",
+            "text": "Valium",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "valium"
+          },
+          {
+            "key": "methamphetamine",
+            "text": "Methamphetamine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methamphetamine"
+          },
+          {
+            "key": "tramadol",
+            "text": "Tramadol",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tramadol"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "substances_used_non_injecting",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_non_injecting",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
         }
       },
       {

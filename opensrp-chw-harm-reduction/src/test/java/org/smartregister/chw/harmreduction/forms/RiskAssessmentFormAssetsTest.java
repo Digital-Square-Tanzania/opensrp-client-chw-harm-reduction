@@ -100,6 +100,43 @@ public class RiskAssessmentFormAssetsTest {
         Assert.assertTrue(nonInjectingOtherRule.contains("step1_substances_used_non_injecting.contains('other')"));
     }
 
+    @Test
+    public void testRiskAssessmentFormsGateStressChallengesWithYesNoQuestion() throws Exception {
+        for (String formPath : FORM_PATHS) {
+            JSONObject form = readJson(formPath);
+            JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
+
+            Assert.assertTrue(indexOf(fields, "stress_challenges_experienced") < indexOf(fields, "stress_challenges"));
+            Assert.assertEquals(new LinkedHashSet<>(Arrays.asList("yes", "no")),
+                    optionKeys(getField(fields, "stress_challenges_experienced")));
+
+            JSONObject stressChallenges = getField(fields, "stress_challenges");
+            Assert.assertEquals("harm-reduction-risk-assessment-relevance-rules.yml",
+                    stressChallenges.getJSONObject("relevance")
+                            .getJSONObject("rules-engine")
+                            .getJSONObject("ex-rules")
+                            .getString("rules-file"));
+        }
+    }
+
+    @Test
+    public void testRiskAssessmentRulesAndMappingForStressChallengeGate() throws Exception {
+        String rules = readText("src/main/assets/rule/harm-reduction-risk-assessment-relevance-rules.yml");
+        JSONObject clientFields = readJson("src/main/assets/ec_client_fields.json");
+        Set<String> mappedColumns = mappedColumns(clientFields);
+
+        String stressChallengesRule = getRuleBlock(rules, "step1_stress_challenges");
+        Assert.assertTrue(stressChallengesRule.contains("step1_stress_challenges_experienced == 'yes'"));
+
+        String helpReceivedRule = getRuleBlock(rules, "step1_help_received");
+        Assert.assertTrue(helpReceivedRule.contains("step1_stress_challenges_experienced == 'yes'"));
+        Assert.assertTrue(helpReceivedRule.contains("step1_stress_challenges != ''"));
+
+        Assert.assertTrue(mappedColumns.contains("stress_challenges_experienced"));
+        Assert.assertTrue(mappedColumns.contains("stress_challenges"));
+        Assert.assertTrue(mappedColumns.contains("help_received"));
+    }
+
     private static Set<String> optionKeys(JSONObject field) throws Exception {
         Set<String> optionKeys = new LinkedHashSet<>();
         JSONArray options = field.getJSONArray("options");
@@ -120,6 +157,34 @@ public class RiskAssessmentFormAssetsTest {
         }
 
         throw new AssertionError("Missing field: " + key);
+    }
+
+    private static int indexOf(JSONArray fields, String key) throws Exception {
+        for (int i = 0; i < fields.length(); i++) {
+            if (key.equals(fields.getJSONObject(i).optString("key"))) {
+                return i;
+            }
+        }
+
+        throw new AssertionError("Missing field: " + key);
+    }
+
+    private static Set<String> mappedColumns(JSONObject clientFields) throws Exception {
+        Set<String> columns = new LinkedHashSet<>();
+        JSONArray bindObjects = clientFields.getJSONArray("bindobjects");
+
+        for (int i = 0; i < bindObjects.length(); i++) {
+            JSONArray mappedColumns = bindObjects.getJSONObject(i).optJSONArray("columns");
+            if (mappedColumns == null) {
+                continue;
+            }
+
+            for (int j = 0; j < mappedColumns.length(); j++) {
+                columns.add(mappedColumns.getJSONObject(j).optString("column_name"));
+            }
+        }
+
+        return columns;
     }
 
     private static String getRuleBlock(String rules, String ruleName) {

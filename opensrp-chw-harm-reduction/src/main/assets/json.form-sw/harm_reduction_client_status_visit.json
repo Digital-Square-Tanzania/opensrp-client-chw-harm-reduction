@@ -420,12 +420,12 @@
         }
       },
       {
-        "key": "substances_used_injecting_only",
+        "key": "substances_used_injecting_route",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "substances_used_injecting",
+        "openmrs_entity_id": "substances_used_injecting_route",
         "type": "check_box",
-        "label": "Dawa anayotumia",
+        "label": "Dawa anayotumia (Kujidunga)",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -443,11 +443,61 @@
             "openmrs_entity_id": "cocaine"
           },
           {
-            "key": "valium",
-            "text": "Valium",
+            "key": "controlled_drugs",
+            "text": "Dawa tiba zenye asili ya kulevya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "valium"
+            "openmrs_entity_id": "controlled_drugs"
+          },
+          {
+            "key": "methamphetamine",
+            "text": "Methamphetamine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methamphetamine"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "substances_used_smoking_route",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_smoking_route",
+        "type": "check_box",
+        "label": "Dawa anayotumia (Kuvuta)",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "heroine",
+            "text": "Heroine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "heroine"
+          },
+          {
+            "key": "cocaine",
+            "text": "Cocaine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cocaine"
+          },
+          {
+            "key": "marijuana",
+            "text": "Bangi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "marijuana"
           },
           {
             "key": "methamphetamine",
@@ -457,11 +507,18 @@
             "openmrs_entity_id": "methamphetamine"
           },
           {
-            "key": "tramadol",
-            "text": "Tramadol",
+            "key": "tobacco",
+            "text": "Tumbaku",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tramadol"
+            "openmrs_entity_id": "tobacco"
+          },
+          {
+            "key": "hashish",
+            "text": "Hashish",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hashish"
           },
           {
             "key": "other",
@@ -484,35 +541,14 @@
         }
       },
       {
-        "key": "substances_used_non_injecting_only",
+        "key": "substances_used_drinking_route",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "substances_used_non_injecting",
+        "openmrs_entity_id": "substances_used_drinking_route",
         "type": "check_box",
-        "label": "Dawa anayotumia",
+        "label": "Dawa anayotumia (Kunywa)",
         "combine_checkbox_option_values": "true",
         "options": [
-          {
-            "key": "heroine",
-            "text": "Heroine",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "heroine"
-          },
-          {
-            "key": "marijuana",
-            "text": "Bangi",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "marijuana"
-          },
-          {
-            "key": "cocaine",
-            "text": "Cocaine",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "cocaine"
-          },
           {
             "key": "alcohol",
             "text": "Pombe",
@@ -521,25 +557,11 @@
             "openmrs_entity_id": "alcohol"
           },
           {
-            "key": "valium",
-            "text": "Valium",
+            "key": "tobacco",
+            "text": "Tumbaku",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "valium"
-          },
-          {
-            "key": "methamphetamine",
-            "text": "Methamphetamine",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "methamphetamine"
-          },
-          {
-            "key": "tramadol",
-            "text": "Tramadol",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "tramadol"
+            "openmrs_entity_id": "tobacco"
           },
           {
             "key": "mirungi",
@@ -549,11 +571,11 @@
             "openmrs_entity_id": "mirungi"
           },
           {
-            "key": "tobacco",
-            "text": "Tumbaku",
+            "key": "controlled_drugs",
+            "text": "Dawa tiba zenye asili ya kulevya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tobacco"
+            "openmrs_entity_id": "controlled_drugs"
           },
           {
             "key": "other",
@@ -576,48 +598,20 @@
         }
       },
       {
-        "key": "substances_used_all",
+        "key": "substances_used_sniffing_route",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "substances_used",
+        "openmrs_entity_id": "substances_used_sniffing_route",
         "type": "check_box",
-        "label": "Dawa anayotumia",
+        "label": "Dawa anayotumia (Kunusa)",
         "combine_checkbox_option_values": "true",
         "options": [
-          {
-            "key": "marijuana",
-            "text": "Bangi",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "marijuana"
-          },
-          {
-            "key": "mirungi",
-            "text": "Mirungi",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "mirungi"
-          },
           {
             "key": "heroine",
             "text": "Heroine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heroine"
-          },
-          {
-            "key": "alcohol",
-            "text": "Pombe",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "alcohol"
-          },
-          {
-            "key": "valium",
-            "text": "Valium",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "valium"
           },
           {
             "key": "cocaine",
@@ -634,18 +628,11 @@
             "openmrs_entity_id": "methamphetamine"
           },
           {
-            "key": "tramadol",
-            "text": "Tramadol",
+            "key": "controlled_drugs",
+            "text": "Dawa tiba zenye asili ya kulevya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tramadol"
-          },
-          {
-            "key": "tobacco",
-            "text": "Tumbaku",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "tobacco"
+            "openmrs_entity_id": "controlled_drugs"
           },
           {
             "key": "other",
@@ -655,16 +642,66 @@
             "openmrs_entity_id": "other"
           }
         ],
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
-        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "substances_used_other_route",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_other_route",
+        "type": "check_box",
+        "label": "Dawa anayotumia (Nyinginezo)",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "alcohol",
+            "text": "Pombe",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "alcohol"
+          },
+          {
+            "key": "petrol",
+            "text": "Petroli",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "petrol"
+          },
+          {
+            "key": "glue",
+            "text": "Gundi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "glue"
+          },
+          {
+            "key": "other",
+            "text": "Nyinginezo (Taja)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-client-status-visit-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
         }
       },
       {

@@ -99,6 +99,13 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "needles"
+          },
+          {
+            "key": "not_given",
+            "text": "Hajapewa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_given"
           }
         ],
         "v_required": {

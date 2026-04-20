@@ -791,6 +791,41 @@
         ]
       },
       {
+        "key": "other_conditions_treatment_after_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_conditions_treatment_after_screening",
+        "type": "native_radio",
+        "label": "Magonjwa mengineyo - Amefanyiwa matibabu baada ya uchunguzi?",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Ndiyo"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "Hapana"
+          }
+        ]
+      },
+      {
         "key": "sober_house_eligible",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

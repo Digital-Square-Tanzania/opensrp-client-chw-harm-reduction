@@ -13,6 +13,13 @@ condition: "(step1_client_status == 'new_client' || step1_client_status == 'rela
 actions:
   - "isRelevant = true"
 ---
+name: step1_other_conditions_treatment_after_screening
+description: Show other_conditions_treatment_after_screening when its condition is met
+priority: 1
+condition: "(step1_client_status == 'new_client' || step1_client_status == 'relapsed') && step1_screening_tests_done != null && step1_screening_tests_done.contains('other_conditions')"
+actions:
+  - "isRelevant = true"
+---
 name: step1_stis_result
 description: Show stis_result when its condition is met
 priority: 1

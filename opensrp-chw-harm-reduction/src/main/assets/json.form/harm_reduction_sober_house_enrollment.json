@@ -791,6 +791,41 @@
         ]
       },
       {
+        "key": "other_conditions_treatment_after_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_conditions_treatment_after_screening",
+        "type": "native_radio",
+        "label": "Other Diseases - Has the client received treatment after screening?",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ]
+      },
+      {
         "key": "sober_house_eligible",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

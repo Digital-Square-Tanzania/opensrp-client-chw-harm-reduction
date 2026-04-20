@@ -19,6 +19,8 @@ import java.util.Set;
 
 public class SoberHouseEnrollmentFormAssetsTest {
 
+    private static final String OTHER_CONDITIONS_TREATMENT_AFTER_SCREENING = "other_conditions_treatment_after_screening";
+
     private static final List<String> ENROLLMENT_FORM_PATHS = Arrays.asList(
             "src/main/assets/json.form/harm_reduction_sober_house_enrollment.json",
             "src/main/assets/json.form-sw/harm_reduction_sober_house_enrollment.json"
@@ -88,8 +90,14 @@ public class SoberHouseEnrollmentFormAssetsTest {
             String ruleBlock = getRuleBlock(rules, "step1_" + followUpKey);
             Assert.assertTrue("Missing client-status gate for " + followUpKey,
                     ruleBlock.contains("step1_client_status == 'new_client' || step1_client_status == 'relapsed'"));
-            Assert.assertTrue("Missing treatment relevance condition for " + followUpKey,
-                    ruleBlock.contains("step1_" + resultKey + " == 'has_symptoms'"));
+            if (OTHER_CONDITIONS_TREATMENT_AFTER_SCREENING.equals(followUpKey)) {
+                Assert.assertEquals("other_conditions_specify", resultKey);
+                Assert.assertTrue("Missing other-conditions selection gate for " + followUpKey,
+                        ruleBlock.contains("step1_screening_tests_done.contains('other_conditions')"));
+            } else {
+                Assert.assertTrue("Missing treatment relevance condition for " + followUpKey,
+                        ruleBlock.contains("step1_" + resultKey + " == 'has_symptoms'"));
+            }
             Assert.assertTrue("Missing relevance action for " + followUpKey,
                     ruleBlock.contains("  - \"isRelevant = true\""));
 
@@ -185,6 +193,7 @@ public class SoberHouseEnrollmentFormAssetsTest {
                 expected.put(key.replaceFirst("_result$", "_treatment_after_screening"), key);
             }
         }
+        expected.put(OTHER_CONDITIONS_TREATMENT_AFTER_SCREENING, "other_conditions_specify");
 
         return expected;
     }

@@ -796,7 +796,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "other_conditions_treatment_after_screening",
         "type": "native_radio",
-        "label": "Magonjwa mengineyo - Amefanyiwa matibabu baada ya uchunguzi?",
+        "label": "Je, Mpokea huduma amefanyiwa matibabu ya magonjwa mengineyo baada ya uchunguzi?",
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo moja"

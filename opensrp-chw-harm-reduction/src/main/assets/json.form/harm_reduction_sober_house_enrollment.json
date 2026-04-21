@@ -796,7 +796,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "other_conditions_treatment_after_screening",
         "type": "native_radio",
-        "label": "Other Diseases - Has the client received treatment after screening?",
+        "label": "Has the recipient of care received treatment for other diseases after screening?",
         "v_required": {
           "value": "true",
           "err": "Please select an option"

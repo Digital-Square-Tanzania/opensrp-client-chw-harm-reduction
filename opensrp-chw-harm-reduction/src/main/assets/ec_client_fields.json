@@ -1150,6 +1150,14 @@
           }
         },
         {
+          "column_name": "other_conditions_treatment_after_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_conditions_treatment_after_screening"
+          }
+        },
+        {
           "column_name": "hiv_screening",
           "type": "Event",
           "json_mapping": {

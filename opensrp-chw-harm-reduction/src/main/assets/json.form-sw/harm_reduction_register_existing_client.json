@@ -50,6 +50,77 @@
       "title": "Usajili wa Mpokea Huduma Aliyekuwepo",
       "fields": [
         {
+          "key": "birth_region",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "birth_region",
+          "openmrs_data_type": "select one",
+          "type": "spinner",
+          "label_info_title": "Client's Region of Birth",
+          "label_info_text": "",
+          "hint": "Chagua mkoa aliozaliwa mpokea huduma",
+          "values": [
+            "Arusha",
+            "Dar es Salaam",
+            "Dodoma",
+            "Geita",
+            "Iringa",
+            "Kagera",
+            "Katavi",
+            "Kigoma",
+            "Kilimanjaro",
+            "Lindi",
+            "Manyara",
+            "Mara",
+            "Mbeya",
+            "Morogoro",
+            "Mtwara",
+            "Mwanza",
+            "Njombe",
+            "Pwani",
+            "Rukwa",
+            "Ruvuma",
+            "Shinyanga",
+            "Simiyu",
+            "Singida",
+            "Songwe",
+            "Tabora",
+            "Tanga"
+          ],
+          "keys": [
+            "Arusha",
+            "Dar es Salaam",
+            "Dodoma",
+            "Geita",
+            "Iringa",
+            "Kagera",
+            "Katavi",
+            "Kigoma",
+            "Kilimanjaro",
+            "Lindi",
+            "Manyara",
+            "Mara",
+            "Mbeya",
+            "Morogoro",
+            "Mtwara",
+            "Mwanza",
+            "Njombe",
+            "Pwani",
+            "Rukwa",
+            "Ruvuma",
+            "Shinyanga",
+            "Simiyu",
+            "Singida",
+            "Songwe",
+            "Tabora",
+            "Tanga"
+          ],
+          "v_required": {
+            "value": "true",
+            "err": "Tafadhali chagua mkoa"
+          }
+        },
+        {
           "key": "route_of_substance_use",
           "openmrs_entity_parent": "",
           "openmrs_entity": "concept",
@@ -90,19 +161,6 @@
           "v_required": {
             "value": "true",
             "err": "Tafadhali chagua chaguo moja"
-          }
-        },
-        {
-          "key": "uic",
-          "openmrs_entity_parent": "",
-          "openmrs_entity": "concept",
-          "openmrs_entity_id": "uic",
-          "type": "edit_text",
-          "hint": "Namba ya Utambulisho ya Kitengo (UIC)",
-          "edit_type": "number",
-          "v_required": {
-            "value": "true",
-            "err": "Tafadhali ingiza namba ya Utambulisho ya Kitengo (UIC)"
           }
         },
         {

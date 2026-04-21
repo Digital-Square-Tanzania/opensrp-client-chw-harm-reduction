@@ -50,6 +50,77 @@
     "title": "Existing Client Registration",
     "fields": [
       {
+        "key": "birth_region",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "birth_region",
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "label_info_title": "Client's Region of Birth",
+        "label_info_text": "",
+        "hint": "Select the client's Region of Birth",
+        "values": [
+          "Arusha",
+          "Dar es Salaam",
+          "Dodoma",
+          "Geita",
+          "Iringa",
+          "Kagera",
+          "Katavi",
+          "Kigoma",
+          "Kilimanjaro",
+          "Lindi",
+          "Manyara",
+          "Mara",
+          "Mbeya",
+          "Morogoro",
+          "Mtwara",
+          "Mwanza",
+          "Njombe",
+          "Pwani",
+          "Rukwa",
+          "Ruvuma",
+          "Shinyanga",
+          "Simiyu",
+          "Singida",
+          "Songwe",
+          "Tabora",
+          "Tanga"
+        ],
+        "keys": [
+          "Arusha",
+          "Dar es Salaam",
+          "Dodoma",
+          "Geita",
+          "Iringa",
+          "Kagera",
+          "Katavi",
+          "Kigoma",
+          "Kilimanjaro",
+          "Lindi",
+          "Manyara",
+          "Mara",
+          "Mbeya",
+          "Morogoro",
+          "Mtwara",
+          "Mwanza",
+          "Njombe",
+          "Pwani",
+          "Rukwa",
+          "Ruvuma",
+          "Shinyanga",
+          "Simiyu",
+          "Singida",
+          "Songwe",
+          "Tabora",
+          "Tanga"
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select the region"
+        }
+      },
+      {
         "key": "route_of_substance_use",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -90,19 +161,6 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
-        }
-      },
-      {
-        "key": "uic",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "uic",
-        "type": "edit_text",
-        "hint": "Unit Identification Code (UIC)",
-        "edit_type": "number",
-        "v_required": {
-          "value": "true",
-          "err": "Please enter unit Identification Code (UIC)"
         }
       },
       {
@@ -200,33 +258,33 @@
         "openmrs_entity_id": "cause_of_death",
         "type": "native_radio",
         "label": "Cause of death",
-          "options": [
-            {
-              "key": "accident",
-              "text": "Accident",
-              "openmrs_entity_parent": "",
-              "openmrs_entity": "concept",
-              "openmrs_entity_id": "accident"
-            },
-            {
-              "key": "overdose",
-              "text": "Overdose",
-              "openmrs_entity_parent": "",
-              "openmrs_entity": "concept",
-              "openmrs_entity_id": "overdose"
-            },
-            {
-              "key": "unknown",
-              "text": "Unknown",
-              "openmrs_entity_parent": "",
-              "openmrs_entity": "concept",
-              "openmrs_entity_id": "unknown"
-            },
-            {
-              "key": "other",
-              "text": "Others (Specify)",
-              "openmrs_entity_parent": "",
-              "openmrs_entity": "concept",
+        "options": [
+          {
+            "key": "accident",
+            "text": "Accident",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "accident"
+          },
+          {
+            "key": "overdose",
+            "text": "Overdose",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "overdose"
+          },
+          {
+            "key": "unknown",
+            "text": "Unknown",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unknown"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }
         ],

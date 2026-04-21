@@ -1543,7 +1543,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "roc_mat_pre_session",
         "type": "native_radio",
-        "label": "Did the RoC come for MAT pre session?",
+        "label": "Did the Recipient of Care come for MAT pre session?",
         "options": [
           {
             "key": "yes",

@@ -57,6 +57,9 @@
         "type": "check_box",
         "label": "Huduma za sindano salama zinazotolewa - Aina ya vifaa",
         "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "not_given"
+        ],
         "options": [
           {
             "key": "syringes",

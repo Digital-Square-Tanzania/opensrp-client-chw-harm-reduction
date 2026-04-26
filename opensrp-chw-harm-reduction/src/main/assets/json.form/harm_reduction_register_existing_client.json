@@ -446,11 +446,11 @@
           }
         }
       },
-      {
-        "key": "roc_group_type",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "roc_group_type",
+        {
+          "key": "roc_group_type",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "roc_group_type",
         "type": "hidden",
         "read_only": true,
         "calculation": {
@@ -458,14 +458,23 @@
             "ex-rules": {
               "rules-file": "harm-reduction-register-existing-client-rules.yml"
             }
+            }
           }
-        }
-      },
-      {
-        "key": "status",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "status",
+        },
+        {
+          "key": "uic",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "uic",
+          "type": "hidden",
+          "read_only": true,
+          "value": ""
+        },
+        {
+          "key": "status",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "status",
         "type": "hidden",
         "read_only": true,
         "calculation": {

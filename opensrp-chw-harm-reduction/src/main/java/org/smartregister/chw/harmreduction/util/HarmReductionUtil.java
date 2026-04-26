@@ -134,15 +134,25 @@ public class HarmReductionUtil {
     public static void saveFormEvent(final String jsonString) throws Exception {
         AllSharedPreferences allSharedPreferences = HarmReductionLibrary.getInstance().context().allSharedPreferences();
         Event baseEvent = HarmReductionJsonFormUtils.processJsonForm(allSharedPreferences, jsonString);
-        if (baseEvent != null && (
-                baseEvent.getEventType().equalsIgnoreCase(Constants.EVENT_TYPE.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT)) ||
-                baseEvent.getEventType().equalsIgnoreCase(Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT)
-        ) {
-            baseEvent.addObs(new Obs().withFormSubmissionField(Constants.JSON_FORM_KEY.UIC_ID).withValue(generateUICID(baseEvent.getBaseEntityId(), jsonString)
-                    )
-                    .withFieldCode(Constants.JSON_FORM_KEY.UIC_ID).withFieldType("formsubmissionField").withFieldDataType("text").withParentCode("").withHumanReadableValues(new ArrayList<>()));
+        if (baseEvent != null && shouldGenerateUIC(baseEvent.getEventType())) {
+            String uicFieldCode = resolveGeneratedUicFieldCode(baseEvent.getEventType());
+            baseEvent.addObs(new Obs().withFormSubmissionField(uicFieldCode).withValue(generateUICID(baseEvent.getBaseEntityId(), jsonString))
+                    .withFieldCode(uicFieldCode).withFieldType("formsubmissionField").withFieldDataType("text").withParentCode("").withHumanReadableValues(new ArrayList<>()));
         }
         HarmReductionUtil.processEvent(allSharedPreferences, baseEvent);
+    }
+
+    static boolean shouldGenerateUIC(String eventType) {
+        return Constants.EVENT_TYPE.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT.equalsIgnoreCase(eventType)
+                || Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT.equalsIgnoreCase(eventType);
+    }
+
+    static String resolveGeneratedUicFieldCode(String eventType) {
+        if (Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT.equalsIgnoreCase(eventType)) {
+            return Constants.JSON_FORM_KEY.UIC;
+        }
+
+        return Constants.JSON_FORM_KEY.UIC_ID;
     }
 
     public static String generateUICID(String baseEntityId, String jsonString) throws ParseException {

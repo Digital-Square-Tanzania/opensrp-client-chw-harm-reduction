@@ -34,7 +34,9 @@ public class BaseHarmReductionRegisterFragmentPresenter implements HarmReduction
 
     @Override
     public String getMainCondition() {
-        return " " + getMainTable() + ".is_closed = 0 AND " + getMainTable() + ".status = 'on_community_service' ";
+        return " " + getMainTable() + ".is_closed = 0 AND (" + getMainTable() + ".status = 'on_community_service' OR (IFNULL(" +
+                getMainTable() + ".status, '') = '' AND IFNULL(" + getMainTable() + ".client_started_mat, '') <> 'yes' AND IFNULL(" +
+                getMainTable() + ".follow_up_status, '') <> 'started_mat_services')) ";
     }
 
     @Override

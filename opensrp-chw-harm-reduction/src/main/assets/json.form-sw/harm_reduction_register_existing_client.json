@@ -462,6 +462,15 @@
           }
         },
         {
+          "key": "uic",
+          "openmrs_entity_parent": "",
+          "openmrs_entity": "concept",
+          "openmrs_entity_id": "uic",
+          "type": "hidden",
+          "read_only": true,
+          "value": ""
+        },
+        {
           "key": "status",
           "openmrs_entity_parent": "",
           "openmrs_entity": "concept",

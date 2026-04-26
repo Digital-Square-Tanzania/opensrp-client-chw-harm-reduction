@@ -93,6 +93,7 @@ public interface Constants {
     }
 
     interface JSON_FORM_KEY {
+        String UIC = "uic";
         String UIC_ID = "uic_id";
     }
 

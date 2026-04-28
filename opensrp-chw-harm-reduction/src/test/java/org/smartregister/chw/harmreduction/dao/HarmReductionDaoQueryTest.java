@@ -84,6 +84,26 @@ public class HarmReductionDaoQueryTest {
     }
 
     @Test
+    public void buildLatestRiskAssessmentUicQueryShouldTargetRiskAssessmentTable() {
+        String query = HarmReductionDao.buildLatestRiskAssessmentUicQuery("base-id");
+
+        Assert.assertEquals(
+                "SELECT uic FROM ec_harm_reduction_risk_assessment WHERE is_closed = 0 AND base_entity_id = 'base-id' ORDER BY last_interacted_with DESC LIMIT 1",
+                query
+        );
+    }
+
+    @Test
+    public void buildLatestSoberHouseEnrollmentUicQueryShouldTargetSoberHouseEnrollmentTable() {
+        String query = HarmReductionDao.buildLatestSoberHouseEnrollmentUicQuery("base-id");
+
+        Assert.assertEquals(
+                "SELECT uic_id FROM ec_harm_reduction_sober_house_enrollment WHERE is_closed = 0 AND base_entity_id = 'base-id' ORDER BY last_interacted_with DESC LIMIT 1",
+                query
+        );
+    }
+
+    @Test
     public void buildLatestPositiveHivFollowUpVisitFieldQueryShouldTargetPositiveFollowUpRows() {
         String query = HarmReductionDao.buildLatestPositiveHivFollowUpVisitFieldQuery("ctc_id", "base-id");
 

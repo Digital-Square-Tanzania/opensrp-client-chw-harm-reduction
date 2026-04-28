@@ -29,6 +29,12 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
         Assert.assertEquals("drug_adherence_status_ctc",
                 form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
                         .getJSONObject(0).getString(JsonFormConstants.KEY));
+        Assert.assertEquals("adherence_guidance_discontinued",
+                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
+                        .getJSONObject(1).getString(JsonFormConstants.KEY));
+        Assert.assertEquals("adherence_guidance_not_started",
+                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
+                        .getJSONObject(2).getString(JsonFormConstants.KEY));
         Assert.assertEquals("yes", getField(form, "hiv_tested").getString("value"));
         Assert.assertTrue(getField(form, "hiv_tested").getBoolean("read_only"));
         Assert.assertFalse(getField(form, "hiv_tested").getBoolean("editable"));
@@ -136,6 +142,14 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
                 + "{"
                 + "\"key\":\"ctc_id\","
                 + "\"type\":\"mask_edit_text\""
+                + "},"
+                + "{"
+                + "\"key\":\"adherence_guidance_discontinued\","
+                + "\"type\":\"toaster_notes\""
+                + "},"
+                + "{"
+                + "\"key\":\"adherence_guidance_not_started\","
+                + "\"type\":\"toaster_notes\""
                 + "}"
                 + "]"
                 + "}"

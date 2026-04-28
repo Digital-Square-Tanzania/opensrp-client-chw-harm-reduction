@@ -34,36 +34,33 @@ public class RiskAssessmentFormAssetsTest {
             Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
                     "heroine",
                     "cocaine",
-                    "valium",
-                    "methamphetamine",
-                    "tramadol",
-                    "other"
+                    "controlled_drugs",
+                    "methamphetamine"
             )), optionKeys(getField(fields, "substances_used_injecting_route")));
 
             Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
                     "heroine",
-                    "marijuana",
                     "cocaine",
+                    "marijuana",
                     "methamphetamine",
                     "tobacco",
+                    "hashish",
                     "other"
             )), optionKeys(getField(fields, "substances_used_smoking_route")));
 
             Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
                     "alcohol",
-                    "valium",
-                    "tramadol",
-                    "mirungi",
                     "tobacco",
+                    "mirungi",
+                    "controlled_drugs",
                     "other"
             )), optionKeys(getField(fields, "substances_used_drinking_route")));
 
             Assert.assertEquals(new LinkedHashSet<>(Arrays.asList(
                     "heroine",
                     "cocaine",
-                    "valium",
                     "methamphetamine",
-                    "tramadol",
+                    "controlled_drugs",
                     "other"
             )), optionKeys(getField(fields, "substances_used_sniffing_route")));
         }

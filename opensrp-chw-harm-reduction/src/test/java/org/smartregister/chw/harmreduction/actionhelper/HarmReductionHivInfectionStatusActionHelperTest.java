@@ -26,6 +26,9 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
 
         JSONObject form = new JSONObject(helper.getPreProcessed());
 
+        Assert.assertEquals("drug_adherence_status_ctc",
+                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
+                        .getJSONObject(0).getString(JsonFormConstants.KEY));
         Assert.assertEquals("yes", getField(form, "hiv_tested").getString("value"));
         Assert.assertTrue(getField(form, "hiv_tested").getBoolean("read_only"));
         Assert.assertFalse(getField(form, "hiv_tested").getBoolean("editable"));
@@ -43,6 +46,7 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
         Assert.assertFalse(getField(form, "ctc_id").getBoolean("editable"));
         Assert.assertEquals("", getField(form, "drug_adherence_status_ctc").optString("value"));
         Assert.assertEquals("native_radio", getField(form, "drug_adherence_status_ctc").getString("type"));
+        Assert.assertFalse(hasOption(getField(form, "drug_adherence_status_ctc"), "not_started"));
         Assert.assertFalse(getField(form, "drug_adherence_status_ctc").has("read_only"));
         Assert.assertFalse(getField(form, "drug_adherence_status_ctc").has("editable"));
     }
@@ -117,7 +121,8 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
                 + "\"type\":\"native_radio\","
                 + "\"options\":["
                 + "{\"key\":\"good_adherence\",\"text\":\"Good adherence\"},"
-                + "{\"key\":\"poor_adherence\",\"text\":\"Poor adherence\"}"
+                + "{\"key\":\"poor_adherence\",\"text\":\"Poor adherence\"},"
+                + "{\"key\":\"not_started\",\"text\":\"Not started\"}"
                 + "]"
                 + "},"
                 + "{"
@@ -146,6 +151,16 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
         }
 
         throw new AssertionError("Missing field: " + key);
+    }
+
+    private static boolean hasOption(JSONObject field, String optionKey) throws Exception {
+        for (int i = 0; i < field.getJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME).length(); i++) {
+            JSONObject option = field.getJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME).getJSONObject(i);
+            if (optionKey.equals(option.optString(JsonFormConstants.KEY))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static class TestHarmReductionHivInfectionStatusActionHelper extends HarmReductionHivInfectionStatusActionHelper {

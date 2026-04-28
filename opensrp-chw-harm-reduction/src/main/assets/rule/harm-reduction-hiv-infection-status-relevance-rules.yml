@@ -16,21 +16,21 @@ actions:
 name: step1_drug_adherence_status_ctc
 description: Show drug_adherence_status_ctc when its condition is met
 priority: 1
-condition: "step1_hiv_results == 'positive' && step1_enrolled_into_ctc_services == 'yes'"
+condition: "step1_hiv_tested == 'yes' && step1_hiv_results == 'positive' && step1_enrolled_into_ctc_services == 'yes'"
 actions:
   - "isRelevant = true"
 ---
 name: step1_enrolled_into_ctc_services
 description: Show enrolled_into_ctc_services when its condition is met
 priority: 1
-condition: "step1_hiv_results == 'positive'"
+condition: "step1_hiv_tested == 'yes' && step1_hiv_results == 'positive'"
 actions:
   - "isRelevant = true"
 ---
 name: step1_ctc_id
 description: Show ctc_id when its condition is met
 priority: 1
-condition: "step1_hiv_results == 'positive' && step1_enrolled_into_ctc_services == 'yes'"
+condition: "step1_hiv_tested == 'yes' && step1_hiv_results == 'positive' && step1_enrolled_into_ctc_services == 'yes'"
 actions:
   - "isRelevant = true"
 ---

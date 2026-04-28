@@ -28,6 +28,8 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
     private static final String ENROLLED_INTO_CTC_SERVICES_FIELD_KEY = "enrolled_into_ctc_services";
     private static final String DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY = "drug_adherence_status_ctc";
     private static final String CTC_ID_FIELD_KEY = "ctc_id";
+    private static final String ADHERENCE_GUIDANCE_DISCONTINUED_FIELD_KEY = "adherence_guidance_discontinued";
+    private static final String ADHERENCE_GUIDANCE_NOT_STARTED_FIELD_KEY = "adherence_guidance_not_started";
     private static final String POSITIVE_VALUE = "positive";
     private static final String YES_VALUE = "yes";
     private static final String NOT_STARTED_VALUE = "not_started";
@@ -67,7 +69,10 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
             wasUpdated |= prefillLockedField(jsonObject, CTC_ID_FIELD_KEY, getLatestPositiveCtcId());
             if (wasUpdated) {
                 removeOption(jsonObject, DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY, NOT_STARTED_VALUE);
-                moveFieldToTop(jsonObject, DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY);
+                moveFieldsToTop(jsonObject,
+                        DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY,
+                        ADHERENCE_GUIDANCE_DISCONTINUED_FIELD_KEY,
+                        ADHERENCE_GUIDANCE_NOT_STARTED_FIELD_KEY);
             }
             return wasUpdated ? jsonObject.toString() : null;
         } catch (JSONException e) {
@@ -168,7 +173,7 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
         field.put(JsonFormConstants.OPTIONS_FIELD_NAME, updatedOptions);
     }
 
-    private void moveFieldToTop(JSONObject jsonObject, String fieldKey) throws JSONException {
+    private void moveFieldsToTop(JSONObject jsonObject, String... fieldKeys) throws JSONException {
         JSONObject stepOne = jsonObject.optJSONObject(JsonFormConstants.STEP1);
         if (stepOne == null) {
             return;
@@ -179,7 +184,7 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
             return;
         }
 
-        JSONObject targetField = null;
+        JSONArray targetFields = new JSONArray();
         JSONArray reorderedFields = new JSONArray();
         for (int i = 0; i < fields.length(); i++) {
             JSONObject field = fields.optJSONObject(i);
@@ -187,23 +192,34 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
                 continue;
             }
 
-            if (fieldKey.equalsIgnoreCase(field.optString(JsonFormConstants.KEY))) {
-                targetField = field;
+            if (isTargetField(field, fieldKeys)) {
+                targetFields.put(field);
             } else {
                 reorderedFields.put(field);
             }
         }
 
-        if (targetField == null) {
+        if (targetFields.length() == 0) {
             return;
         }
 
         JSONArray updatedFields = new JSONArray();
-        updatedFields.put(targetField);
+        for (int i = 0; i < targetFields.length(); i++) {
+            updatedFields.put(targetFields.get(i));
+        }
         for (int i = 0; i < reorderedFields.length(); i++) {
             updatedFields.put(reorderedFields.get(i));
         }
         stepOne.put(JsonFormConstants.FIELDS, updatedFields);
+    }
+
+    private boolean isTargetField(JSONObject field, String... fieldKeys) {
+        for (String fieldKey : fieldKeys) {
+            if (fieldKey.equalsIgnoreCase(field.optString(JsonFormConstants.KEY))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private JSONObject getField(JSONObject jsonObject, String key) {

@@ -26,9 +26,11 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
     private static final String HIV_TEST_LOCATION_FIELD_KEY = "hiv_test_location";
     private static final String HIV_RESULTS_FIELD_KEY = "hiv_results";
     private static final String ENROLLED_INTO_CTC_SERVICES_FIELD_KEY = "enrolled_into_ctc_services";
+    private static final String DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY = "drug_adherence_status_ctc";
     private static final String CTC_ID_FIELD_KEY = "ctc_id";
     private static final String POSITIVE_VALUE = "positive";
     private static final String YES_VALUE = "yes";
+    private static final String NOT_STARTED_VALUE = "not_started";
     private static final String READ_ONLY = "read_only";
     private static final String EDITABLE = "editable";
 
@@ -63,6 +65,10 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
             wasUpdated |= prefillLockedField(jsonObject, HIV_RESULTS_FIELD_KEY, POSITIVE_VALUE);
             wasUpdated |= prefillLockedField(jsonObject, ENROLLED_INTO_CTC_SERVICES_FIELD_KEY, getLatestPositiveEnrolledIntoCtcServices());
             wasUpdated |= prefillLockedField(jsonObject, CTC_ID_FIELD_KEY, getLatestPositiveCtcId());
+            if (wasUpdated) {
+                removeOption(jsonObject, DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY, NOT_STARTED_VALUE);
+                moveFieldToTop(jsonObject, DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY);
+            }
             return wasUpdated ? jsonObject.toString() : null;
         } catch (JSONException e) {
             Timber.e(e);
@@ -139,6 +145,65 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
             }
         }
         return true;
+    }
+
+    private void removeOption(JSONObject jsonObject, String fieldKey, String optionKey) throws JSONException {
+        JSONObject field = getField(jsonObject, fieldKey);
+        if (field == null) {
+            return;
+        }
+
+        JSONArray options = field.optJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME);
+        if (options == null) {
+            return;
+        }
+
+        JSONArray updatedOptions = new JSONArray();
+        for (int i = 0; i < options.length(); i++) {
+            JSONObject option = options.optJSONObject(i);
+            if (option != null && !StringUtils.equalsIgnoreCase(optionKey, option.optString(JsonFormConstants.KEY))) {
+                updatedOptions.put(option);
+            }
+        }
+        field.put(JsonFormConstants.OPTIONS_FIELD_NAME, updatedOptions);
+    }
+
+    private void moveFieldToTop(JSONObject jsonObject, String fieldKey) throws JSONException {
+        JSONObject stepOne = jsonObject.optJSONObject(JsonFormConstants.STEP1);
+        if (stepOne == null) {
+            return;
+        }
+
+        JSONArray fields = stepOne.optJSONArray(JsonFormConstants.FIELDS);
+        if (fields == null) {
+            return;
+        }
+
+        JSONObject targetField = null;
+        JSONArray reorderedFields = new JSONArray();
+        for (int i = 0; i < fields.length(); i++) {
+            JSONObject field = fields.optJSONObject(i);
+            if (field == null) {
+                continue;
+            }
+
+            if (fieldKey.equalsIgnoreCase(field.optString(JsonFormConstants.KEY))) {
+                targetField = field;
+            } else {
+                reorderedFields.put(field);
+            }
+        }
+
+        if (targetField == null) {
+            return;
+        }
+
+        JSONArray updatedFields = new JSONArray();
+        updatedFields.put(targetField);
+        for (int i = 0; i < reorderedFields.length(); i++) {
+            updatedFields.put(reorderedFields.get(i));
+        }
+        stepOne.put(JsonFormConstants.FIELDS, updatedFields);
     }
 
     private JSONObject getField(JSONObject jsonObject, String key) {

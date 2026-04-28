@@ -62,13 +62,16 @@ public class HivInfectionStatusFormAssetsTest {
         Set<String> followUpVisitColumns = mappedColumnsForBindObject(clientFields, "ec_harm_reduction_followup_visit");
 
         String ctcEnrollmentRule = getRuleBlock(rules, "step1_enrolled_into_ctc_services");
+        Assert.assertTrue(ctcEnrollmentRule.contains("step1_hiv_tested == 'yes'"));
         Assert.assertTrue(ctcEnrollmentRule.contains("step1_hiv_results == 'positive'"));
 
         String adherenceRule = getRuleBlock(rules, "step1_drug_adherence_status_ctc");
+        Assert.assertTrue(adherenceRule.contains("step1_hiv_tested == 'yes'"));
         Assert.assertTrue(adherenceRule.contains("step1_hiv_results == 'positive'"));
         Assert.assertTrue(adherenceRule.contains("step1_enrolled_into_ctc_services == 'yes'"));
 
         String ctcIdRule = getRuleBlock(rules, "step1_ctc_id");
+        Assert.assertTrue(ctcIdRule.contains("step1_hiv_tested == 'yes'"));
         Assert.assertTrue(ctcIdRule.contains("step1_hiv_results == 'positive'"));
         Assert.assertTrue(ctcIdRule.contains("step1_enrolled_into_ctc_services == 'yes'"));
 

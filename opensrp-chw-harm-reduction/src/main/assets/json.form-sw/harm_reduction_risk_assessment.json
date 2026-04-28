@@ -338,45 +338,31 @@
         "options": [
           {
             "key": "heroine",
-            "text": "Heroine",
+            "text": "Heroini",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heroine"
           },
           {
             "key": "cocaine",
-            "text": "Cocaine",
+            "text": "Kokeini",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "cocaine"
           },
           {
-            "key": "valium",
-            "text": "Valium",
+            "key": "controlled_drugs",
+            "text": "Dawa tiba zenye asili ya kulevya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "valium"
+            "openmrs_entity_id": "controlled_drugs"
           },
           {
             "key": "methamphetamine",
-            "text": "Methamphetamine",
+            "text": "Meth (Chumvi)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methamphetamine"
-          },
-          {
-            "key": "tramadol",
-            "text": "Tramadol",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "tramadol"
-          },
-          {
-            "key": "other",
-            "text": "Nyinginezo (Taja)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "other"
           }
         ],
         "relevance": {
@@ -435,28 +421,28 @@
         "options": [
           {
             "key": "heroine",
-            "text": "Heroine",
+            "text": "Heroini",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heroine"
           },
           {
-            "key": "marijuana",
-            "text": "Bangi",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "marijuana"
-          },
-          {
             "key": "cocaine",
-            "text": "Cocaine",
+            "text": "Kokeini",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "cocaine"
           },
           {
+            "key": "marijuana",
+            "text": "Bhangi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "marijuana"
+          },
+          {
             "key": "methamphetamine",
-            "text": "Methamphetamine",
+            "text": "Meth (Chumvi)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methamphetamine"
@@ -467,6 +453,13 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tobacco"
+          },
+          {
+            "key": "hashish",
+            "text": "Hashish",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hashish"
           },
           {
             "key": "other",
@@ -505,18 +498,11 @@
             "openmrs_entity_id": "alcohol"
           },
           {
-            "key": "valium",
-            "text": "Valium",
+            "key": "tobacco",
+            "text": "Tumbaku",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "valium"
-          },
-          {
-            "key": "tramadol",
-            "text": "Tramadol",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "tramadol"
+            "openmrs_entity_id": "tobacco"
           },
           {
             "key": "mirungi",
@@ -526,11 +512,11 @@
             "openmrs_entity_id": "mirungi"
           },
           {
-            "key": "tobacco",
-            "text": "Tumbaku",
+            "key": "controlled_drugs",
+            "text": "Dawa tiba zenye asili ya kulevya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tobacco"
+            "openmrs_entity_id": "controlled_drugs"
           },
           {
             "key": "other",
@@ -563,38 +549,31 @@
         "options": [
           {
             "key": "heroine",
-            "text": "Heroine",
+            "text": "Heroini",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heroine"
           },
           {
             "key": "cocaine",
-            "text": "Cocaine",
+            "text": "Kokeini",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "cocaine"
           },
           {
-            "key": "valium",
-            "text": "Valium",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "valium"
-          },
-          {
             "key": "methamphetamine",
-            "text": "Methamphetamine",
+            "text": "Meth(Chumvi)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methamphetamine"
           },
           {
-            "key": "tramadol",
-            "text": "Tramadol",
+            "key": "controlled_drugs",
+            "text": "Dawa tiba zenye asili ya kulevya",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tramadol"
+            "openmrs_entity_id": "controlled_drugs"
           },
           {
             "key": "other",

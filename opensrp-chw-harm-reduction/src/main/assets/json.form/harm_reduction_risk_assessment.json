@@ -351,11 +351,11 @@
             "openmrs_entity_id": "cocaine"
           },
           {
-            "key": "valium",
-            "text": "Valium",
+            "key": "controlled_drugs",
+            "text": "Controlled Drugs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "valium"
+            "openmrs_entity_id": "controlled_drugs"
           },
           {
             "key": "methamphetamine",
@@ -363,20 +363,6 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methamphetamine"
-          },
-          {
-            "key": "tramadol",
-            "text": "Tramadol",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "tramadol"
-          },
-          {
-            "key": "other",
-            "text": "Others (Specify)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "other"
           }
         ],
         "relevance": {
@@ -441,18 +427,18 @@
             "openmrs_entity_id": "heroine"
           },
           {
-            "key": "marijuana",
-            "text": "Marijuana",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "marijuana"
-          },
-          {
             "key": "cocaine",
             "text": "Cocaine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "cocaine"
+          },
+          {
+            "key": "marijuana",
+            "text": "Marijuana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "marijuana"
           },
           {
             "key": "methamphetamine",
@@ -467,6 +453,13 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tobacco"
+          },
+          {
+            "key": "hashish",
+            "text": "Hashish",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hashish"
           },
           {
             "key": "other",
@@ -505,18 +498,11 @@
             "openmrs_entity_id": "alcohol"
           },
           {
-            "key": "valium",
-            "text": "Valium",
+            "key": "tobacco",
+            "text": "Tobacco",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "valium"
-          },
-          {
-            "key": "tramadol",
-            "text": "Tramadol",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "tramadol"
+            "openmrs_entity_id": "tobacco"
           },
           {
             "key": "mirungi",
@@ -526,11 +512,11 @@
             "openmrs_entity_id": "mirungi"
           },
           {
-            "key": "tobacco",
-            "text": "Tobacco",
+            "key": "controlled_drugs",
+            "text": "Controlled Drugs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tobacco"
+            "openmrs_entity_id": "controlled_drugs"
           },
           {
             "key": "other",
@@ -576,13 +562,6 @@
             "openmrs_entity_id": "cocaine"
           },
           {
-            "key": "valium",
-            "text": "Valium",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "valium"
-          },
-          {
             "key": "methamphetamine",
             "text": "Methamphetamine",
             "openmrs_entity_parent": "",
@@ -590,11 +569,11 @@
             "openmrs_entity_id": "methamphetamine"
           },
           {
-            "key": "tramadol",
-            "text": "Tramadol",
+            "key": "controlled_drugs",
+            "text": "Controlled Drugs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tramadol"
+            "openmrs_entity_id": "controlled_drugs"
           },
           {
             "key": "other",

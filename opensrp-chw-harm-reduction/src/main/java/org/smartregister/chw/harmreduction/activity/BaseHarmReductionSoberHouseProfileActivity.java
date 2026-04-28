@@ -47,6 +47,11 @@ public abstract class BaseHarmReductionSoberHouseProfileActivity extends BaseHar
     }
 
     @Override
+    protected String getProfileUicId(String baseEntityId) {
+        return HarmReductionDao.getLatestSoberHouseEnrollmentUic(baseEntityId);
+    }
+
+    @Override
     public void onClick(View view) {
         if (view.getId() == R.id.textview_record_sober_house_visit) {
             openFollowupVisit();

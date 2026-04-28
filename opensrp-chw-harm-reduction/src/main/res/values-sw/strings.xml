@@ -66,6 +66,7 @@
     <string name="call_harm_reduction_client">Piga simu kwa mpokea huduma wa Harm Reduction</string>
     <string name="head_of_family">Mkuu wa kaya</string>
     <string name="harm_reduction_client">Mpokea Huduma wa Harm Reduction</string>
+    <string name="harm_reduction_uic_id">UIC ID: %s</string>
     <string name="copy_to_clipboard">Nakili namba ya simu</string>
     <string name="copied_phone_number">Namba ya simu imenakiliwa</string>
     <string name="call">Piga simu</string>

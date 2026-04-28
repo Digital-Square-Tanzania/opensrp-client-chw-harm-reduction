@@ -249,6 +249,36 @@ public class HarmReductionDao extends AbstractDao {
         return "";
     }
 
+    public static String getLatestRiskAssessmentUic(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        String sql = buildLatestRiskAssessmentUicQuery(baseEntityId);
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, Constants.JSON_FORM_KEY.UIC, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+
+        return "";
+    }
+
+    public static String getLatestSoberHouseEnrollmentUic(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        String sql = buildLatestSoberHouseEnrollmentUicQuery(baseEntityId);
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, Constants.JSON_FORM_KEY.UIC_ID, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+
+        return "";
+    }
+
     public static String getLatestSoberHouseEnrollmentClientStatus(String baseEntityId) {
         if (StringUtils.isBlank(baseEntityId)) {
             return "";
@@ -355,6 +385,26 @@ public class HarmReductionDao extends AbstractDao {
         }
 
         return "SELECT " + CLIENT_STATUS_COLUMN + " FROM " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    }
+
+    @VisibleForTesting
+    static String buildLatestRiskAssessmentUicQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT " + Constants.JSON_FORM_KEY.UIC + " FROM " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    }
+
+    @VisibleForTesting
+    static String buildLatestSoberHouseEnrollmentUicQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT " + Constants.JSON_FORM_KEY.UIC_ID + " FROM " + Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT +
                 " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
     }
 

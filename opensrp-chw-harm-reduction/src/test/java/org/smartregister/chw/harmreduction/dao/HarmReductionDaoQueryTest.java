@@ -108,7 +108,7 @@ public class HarmReductionDaoQueryTest {
         String query = HarmReductionDao.buildLatestPositiveHivFollowUpVisitFieldQuery("ctc_id", "base-id");
 
         Assert.assertEquals(
-                "SELECT ctc_id FROM ec_harm_reduction_followup_visit WHERE is_closed = 0 AND entity_id = 'base-id' AND hiv_results = 'positive' ORDER BY last_interacted_with DESC LIMIT 1",
+                "SELECT ctc_id FROM ec_harm_reduction_followup_visit WHERE is_closed = 0 AND entity_id = 'base-id' AND hiv_results = 'positive' AND ctc_id IS NOT NULL AND TRIM(ctc_id) != '' ORDER BY last_interacted_with DESC LIMIT 1",
                 query
         );
     }

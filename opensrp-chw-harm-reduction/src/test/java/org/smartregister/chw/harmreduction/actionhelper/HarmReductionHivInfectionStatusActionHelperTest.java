@@ -58,6 +58,96 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
     }
 
     @Test
+    public void getPreProcessedShouldNotAskHivTestFieldsAgainWhenPreviousPositiveLocationIsMissing() throws Exception {
+        MemberObject memberObject = new MemberObject();
+        memberObject.setBaseEntityId("base-id");
+
+        HarmReductionHivInfectionStatusActionHelper helper = new TestHarmReductionHivInfectionStatusActionHelper(
+                memberObject,
+                true,
+                true,
+                "",
+                "",
+                ""
+        );
+        helper.onJsonFormLoaded(getHivInfectionStatusForm(), null, null);
+
+        JSONObject form = new JSONObject(helper.getPreProcessed());
+
+        Assert.assertEquals("enrolled_into_ctc_services",
+                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
+                        .getJSONObject(0).getString(JsonFormConstants.KEY));
+        Assert.assertEquals("hidden", getField(form, "hiv_tested").getString("type"));
+        Assert.assertEquals("yes", getField(form, "hiv_tested").getString("value"));
+        Assert.assertEquals("hidden", getField(form, "hiv_test_location").getString("type"));
+        Assert.assertFalse(getField(form, "hiv_test_location").has("v_required"));
+        Assert.assertEquals("hidden", getField(form, "hiv_results").getString("type"));
+        Assert.assertEquals("positive", getField(form, "hiv_results").getString("value"));
+        Assert.assertEquals("native_radio", getField(form, "enrolled_into_ctc_services").getString("type"));
+        Assert.assertFalse(getField(form, "enrolled_into_ctc_services").has("read_only"));
+        Assert.assertTrue(hasOption(getField(form, "drug_adherence_status_ctc"), "not_started"));
+        Assert.assertEquals("mask_edit_text", getField(form, "ctc_id").getString("type"));
+        Assert.assertFalse(getField(form, "ctc_id").has("read_only"));
+    }
+
+    @Test
+    public void getPreProcessedShouldAskForMissingCtcIdWhenClientWasAlreadyEnrolledIntoCtc() throws Exception {
+        MemberObject memberObject = new MemberObject();
+        memberObject.setBaseEntityId("base-id");
+
+        HarmReductionHivInfectionStatusActionHelper helper = new TestHarmReductionHivInfectionStatusActionHelper(
+                memberObject,
+                true,
+                true,
+                "facility",
+                "yes",
+                ""
+        );
+        helper.onJsonFormLoaded(getHivInfectionStatusForm(), null, null);
+
+        JSONObject form = new JSONObject(helper.getPreProcessed());
+
+        Assert.assertEquals("drug_adherence_status_ctc",
+                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
+                        .getJSONObject(0).getString(JsonFormConstants.KEY));
+        Assert.assertEquals("adherence_guidance_discontinued",
+                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
+                        .getJSONObject(1).getString(JsonFormConstants.KEY));
+        Assert.assertEquals("ctc_id",
+                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
+                        .getJSONObject(3).getString(JsonFormConstants.KEY));
+        Assert.assertEquals("yes", getField(form, "enrolled_into_ctc_services").getString("value"));
+        Assert.assertEquals("hidden", getField(form, "enrolled_into_ctc_services").getString("type"));
+        Assert.assertEquals("mask_edit_text", getField(form, "ctc_id").getString("type"));
+        Assert.assertFalse(getField(form, "ctc_id").has("read_only"));
+        Assert.assertFalse(hasOption(getField(form, "drug_adherence_status_ctc"), "not_started"));
+    }
+
+    @Test
+    public void getPreProcessedShouldNotAskForCtcIdAgainWhenPreviouslyProvided() throws Exception {
+        MemberObject memberObject = new MemberObject();
+        memberObject.setBaseEntityId("base-id");
+
+        HarmReductionHivInfectionStatusActionHelper helper = new TestHarmReductionHivInfectionStatusActionHelper(
+                memberObject,
+                true,
+                true,
+                "facility",
+                "",
+                "12-34-5678-901234"
+        );
+        helper.onJsonFormLoaded(getHivInfectionStatusForm(), null, null);
+
+        JSONObject form = new JSONObject(helper.getPreProcessed());
+
+        Assert.assertEquals("hidden", getField(form, "ctc_id").getString("type"));
+        Assert.assertEquals("12-34-5678-901234", getField(form, "ctc_id").getString("value"));
+        Assert.assertTrue(getField(form, "ctc_id").getBoolean("read_only"));
+        Assert.assertEquals("hidden", getField(form, "enrolled_into_ctc_services").getString("type"));
+        Assert.assertEquals("yes", getField(form, "enrolled_into_ctc_services").getString("value"));
+    }
+
+    @Test
     public void getPreProcessedShouldReturnNullWhenThereIsNoPreviousFollowUpVisit() {
         MemberObject memberObject = new MemberObject();
         memberObject.setBaseEntityId("base-id");
@@ -111,7 +201,8 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
                 + "\"options\":["
                 + "{\"key\":\"facility\",\"text\":\"Facility\"},"
                 + "{\"key\":\"community\",\"text\":\"Community\"}"
-                + "]"
+                + "],"
+                + "\"v_required\":{\"value\":\"true\"}"
                 + "},"
                 + "{"
                 + "\"key\":\"hiv_results\","
@@ -128,6 +219,7 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
                 + "\"options\":["
                 + "{\"key\":\"good_adherence\",\"text\":\"Good adherence\"},"
                 + "{\"key\":\"poor_adherence\",\"text\":\"Poor adherence\"},"
+                + "{\"key\":\"discontinued\",\"text\":\"Discontinued\"},"
                 + "{\"key\":\"not_started\",\"text\":\"Not started\"}"
                 + "]"
                 + "},"

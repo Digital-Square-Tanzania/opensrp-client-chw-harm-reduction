@@ -365,7 +365,7 @@ public class HarmReductionDao extends AbstractDao {
 
         return "SELECT " + columnName + " FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT +
                 " WHERE is_closed = 0 AND entity_id = '" + baseEntityId + "' AND hiv_results = '" + POSITIVE_VALUE +
-                "' ORDER BY last_interacted_with DESC LIMIT 1";
+                "' AND " + columnName + " IS NOT NULL AND TRIM(" + columnName + ") != '' ORDER BY last_interacted_with DESC LIMIT 1";
     }
 
     @VisibleForTesting

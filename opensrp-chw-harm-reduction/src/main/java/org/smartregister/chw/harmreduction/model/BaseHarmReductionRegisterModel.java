@@ -8,7 +8,7 @@ public class BaseHarmReductionRegisterModel implements HarmReductionRegisterCont
 
     @Override
     public JSONObject getFormAsJson(String formName, String entityId, String currentLocationId) throws Exception {
-        JSONObject jsonObject = HarmReductionJsonFormUtils.getFormAsJson(formName);
+        JSONObject jsonObject = HarmReductionJsonFormUtils.getLocalizedFormAsJson(formName);
         HarmReductionJsonFormUtils.getRegistrationForm(jsonObject, entityId, currentLocationId);
 
         return jsonObject;

@@ -430,14 +430,14 @@
         "options": [
           {
             "key": "heroine",
-            "text": "Heroini",
+            "text": "Heroine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heroine"
           },
           {
             "key": "cocaine",
-            "text": "Kokeini",
+            "text": "Cocaine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "cocaine"
@@ -451,7 +451,7 @@
           },
           {
             "key": "methamphetamine",
-            "text": "Meth (Chumvi)",
+            "text": "Methamphetamine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methamphetamine"
@@ -480,28 +480,28 @@
         "options": [
           {
             "key": "heroine",
-            "text": "Heroini",
+            "text": "Heroine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heroine"
           },
           {
             "key": "cocaine",
-            "text": "Kokeini",
+            "text": "Cocaine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "cocaine"
           },
           {
             "key": "marijuana",
-            "text": "Bhangi",
+            "text": "Bangi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "marijuana"
           },
           {
             "key": "methamphetamine",
-            "text": "Meth (Chumvi)",
+            "text": "Methamphetamine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methamphetamine"
@@ -608,21 +608,21 @@
         "options": [
           {
             "key": "heroine",
-            "text": "Heroini",
+            "text": "Heroine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "heroine"
           },
           {
             "key": "cocaine",
-            "text": "Kokeini",
+            "text": "Cocaine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "cocaine"
           },
           {
             "key": "methamphetamine",
-            "text": "Meth(Chumvi)",
+            "text": "Methamphetamine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methamphetamine"

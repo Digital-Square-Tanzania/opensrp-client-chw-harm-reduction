@@ -32,6 +32,7 @@ public class HarmReductionDao extends AbstractDao {
     private static final String POSITIVE_VALUE = "positive";
     private static final String CLIENT_DECEASED_STATUS = "client_deceased";
     private static final String YES_VALUE = "yes";
+    private static final String COMPLETED_METHADONE_TREATMENT_VALUE = "completed_methadone_treatment";
     private static final DateTimeFormatter SQL_DATE_TIME_FORMAT = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
     private static final DateTimeFormatter[] SUPPORTED_EVENT_DATE_FORMATS = new DateTimeFormatter[]{
             ISODateTimeFormat.dateTimeParser(),
@@ -464,6 +465,37 @@ public class HarmReductionDao extends AbstractDao {
         }
 
         return new SoberHouseAutoCloseSummary(affectedClients, serviceRowsUpdated, enrollmentRowsUpdated);
+    }
+
+    public static void closeCompletedMethadoneTreatmentRiskAssessment(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return;
+        }
+
+        updateDB(buildCloseCompletedMethadoneTreatmentRiskAssessmentSql(baseEntityId));
+    }
+
+    public static boolean isCompletedMethadoneTreatment(String methadoneTreatmentStatus) {
+        String normalizedStatus = StringUtils.trimToEmpty(methadoneTreatmentStatus)
+                .replace("[", "")
+                .replace("]", "");
+        for (String status : normalizedStatus.split(",")) {
+            if (COMPLETED_METHADONE_TREATMENT_VALUE.equalsIgnoreCase(StringUtils.trim(status))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @VisibleForTesting
+    static String buildCloseCompletedMethadoneTreatmentRiskAssessmentSql(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "UPDATE " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " SET client_started_mat = 'no', is_closed = 1" +
+                " WHERE base_entity_id = '" + escapeSqlValue(baseEntityId) + "' AND is_closed = 0";
     }
 
     public static String getLastInteractedWithMatConsentFollowUpVisit(String baseEntityId) {

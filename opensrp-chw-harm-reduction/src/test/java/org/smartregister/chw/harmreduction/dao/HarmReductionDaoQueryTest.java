@@ -120,4 +120,39 @@ public class HarmReductionDaoQueryTest {
         Assert.assertTrue(query.contains("inner join ec_harm_reduction_sober_house_enrollment sh on sh.base_entity_id = m.base_entity_id"));
         Assert.assertTrue(query.contains("where sh.is_closed = 0 AND sh.detoxification_done = 'yes' AND m.base_entity_id ='base-id'"));
     }
+
+    @Test
+    public void buildCloseCompletedMethadoneTreatmentRiskAssessmentSqlShouldCloseActiveRiskAssessment() {
+        String query = HarmReductionDao.buildCloseCompletedMethadoneTreatmentRiskAssessmentSql("base-id");
+
+        Assert.assertEquals(
+                "UPDATE ec_harm_reduction_risk_assessment SET client_started_mat = 'no', is_closed = 1 WHERE base_entity_id = 'base-id' AND is_closed = 0",
+                query
+        );
+    }
+
+    @Test
+    public void buildCloseCompletedMethadoneTreatmentRiskAssessmentSqlShouldEscapeBaseEntityId() {
+        String query = HarmReductionDao.buildCloseCompletedMethadoneTreatmentRiskAssessmentSql("base'id");
+
+        Assert.assertEquals(
+                "UPDATE ec_harm_reduction_risk_assessment SET client_started_mat = 'no', is_closed = 1 WHERE base_entity_id = 'base''id' AND is_closed = 0",
+                query
+        );
+    }
+
+    @Test
+    public void isCompletedMethadoneTreatmentShouldHandleExactAndSerializedValues() {
+        Assert.assertTrue(HarmReductionDao.isCompletedMethadoneTreatment("completed_methadone_treatment"));
+        Assert.assertTrue(HarmReductionDao.isCompletedMethadoneTreatment("[completed_methadone_treatment]"));
+    }
+
+    @Test
+    public void isCompletedMethadoneTreatmentShouldRejectOtherStatuses() {
+        Assert.assertFalse(HarmReductionDao.isCompletedMethadoneTreatment("continuing_methadone_treatment"));
+        Assert.assertFalse(HarmReductionDao.isCompletedMethadoneTreatment("stopped_using_methadone"));
+        Assert.assertFalse(HarmReductionDao.isCompletedMethadoneTreatment("not_completed_methadone_treatment"));
+        Assert.assertFalse(HarmReductionDao.isCompletedMethadoneTreatment(""));
+        Assert.assertFalse(HarmReductionDao.isCompletedMethadoneTreatment(null));
+    }
 }

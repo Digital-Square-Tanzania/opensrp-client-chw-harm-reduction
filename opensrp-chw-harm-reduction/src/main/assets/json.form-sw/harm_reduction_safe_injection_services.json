@@ -63,7 +63,7 @@
         "options": [
           {
             "key": "syringes",
-            "text": "Bomba",
+            "text": "Bomba na sindano",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "syringes"
@@ -97,13 +97,6 @@
             "openmrs_entity_id": "sterile_water"
           },
           {
-            "key": "needles",
-            "text": "Sindano",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "needles"
-          },
-          {
             "key": "not_given",
             "text": "Hajapewa",
             "openmrs_entity_parent": "",
@@ -122,7 +115,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_syringes",
         "type": "edit_text",
-        "hint": "Idadi ya Bomba",
+        "hint": "Idadi ya Bomba na sindano",
         "edit_type": "number",
         "v_numeric": {
           "value": "true",
@@ -143,7 +136,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali weka idadi ya Bomba"
+          "err": "Tafadhali weka idadi ya Bomba na sindano"
         },
         "relevance": {
           "rules-engine": {
@@ -260,43 +253,6 @@
         "v_required": {
           "value": "true",
           "err": "Tafadhali weka idadi ya Maji"
-        },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-safe-injection-services-relevance-rules.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "qty_needles",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "qty_needles",
-        "type": "edit_text",
-        "hint": "Idadi ya Sindano",
-        "edit_type": "number",
-        "v_numeric": {
-          "value": "true",
-          "err": "Tafadhali ingiza ingizo halali"
-        },
-        "v_min": {
-          "value": "1",
-          "err": "Lazima iwe 1 au zaidi"
-        },
-        "v_max": {
-          "value": "21",
-          "err": "Lazima iwe 21 au chini"
-        },
-        "v_max_length": {
-          "value": "2",
-          "is_fixed_size": "true",
-          "err": "Tafadhali ingiza ingizo halali"
-        },
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali weka idadi ya Sindano"
         },
         "relevance": {
           "rules-engine": {

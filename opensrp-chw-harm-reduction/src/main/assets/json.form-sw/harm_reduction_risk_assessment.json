@@ -1247,7 +1247,7 @@
         "options": [
           {
             "key": "alone",
-            "text": "Peke yako",
+            "text": "Peke yangu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "alone"

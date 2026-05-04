@@ -340,6 +340,13 @@
               "openmrs_entity_parent": "",
               "openmrs_entity": "concept",
               "openmrs_entity_id": "maskani"
+            },
+            {
+              "key": "other",
+              "text": "Kwingineko",
+              "openmrs_entity_parent": "",
+              "openmrs_entity": "concept",
+              "openmrs_entity_id": "other"
             }
           ],
           "v_required": {
@@ -361,10 +368,6 @@
           "openmrs_entity_id": "death_action_taken",
           "type": "edit_text",
           "hint": "Nini kilifanyika",
-          "v_required": {
-            "value": "true",
-            "err": "Tafadhali taja"
-          },
           "relevance": {
             "rules-engine": {
               "ex-rules": {

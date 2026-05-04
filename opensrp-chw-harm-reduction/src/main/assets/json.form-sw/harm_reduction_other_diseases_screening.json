@@ -50,12 +50,54 @@
     "title": "Uchunguzi wa magonjwa mengine",
     "fields": [
       {
-        "key": "hepatitis_bc_screening",
+        "key": "hepatitis_b_screening",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "hepatitis_bc_screening",
+        "openmrs_entity_id": "hepatitis_b_screening",
         "type": "native_radio",
-        "label": "Uchunguzi wa Homa ya Ini B/C",
+        "label": "Uchunguzi wa Homa ya Ini B",
+        "options": [
+          {
+            "key": "has_symptoms",
+            "text": "Ana dalili",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms"
+          },
+          {
+            "key": "no_symptoms",
+            "text": "Hana dalili",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms"
+          },
+          {
+            "key": "not_screened",
+            "text": "Hajachunguzwa",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_screened"
+          },
+          {
+            "key": "undergoing_treatment",
+            "text": "Yupo kwenye matibabu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "undergoing_treatment"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "hepatitis_c_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hepatitis_c_screening",
+        "type": "native_radio",
+        "label": "Uchunguzi wa Homa ya Ini C",
         "options": [
           {
             "key": "has_symptoms",

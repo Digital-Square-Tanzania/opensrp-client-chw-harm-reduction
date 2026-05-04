@@ -41,6 +41,44 @@ public class SafeInjectionQuantityLabelAssetsTest {
         }
     }
 
+    @Test
+    public void testCombinedSyringesQuantityKeepsNeedleConstraints() throws Exception {
+        assertQtySyringesConstraints(
+                "src/main/assets/json.form-sw/harm_reduction_safe_injection_services.json",
+                "Tafadhali ingiza ingizo halali",
+                "Lazima iwe 1 au zaidi",
+                "Lazima iwe 21 au chini",
+                "Tafadhali ingiza ingizo halali"
+        );
+        assertQtySyringesConstraints(
+                "src/main/assets/json.form/harm_reduction_safe_injection_services.json",
+                "Please enter a valid number",
+                "Must be 1 or more",
+                "Must be 21 or less",
+                "Please enter a valid input"
+        );
+    }
+
+    private static void assertQtySyringesConstraints(String formPath,
+                                                     String expectedNumericError,
+                                                     String expectedMinError,
+                                                     String expectedMaxError,
+                                                     String expectedMaxLengthError) throws Exception {
+        JSONObject form = new JSONObject(readText(formPath));
+        JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
+        JSONObject qtySyringes = getField(fields, "qty_syringes");
+
+        Assert.assertEquals("true", qtySyringes.getJSONObject("v_numeric").getString("value"));
+        Assert.assertEquals(expectedNumericError, qtySyringes.getJSONObject("v_numeric").getString("err"));
+        Assert.assertEquals("1", qtySyringes.getJSONObject("v_min").getString("value"));
+        Assert.assertEquals(expectedMinError, qtySyringes.getJSONObject("v_min").getString("err"));
+        Assert.assertEquals("21", qtySyringes.getJSONObject("v_max").getString("value"));
+        Assert.assertEquals(expectedMaxError, qtySyringes.getJSONObject("v_max").getString("err"));
+        Assert.assertEquals("2", qtySyringes.getJSONObject("v_max_length").getString("value"));
+        Assert.assertEquals("true", qtySyringes.getJSONObject("v_max_length").getString("is_fixed_size"));
+        Assert.assertEquals(expectedMaxLengthError, qtySyringes.getJSONObject("v_max_length").getString("err"));
+    }
+
     private static JSONObject getField(JSONArray fields, String key) throws Exception {
         for (int i = 0; i < fields.length(); i++) {
             JSONObject field = fields.getJSONObject(i);

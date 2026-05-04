@@ -32,15 +32,17 @@ public class SafeInjectionQuestionLabelAssetsTest {
     public void testSafeInjectionToolsIncludeNotGivenOption() throws Exception {
         assertSafeInjectionToolOptions(
                 "src/main/assets/json.form/harm_reduction_safe_injection_services.json",
+                "Needles and syringes",
                 "Not given"
         );
         assertSafeInjectionToolOptions(
                 "src/main/assets/json.form-sw/harm_reduction_safe_injection_services.json",
+                "Bomba na sindano",
                 "Hajapewa"
         );
     }
 
-    private static void assertSafeInjectionToolOptions(String formPath, String expectedNotGivenText) throws Exception {
+    private static void assertSafeInjectionToolOptions(String formPath, String expectedSyringesText, String expectedNotGivenText) throws Exception {
         JSONObject form = new JSONObject(readText(formPath));
         JSONArray options = form.getJSONObject("step1")
                 .getJSONArray("fields")
@@ -53,9 +55,9 @@ public class SafeInjectionQuestionLabelAssetsTest {
                 "dry_cotton",
                 "plaster",
                 "sterile_water",
-                "needles",
                 "not_given"
         )), optionKeys(options));
+        Assert.assertEquals(expectedSyringesText, optionText(options, "syringes"));
         Assert.assertEquals(expectedNotGivenText, optionText(options, "not_given"));
     }
 

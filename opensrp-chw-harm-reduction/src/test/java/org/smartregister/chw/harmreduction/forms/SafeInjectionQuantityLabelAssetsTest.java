@@ -19,8 +19,8 @@ public class SafeInjectionQuantityLabelAssetsTest {
         JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
 
         JSONObject qtySyringes = getField(fields, "qty_syringes");
-        Assert.assertEquals("Idadi ya Bomba", qtySyringes.getString("hint"));
-        Assert.assertEquals("Tafadhali weka idadi ya Bomba", qtySyringes.getJSONObject("v_required").getString("err"));
+        Assert.assertEquals("Idadi ya Bomba na sindano", qtySyringes.getString("hint"));
+        Assert.assertEquals("Tafadhali weka idadi ya Bomba na sindano", qtySyringes.getJSONObject("v_required").getString("err"));
 
         JSONObject qtyAlcoholSwab = getField(fields, "qty_alcohol_swab");
         Assert.assertEquals("Idadi ya Pamba yenye kileo(swabu)", qtyAlcoholSwab.getString("hint"));

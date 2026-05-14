@@ -23,7 +23,7 @@ public class HivInfectionStatusFormAssetsTest {
     );
 
     @Test
-    public void testHivInfectionStatusFormsAskAboutCtcEnrollmentBeforeAdherenceAndCtcId() throws Exception {
+    public void testHivInfectionStatusFormsAskAboutCtcEnrollmentAndCtcIdBeforeAdherence() throws Exception {
         for (String formPath : FORM_PATHS) {
             JSONObject form = readJson(formPath);
             JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
@@ -32,10 +32,10 @@ public class HivInfectionStatusFormAssetsTest {
             JSONObject adherenceField = getField(fields, "drug_adherence_status_ctc");
             JSONObject ctcIdField = getField(fields, "ctc_id");
 
-            Assert.assertTrue("CTC enrollment question should be placed before adherence in " + formPath,
-                    indexOf(fields, "enrolled_into_ctc_services") < indexOf(fields, "drug_adherence_status_ctc"));
-            Assert.assertTrue("Adherence question should be placed before CTC ID in " + formPath,
-                    indexOf(fields, "drug_adherence_status_ctc") < indexOf(fields, "ctc_id"));
+            Assert.assertTrue("CTC enrollment question should be placed before CTC ID in " + formPath,
+                    indexOf(fields, "enrolled_into_ctc_services") < indexOf(fields, "ctc_id"));
+            Assert.assertTrue("CTC ID should be placed before adherence in " + formPath,
+                    indexOf(fields, "ctc_id") < indexOf(fields, "drug_adherence_status_ctc"));
             Assert.assertEquals("native_radio", ctcEnrollmentField.getString("type"));
             Assert.assertEquals("native_radio", adherenceField.getString("type"));
             Assert.assertEquals(2, ctcEnrollmentField.getJSONArray("options").length());

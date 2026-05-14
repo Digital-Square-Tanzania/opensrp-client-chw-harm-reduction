@@ -26,13 +26,13 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
 
         JSONObject form = new JSONObject(helper.getPreProcessed());
 
-        Assert.assertEquals("drug_adherence_status_ctc",
+        Assert.assertEquals("ctc_id",
                 form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
                         .getJSONObject(0).getString(JsonFormConstants.KEY));
-        Assert.assertEquals("adherence_guidance_discontinued",
+        Assert.assertEquals("drug_adherence_status_ctc",
                 form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
                         .getJSONObject(1).getString(JsonFormConstants.KEY));
-        Assert.assertEquals("adherence_guidance_not_started",
+        Assert.assertEquals("adherence_guidance_discontinued",
                 form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
                         .getJSONObject(2).getString(JsonFormConstants.KEY));
         Assert.assertEquals("yes", getField(form, "hiv_tested").getString("value"));
@@ -77,6 +77,9 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
         Assert.assertEquals("enrolled_into_ctc_services",
                 form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
                         .getJSONObject(0).getString(JsonFormConstants.KEY));
+        Assert.assertEquals("ctc_id",
+                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
+                        .getJSONObject(1).getString(JsonFormConstants.KEY));
         Assert.assertEquals("hidden", getField(form, "hiv_tested").getString("type"));
         Assert.assertEquals("yes", getField(form, "hiv_tested").getString("value"));
         Assert.assertEquals("hidden", getField(form, "hiv_test_location").getString("type"));
@@ -107,15 +110,15 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
 
         JSONObject form = new JSONObject(helper.getPreProcessed());
 
-        Assert.assertEquals("drug_adherence_status_ctc",
-                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
-                        .getJSONObject(0).getString(JsonFormConstants.KEY));
-        Assert.assertEquals("adherence_guidance_discontinued",
-                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
-                        .getJSONObject(1).getString(JsonFormConstants.KEY));
         Assert.assertEquals("ctc_id",
                 form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
-                        .getJSONObject(3).getString(JsonFormConstants.KEY));
+                        .getJSONObject(0).getString(JsonFormConstants.KEY));
+        Assert.assertEquals("drug_adherence_status_ctc",
+                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
+                        .getJSONObject(1).getString(JsonFormConstants.KEY));
+        Assert.assertEquals("adherence_guidance_discontinued",
+                form.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS)
+                        .getJSONObject(2).getString(JsonFormConstants.KEY));
         Assert.assertEquals("yes", getField(form, "enrolled_into_ctc_services").getString("value"));
         Assert.assertEquals("hidden", getField(form, "enrolled_into_ctc_services").getString("type"));
         Assert.assertEquals("mask_edit_text", getField(form, "ctc_id").getString("type"));
@@ -214,16 +217,6 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
                 + "]"
                 + "},"
                 + "{"
-                + "\"key\":\"drug_adherence_status_ctc\","
-                + "\"type\":\"native_radio\","
-                + "\"options\":["
-                + "{\"key\":\"good_adherence\",\"text\":\"Good adherence\"},"
-                + "{\"key\":\"poor_adherence\",\"text\":\"Poor adherence\"},"
-                + "{\"key\":\"discontinued\",\"text\":\"Discontinued\"},"
-                + "{\"key\":\"not_started\",\"text\":\"Not started\"}"
-                + "]"
-                + "},"
-                + "{"
                 + "\"key\":\"enrolled_into_ctc_services\","
                 + "\"type\":\"native_radio\","
                 + "\"options\":["
@@ -234,6 +227,16 @@ public class HarmReductionHivInfectionStatusActionHelperTest {
                 + "{"
                 + "\"key\":\"ctc_id\","
                 + "\"type\":\"mask_edit_text\""
+                + "},"
+                + "{"
+                + "\"key\":\"drug_adherence_status_ctc\","
+                + "\"type\":\"native_radio\","
+                + "\"options\":["
+                + "{\"key\":\"good_adherence\",\"text\":\"Good adherence\"},"
+                + "{\"key\":\"poor_adherence\",\"text\":\"Poor adherence\"},"
+                + "{\"key\":\"discontinued\",\"text\":\"Discontinued\"},"
+                + "{\"key\":\"not_started\",\"text\":\"Not started\"}"
+                + "]"
                 + "},"
                 + "{"
                 + "\"key\":\"adherence_guidance_discontinued\","

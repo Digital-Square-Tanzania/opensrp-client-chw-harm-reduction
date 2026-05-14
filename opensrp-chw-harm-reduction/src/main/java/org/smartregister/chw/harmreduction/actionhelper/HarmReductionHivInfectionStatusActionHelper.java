@@ -80,17 +80,17 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
                 if (clientAlreadyEnrolledIntoCtc) {
                     removeOption(jsonObject, DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY, NOT_STARTED_VALUE);
                     moveFieldsToTop(jsonObject,
+                            CTC_ID_FIELD_KEY,
                             DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY,
                             ADHERENCE_GUIDANCE_DISCONTINUED_FIELD_KEY,
-                            ADHERENCE_GUIDANCE_NOT_STARTED_FIELD_KEY,
-                            CTC_ID_FIELD_KEY);
+                            ADHERENCE_GUIDANCE_NOT_STARTED_FIELD_KEY);
                 } else {
                     moveFieldsToTop(jsonObject,
                             ENROLLED_INTO_CTC_SERVICES_FIELD_KEY,
+                            CTC_ID_FIELD_KEY,
                             DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY,
                             ADHERENCE_GUIDANCE_DISCONTINUED_FIELD_KEY,
-                            ADHERENCE_GUIDANCE_NOT_STARTED_FIELD_KEY,
-                            CTC_ID_FIELD_KEY);
+                            ADHERENCE_GUIDANCE_NOT_STARTED_FIELD_KEY);
                 }
             }
             return wasUpdated ? jsonObject.toString() : null;

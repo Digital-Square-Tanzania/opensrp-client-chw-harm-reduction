@@ -254,6 +254,21 @@ public class HarmReductionDao extends AbstractDao {
         return "";
     }
 
+    public static String getLatestRiskAssessmentFollowUpStatus(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        String sql = buildLatestRiskAssessmentFollowUpStatusQuery(baseEntityId);
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, FOLLOW_UP_STATUS_COLUMN, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+
+        return "";
+    }
+
     public static String getLatestRiskAssessmentUic(String baseEntityId) {
         if (StringUtils.isBlank(baseEntityId)) {
             return "";
@@ -300,11 +315,14 @@ public class HarmReductionDao extends AbstractDao {
     }
 
     public static boolean isCommunityClientDeceased(String baseEntityId) {
-        return isDeceasedFollowUpStatus(getLatestCommunityFollowUpStatus(baseEntityId));
+        return isDeceasedFollowUpStatus(getLatestRiskAssessmentFollowUpStatus(baseEntityId))
+                || isDeceasedFollowUpStatus(getLatestRiskAssessmentClientStatus(baseEntityId))
+                || isDeceasedFollowUpStatus(getLatestCommunityFollowUpStatus(baseEntityId));
     }
 
     public static boolean isSoberHouseClientDeceased(String baseEntityId) {
-        return isDeceasedFollowUpStatus(getLatestSoberHouseFollowUpStatus(baseEntityId));
+        return isDeceasedFollowUpStatus(getLatestSoberHouseEnrollmentClientStatus(baseEntityId))
+                || isDeceasedFollowUpStatus(getLatestSoberHouseFollowUpStatus(baseEntityId));
     }
 
     private static String getLatestStatusFromTable(String tableName, String statusColumn, String baseEntityId) {
@@ -390,6 +408,16 @@ public class HarmReductionDao extends AbstractDao {
         }
 
         return "SELECT " + CLIENT_STATUS_COLUMN + " FROM " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    }
+
+    @VisibleForTesting
+    static String buildLatestRiskAssessmentFollowUpStatusQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT " + FOLLOW_UP_STATUS_COLUMN + " FROM " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
                 " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
     }
 

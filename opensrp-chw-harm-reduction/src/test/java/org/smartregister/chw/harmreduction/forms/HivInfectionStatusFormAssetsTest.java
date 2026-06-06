@@ -79,6 +79,14 @@ public class HivInfectionStatusFormAssetsTest {
         Assert.assertTrue(followUpVisitColumns.contains("ctc_id"));
     }
 
+    @Test
+    public void testSwahiliHivTestedQuestionUsesCurrentTestingWording() throws Exception {
+        JSONObject form = readJson("src/main/assets/json.form-sw/harm_reduction_hiv_infection_status.json");
+        JSONObject hivTestedField = getField(form.getJSONObject("step1").getJSONArray("fields"), "hiv_tested");
+
+        Assert.assertEquals("Je, mpokea huduma amepima VVU?", hivTestedField.getString("label"));
+    }
+
     private static JSONObject readJson(String relativePath) throws Exception {
         return new JSONObject(readText(relativePath));
     }

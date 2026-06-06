@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_tested",
         "type": "native_radio",
-        "label": "Je, mpokea huduma amewahi kupima VVU?",
+        "label": "Je, mpokea huduma amepima VVU?",
         "options": [
           {
             "key": "yes",

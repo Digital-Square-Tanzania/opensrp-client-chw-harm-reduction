@@ -38,6 +38,7 @@
     <string name="harm_reduction_hiv_infection_status">Hali ya Maambukizo ya VVU</string>
     <string name="harm_reduction_other_diseases_screening">Uchunguzi wa magonjwa mengine</string>
     <string name="harm_reduction_referrals_provided">Rufaa zilizotolewa</string>
+    <string name="harm_reduction_linkage_to_other_services">Huduma za Muunganiko</string>
     <string name="harm_reduction_consent_joining_mat">Ridhaa ya kujiunga na huduma za MAT</string>
     <string name="harm_reduction_sober_house_client_type_followup_status">Hali ya Ufuatiliaji</string>
     <string name="harm_reduction_sober_house_vital_sign_check">Huduma za Vipimo</string>

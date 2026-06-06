@@ -1,0 +1,73 @@
+package org.smartregister.chw.harmreduction.actionhelper;
+
+import android.content.Context;
+
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.smartregister.chw.harmreduction.domain.VisitDetail;
+import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
+import org.smartregister.chw.harmreduction.util.JsonFormUtils;
+
+import java.util.List;
+import java.util.Map;
+
+import timber.log.Timber;
+
+public class HarmReductionLinkageToOtherServicesActionHelper implements BaseHarmReductionVisitAction.HarmReductionVisitActionHelper {
+    private static final String LINKAGE_TO_OTHER_SERVICES_PROVIDED_FIELD_KEY = "linkage_to_other_services_provided";
+
+    private String linkageToOtherServicesProvided;
+
+    @Override
+    public void onJsonFormLoaded(String jsonPayload, Context context, Map<String, List<VisitDetail>> details) {
+        // no-op
+    }
+
+    @Override
+    public String getPreProcessed() {
+        return null;
+    }
+
+    @Override
+    public void onPayloadReceived(String jsonPayload) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonPayload);
+            linkageToOtherServicesProvided = JsonFormUtils.getValue(jsonObject, LINKAGE_TO_OTHER_SERVICES_PROVIDED_FIELD_KEY);
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
+    }
+
+    @Override
+    public BaseHarmReductionVisitAction.ScheduleStatus getPreProcessedStatus() {
+        return null;
+    }
+
+    @Override
+    public String getPreProcessedSubTitle() {
+        return null;
+    }
+
+    @Override
+    public String postProcess(String jsonPayload) {
+        return null;
+    }
+
+    @Override
+    public String evaluateSubTitle() {
+        return null;
+    }
+
+    @Override
+    public BaseHarmReductionVisitAction.Status evaluateStatusOnPayload() {
+        return StringUtils.isNotBlank(linkageToOtherServicesProvided)
+                ? BaseHarmReductionVisitAction.Status.COMPLETED
+                : BaseHarmReductionVisitAction.Status.PENDING;
+    }
+
+    @Override
+    public void onPayloadReceived(BaseHarmReductionVisitAction baseVisitAction) {
+        // no-op
+    }
+}

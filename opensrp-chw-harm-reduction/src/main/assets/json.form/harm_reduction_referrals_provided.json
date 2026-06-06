@@ -111,13 +111,6 @@
             "openmrs_entity_id": "reproductive_health"
           },
           {
-            "key": "nutrition",
-            "text": "Nutrition",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "nutrition"
-          },
-          {
             "key": "prep",
             "text": "PrEP",
             "openmrs_entity_parent": "",
@@ -125,102 +118,11 @@
             "openmrs_entity_id": "prep"
           },
           {
-            "key": "mental_health",
-            "text": "Mental Health",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "mental_health"
-          },
-          {
-            "key": "substance_abuse",
-            "text": "Substance abuse",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "substance_abuse"
-          },
-          {
-            "key": "gbv_vac",
-            "text": "GBV/VAC",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "gbv_vac"
-          },
-          {
-            "key": "psychological_assistance",
-            "text": "Psychological assistance",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "psychological_assistance"
-          },
-          {
-            "key": "rights_vulnerable",
-            "text": "Rights of vulnerable population",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "rights_vulnerable"
-          },
-          {
-            "key": "health_services_advocacy",
-            "text": "Health services advocacy",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "health_services_advocacy"
-          },
-          {
             "key": "hepatitis_bc",
             "text": "Hepatitis B/C",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hepatitis_bc"
-          },
-          {
-            "key": "stis_stds",
-            "text": "STIs/STDs",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "stis_stds"
-          },
-          {
-            "key": "overdose_management",
-            "text": "Overdose management and prevention",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "overdose_management"
-          },
-          {
-            "key": "legal_issues",
-            "text": "Legal issues",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "legal_issues"
-          },
-          {
-            "key": "safe_injection",
-            "text": "Safe injection",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "safe_injection"
-          },
-          {
-            "key": "methadone_services",
-            "text": "Methadone services (MAT)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "methadone_services"
-          },
-          {
-            "key": "sober_house",
-            "text": "Sober House",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "sober_house"
-          },
-          {
-            "key": "income_generating",
-            "text": "Income Generating Activities (IGA)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "income_generating"
           },
           {
             "key": "hiv_testing",

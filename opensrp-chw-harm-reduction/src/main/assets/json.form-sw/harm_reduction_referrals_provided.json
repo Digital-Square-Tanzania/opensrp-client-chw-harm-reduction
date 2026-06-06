@@ -111,13 +111,6 @@
             "openmrs_entity_id": "reproductive_health"
           },
           {
-            "key": "nutrition",
-            "text": "Lishe",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "nutrition"
-          },
-          {
             "key": "prep",
             "text": "Huduma ya dawa kinga (PrEP)",
             "openmrs_entity_parent": "",
@@ -125,102 +118,11 @@
             "openmrs_entity_id": "prep"
           },
           {
-            "key": "mental_health",
-            "text": "Afya ya akili",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "mental_health"
-          },
-          {
-            "key": "substance_abuse",
-            "text": "Matumizi ya dawa za kulevya",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "substance_abuse"
-          },
-          {
-            "key": "gbv_vac",
-            "text": "Ukatili wa Kijinsia/Watoto",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "gbv_vac"
-          },
-          {
-            "key": "psychological_assistance",
-            "text": "Msaada wa kisaikolojia",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "psychological_assistance"
-          },
-          {
-            "key": "rights_vulnerable",
-            "text": "Haki stahiki kwa makundi maalumu",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "rights_vulnerable"
-          },
-          {
-            "key": "health_services_advocacy",
-            "text": "Uhamasishaji wa huduma za Afya",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "health_services_advocacy"
-          },
-          {
             "key": "hepatitis_bc",
             "text": "Homa ya Ini",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hepatitis_bc"
-          },
-          {
-            "key": "stis_stds",
-            "text": "Magonjwa ya Ngono na Via vya Uzazi",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "stis_stds"
-          },
-          {
-            "key": "overdose_management",
-            "text": "Kuzuia na kumudu Overdose",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "overdose_management"
-          },
-          {
-            "key": "legal_issues",
-            "text": "Masuala ya kisheria",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "legal_issues"
-          },
-          {
-            "key": "safe_injection",
-            "text": "Udungaji salama",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "safe_injection"
-          },
-          {
-            "key": "methadone_services",
-            "text": "Huduma ya Methadone (MAT)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "methadone_services"
-          },
-          {
-            "key": "sober_house",
-            "text": "Nyumba ya Upataji Nafuu",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "sober_house"
-          },
-          {
-            "key": "income_generating",
-            "text": "Shughuli za kujikwamua kiuchumi (IGA)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "income_generating"
           },
           {
             "key": "hiv_testing",

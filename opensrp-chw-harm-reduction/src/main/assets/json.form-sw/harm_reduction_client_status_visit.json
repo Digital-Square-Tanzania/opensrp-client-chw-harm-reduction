@@ -764,6 +764,13 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
+          },
+          {
+            "key": "none_risky_behaviours_injecting_only",
+            "text": "Hakuna",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none_risky_behaviours_injecting_only"
           }
         ],
         "v_required": {
@@ -835,6 +842,13 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
+          },
+          {
+            "key": "none_risky_behaviours_non_injecting_only",
+            "text": "Hakuna",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none_risky_behaviours_non_injecting_only"
           }
         ],
         "v_required": {

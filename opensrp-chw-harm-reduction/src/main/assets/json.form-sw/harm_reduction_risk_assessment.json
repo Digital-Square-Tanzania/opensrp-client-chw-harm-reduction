@@ -122,6 +122,18 @@
         }
       },
       {
+        "key": "nickname",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "nickname",
+        "type": "edit_text",
+        "hint": "Jina la Utani",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali ingiza jina la Utani"
+        }
+      },
+      {
         "key": "maskani_name",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",

@@ -431,7 +431,35 @@ public abstract class BaseHarmReductionProfileActivity extends BaseProfileActivi
             return;
         }
 
-        clientStatusTag.setVisibility(View.GONE);
+        showUicIfAvailable(clientStatusTag);
+    }
+
+    protected void showUicIfAvailable(TextView uicView) {
+        if (uicView == null) {
+            return;
+        }
+
+        if (memberObject == null || StringUtils.isBlank(memberObject.getBaseEntityId())) {
+            uicView.setVisibility(View.GONE);
+            return;
+        }
+
+        String uicId = getProfileUicId(memberObject.getBaseEntityId());
+        if (StringUtils.isBlank(uicId)) {
+            uicView.setVisibility(View.GONE);
+            return;
+        }
+
+        uicView.setText(getString(R.string.harm_reduction_uic_id, formatProfileUicId(uicId)));
+        uicView.setVisibility(View.VISIBLE);
+    }
+
+    static String formatProfileUicId(String uicId) {
+        return StringUtils.trim(uicId).toUpperCase(Locale.ROOT);
+    }
+
+    protected String getProfileUicId(String baseEntityId) {
+        return HarmReductionDao.getLatestRiskAssessmentUic(baseEntityId);
     }
 
     @Nullable

@@ -20,12 +20,19 @@ condition: "step1_living_environment == 'other'"
 actions:
   - "isRelevant = true"
 ---
-name: step1_substances_used_injecting
-description: Show substances_used_injecting when its condition is met
+name: step1_substances_used_injecting_route
+description: Show substances_used_injecting_route when its condition is met
 priority: 1
 condition: "step1_route_of_substance_use != null && step1_route_of_substance_use.contains('injecting')"
 actions:
   - "isRelevant = true"
+---
+name: step1_substances_used_injecting
+description: Calculate substances_used_injecting from the injecting route field
+priority: 1
+condition: "true"
+actions:
+  - "calculation = (step1_substances_used_injecting_route != null && step1_substances_used_injecting_route != '') ? step1_substances_used_injecting_route : null"
 ---
 name: step1_substances_used_injecting_other_specify
 description: Show substances_used_injecting_other_specify when its condition is met
@@ -34,12 +41,33 @@ condition: "step1_substances_used_injecting != null && step1_substances_used_inj
 actions:
   - "isRelevant = true"
 ---
-name: step1_substances_used_non_injecting
-description: Show substances_used_non_injecting when its condition is met
+name: step1_substances_used_smoking_route
+description: Show substances_used_smoking_route when its condition is met
 priority: 1
-condition: "step1_route_of_substance_use != null && (step1_route_of_substance_use.contains('smoking') || step1_route_of_substance_use.contains('drinking') || step1_route_of_substance_use.contains('sniffing'))"
+condition: "step1_route_of_substance_use != null && step1_route_of_substance_use.contains('smoking')"
 actions:
   - "isRelevant = true"
+---
+name: step1_substances_used_drinking_route
+description: Show substances_used_drinking_route when its condition is met
+priority: 1
+condition: "step1_route_of_substance_use != null && step1_route_of_substance_use.contains('drinking')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substances_used_sniffing_route
+description: Show substances_used_sniffing_route when its condition is met
+priority: 1
+condition: "step1_route_of_substance_use != null && step1_route_of_substance_use.contains('sniffing')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_substances_used_non_injecting
+description: Calculate substances_used_non_injecting from selected non-injecting route fields
+priority: 1
+condition: "true"
+actions:
+  - "calculation = ((step1_substances_used_smoking_route != null && step1_substances_used_smoking_route != '') || (step1_substances_used_drinking_route != null && step1_substances_used_drinking_route != '') || (step1_substances_used_sniffing_route != null && step1_substances_used_sniffing_route != '')) ? (((step1_substances_used_smoking_route != null && step1_substances_used_smoking_route != '') ? step1_substances_used_smoking_route : '') + (((step1_substances_used_smoking_route != null && step1_substances_used_smoking_route != '') && (step1_substances_used_drinking_route != null && step1_substances_used_drinking_route != '')) ? ',' : '') + ((step1_substances_used_drinking_route != null && step1_substances_used_drinking_route != '') ? step1_substances_used_drinking_route : '') + ((((step1_substances_used_smoking_route != null && step1_substances_used_smoking_route != '') || (step1_substances_used_drinking_route != null && step1_substances_used_drinking_route != '')) && (step1_substances_used_sniffing_route != null && step1_substances_used_sniffing_route != '')) ? ',' : '') + ((step1_substances_used_sniffing_route != null && step1_substances_used_sniffing_route != '') ? step1_substances_used_sniffing_route : '')) : null"
 ---
 name: step1_substances_used_non_injecting_other_specify
 description: Show substances_used_non_injecting_other_specify when its condition is met
@@ -160,10 +188,17 @@ condition: "global_sex == 'female' && step1_pregnant == 'yes'"
 actions:
   - "isRelevant = true"
 ---
+name: step1_stress_challenges
+description: Show stress_challenges when challenges were experienced
+priority: 1
+condition: "step1_stress_challenges_experienced == 'yes'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_help_received
 description: Show help_received when its condition is met
 priority: 1
-condition: "step1_stress_challenges != ''"
+condition: "step1_stress_challenges_experienced == 'yes' && step1_stress_challenges != ''"
 actions:
   - "isRelevant = true"
 ---
@@ -173,3 +208,10 @@ priority: 1
 condition: "step1_received_harm_reduction_services == 'yes'"
 actions:
   - "isRelevant = true"
+---
+name: step1_roc_group_type
+description: Calculate roc_group_type from route_of_substance_use
+priority: 1
+condition: "true"
+actions:
+  - "calculation = ((step1_route_of_substance_use == null || step1_route_of_substance_use == '') ? '-' : (step1_route_of_substance_use.contains('injecting') ? 'idu' : 'nidu'))"

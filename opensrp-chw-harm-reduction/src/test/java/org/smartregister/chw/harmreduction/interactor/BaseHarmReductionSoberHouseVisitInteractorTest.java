@@ -81,4 +81,16 @@ public class BaseHarmReductionSoberHouseVisitInteractorTest {
 
         Assert.assertFalse(shouldHide);
     }
+
+    @Test
+    public void testContinuingServicesAllowedOnlyWhenContinuingStatusSelected() {
+        Assert.assertTrue(BaseHarmReductionSoberHouseVisitInteractor
+                .shouldContinueSoberHouseServices("continuing_service"));
+        Assert.assertFalse(BaseHarmReductionSoberHouseVisitInteractor
+                .shouldContinueSoberHouseServices("absconded"));
+        Assert.assertFalse(BaseHarmReductionSoberHouseVisitInteractor
+                .shouldContinueSoberHouseServices("other"));
+        Assert.assertFalse(BaseHarmReductionSoberHouseVisitInteractor
+                .shouldContinueSoberHouseServices(""));
+    }
 }

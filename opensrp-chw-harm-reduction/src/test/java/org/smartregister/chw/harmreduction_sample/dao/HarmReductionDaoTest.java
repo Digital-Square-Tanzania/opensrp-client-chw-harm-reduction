@@ -46,4 +46,12 @@ public class HarmReductionDaoTest extends HarmReductionDao {
         Assert.assertEquals(0, result);
     }
 
+    @Test
+    public void testGetRocMatPreSession() {
+        Mockito.doReturn(database).when(repository).getReadableDatabase();
+        String result = HarmReductionDao.getRocMatPreSession("12345");
+        Mockito.verify(database).rawQuery(Mockito.contains("select roc_mat_pre_session from ec_harm_reduction_risk_assessment where base_entity_id = '12345'"), Mockito.any());
+        Assert.assertEquals("", result);
+    }
+
 }

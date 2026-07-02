@@ -3,6 +3,7 @@ package org.smartregister.chw.harmreduction.util;
 import static org.smartregister.chw.harmreduction.util.Constants.ENCOUNTER_TYPE;
 import static org.smartregister.chw.harmreduction.util.Constants.HARM_REDUCTION_VISIT_GROUP;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.vijay.jsonwizard.constants.JsonFormConstants;
@@ -19,7 +20,12 @@ import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.domain.tag.FormTag;
 import org.smartregister.repository.AllSharedPreferences;
 import org.smartregister.util.FormUtils;
+import org.smartregister.util.LangUtils;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,6 +37,9 @@ import timber.log.Timber;
 
 public class HarmReductionJsonFormUtils extends org.smartregister.util.JsonFormUtils {
     public static final String METADATA = "metadata";
+    private static final String JSON_FORM_SW_ASSET_DIR = "json.form-sw";
+    private static final String JSON_EXTENSION = ".json";
+    private static final String SWAHILI_LANGUAGE = "sw";
 
     public static Triple<Boolean, JSONObject, JSONArray> validateParameters(String jsonString) {
 
@@ -152,6 +161,34 @@ public class HarmReductionJsonFormUtils extends org.smartregister.util.JsonFormU
 
     public static JSONObject getFormAsJson(String formName) throws Exception {
         return FormUtils.getInstance(HarmReductionLibrary.getInstance().context().applicationContext()).getFormJson(formName);
+    }
+
+    public static JSONObject getLocalizedFormAsJson(String formName) throws Exception {
+        Context context = HarmReductionLibrary.getInstance().context().applicationContext();
+        String language = LangUtils.getLanguage(context);
+
+        if (StringUtils.equalsIgnoreCase(SWAHILI_LANGUAGE, language)) {
+            String localizedAssetPath = MessageFormat.format("{0}/{1}{2}", JSON_FORM_SW_ASSET_DIR, formName, JSON_EXTENSION);
+            try {
+                return readAssetAsJson(context, localizedAssetPath);
+            } catch (Exception e) {
+                Timber.w(e, "Localized harm reduction form not found: %s", localizedAssetPath);
+            }
+        }
+
+        return getFormAsJson(formName);
+    }
+
+    private static JSONObject readAssetAsJson(Context context, String assetPath) throws Exception {
+        StringBuilder json = new StringBuilder();
+        try (InputStream inputStream = context.getAssets().open(assetPath);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                json.append(line);
+            }
+        }
+        return new JSONObject(json.toString());
     }
 
     public static Event processVisitJsonForm(AllSharedPreferences allSharedPreferences, String entityId, String encounterType, Map<String, String> jsonStrings, String tableName) {

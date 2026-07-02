@@ -223,6 +223,22 @@
           }
         },
         {
+          "column_name": "uic",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "uic"
+          }
+        },
+        {
+          "column_name": "service_start_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "service_start_date"
+          }
+        },
+        {
           "column_name": "received_harm_reduction_services",
           "type": "Event",
           "json_mapping": {
@@ -447,6 +463,14 @@
           }
         },
         {
+          "column_name": "stress_challenges_experienced",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "stress_challenges_experienced"
+          }
+        },
+        {
           "column_name": "stress_challenges",
           "type": "Event",
           "json_mapping": {
@@ -519,11 +543,35 @@
           }
         },
         {
+          "column_name": "roc_group_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "roc_group_type"
+          }
+        },
+        {
+          "column_name": "follow_up_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "follow_up_status"
+          }
+        },
+        {
           "column_name": "status",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "status"
+          }
+        },
+        {
+          "column_name": "client_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "client_status"
           }
         },
         {
@@ -621,7 +669,7 @@
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "client_status"
+            "concept": "follow_up_status"
           }
         },
         {
@@ -905,6 +953,22 @@
           }
         },
         {
+          "column_name": "enrolled_into_ctc_services",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "enrolled_into_ctc_services"
+          }
+        },
+        {
+          "column_name": "ctc_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ctc_id"
+          }
+        },
+        {
           "column_name": "adherence_guidance_discontinued",
           "type": "Event",
           "json_mapping": {
@@ -926,6 +990,22 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "hepatitis_bc_screening"
+          }
+        },
+        {
+          "column_name": "hepatitis_b_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hepatitis_b_screening"
+          }
+        },
+        {
+          "column_name": "hepatitis_c_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "hepatitis_c_screening"
           }
         },
         {
@@ -1027,35 +1107,19 @@
           }
         },
         {
-          "column_name": "other_collection",
+          "column_name": "number_of_used_needles_and_syringes_collected",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "other_collection"
+            "concept": "number_of_used_needles_and_syringes_collected"
           }
         },
         {
-          "column_name": "fixed_bins",
+          "column_name": "issues_challenges_related_to_collection_of_used_needles_and_syringes",
           "type": "Event",
           "json_mapping": {
             "field": "obs.fieldCode",
-            "concept": "fixed_bins"
-          }
-        },
-        {
-          "column_name": "total_safety_boxes_collected",
-          "type": "Event",
-          "json_mapping": {
-            "field": "obs.fieldCode",
-            "concept": "total_safety_boxes_collected"
-          }
-        },
-        {
-          "column_name": "name_of_ow",
-          "type": "Event",
-          "json_mapping": {
-            "field": "obs.fieldCode",
-            "concept": "name_of_ow"
+            "concept": "issues_challenges_related_to_collection_of_used_needles_and_syringes"
           }
         },
         {
@@ -1086,6 +1150,14 @@
           }
         },
         {
+          "column_name": "client_status",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "client_status"
+          }
+        },
+        {
           "column_name": "screening_tests_done",
           "type": "Event",
           "json_mapping": {
@@ -1099,6 +1171,14 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "other_conditions_specify"
+          }
+        },
+        {
+          "column_name": "other_conditions_treatment_after_screening",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_conditions_treatment_after_screening"
           }
         },
         {
@@ -1294,6 +1374,14 @@
           }
         },
         {
+          "column_name": "enrolled_into_ctc_services",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "enrolled_into_ctc_services"
+          }
+        },
+        {
           "column_name": "ctc_id",
           "type": "Event",
           "json_mapping": {
@@ -1412,6 +1500,30 @@
           "json_mapping": {
             "field": "obs.fieldCode",
             "concept": "follow_up_status"
+          }
+        },
+        {
+          "column_name": "discontinued_other_reason",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "discontinued_other_reason"
+          }
+        },
+        {
+          "column_name": "cause_of_death",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cause_of_death"
+          }
+        },
+        {
+          "column_name": "cause_of_death_other_specify",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "cause_of_death_other_specify"
           }
         },
         {

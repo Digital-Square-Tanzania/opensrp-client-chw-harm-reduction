@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "roc_consent_joining_mat_services",
         "type": "native_radio",
-        "label": "Does RoC consent joining MAT Services?",
+        "label": "Does the Recipient of Care consent to join MAT Services?",
         "options": [
           {
             "key": "yes",

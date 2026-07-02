@@ -340,10 +340,10 @@
         }
       },
       {
-        "key": "substances_used_injecting",
+        "key": "substances_used_injecting_route",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "substances_used_injecting",
+        "openmrs_entity_id": "substances_used_injecting_route",
         "type": "check_box",
         "label": "What types of substance do you use? (Injecting)",
         "combine_checkbox_option_values": "true",
@@ -363,11 +363,11 @@
             "openmrs_entity_id": "cocaine"
           },
           {
-            "key": "valium",
-            "text": "Valium",
+            "key": "controlled_drugs",
+            "text": "Controlled Drugs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "valium"
+            "openmrs_entity_id": "controlled_drugs"
           },
           {
             "key": "methamphetamine",
@@ -375,20 +375,6 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "methamphetamine"
-          },
-          {
-            "key": "tramadol",
-            "text": "Tramadol",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "tramadol"
-          },
-          {
-            "key": "other",
-            "text": "Others (Specify)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "other"
           }
         ],
         "relevance": {
@@ -401,6 +387,20 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        }
+      },
+      {
+        "key": "substances_used_injecting",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_injecting",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -423,12 +423,12 @@
         }
       },
       {
-        "key": "substances_used_non_injecting",
+        "key": "substances_used_smoking_route",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "substances_used_non_injecting",
+        "openmrs_entity_id": "substances_used_smoking_route",
         "type": "check_box",
-        "label": "What types of substance do you use? (Smoking/Drinking/Sniffing)",
+        "label": "What types of substance do you use? (Smoking)",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -439,13 +439,6 @@
             "openmrs_entity_id": "heroine"
           },
           {
-            "key": "marijuana",
-            "text": "Marijuana",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "marijuana"
-          },
-          {
             "key": "cocaine",
             "text": "Cocaine",
             "openmrs_entity_parent": "",
@@ -453,18 +446,11 @@
             "openmrs_entity_id": "cocaine"
           },
           {
-            "key": "alcohol",
-            "text": "Alcohol",
+            "key": "marijuana",
+            "text": "Marijuana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "alcohol"
-          },
-          {
-            "key": "valium",
-            "text": "Valium",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "valium"
+            "openmrs_entity_id": "marijuana"
           },
           {
             "key": "methamphetamine",
@@ -474,25 +460,18 @@
             "openmrs_entity_id": "methamphetamine"
           },
           {
-            "key": "tramadol",
-            "text": "Tramadol",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "tramadol"
-          },
-          {
-            "key": "mirungi",
-            "text": "Khat",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "mirungi"
-          },
-          {
             "key": "tobacco",
             "text": "Tobacco",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tobacco"
+          },
+          {
+            "key": "hashish",
+            "text": "Hashish",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hashish"
           },
           {
             "key": "other",
@@ -512,6 +491,134 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        }
+      },
+      {
+        "key": "substances_used_drinking_route",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_drinking_route",
+        "type": "check_box",
+        "label": "What types of substance do you use? (Drinking)",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "alcohol",
+            "text": "Alcohol",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "alcohol"
+          },
+          {
+            "key": "tobacco",
+            "text": "Tobacco",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tobacco"
+          },
+          {
+            "key": "mirungi",
+            "text": "Khat",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mirungi"
+          },
+          {
+            "key": "controlled_drugs",
+            "text": "Controlled Drugs",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "controlled_drugs"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "substances_used_sniffing_route",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_sniffing_route",
+        "type": "check_box",
+        "label": "What types of substance do you use? (Sniffing)",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "heroine",
+            "text": "Heroine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "heroine"
+          },
+          {
+            "key": "cocaine",
+            "text": "Cocaine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "cocaine"
+          },
+          {
+            "key": "methamphetamine",
+            "text": "Methamphetamine",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "methamphetamine"
+          },
+          {
+            "key": "controlled_drugs",
+            "text": "Controlled Drugs",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "controlled_drugs"
+          },
+          {
+            "key": "other",
+            "text": "Others (Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "substances_used_non_injecting",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "substances_used_non_injecting",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
         }
       },
       {
@@ -1185,12 +1292,47 @@
         }
       },
       {
+        "key": "stress_challenges_experienced",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "stress_challenges_experienced",
+        "type": "native_radio",
+        "label": "Were there any challenges experienced?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
         "key": "stress_challenges",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "stress_challenges",
         "type": "edit_text",
         "hint": "What challenges are you currently experiencing, or have experienced in the past, that have contributed to stress?",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        },
         "v_required": {
           "value": "true",
           "err": "Please enter what challenges are you currently experiencing, or have experienced in the past, that have contributed to stress"
@@ -1392,7 +1534,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "roc_mat_pre_session",
         "type": "native_radio",
-        "label": "Did the RoC come for MAT pre session?",
+        "label": "Did the Recipient of Care come for MAT pre session?",
         "options": [
           {
             "key": "yes",
@@ -1422,12 +1564,35 @@
         }
       },
       {
+        "key": "roc_group_type",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "roc_group_type",
+        "type": "hidden",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-risk-assessment-relevance-rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "status",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "status",
         "type": "hidden",
         "value": "on_community_service"
+      },
+      {
+        "key": "client_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_status",
+        "type": "hidden",
+        "value": "new_client"
       }
     ]
   }

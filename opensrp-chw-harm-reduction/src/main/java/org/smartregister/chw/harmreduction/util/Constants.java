@@ -36,11 +36,13 @@ public interface Constants {
         String HARM_REDUCTION_OTHER_DISEASES_SCREENING = "harm_reduction_other_diseases_screening";
         String HARM_REDUCTION_REFERRALS_PROVIDED = "harm_reduction_referrals_provided";
         String HARM_REDUCTION_RISK_ASSESSMENT = "harm_reduction_risk_assessment";
+        String HARM_REDUCTION_REGISTER_EXISTING_CLIENT = "harm_reduction_register_existing_client";
         String HARM_REDUCTION_RISKY_SEXUAL_BEHAVIORS = "harm_reduction_risky_sexual_behaviors_condoms";
         String HARM_REDUCTION_SAFE_INJECTION_SERVICES = "harm_reduction_safe_injection_services";
         String HARM_REDUCTION_SOBER_HOUSE_ROUTINE_SERVICES = "harm_reduction_sober_house_routine_services";
         String HARM_REDUCTION_SOBER_HOUSE_CLIENT_TYPE_FOLLOWUP_STATUS = "harm_reduction_sober_house_client_type_followup_status";
         String HARM_REDUCTION_SOBER_HOUSE_VITAL_SIGN_CHECK = "harm_reduction_sober_house_vitals";
+        String HARM_REDUCTION_SOBER_HOUSE_LIFE_SKILLS_PARTICIPATION = "harm_reduction_sober_house_life_skills_participation";
         String HARM_REDUCTION_SOBER_HOUSE_LINKAGE_TO_OTHER_SERVICES = "harm_reduction_sober_house_linkage_to_other_services";
         String HARM_REDUCTION_SOBER_HOUSE_REFERRALS = "harm_reduction_sober_house_referrals";
         String HARM_REDUCTION_SOBER_HOUSE_RECOVERY_CAPITAL_ASSESSMENT_AFTERCARE = "harm_reduction_sober_house_recovery_capital_assessment_aftercare";
@@ -91,6 +93,7 @@ public interface Constants {
     }
 
     interface JSON_FORM_KEY {
+        String UIC = "uic";
         String UIC_ID = "uic_id";
     }
 

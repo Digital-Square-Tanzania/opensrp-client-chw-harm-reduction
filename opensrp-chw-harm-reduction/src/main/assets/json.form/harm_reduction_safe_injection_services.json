@@ -57,10 +57,13 @@
         "type": "check_box",
         "label": "Safe injection services provided - Type of tools",
         "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "not_given"
+        ],
         "options": [
           {
             "key": "syringes",
-            "text": "Syringes",
+            "text": "Needles and syringes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "syringes"
@@ -94,11 +97,11 @@
             "openmrs_entity_id": "sterile_water"
           },
           {
-            "key": "needles",
-            "text": "Needles",
+            "key": "not_given",
+            "text": "Not given",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "needles"
+            "openmrs_entity_id": "not_given"
           }
         ],
         "v_required": {
@@ -112,11 +115,15 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "qty_syringes",
         "type": "edit_text",
-        "hint": "Number of tools - Syringes",
+        "hint": "Number of tools - Needles and syringes",
         "edit_type": "number",
         "v_numeric": {
           "value": "true",
           "err": "Please enter a valid number"
+        },
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
         },
         "v_max": {
           "value": "21",
@@ -129,7 +136,7 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Please enter number of tools - Syringes"
+          "err": "Please enter number of tools - Needles and syringes"
         },
         "relevance": {
           "rules-engine": {
@@ -147,6 +154,10 @@
         "type": "edit_text",
         "hint": "Number of tools - Alcohol swab",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -172,6 +183,10 @@
         "type": "edit_text",
         "hint": "Number of tools - Dry cotton",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -197,6 +212,10 @@
         "type": "edit_text",
         "hint": "Number of tools - Plaster",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -222,6 +241,10 @@
         "type": "edit_text",
         "hint": "Number of tools - Sterile Water",
         "edit_type": "number",
+        "v_min": {
+          "value": "1",
+          "err": "Must be 1 or more"
+        },
         "v_max_length": {
           "value": "2",
           "is_fixed_size": "true",
@@ -230,39 +253,6 @@
         "v_required": {
           "value": "true",
           "err": "Please enter number of tools - Sterile Water"
-        },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "harm-reduction-safe-injection-services-relevance-rules.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "qty_needles",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "qty_needles",
-        "type": "edit_text",
-        "hint": "Number of tools - Needles",
-        "edit_type": "number",
-        "v_numeric": {
-          "value": "true",
-          "err": "Please enter a valid number"
-        },
-        "v_max": {
-          "value": "21",
-          "err": "Must be 21 or less"
-        },
-        "v_max_length": {
-          "value": "2",
-          "is_fixed_size": "true",
-          "err": "Please enter a valid input"
-        },
-        "v_required": {
-          "value": "true",
-          "err": "Please enter number of tools - Needles"
         },
         "relevance": {
           "rules-engine": {

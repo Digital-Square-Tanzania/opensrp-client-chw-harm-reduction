@@ -46,9 +46,10 @@
     <string name="harm_reduction_other_diseases_screening">Screening of Other Diseases</string>
     <string name="harm_reduction_referrals_provided">Referrals Provided</string>
     <string name="harm_reduction_consent_joining_mat">Consent for Joining MAT Services</string>
-    <string name="harm_reduction_sober_house_client_type_followup_status">Client Status</string>
-    <string name="harm_reduction_sober_house_vital_sign_check">Vital Sign Check</string>
+    <string name="harm_reduction_sober_house_client_type_followup_status">Follow-up Status</string>
+    <string name="harm_reduction_sober_house_vital_sign_check">Testing Services</string>
     <string name="harm_reduction_sober_house_routine_services">Routine Services</string>
+    <string name="harm_reduction_sober_house_life_skills_participation">Life Skills Participation</string>
     <string name="harm_reduction_sober_house_linkage_to_other_services">Linkage to Other Services</string>
     <string name="harm_reduction_sober_house_referrals">Referrals Provided</string>
     <string name="harm_reduction_sober_house_recovery_capital_assessment_aftercare">Recovery Capital Assessment</string>
@@ -75,6 +76,7 @@
     <string name="call_harm_reduction_client">Harm Reduction Client</string>
     <string name="head_of_family">Head of family</string>
     <string name="harm_reduction_client">Harm Reduction Client</string>
+    <string name="harm_reduction_uic_id">UIC ID: %s</string>
     <string name="harm_reduction_contraindication">Clear Contraindication first, to proceed with MC procedure</string>
     <string name="copy_to_clipboard">Copy to clipboard</string>
     <string name="copied_phone_number">PhoneNumber copied to clipboard</string>
@@ -99,8 +101,8 @@
     <string name="harm_reduction_used_needles_collection_label">Used Needle and Syringes Collection</string>
     <string name="harm_reduction_used_needles_collection_sessions">Used Needle and Syringes Collection Sessions</string>
     <string name="harm_reduction_collection_date">Collection date: %s</string>
-    <string name="harm_reduction_safety_boxes_collected">Safety boxes collected: %s</string>
-    <string name="harm_reduction_safety_boxes_collection">Safety boxes collection</string>
+    <string name="harm_reduction_used_needles_and_syringes_collected">Used needles and syringes collected: %s</string>
+    <string name="harm_reduction_safety_boxes_collection">Used Needle and Syringes Collection</string>
 
     <string name="harm_reduction_mobilization">Mobilization</string>
 

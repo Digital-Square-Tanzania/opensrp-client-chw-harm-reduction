@@ -34,6 +34,8 @@ public class DBConstants {
         public static final String MALE_CLIENTS_REACHED = "male_clients_reached";
         public static final String DATE_OF_COLLECTION = "date_of_collection";
         public static final String MASKANI_NAME = "maskani_name";
+        public static final String NUMBER_OF_USED_NEEDLES_AND_SYRINGES_COLLECTED = "number_of_used_needles_and_syringes_collected";
+        public static final String ISSUES_CHALLENGES_RELATED_TO_COLLECTION_OF_USED_NEEDLES_AND_SYRINGES = "issues_challenges_related_to_collection_of_used_needles_and_syringes";
         public static final String COLLECTION_SITE_GPS = "collection_site_gps";
         public static final String OTHER_COLLECTION = "other_collection";
         public static final String FIXED_BINS = "fixed_bins";

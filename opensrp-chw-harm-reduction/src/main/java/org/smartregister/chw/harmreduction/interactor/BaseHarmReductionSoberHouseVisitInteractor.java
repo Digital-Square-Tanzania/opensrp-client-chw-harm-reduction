@@ -14,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseClientTypeFollowupStatusActionHelper;
+import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseLifeSkillsParticipationActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseLinkageToOtherServicesActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseNextAppointmentDateActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionSoberHouseRecoveryCapitalAssessmentAftercareActionHelper;
@@ -36,11 +37,7 @@ import timber.log.Timber;
 public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductionVisitInteractor {
     private static final int RECOVERY_CAPITAL_ASSESSMENT_DELAY_MONTHS = 3;
     private static final String FOLLOW_UP_STATUS_FIELD = "follow_up_status";
-    private static final String CLIENT_TYPE = "client_type";
     private static final String CONTINUING_SERVICE_VALUE = "continuing_service";
-    private static final String NEW_CLIENT_VALUE = "new_client";
-    private static final String RELAPSED_CLIENT_VALUE = "relapsed_client";
-    private static final String MIGRANT_CLIENT_VALUE = "migrant_client";
     private static final String RECOVERY_CAPITAL_PASSED_FIELD = "recovery_capital_passed";
     private static final String YES_VALUE = "yes";
 
@@ -55,6 +52,7 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
                 evaluateClientTypeFollowupStatus(details);
                 evaluateVitalSignCheck(details);
                 evaluateRoutineServices(details);
+                evaluateLifeSkillsParticipation(details);
                 evaluateLinkageToOtherServices(details);
                 evaluateReferrals(details);
                 evaluateRecoveryCapitalAssessmentAftercare(details);
@@ -75,7 +73,7 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
     }
 
     private void evaluateClientTypeFollowupStatus(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {
-        HarmReductionSoberHouseClientTypeFollowupStatusActionHelper actionHelper = new HarmReductionSoberHouseClientTypeFollowupStatusActionHelper();
+        HarmReductionSoberHouseClientTypeFollowupStatusActionHelper actionHelper = new HarmReductionSoberHouseClientTypeFollowupStatusActionHelper(memberObject);
         BaseHarmReductionVisitAction action = getBuilder(context.getString(R.string.harm_reduction_sober_house_client_type_followup_status))
                 .withOptional(false)
                 .withDetails(details)
@@ -107,6 +105,18 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
                 .withFormName(Constants.FORMS.HARM_REDUCTION_SOBER_HOUSE_ROUTINE_SERVICES)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_sober_house_routine_services), action);
+    }
+
+    private void evaluateLifeSkillsParticipation(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {
+        HarmReductionSoberHouseLifeSkillsParticipationActionHelper actionHelper = new HarmReductionSoberHouseLifeSkillsParticipationActionHelper();
+        BaseHarmReductionVisitAction action = getBuilder(context.getString(R.string.harm_reduction_sober_house_life_skills_participation))
+                .withOptional(false)
+                .withDetails(details)
+                .withHelper(actionHelper)
+                .withValidator(continuingServiceValidator())
+                .withFormName(Constants.FORMS.HARM_REDUCTION_SOBER_HOUSE_LIFE_SKILLS_PARTICIPATION)
+                .build();
+        actionList.put(context.getString(R.string.harm_reduction_sober_house_life_skills_participation), action);
     }
 
     private void evaluateLinkageToOtherServices(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {
@@ -216,11 +226,12 @@ public class BaseHarmReductionSoberHouseVisitInteractor extends BaseHarmReductio
 
     private boolean isContinuingService() {
         String status = getFollowUpStatusValue(FOLLOW_UP_STATUS_FIELD);
-        String clientType = getFollowUpStatusValue(CLIENT_TYPE);
-        return CONTINUING_SERVICE_VALUE.equalsIgnoreCase(status) ||
-                NEW_CLIENT_VALUE.equalsIgnoreCase(clientType) ||
-                RELAPSED_CLIENT_VALUE.equalsIgnoreCase(clientType) ||
-                MIGRANT_CLIENT_VALUE.equalsIgnoreCase(clientType);
+        return shouldContinueSoberHouseServices(status);
+    }
+
+    @VisibleForTesting
+    static boolean shouldContinueSoberHouseServices(String followUpStatus) {
+        return CONTINUING_SERVICE_VALUE.equalsIgnoreCase(StringUtils.trimToEmpty(followUpStatus));
     }
 
     private boolean isNextAppointmentDateVisible() {

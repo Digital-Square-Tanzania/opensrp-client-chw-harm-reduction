@@ -1,10 +1,17 @@
 package org.smartregister.chw.harmreduction.actionhelper;
 
+import static org.smartregister.client.utils.constants.JsonFormConstants.TYPE;
+
 import android.content.Context;
 
+import com.vijay.jsonwizard.constants.JsonFormConstants;
+
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.smartregister.chw.harmreduction.dao.HarmReductionDao;
+import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.domain.VisitDetail;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
 import org.smartregister.chw.harmreduction.util.JsonFormUtils;
@@ -16,16 +23,81 @@ import timber.log.Timber;
 
 public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmReductionVisitAction.HarmReductionVisitActionHelper {
     private static final String HIV_TESTED_FIELD_KEY = "hiv_tested";
+    private static final String HIV_TEST_LOCATION_FIELD_KEY = "hiv_test_location";
+    private static final String HIV_RESULTS_FIELD_KEY = "hiv_results";
+    private static final String ENROLLED_INTO_CTC_SERVICES_FIELD_KEY = "enrolled_into_ctc_services";
+    private static final String DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY = "drug_adherence_status_ctc";
+    private static final String CTC_ID_FIELD_KEY = "ctc_id";
+    private static final String ADHERENCE_GUIDANCE_DISCONTINUED_FIELD_KEY = "adherence_guidance_discontinued";
+    private static final String ADHERENCE_GUIDANCE_NOT_STARTED_FIELD_KEY = "adherence_guidance_not_started";
+    private static final String POSITIVE_VALUE = "positive";
+    private static final String YES_VALUE = "yes";
+    private static final String NOT_STARTED_VALUE = "not_started";
+    private static final String READ_ONLY = "read_only";
+    private static final String EDITABLE = "editable";
 
+    protected MemberObject memberObject;
+    private String jsonPayload;
     private String hivTested;
+
+    public HarmReductionHivInfectionStatusActionHelper() {
+        // no-op
+    }
+
+    public HarmReductionHivInfectionStatusActionHelper(MemberObject memberObject) {
+        this.memberObject = memberObject;
+    }
 
     @Override
     public void onJsonFormLoaded(String jsonPayload, Context context, Map<String, List<VisitDetail>> details) {
-        // no-op
+        this.jsonPayload = jsonPayload;
     }
 
     @Override
     public String getPreProcessed() {
+        if (StringUtils.isBlank(jsonPayload) || !hasPreviousFollowUpVisit() || !hasPreviousPositiveHivVisit()) {
+            return null;
+        }
+
+        try {
+            JSONObject jsonObject = new JSONObject(jsonPayload);
+            String latestPositiveHivTestLocation = getLatestPositiveHivTestLocation();
+            String latestPositiveEnrolledIntoCtcServices = getLatestPositiveEnrolledIntoCtcServices();
+            String latestPositiveCtcId = getLatestPositiveCtcId();
+            boolean clientAlreadyEnrolledIntoCtc = StringUtils.equalsIgnoreCase(YES_VALUE, latestPositiveEnrolledIntoCtcServices)
+                    || StringUtils.isNotBlank(latestPositiveCtcId);
+
+            boolean wasUpdated = false;
+            wasUpdated |= prefillLockedField(jsonObject, HIV_TESTED_FIELD_KEY, YES_VALUE);
+            wasUpdated |= prefillLockedField(jsonObject, HIV_TEST_LOCATION_FIELD_KEY, latestPositiveHivTestLocation, true);
+            wasUpdated |= prefillLockedField(jsonObject, HIV_RESULTS_FIELD_KEY, POSITIVE_VALUE);
+            if (clientAlreadyEnrolledIntoCtc) {
+                wasUpdated |= prefillLockedField(jsonObject, ENROLLED_INTO_CTC_SERVICES_FIELD_KEY, YES_VALUE);
+            }
+            wasUpdated |= prefillLockedField(jsonObject, CTC_ID_FIELD_KEY, latestPositiveCtcId);
+
+            if (wasUpdated) {
+                if (clientAlreadyEnrolledIntoCtc) {
+                    removeOption(jsonObject, DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY, NOT_STARTED_VALUE);
+                    moveFieldsToTop(jsonObject,
+                            CTC_ID_FIELD_KEY,
+                            DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY,
+                            ADHERENCE_GUIDANCE_DISCONTINUED_FIELD_KEY,
+                            ADHERENCE_GUIDANCE_NOT_STARTED_FIELD_KEY);
+                } else {
+                    moveFieldsToTop(jsonObject,
+                            ENROLLED_INTO_CTC_SERVICES_FIELD_KEY,
+                            CTC_ID_FIELD_KEY,
+                            DRUG_ADHERENCE_STATUS_CTC_FIELD_KEY,
+                            ADHERENCE_GUIDANCE_DISCONTINUED_FIELD_KEY,
+                            ADHERENCE_GUIDANCE_NOT_STARTED_FIELD_KEY);
+                }
+            }
+            return wasUpdated ? jsonObject.toString() : null;
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
+
         return null;
     }
 
@@ -69,5 +141,177 @@ public class HarmReductionHivInfectionStatusActionHelper implements BaseHarmRedu
     @Override
     public void onPayloadReceived(BaseHarmReductionVisitAction baseVisitAction) {
         // no-op
+    }
+
+    private boolean prefillLockedField(JSONObject jsonObject, String fieldKey, String value) throws JSONException {
+        return prefillLockedField(jsonObject, fieldKey, value, false);
+    }
+
+    private boolean prefillLockedField(JSONObject jsonObject, String fieldKey, String value, boolean hideWhenBlank) throws JSONException {
+        JSONObject field = getField(jsonObject, fieldKey);
+        if (field == null) {
+            return false;
+        }
+
+        String valueToApply = StringUtils.defaultIfBlank(value, field.optString(JsonFormConstants.VALUE));
+        if (StringUtils.isBlank(valueToApply) && !hideWhenBlank) {
+            return false;
+        }
+
+        if (StringUtils.isNotBlank(valueToApply)) {
+            field.put(JsonFormConstants.VALUE, valueToApply);
+            updateOptionValues(field, valueToApply);
+        } else {
+            field.remove(JsonFormConstants.VALUE);
+            field.remove("v_required");
+        }
+        field.put(READ_ONLY, true);
+        field.put(EDITABLE, false);
+        field.put(TYPE, "hidden");
+        return true;
+    }
+
+    private void updateOptionValues(JSONObject field, String value) throws JSONException {
+        JSONArray options = field.optJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME);
+        if (options != null) {
+            for (int i = 0; i < options.length(); i++) {
+                JSONObject option = options.optJSONObject(i);
+                if (option == null) {
+                    continue;
+                }
+                option.put(JsonFormConstants.VALUE,
+                        StringUtils.equalsIgnoreCase(value, option.optString(JsonFormConstants.KEY)));
+            }
+        }
+    }
+
+    private void removeOption(JSONObject jsonObject, String fieldKey, String optionKey) throws JSONException {
+        JSONObject field = getField(jsonObject, fieldKey);
+        if (field == null) {
+            return;
+        }
+
+        JSONArray options = field.optJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME);
+        if (options == null) {
+            return;
+        }
+
+        JSONArray updatedOptions = new JSONArray();
+        for (int i = 0; i < options.length(); i++) {
+            JSONObject option = options.optJSONObject(i);
+            if (option != null && !StringUtils.equalsIgnoreCase(optionKey, option.optString(JsonFormConstants.KEY))) {
+                updatedOptions.put(option);
+            }
+        }
+        field.put(JsonFormConstants.OPTIONS_FIELD_NAME, updatedOptions);
+    }
+
+    private void moveFieldsToTop(JSONObject jsonObject, String... fieldKeys) throws JSONException {
+        JSONObject stepOne = jsonObject.optJSONObject(JsonFormConstants.STEP1);
+        if (stepOne == null) {
+            return;
+        }
+
+        JSONArray fields = stepOne.optJSONArray(JsonFormConstants.FIELDS);
+        if (fields == null) {
+            return;
+        }
+
+        JSONArray reorderedFields = new JSONArray();
+        for (int i = 0; i < fields.length(); i++) {
+            JSONObject field = fields.optJSONObject(i);
+            if (field == null) {
+                continue;
+            }
+
+            if (!isTargetField(field, fieldKeys)) {
+                reorderedFields.put(field);
+            }
+        }
+
+        JSONArray targetFields = getTargetFieldsInRequestedOrder(fields, fieldKeys);
+        if (targetFields.length() == 0) {
+            return;
+        }
+
+        JSONArray updatedFields = new JSONArray();
+        for (int i = 0; i < targetFields.length(); i++) {
+            updatedFields.put(targetFields.get(i));
+        }
+        for (int i = 0; i < reorderedFields.length(); i++) {
+            updatedFields.put(reorderedFields.get(i));
+        }
+        stepOne.put(JsonFormConstants.FIELDS, updatedFields);
+    }
+
+    private JSONArray getTargetFieldsInRequestedOrder(JSONArray fields, String... fieldKeys) {
+        JSONArray targetFields = new JSONArray();
+        for (String fieldKey : fieldKeys) {
+            JSONObject field = findField(fields, fieldKey);
+            if (field != null) {
+                targetFields.put(field);
+            }
+        }
+        return targetFields;
+    }
+
+    private JSONObject findField(JSONArray fields, String fieldKey) {
+        for (int i = 0; i < fields.length(); i++) {
+            JSONObject field = fields.optJSONObject(i);
+            if (field != null && fieldKey.equalsIgnoreCase(field.optString(JsonFormConstants.KEY))) {
+                return field;
+            }
+        }
+        return null;
+    }
+
+    private boolean isTargetField(JSONObject field, String... fieldKeys) {
+        for (String fieldKey : fieldKeys) {
+            if (fieldKey.equalsIgnoreCase(field.optString(JsonFormConstants.KEY))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private JSONObject getField(JSONObject jsonObject, String key) {
+        JSONObject stepOne = jsonObject.optJSONObject(JsonFormConstants.STEP1);
+        if (stepOne == null) {
+            return null;
+        }
+
+        JSONArray fields = stepOne.optJSONArray(JsonFormConstants.FIELDS);
+        if (fields == null) {
+            return null;
+        }
+
+        for (int i = 0; i < fields.length(); i++) {
+            JSONObject field = fields.optJSONObject(i);
+            if (field != null && key.equalsIgnoreCase(field.optString(JsonFormConstants.KEY))) {
+                return field;
+            }
+        }
+
+        return null;
+    }
+
+    protected boolean hasPreviousFollowUpVisit() {
+        return memberObject != null && HarmReductionDao.hasPreviousHarmReductionFollowUpVisit(memberObject.getBaseEntityId());
+    }
+
+    protected boolean hasPreviousPositiveHivVisit() {
+        return memberObject != null && HarmReductionDao.hasPreviousPositiveHivFollowUpVisit(memberObject.getBaseEntityId());
+    }
+
+    protected String getLatestPositiveHivTestLocation() {
+        return memberObject == null ? "" : HarmReductionDao.getLatestPositiveHivTestLocation(memberObject.getBaseEntityId());
+    }
+
+    protected String getLatestPositiveEnrolledIntoCtcServices() {
+        return memberObject == null ? "" : HarmReductionDao.getLatestPositiveEnrolledIntoCtcServices(memberObject.getBaseEntityId());
+    }
+
+    protected String getLatestPositiveCtcId() {
+        return memberObject == null ? "" : HarmReductionDao.getLatestPositiveCtcId(memberObject.getBaseEntityId());
     }
 }

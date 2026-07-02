@@ -2,6 +2,8 @@ package org.smartregister.chw.harmreduction.interactor;
 
 import static org.smartregister.chw.harmreduction.util.Constants.EVENT_TYPE.HARM_REDUCTION_FOLLOW_UP_VISIT;
 
+import androidx.annotation.VisibleForTesting;
+
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,8 +29,7 @@ import java.util.Map;
 import timber.log.Timber;
 
 public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteractor {
-    private static final String CLIENT_STATUS_FIELD = "client_status";
-    private static final String CLIENT_STATUS_NEW = "new";
+    private static final String FOLLOW_UP_STATUS_FIELD = "follow_up_status";
     private static final String CLIENT_STATUS_CONTINUE_SERVICE = "continue_service";
     private static final String IS_IDU_FIELD = "is_idu";
     private static final String YES_VALUE = "yes";
@@ -41,8 +42,9 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     protected void populateActionList(BaseHarmReductionVisitContract.InteractorCallBack callBack) {
         final Runnable runnable = () -> {
             try {
+                boolean shouldStartPreMatSession = HarmReductionDao.shouldStartPreMatSession(memberObject.getBaseEntityId());
                 evaluateClientStatus(details);
-                if (HarmReductionDao.getRocConsentForJoiningMatServices(memberObject.getBaseEntityId()).equalsIgnoreCase("yes")) {
+                if (shouldStartPreMatSession) {
                     evaluatePreMatServicesHealthEducation(details);
                 } else {
                     evaluateHealthEducation(details);
@@ -52,7 +54,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 evaluateHivInfectionStatus(details);
                 evaluateOtherDiseasesScreening(details);
                 evaluateReferralsProvided(details);
-                if (!HarmReductionDao.getRocConsentForJoiningMatServices(memberObject.getBaseEntityId()).equalsIgnoreCase("yes")) {
+                if (!shouldStartPreMatSession) {
                     evaluateConsentJoiningMat(details);
                 }
             } catch (BaseHarmReductionVisitAction.ValidationException e) {
@@ -130,7 +132,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
     }
 
     private void evaluateHivInfectionStatus(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {
-        HarmReductionHivInfectionStatusActionHelper actionHelper = new HarmReductionHivInfectionStatusActionHelper();
+        HarmReductionHivInfectionStatusActionHelper actionHelper = new HarmReductionHivInfectionStatusActionHelper(memberObject);
         BaseHarmReductionVisitAction action = getBuilder(context.getString(R.string.harm_reduction_hiv_infection_status))
                 .withOptional(false)
                 .withDetails(details)
@@ -181,12 +183,12 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
         return new BaseHarmReductionVisitAction.Validator() {
             @Override
             public boolean isValid(String key) {
-                return isClientStatusEligible();
+                return isFollowUpStatusEligible();
             }
 
             @Override
             public boolean isEnabled(String key) {
-                return isClientStatusEligible();
+                return isFollowUpStatusEligible();
             }
 
             @Override
@@ -196,10 +198,13 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
         };
     }
 
-    private boolean isClientStatusEligible() {
-        String status = getClientStatusValue(CLIENT_STATUS_FIELD);
-        return CLIENT_STATUS_NEW.equalsIgnoreCase(status)
-                || CLIENT_STATUS_CONTINUE_SERVICE.equalsIgnoreCase(status);
+    private boolean isFollowUpStatusEligible() {
+        return shouldContinueCommunityServices(getClientStatusValue(FOLLOW_UP_STATUS_FIELD));
+    }
+
+    @VisibleForTesting
+    static boolean shouldContinueCommunityServices(String followUpStatus) {
+        return CLIENT_STATUS_CONTINUE_SERVICE.equalsIgnoreCase(StringUtils.trimToEmpty(followUpStatus));
     }
 
     private BaseHarmReductionVisitAction.Validator safeInjectionVisibilityValidator() {

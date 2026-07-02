@@ -5,14 +5,14 @@ import android.content.Context;
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONArray;
 import org.smartregister.chw.harmreduction.domain.MemberObject;
 import org.smartregister.chw.harmreduction.domain.VisitDetail;
 import org.smartregister.chw.harmreduction.model.BaseHarmReductionVisitAction;
-import org.smartregister.chw.harmreduction.util.JsonFormUtils;
 import org.smartregister.chw.harmreduction.dao.HarmReductionDao;
+import org.smartregister.chw.harmreduction.util.JsonFormUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -21,11 +21,17 @@ import timber.log.Timber;
 
 public class HarmReductionClientStatusActionHelper implements BaseHarmReductionVisitAction.HarmReductionVisitActionHelper {
     private static final String GLOBAL = "global";
-    private static final String CLIENT_STATUS_FIELD_KEY = "client_status";
-    private static final String CLIENT_STATUS_NEW_OPTION = "new";
+    private static final String FOLLOW_UP_STATUS_FIELD_KEY = "follow_up_status";
+    private static final String CONTINUE_SERVICE_FIELD_VALUE = "continue_service";
+    private static final String NEW_CLIENT_FIELD_VALUE = "new_client";
+    private static final String PREGNANCY_BREASTFEEDING_STATUS_FIELD_KEY = "pregnancy_breastfeeding_status";
+    private static final String PREGNANT_FIELD_VALUE = "pregnant";
+    private static final String NOT_PREGNANT_FIELD_VALUE = "not_pregnant";
+    private static final String YES = "yes";
+    private static final String NO = "no";
 
     protected MemberObject memberObject;
-    protected String clientStatus;
+    protected String followUpStatus;
     private String jsonPayload;
 
     public HarmReductionClientStatusActionHelper(MemberObject memberObject) {
@@ -39,6 +45,10 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
 
     @Override
     public String getPreProcessed() {
+        if (StringUtils.isBlank(jsonPayload)) {
+            return null;
+        }
+
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
             JSONObject global = jsonObject.optJSONObject(GLOBAL);
@@ -47,7 +57,8 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
                 jsonObject.put(GLOBAL, global);
             }
             global.put("sex", memberObject.getGender().toLowerCase());
-            removeNewClientStatusOption(jsonObject);
+            prefillFollowUpStatusForFirstVisit(jsonObject);
+            prefillPregnancyBreastfeedingStatus(jsonObject);
             return jsonObject.toString();
         } catch (JSONException e) {
             Timber.e(e);
@@ -59,7 +70,7 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
     public void onPayloadReceived(String jsonPayload) {
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
-            clientStatus = JsonFormUtils.getValue(jsonObject, "client_status");
+            followUpStatus = getFieldValue(jsonObject, FOLLOW_UP_STATUS_FIELD_KEY);
         } catch (JSONException e) {
             Timber.e(e);
         }
@@ -87,7 +98,7 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
 
     @Override
     public BaseHarmReductionVisitAction.Status evaluateStatusOnPayload() {
-        return StringUtils.isNotBlank(clientStatus)
+        return StringUtils.isNotBlank(followUpStatus)
                 ? BaseHarmReductionVisitAction.Status.COMPLETED
                 : BaseHarmReductionVisitAction.Status.PENDING;
     }
@@ -97,12 +108,34 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
         // no-op
     }
 
-    private void removeNewClientStatusOption(JSONObject jsonObject) {
-        if (memberObject == null || StringUtils.isBlank(memberObject.getBaseEntityId())) {
-            return;
+    private String getFieldValue(JSONObject jsonObject, String key) {
+        String value = JsonFormUtils.getValue(jsonObject, key);
+        if (StringUtils.isNotBlank(value)) {
+            return value;
         }
 
-        if (!HarmReductionDao.hasHarmReductionVisit(memberObject.getBaseEntityId())) {
+        JSONObject stepOne = jsonObject.optJSONObject(JsonFormConstants.STEP1);
+        if (stepOne == null) {
+            return "";
+        }
+
+        JSONArray fields = stepOne.optJSONArray(JsonFormConstants.FIELDS);
+        if (fields == null) {
+            return "";
+        }
+
+        for (int i = 0; i < fields.length(); i++) {
+            JSONObject field = fields.optJSONObject(i);
+            if (field != null && key.equalsIgnoreCase(field.optString(JsonFormConstants.KEY))) {
+                return StringUtils.defaultString(field.optString(JsonFormConstants.VALUE));
+            }
+        }
+
+        return "";
+    }
+
+    private void prefillFollowUpStatusForFirstVisit(JSONObject jsonObject) {
+        if (!isNewClientFirstFollowUpVisit()) {
             return;
         }
 
@@ -119,28 +152,77 @@ public class HarmReductionClientStatusActionHelper implements BaseHarmReductionV
 
             for (int i = 0; i < fields.length(); i++) {
                 JSONObject field = fields.optJSONObject(i);
-                if (field != null && CLIENT_STATUS_FIELD_KEY.equalsIgnoreCase(field.optString(JsonFormConstants.KEY))) {
-                    JSONArray options = field.optJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME);
-                    if (options == null) {
-                        return;
-                    }
-
-                    JSONArray filteredOptions = new JSONArray();
-                    for (int j = 0; j < options.length(); j++) {
-                        JSONObject option = options.optJSONObject(j);
-                        if (option == null) {
-                            continue;
-                        }
-                        if (!CLIENT_STATUS_NEW_OPTION.equalsIgnoreCase(option.optString(JsonFormConstants.KEY))) {
-                            filteredOptions.put(option);
-                        }
-                    }
-                    field.put(JsonFormConstants.OPTIONS_FIELD_NAME, filteredOptions);
+                if (field != null && FOLLOW_UP_STATUS_FIELD_KEY.equalsIgnoreCase(field.optString(JsonFormConstants.KEY))) {
+                    field.put(JsonFormConstants.VALUE, CONTINUE_SERVICE_FIELD_VALUE);
+                    field.put("type", "hidden");
+                    field.put("read_only", true);
                     return;
                 }
             }
         } catch (JSONException e) {
             Timber.e(e);
         }
+    }
+
+    private void prefillPregnancyBreastfeedingStatus(JSONObject jsonObject) {
+        if (memberObject == null
+                || StringUtils.isBlank(memberObject.getBaseEntityId())
+                || !StringUtils.equalsIgnoreCase(memberObject.getGender(), "female")
+                || hasPreviousFollowUpVisit()) {
+            return;
+        }
+
+        try {
+            JSONObject stepOne = jsonObject.optJSONObject(JsonFormConstants.STEP1);
+            if (stepOne == null) {
+                return;
+            }
+
+            JSONArray fields = stepOne.optJSONArray(JsonFormConstants.FIELDS);
+            if (fields == null) {
+                return;
+            }
+
+            JSONObject field = null;
+            for (int i = 0; i < fields.length(); i++) {
+                JSONObject currentField = fields.optJSONObject(i);
+                if (currentField != null && PREGNANCY_BREASTFEEDING_STATUS_FIELD_KEY.equalsIgnoreCase(currentField.optString(JsonFormConstants.KEY))) {
+                    field = currentField;
+                    break;
+                }
+            }
+
+            if (field == null || StringUtils.isNotBlank(field.optString(JsonFormConstants.VALUE))) {
+                return;
+            }
+
+            String riskAssessmentPregnancyStatus = getRiskAssessmentPregnancyStatus();
+            if (YES.equalsIgnoreCase(riskAssessmentPregnancyStatus)) {
+                field.put(JsonFormConstants.VALUE, PREGNANT_FIELD_VALUE);
+            } else if (NO.equalsIgnoreCase(riskAssessmentPregnancyStatus)) {
+                field.put(JsonFormConstants.VALUE, NOT_PREGNANT_FIELD_VALUE);
+            }
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
+    }
+
+    protected boolean hasPreviousFollowUpVisit() {
+        return memberObject != null && HarmReductionDao.hasPreviousHarmReductionFollowUpVisit(memberObject.getBaseEntityId());
+    }
+
+    protected String getRiskAssessmentClientStatus() {
+        return memberObject == null ? "" : HarmReductionDao.getLatestRiskAssessmentClientStatus(memberObject.getBaseEntityId());
+    }
+
+    protected boolean isNewClientFirstFollowUpVisit() {
+        return memberObject != null
+                && StringUtils.isNotBlank(memberObject.getBaseEntityId())
+                && StringUtils.equalsIgnoreCase(getRiskAssessmentClientStatus(), NEW_CLIENT_FIELD_VALUE)
+                && !hasPreviousFollowUpVisit();
+    }
+
+    protected String getRiskAssessmentPregnancyStatus() {
+        return memberObject == null ? "" : HarmReductionDao.getRiskAssessmentPregnancyStatus(memberObject.getBaseEntityId());
     }
 }

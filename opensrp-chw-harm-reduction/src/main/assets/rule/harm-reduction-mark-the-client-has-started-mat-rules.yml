@@ -4,4 +4,4 @@ description: Calculate status from client_started_mat
 priority: 1
 condition: "true"
 actions:
-  - "calculation = (step1_client_started_mat == 'yes' ? 'started_mat_services' : '-')"
+  - "calculation = (step1_client_started_mat == 'yes' ? 'started_mat_services' : 'on_community_service')"

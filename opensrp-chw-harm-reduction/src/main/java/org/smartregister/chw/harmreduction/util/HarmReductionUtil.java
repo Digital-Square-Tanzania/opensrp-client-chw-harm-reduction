@@ -19,6 +19,7 @@ import android.text.Html;
 import android.text.Spanned;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -32,8 +33,8 @@ import org.opensrp.api.constants.Gender;
 import org.smartregister.chw.harmreduction.HarmReductionLibrary;
 import org.smartregister.chw.harmreduction.R;
 import org.smartregister.chw.harmreduction.contract.BaseHarmReductionCallDialogContract;
-import org.smartregister.clientandeventmodel.Obs;
 import org.smartregister.clientandeventmodel.Event;
+import org.smartregister.clientandeventmodel.Obs;
 import org.smartregister.commonregistry.CommonPersonObject;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.commonregistry.CommonRepository;
@@ -51,7 +52,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-import androidx.annotation.NonNull;
 import timber.log.Timber;
 
 public class HarmReductionUtil {
@@ -134,11 +134,25 @@ public class HarmReductionUtil {
     public static void saveFormEvent(final String jsonString) throws Exception {
         AllSharedPreferences allSharedPreferences = HarmReductionLibrary.getInstance().context().allSharedPreferences();
         Event baseEvent = HarmReductionJsonFormUtils.processJsonForm(allSharedPreferences, jsonString);
-        if (baseEvent != null && baseEvent.getEventType().equalsIgnoreCase(Constants.EVENT_TYPE.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT)) {
-            baseEvent.addObs(new Obs().withFormSubmissionField(Constants.JSON_FORM_KEY.UIC_ID).withValue(generateUICID(baseEvent.getBaseEntityId(), jsonString))
-                    .withFieldCode(Constants.JSON_FORM_KEY.UIC_ID).withFieldType("formsubmissionField").withFieldDataType("text").withParentCode("").withHumanReadableValues(new ArrayList<>()));
+        if (baseEvent != null && shouldGenerateUIC(baseEvent.getEventType())) {
+            String uicFieldCode = resolveGeneratedUicFieldCode(baseEvent.getEventType());
+            baseEvent.addObs(new Obs().withFormSubmissionField(uicFieldCode).withValue(generateUICID(baseEvent.getBaseEntityId(), jsonString))
+                    .withFieldCode(uicFieldCode).withFieldType("formsubmissionField").withFieldDataType("text").withParentCode("").withHumanReadableValues(new ArrayList<>()));
         }
         HarmReductionUtil.processEvent(allSharedPreferences, baseEvent);
+    }
+
+    static boolean shouldGenerateUIC(String eventType) {
+        return Constants.EVENT_TYPE.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT.equalsIgnoreCase(eventType)
+                || Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT.equalsIgnoreCase(eventType);
+    }
+
+    static String resolveGeneratedUicFieldCode(String eventType) {
+        if (Constants.EVENT_TYPE.HARM_REDUCTION_RISK_ASSESSMENT.equalsIgnoreCase(eventType)) {
+            return Constants.JSON_FORM_KEY.UIC;
+        }
+
+        return Constants.JSON_FORM_KEY.UIC_ID;
     }
 
     public static String generateUICID(String baseEntityId, String jsonString) throws ParseException {

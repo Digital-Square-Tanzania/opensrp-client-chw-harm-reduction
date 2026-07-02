@@ -3,14 +3,14 @@ package org.smartregister.chw.harmreduction.model;
 public class HarmReductionUsedNeedlesAndSyringesCollectionModel {
     private String collectionId;
     private String collectionDate;
-    private String totalSafetyBoxesCollected;
+    private String usedNeedlesAndSyringesCollected;
 
     public HarmReductionUsedNeedlesAndSyringesCollectionModel() {
     }
 
-    public HarmReductionUsedNeedlesAndSyringesCollectionModel(String collectionDate, String totalSafetyBoxesCollected, String collectionId) {
+    public HarmReductionUsedNeedlesAndSyringesCollectionModel(String collectionDate, String usedNeedlesAndSyringesCollected, String collectionId) {
         this.collectionDate = collectionDate;
-        this.totalSafetyBoxesCollected = totalSafetyBoxesCollected;
+        this.usedNeedlesAndSyringesCollected = usedNeedlesAndSyringesCollected;
         this.collectionId = collectionId;
     }
 
@@ -30,11 +30,11 @@ public class HarmReductionUsedNeedlesAndSyringesCollectionModel {
         this.collectionDate = collectionDate;
     }
 
-    public String getTotalSafetyBoxesCollected() {
-        return totalSafetyBoxesCollected;
+    public String getUsedNeedlesAndSyringesCollected() {
+        return usedNeedlesAndSyringesCollected;
     }
 
-    public void setTotalSafetyBoxesCollected(String totalSafetyBoxesCollected) {
-        this.totalSafetyBoxesCollected = totalSafetyBoxesCollected;
+    public void setUsedNeedlesAndSyringesCollected(String usedNeedlesAndSyringesCollected) {
+        this.usedNeedlesAndSyringesCollected = usedNeedlesAndSyringesCollected;
     }
 }

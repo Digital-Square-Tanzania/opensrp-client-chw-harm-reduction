@@ -47,57 +47,43 @@
     }
   },
   "step1": {
-    "title": "Harm Reduction Sober House Client Type Followup Status",
+    "title": "Harm Reduction Sober House Follow-up Status",
     "fields": [
       {
-        "key": "client_type",
+        "key": "service_continuation_status",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "client_type",
+        "openmrs_entity_id": "service_continuation_status",
         "type": "native_radio",
-        "label": "Client type",
-        "options": [
-          {
-            "key": "new_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "new_client",
-            "text": "New"
-          },
-          {
-            "key": "returning_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "returning_client",
-            "text": "Repeat visit"
-          },
-          {
-            "key": "relapsed_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "relapsed_client",
-            "text": "Relapsed client"
-          },
-          {
-            "key": "migrant_client",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "migrant_client",
-            "text": "Transferred-in client"
-          }
-        ],
+        "label": "Follow-up status",
         "v_required": {
           "value": "true",
           "err": "Please select an option"
-        }
+        },
+        "options": [
+          {
+            "key": "continuing_service",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "continuing_service",
+            "text": "Continuing service"
+          },
+          {
+            "key": "discontinued_service",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "discontinued_service",
+            "text": "Not continuing with service"
+          }
+        ]
       },
       {
-        "key": "follow_up_status",
+        "key": "discontinued_reason",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "follow_up_status",
+        "openmrs_entity_id": "discontinued_reason",
         "type": "native_radio",
-        "label": "Client status",
+        "label": "Reason for not continuing",
         "v_required": {
           "value": "true",
           "err": "Please select an option"
@@ -110,13 +96,6 @@
           }
         },
         "options": [
-          {
-            "key": "continuing_service",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "continuing_service",
-            "text": "Continuing service"
-          },
           {
             "key": "absconded",
             "openmrs_entity_parent": "",
@@ -137,8 +116,110 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "moved",
             "text": "Moved"
+          },
+          {
+            "key": "other",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other",
+            "text": "Other"
           }
         ]
+      },
+      {
+        "key": "discontinued_other_reason",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "discontinued_other_reason",
+        "type": "edit_text",
+        "hint": "Please specify other reason",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "cause_of_death",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "cause_of_death",
+        "type": "native_radio",
+        "label": "Cause of death",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "accident",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "accident",
+            "text": "Accident"
+          },
+          {
+            "key": "unknown",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "unknown",
+            "text": "Unknown"
+          },
+          {
+            "key": "other",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other",
+            "text": "Other"
+          }
+        ]
+      },
+      {
+        "key": "cause_of_death_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "cause_of_death_other_specify",
+        "type": "edit_text",
+        "hint": "Please specify other cause of death",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "follow_up_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "follow_up_status",
+        "type": "hidden",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-client-type-followup-status-rules.yml"
+            }
+          }
+        }
       }
     ]
   }

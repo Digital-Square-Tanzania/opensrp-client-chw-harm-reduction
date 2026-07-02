@@ -23,10 +23,20 @@ import timber.log.Timber;
 
 public class HarmReductionDao extends AbstractDao {
     private static final String SOBER_HOUSE_SERVICES_TABLE = "ec_harm_reduction_sober_house_services";
+    private static final String SOBER_HOUSE_ENROLLMENT_TABLE = Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT;
     private static final String FOLLOW_UP_STATUS_COLUMN = "follow_up_status";
     private static final String CLIENT_STATUS_COLUMN = "client_status";
+    private static final String HIV_TEST_LOCATION_COLUMN = "hiv_test_location";
+    private static final String ENROLLED_INTO_CTC_SERVICES_COLUMN = "enrolled_into_ctc_services";
+    private static final String CTC_ID_COLUMN = "ctc_id";
+    private static final String POSITIVE_VALUE = "positive";
     private static final String CLIENT_DECEASED_STATUS = "client_deceased";
     private static final String YES_VALUE = "yes";
+    private static final String COMPLETED_METHADONE_TREATMENT_VALUE = "completed_methadone_treatment";
+    private static final String STOPPED_USING_METHADONE_VALUE = "stopped_using_methadone";
+    private static final String NO_VALUE = "no";
+    private static final String CONTINUE_SERVICE_VALUE = "continue_service";
+    private static final String ON_COMMUNITY_SERVICE_VALUE = "on_community_service";
     private static final DateTimeFormatter SQL_DATE_TIME_FORMAT = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
     private static final DateTimeFormatter[] SUPPORTED_EVENT_DATE_FORMATS = new DateTimeFormatter[]{
             ISODateTimeFormat.dateTimeParser(),
@@ -134,9 +144,12 @@ public class HarmReductionDao extends AbstractDao {
         return null;
     }
 
-    public static boolean hasHarmReductionVisit(String baseEntityId) {
-        String sql = "SELECT count(p.entity_id) count FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT + " p " +
-                " WHERE p.entity_id = '" + baseEntityId + "'";
+    public static boolean hasPreviousHarmReductionFollowUpVisit(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return false;
+        }
+
+        String sql = buildHasPreviousHarmReductionFollowUpVisitQuery(baseEntityId);
 
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
 
@@ -146,6 +159,44 @@ public class HarmReductionDao extends AbstractDao {
         }
         Integer count = res.get(0);
         return count != null && count > 0;
+    }
+
+    public static boolean hasPreviousSoberHouseServiceVisit(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return false;
+        }
+
+        String sql = buildHasPreviousSoberHouseServiceVisitQuery(baseEntityId);
+
+        DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
+
+        List<Integer> res = readData(sql, dataMap);
+        if (res == null || res.size() != 1) {
+            return false;
+        }
+
+        Integer count = res.get(0);
+        return count != null && count > 0;
+    }
+
+    @VisibleForTesting
+    static String buildHasPreviousHarmReductionFollowUpVisitQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT count(p.entity_id) count FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT + " p" +
+                " WHERE p.entity_id = '" + baseEntityId + "'";
+    }
+
+    @VisibleForTesting
+    static String buildHasPreviousSoberHouseServiceVisitQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT count(p.entity_id) count FROM " + SOBER_HOUSE_SERVICES_TABLE + " p" +
+                " WHERE p.entity_id = '" + baseEntityId + "'";
     }
 
     public static String getLatestCommunityFollowUpStatus(String baseEntityId) {
@@ -158,6 +209,94 @@ public class HarmReductionDao extends AbstractDao {
 
     public static String getLatestSoberHouseFollowUpStatus(String baseEntityId) {
         return getLatestStatusFromTable(SOBER_HOUSE_SERVICES_TABLE, FOLLOW_UP_STATUS_COLUMN, baseEntityId);
+    }
+
+    public static boolean hasPreviousPositiveHivFollowUpVisit(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return false;
+        }
+
+        String sql = buildHasPreviousPositiveHivFollowUpVisitQuery(baseEntityId);
+        DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
+        List<Integer> res = readData(sql, dataMap);
+        if (res == null || res.size() != 1) {
+            return false;
+        }
+
+        Integer count = res.get(0);
+        return count != null && count > 0;
+    }
+
+    public static String getLatestPositiveHivTestLocation(String baseEntityId) {
+        return getLatestPositiveHivFollowUpVisitField(HIV_TEST_LOCATION_COLUMN, baseEntityId);
+    }
+
+    public static String getLatestPositiveEnrolledIntoCtcServices(String baseEntityId) {
+        return getLatestPositiveHivFollowUpVisitField(ENROLLED_INTO_CTC_SERVICES_COLUMN, baseEntityId);
+    }
+
+    public static String getLatestPositiveCtcId(String baseEntityId) {
+        return getLatestPositiveHivFollowUpVisitField(CTC_ID_COLUMN, baseEntityId);
+    }
+
+    public static String getLatestRiskAssessmentClientStatus(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        String sql = buildLatestRiskAssessmentClientStatusQuery(baseEntityId);
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, CLIENT_STATUS_COLUMN, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+
+        return "";
+    }
+
+    public static String getLatestRiskAssessmentUic(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        String sql = buildLatestRiskAssessmentUicQuery(baseEntityId);
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, Constants.JSON_FORM_KEY.UIC, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+
+        return "";
+    }
+
+    public static String getLatestSoberHouseEnrollmentUic(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        String sql = buildLatestSoberHouseEnrollmentUicQuery(baseEntityId);
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, Constants.JSON_FORM_KEY.UIC_ID, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+
+        return "";
+    }
+
+    public static String getLatestSoberHouseEnrollmentClientStatus(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        String sql = buildLatestSoberHouseEnrollmentClientStatusQuery(baseEntityId);
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, CLIENT_STATUS_COLUMN, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+
+        return "";
     }
 
     public static boolean isCommunityClientDeceased(String baseEntityId) {
@@ -183,6 +322,20 @@ public class HarmReductionDao extends AbstractDao {
         return "";
     }
 
+    private static String getLatestPositiveHivFollowUpVisitField(String columnName, String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId) || StringUtils.isBlank(columnName)) {
+            return "";
+        }
+
+        String sql = buildLatestPositiveHivFollowUpVisitFieldQuery(columnName, baseEntityId);
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, columnName, "");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return StringUtils.defaultString(res.get(0));
+        }
+        return "";
+    }
+
     @VisibleForTesting
     static boolean isDeceasedFollowUpStatus(String followUpStatus) {
         String normalizedStatus = StringUtils.trimToEmpty(followUpStatus).toLowerCase(Locale.ENGLISH);
@@ -197,6 +350,67 @@ public class HarmReductionDao extends AbstractDao {
 
         return "SELECT " + statusColumn + " FROM " + tableName +
                 " WHERE is_closed = 0 AND entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    }
+
+    @VisibleForTesting
+    static String buildHasPreviousPositiveHivFollowUpVisitQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT count(p.entity_id) count FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT + " p" +
+                " WHERE p.entity_id = '" + baseEntityId + "' AND p.hiv_results = '" + POSITIVE_VALUE + "'";
+    }
+
+    @VisibleForTesting
+    static String buildLatestPositiveHivFollowUpVisitFieldQuery(String columnName, String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId) || StringUtils.isBlank(columnName)) {
+            return "";
+        }
+
+        return "SELECT " + columnName + " FROM " + Constants.TABLES.HARM_REDUCTION_FOLLOWUP_VISIT +
+                " WHERE is_closed = 0 AND entity_id = '" + baseEntityId + "' AND hiv_results = '" + POSITIVE_VALUE +
+                "' AND " + columnName + " IS NOT NULL AND TRIM(" + columnName + ") != '' ORDER BY last_interacted_with DESC LIMIT 1";
+    }
+
+    @VisibleForTesting
+    static String buildLatestSoberHouseEnrollmentClientStatusQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT " + CLIENT_STATUS_COLUMN + " FROM " + SOBER_HOUSE_ENROLLMENT_TABLE +
+                " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    }
+
+    @VisibleForTesting
+    static String buildLatestRiskAssessmentClientStatusQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT " + CLIENT_STATUS_COLUMN + " FROM " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    }
+
+    @VisibleForTesting
+    static String buildLatestRiskAssessmentUicQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT " + Constants.JSON_FORM_KEY.UIC + " FROM " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    }
+
+    @VisibleForTesting
+    static String buildLatestSoberHouseEnrollmentUicQuery(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "SELECT " + Constants.JSON_FORM_KEY.UIC_ID + " FROM " + Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT +
+                " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
     }
 
     public static String getEnrollmentDate(String baseEntityId) {
@@ -255,6 +469,66 @@ public class HarmReductionDao extends AbstractDao {
         }
 
         return new SoberHouseAutoCloseSummary(affectedClients, serviceRowsUpdated, enrollmentRowsUpdated);
+    }
+
+    public static void closeCompletedMethadoneTreatmentRiskAssessment(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return;
+        }
+
+        updateDB(buildCloseCompletedMethadoneTreatmentRiskAssessmentSql(baseEntityId));
+    }
+
+    public static void reassignStoppedMethadoneTreatmentRiskAssessment(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return;
+        }
+
+        updateDB(buildReassignStoppedMethadoneTreatmentRiskAssessmentSql(baseEntityId));
+    }
+
+    public static boolean isCompletedMethadoneTreatment(String methadoneTreatmentStatus) {
+        return hasMethadoneTreatmentStatus(methadoneTreatmentStatus, COMPLETED_METHADONE_TREATMENT_VALUE);
+    }
+
+    public static boolean isStoppedUsingMethadone(String methadoneTreatmentStatus) {
+        return hasMethadoneTreatmentStatus(methadoneTreatmentStatus, STOPPED_USING_METHADONE_VALUE);
+    }
+
+    private static boolean hasMethadoneTreatmentStatus(String methadoneTreatmentStatus, String expectedStatus) {
+        String normalizedStatus = StringUtils.trimToEmpty(methadoneTreatmentStatus)
+                .replace("[", "")
+                .replace("]", "");
+        for (String status : normalizedStatus.split(",")) {
+            if (expectedStatus.equalsIgnoreCase(StringUtils.trim(status))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @VisibleForTesting
+    static String buildCloseCompletedMethadoneTreatmentRiskAssessmentSql(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "UPDATE " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " SET client_started_mat = '" + NO_VALUE + "', is_closed = 1" +
+                " WHERE base_entity_id = '" + escapeSqlValue(baseEntityId) + "' AND is_closed = 0";
+    }
+
+    @VisibleForTesting
+    static String buildReassignStoppedMethadoneTreatmentRiskAssessmentSql(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        return "UPDATE " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " SET client_started_mat = '" + NO_VALUE + "', " +
+                "follow_up_status = '" + CONTINUE_SERVICE_VALUE + "', " +
+                "status = '" + ON_COMMUNITY_SERVICE_VALUE + "'" +
+                " WHERE base_entity_id = '" + escapeSqlValue(baseEntityId) + "' AND is_closed = 0";
     }
 
     public static String getLastInteractedWithMatConsentFollowUpVisit(String baseEntityId) {
@@ -350,7 +624,17 @@ public class HarmReductionDao extends AbstractDao {
     }
 
     public static MemberObject getSoberHouseMember(String baseEntityID) {
-        String sql = "select " +
+        String sql = buildSoberHouseMemberQuery(baseEntityID);
+        List<MemberObject> res = readData(sql, memberObjectMap);
+        if (res == null || res.size() != 1)
+            return null;
+
+        return res.get(0);
+    }
+
+    @VisibleForTesting
+    static String buildSoberHouseMemberQuery(String baseEntityID) {
+        return "select " +
                 "m.base_entity_id , " +
                 "m.unique_id , " +
                 "m.relational_id , " +
@@ -381,12 +665,7 @@ public class HarmReductionDao extends AbstractDao {
                 "inner join " + Constants.TABLES.HARM_REDUCTION_SOBER_HOUSE_ENROLLMENT + " sh on sh.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
-                "where sh.is_closed = 0 AND m.base_entity_id ='" + baseEntityID + "' ";
-        List<MemberObject> res = readData(sql, memberObjectMap);
-        if (res == null || res.size() != 1)
-            return null;
-
-        return res.get(0);
+                "where sh.is_closed = 0 AND sh.detoxification_done = 'yes' AND m.base_entity_id ='" + baseEntityID + "' ";
     }
 
     public static String getMemberSex(String baseEntityID) {
@@ -417,6 +696,39 @@ public class HarmReductionDao extends AbstractDao {
         } else
             return "";
 
+    }
+
+    public static String getRocMatPreSession(String baseEntityID) {
+        String sql = "select roc_mat_pre_session from " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " where base_entity_id = '" + baseEntityID + "' ";
+
+        DataMap<String> map = cursor -> getCursorValue(cursor, "roc_mat_pre_session");
+        List<String> res = readData(sql, map);
+
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
+            return res.get(0);
+        } else
+            return "";
+
+    }
+
+    public static String getRiskAssessmentPregnancyStatus(String baseEntityID) {
+        String sql = "select pregnant from " + Constants.TABLES.HARM_REDUCTION_RISK_ASSESSMENT +
+                " where base_entity_id = '" + baseEntityID + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> map = cursor -> getCursorValue(cursor, "pregnant");
+        List<String> res = readData(sql, map);
+
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
+            return res.get(0);
+        } else
+            return "";
+
+    }
+
+    public static boolean shouldStartPreMatSession(String baseEntityID) {
+        return "yes".equalsIgnoreCase(getRocMatPreSession(baseEntityID))
+                || "yes".equalsIgnoreCase(getRocConsentForJoiningMatServices(baseEntityID));
     }
 
 

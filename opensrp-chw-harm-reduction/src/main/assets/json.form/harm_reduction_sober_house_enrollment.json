@@ -50,6 +50,41 @@
     "title": "Sober House Enrollment",
     "fields": [
       {
+        "key": "client_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_status",
+        "type": "native_radio",
+        "label": "Client status",
+        "options": [
+          {
+            "key": "new_client",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "new_client",
+            "text": "New"
+          },
+          {
+            "key": "existing",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "existing",
+            "text": "Existing"
+          },
+          {
+            "key": "relapsed",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "relapsed",
+            "text": "Relapsed"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
         "key": "screening_tests_done",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -132,6 +167,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
         }
       },
       {
@@ -749,6 +791,41 @@
         ]
       },
       {
+        "key": "other_conditions_treatment_after_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_conditions_treatment_after_screening",
+        "type": "native_radio",
+        "label": "Has the recipient of care received treatment for other diseases after screening?",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ]
+      },
+      {
         "key": "sober_house_eligible",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -774,6 +851,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select an option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
+            }
+          }
         }
       },
       {
@@ -1023,7 +1107,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_status",
-        "type": "edit_text",
+        "type": "hidden",
         "hint": "HIV Infection Status",
         "read_only": true,
         "calculation": {
@@ -1032,6 +1116,34 @@
               "rules-file": "harm-reduction-sober-house-enrollment-rules.yml"
             }
           }
+        }
+      },
+      {
+        "key": "enrolled_into_ctc_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "enrolled_into_ctc_services",
+        "type": "native_radio",
+        "label": "Is the client enrolled into Care and Treatment Services (CTC)?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no",
+            "text": "No"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
         },
         "relevance": {
           "rules-engine": {

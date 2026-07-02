@@ -50,12 +50,54 @@
     "title": "Other Diseases Screening",
     "fields": [
       {
-        "key": "hepatitis_bc_screening",
+        "key": "hepatitis_b_screening",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "hepatitis_bc_screening",
+        "openmrs_entity_id": "hepatitis_b_screening",
         "type": "native_radio",
-        "label": "Hepatitis B/C Screening",
+        "label": "Hepatitis B Screening",
+        "options": [
+          {
+            "key": "has_symptoms",
+            "text": "Has symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_symptoms"
+          },
+          {
+            "key": "no_symptoms",
+            "text": "No symptoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_symptoms"
+          },
+          {
+            "key": "not_screened",
+            "text": "Not screened",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_screened"
+          },
+          {
+            "key": "undergoing_treatment",
+            "text": "Undergoing treatment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "undergoing_treatment"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "hepatitis_c_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hepatitis_c_screening",
+        "type": "native_radio",
+        "label": "Hepatitis C Screening",
         "options": [
           {
             "key": "has_symptoms",

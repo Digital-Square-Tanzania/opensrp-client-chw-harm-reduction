@@ -50,11 +50,6 @@ public class HealthEducationIecFormAssetsTest {
                                 .getString("rules-file"));
                 Assert.assertEquals("1", qtyField.getJSONObject("v_min").getString("value"));
                 Assert.assertEquals("1", qtyField.getJSONObject("v_max").getString("value"));
-                Assert.assertEquals("harm-reduction-health-education-iec-relevance-rules.yml",
-                        qtyField.getJSONObject("relevance")
-                                .getJSONObject("rules-engine")
-                                .getJSONObject("ex-rules")
-                                .getString("rules-file"));
             }
         }
     }

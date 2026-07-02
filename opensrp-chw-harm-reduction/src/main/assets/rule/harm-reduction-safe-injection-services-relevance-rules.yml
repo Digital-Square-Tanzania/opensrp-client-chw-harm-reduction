@@ -33,10 +33,3 @@ priority: 1
 condition: "step1_safe_injection_tools != null && step1_safe_injection_tools.contains('sterile_water')"
 actions:
   - "isRelevant = true"
----
-name: step1_qty_needles
-description: Show qty_needles when its condition is met
-priority: 1
-condition: "step1_safe_injection_tools != null && step1_safe_injection_tools.contains('needles')"
-actions:
-  - "isRelevant = true"

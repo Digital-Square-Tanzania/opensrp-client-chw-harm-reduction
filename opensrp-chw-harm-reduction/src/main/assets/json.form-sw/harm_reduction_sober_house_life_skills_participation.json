@@ -1,0 +1,156 @@
+{
+  "count": "1",
+  "encounter_type": "harm_reduction_sober_house_life_skills_participation",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Ushirika katika stadi za maisha",
+    "fields": [
+      {
+        "key": "life_skills_participation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "life_skills_participation",
+        "type": "check_box",
+        "label": "Ushirika katika stadi za maisha",
+        "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "did_not_attend"
+        ],
+        "options": [
+          {
+            "key": "relapse_prevention",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "relapse_prevention",
+            "text": "Kujikinga kurudia dawa za kulevya"
+          },
+          {
+            "key": "communication_relationships",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "communication_relationships",
+            "text": "Mawasiliano na mahusiano"
+          },
+          {
+            "key": "emotional_regulation_stress",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "emotional_regulation_stress",
+            "text": "Udhibiti wa hisia na msongo"
+          },
+          {
+            "key": "problem_solving_decision_making",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "problem_solving_decision_making",
+            "text": "Utatuzi wa matatizo na ufanyaji maamuzi sahihi"
+          },
+          {
+            "key": "daily_self_care",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "daily_self_care",
+            "text": "Mbinu za kujijali katika maisha ya kila siku"
+          },
+          {
+            "key": "financial_skills",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "financial_skills",
+            "text": "Ujuzi na udhibiti wa fedha"
+          },
+          {
+            "key": "employment_entrepreneurship",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "employment_entrepreneurship",
+            "text": "Maarifa ya kazi na kujiajiri"
+          },
+          {
+            "key": "social_responsibility",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "social_responsibility",
+            "text": "Uwajibikaji wa kijamii"
+          },
+          {
+            "key": "health_education_wellbeing",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_education_wellbeing",
+            "text": "Elimu ya Afya na Ustawi"
+          },
+          {
+            "key": "household_responsibility",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "household_responsibility",
+            "text": "Uwajibikaji wa shughuli za nyumbani"
+          },
+          {
+            "key": "self_esteem_personal_growth",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "self_esteem_personal_growth",
+            "text": "Kujithamini na ukuaji binafsi"
+          },
+          {
+            "key": "did_not_attend",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "did_not_attend",
+            "text": "Hajashiriki"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      }
+    ]
+  }
+}

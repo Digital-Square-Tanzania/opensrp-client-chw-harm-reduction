@@ -130,6 +130,8 @@ public class MatFollowUpFormAssetsTest {
                         .getJSONObject("rules-engine")
                         .getJSONObject("ex-rules")
                         .getString("rules-file"));
+        Assert.assertTrue("Education delivery must be captured before the next appointment in " + relativePath,
+                fieldIndex(fields, "education_delivery_method") < fieldIndex(fields, "next_appointment_date"));
     }
 
     private static void assertOptions(JSONArray options, String relativePath, String[][] expectedOptions) throws Exception {
@@ -145,14 +147,17 @@ public class MatFollowUpFormAssetsTest {
         }
     }
 
-    private static JSONObject getField(JSONArray fields, String key) throws Exception {
+    private static int fieldIndex(JSONArray fields, String key) throws Exception {
         for (int i = 0; i < fields.length(); i++) {
-            JSONObject field = fields.getJSONObject(i);
-            if (key.equals(field.getString("key"))) {
-                return field;
+            if (key.equals(fields.getJSONObject(i).getString("key"))) {
+                return i;
             }
         }
         throw new AssertionError("Missing field " + key);
+    }
+
+    private static JSONObject getField(JSONArray fields, String key) throws Exception {
+        return fields.getJSONObject(fieldIndex(fields, key));
     }
 
     private static String readText(String relativePath) throws IOException {

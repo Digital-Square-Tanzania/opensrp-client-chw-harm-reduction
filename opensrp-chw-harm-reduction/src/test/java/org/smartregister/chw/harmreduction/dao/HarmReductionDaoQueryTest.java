@@ -84,6 +84,16 @@ public class HarmReductionDaoQueryTest {
     }
 
     @Test
+    public void buildLatestRiskAssessmentFollowUpStatusQueryShouldTargetRiskAssessmentTable() {
+        String query = HarmReductionDao.buildLatestRiskAssessmentFollowUpStatusQuery("base-id");
+
+        Assert.assertEquals(
+                "SELECT follow_up_status FROM ec_harm_reduction_risk_assessment WHERE is_closed = 0 AND base_entity_id = 'base-id' ORDER BY last_interacted_with DESC LIMIT 1",
+                query
+        );
+    }
+
+    @Test
     public void buildLatestRiskAssessmentUicQueryShouldTargetRiskAssessmentTable() {
         String query = HarmReductionDao.buildLatestRiskAssessmentUicQuery("base-id");
 

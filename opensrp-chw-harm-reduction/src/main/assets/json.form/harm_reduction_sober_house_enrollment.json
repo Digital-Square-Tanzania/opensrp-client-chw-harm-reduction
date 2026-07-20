@@ -900,6 +900,9 @@
         "type": "check_box",
         "label": "Other service referrals provided",
         "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "none"
+        ],
         "v_required": {
           "value": "true",
           "err": "Please select an option"

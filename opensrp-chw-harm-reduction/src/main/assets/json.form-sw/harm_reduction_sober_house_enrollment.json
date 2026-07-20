@@ -900,6 +900,9 @@
         "type": "check_box",
         "label": "Rufaa ya huduma nyinginezo zilizotolewa",
         "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "none"
+        ],
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo moja"

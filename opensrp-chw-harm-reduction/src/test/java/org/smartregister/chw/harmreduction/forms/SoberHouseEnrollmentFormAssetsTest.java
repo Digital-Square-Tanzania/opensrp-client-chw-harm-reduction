@@ -183,6 +183,18 @@ public class SoberHouseEnrollmentFormAssetsTest {
         }
     }
 
+    @Test
+    public void testNotLinkedReferralOptionIsExclusive() throws Exception {
+        for (String formPath : ENROLLMENT_FORM_PATHS) {
+            JSONObject form = readJson(formPath);
+            JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
+            JSONObject referralField = getField(fields, "other_services_referral");
+
+            Assert.assertTrue(hasOption(referralField, "none"));
+            Assert.assertEquals("none", referralField.getJSONArray("exclusive").getString(0));
+        }
+    }
+
     private static Map<String, String> expectedFollowUpFields(JSONArray fields) throws Exception {
         Map<String, String> expected = new LinkedHashMap<>();
 

@@ -106,6 +106,25 @@ public class ClientStatusVisitFormAssetsTest {
     }
 
     @Test
+    public void testRiskyBehaviourNoneOptionIsAvailableAndExclusive() throws Exception {
+        for (String formPath : FORM_PATHS) {
+            JSONObject form = readJson(formPath);
+            JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
+            String expectedText = formPath.contains("json.form-sw") ? "Hakuna" : "None";
+
+            for (String fieldKey : Arrays.asList(
+                    "risky_behaviours_injecting_only",
+                    "risky_behaviours_non_injecting_only"
+            )) {
+                JSONObject field = getField(fields, fieldKey);
+
+                Assert.assertEquals("none", field.getJSONArray("exclusive").getString(0));
+                Assert.assertEquals(expectedText, getOption(field, "none").getString("text"));
+            }
+        }
+    }
+
+    @Test
     public void testClientStatusVisitRulesUseFollowUpStatus() throws Exception {
         String rules = readText("src/main/assets/rule/harm-reduction-client-status-visit-relevance-rules.yml");
 
@@ -189,6 +208,18 @@ public class ClientStatusVisitFormAssetsTest {
         }
 
         return optionKeys;
+    }
+
+    private static JSONObject getOption(JSONObject field, String key) throws Exception {
+        JSONArray options = field.getJSONArray("options");
+        for (int i = 0; i < options.length(); i++) {
+            JSONObject option = options.getJSONObject(i);
+            if (key.equals(option.optString("key"))) {
+                return option;
+            }
+        }
+
+        throw new AssertionError("Missing option: " + key);
     }
 
     private static boolean hasField(JSONArray fields, String key) throws Exception {

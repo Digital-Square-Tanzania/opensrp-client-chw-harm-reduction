@@ -12,6 +12,7 @@ import org.smartregister.chw.harmreduction.actionhelper.HarmReductionClientStatu
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionConsentJoiningMatActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionHealthEducationActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionHivInfectionStatusActionHelper;
+import org.smartregister.chw.harmreduction.actionhelper.HarmReductionLinkageToOtherServicesActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionOtherDiseasesScreeningActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionReferralsProvidedActionHelper;
 import org.smartregister.chw.harmreduction.actionhelper.HarmReductionRiskySexualBehaviorsActionHelper;
@@ -54,6 +55,7 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 evaluateHivInfectionStatus(details);
                 evaluateOtherDiseasesScreening(details);
                 evaluateReferralsProvided(details);
+                evaluateLinkageToOtherServices(details);
                 if (!shouldStartPreMatSession) {
                     evaluateConsentJoiningMat(details);
                 }
@@ -165,6 +167,18 @@ public class HarmReductionVisitInteractor extends BaseHarmReductionVisitInteract
                 .withFormName(Constants.FORMS.HARM_REDUCTION_REFERRALS_PROVIDED)
                 .build();
         actionList.put(context.getString(R.string.harm_reduction_referrals_provided), action);
+    }
+
+    private void evaluateLinkageToOtherServices(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {
+        HarmReductionLinkageToOtherServicesActionHelper actionHelper = new HarmReductionLinkageToOtherServicesActionHelper();
+        BaseHarmReductionVisitAction action = getBuilder(context.getString(R.string.harm_reduction_linkage_to_other_services))
+                .withOptional(false)
+                .withDetails(details)
+                .withHelper(actionHelper)
+                .withValidator(otherActionsVisibilityValidator())
+                .withFormName(Constants.FORMS.HARM_REDUCTION_LINKAGE_TO_OTHER_SERVICES)
+                .build();
+        actionList.put(context.getString(R.string.harm_reduction_linkage_to_other_services), action);
     }
 
     private void evaluateConsentJoiningMat(Map<String, List<VisitDetail>> details) throws BaseHarmReductionVisitAction.ValidationException {

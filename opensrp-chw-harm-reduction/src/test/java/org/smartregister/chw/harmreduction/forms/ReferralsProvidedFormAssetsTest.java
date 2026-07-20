@@ -10,6 +10,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ReferralsProvidedFormAssetsTest {
 
@@ -28,6 +31,67 @@ public class ReferralsProvidedFormAssetsTest {
 
         Assert.assertFalse("The Swahili referrals assets should not use the old Methadone title",
                 readText("src/main/assets/json.form-sw/harm_reduction_referrals_provided.json").contains("Tiba ya Methadone"));
+    }
+
+    @Test
+    public void testReferralsFormOnlyContainsReferralOptions() throws Exception {
+        JSONObject form = new JSONObject(readText("src/main/assets/json.form-sw/harm_reduction_referrals_provided.json"));
+        JSONArray options = form.getJSONObject("step1")
+                .getJSONArray("fields")
+                .getJSONObject(0)
+                .getJSONArray("options");
+
+        Assert.assertEquals(Arrays.asList(
+                "hiv_aids",
+                "epidemic_diseases",
+                "communicable_diseases",
+                "tb_leprosy",
+                "ntds",
+                "family_planning",
+                "reproductive_health",
+                "prep",
+                "hepatitis_bc",
+                "hiv_testing",
+                "wounds_abscess_treatment",
+                "other",
+                "none"
+        ), getOptionKeys(options));
+    }
+
+    @Test
+    public void testReferralsFormDoesNotContainMovedLinkageOptions() throws Exception {
+        JSONObject form = new JSONObject(readText("src/main/assets/json.form/harm_reduction_referrals_provided.json"));
+        List<String> optionKeys = getOptionKeys(form.getJSONObject("step1")
+                .getJSONArray("fields")
+                .getJSONObject(0)
+                .getJSONArray("options"));
+
+        for (String movedOption : Arrays.asList(
+                "mental_health",
+                "substance_abuse",
+                "nutrition",
+                "gbv_vac",
+                "psychological_assistance",
+                "rights_vulnerable",
+                "health_services_advocacy",
+                "stis_stds",
+                "overdose_management",
+                "legal_issues",
+                "safe_injection",
+                "methadone_services",
+                "sober_house",
+                "income_generating"
+        )) {
+            Assert.assertFalse(optionKeys.contains(movedOption));
+        }
+    }
+
+    private static List<String> getOptionKeys(JSONArray options) throws Exception {
+        List<String> keys = new ArrayList<>();
+        for (int i = 0; i < options.length(); i++) {
+            keys.add(options.getJSONObject(i).getString("key"));
+        }
+        return keys;
     }
 
     private static String readText(String relativePath) throws IOException {

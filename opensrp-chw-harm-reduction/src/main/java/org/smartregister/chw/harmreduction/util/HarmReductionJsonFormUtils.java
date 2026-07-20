@@ -268,6 +268,8 @@ public class HarmReductionJsonFormUtils extends org.smartregister.util.JsonFormU
                     if (detailList != null) {
                         if (jo.getString(JsonFormConstants.TYPE).equalsIgnoreCase(JsonFormConstants.CHECK_BOX)) {
                             jo.put(JsonFormConstants.VALUE, getValue(jo, detailList));
+                        } else if (jo.getString(JsonFormConstants.TYPE).equalsIgnoreCase(JsonFormConstants.MULTI_SELECT_LIST)) {
+                            jo.put(JsonFormConstants.VALUE, getValue(jo, detailList).toString());
                         } else {
                             String value = getValue(detailList.get(0));
                             if (key.contains("date")) {
@@ -317,6 +319,23 @@ public class HarmReductionJsonFormUtils extends org.smartregister.util.JsonFormU
                     if (nid != null) {
                         values.put(nid.name);
                         options.getJSONObject(nid.position).put(JsonFormConstants.VALUE, true);
+                    }
+                }
+            }
+        } else if (jo.getString(JsonFormConstants.TYPE).equalsIgnoreCase(JsonFormConstants.MULTI_SELECT_LIST)) {
+            JSONArray options = jo.getJSONArray(JsonFormConstants.OPTIONS_FIELD_NAME);
+            HashMap<String, JSONObject> valueMap = new HashMap<>();
+
+            for (int i = 0; i < options.length(); i++) {
+                JSONObject option = options.getJSONObject(i);
+                valueMap.put(option.getString(JsonFormConstants.KEY), option);
+            }
+
+            for (VisitDetail visitDetail : visitDetails) {
+                for (String item : visitDetail.getDetails().split(", ")) {
+                    JSONObject option = valueMap.get(item);
+                    if (option != null) {
+                        values.put(option);
                     }
                 }
             }

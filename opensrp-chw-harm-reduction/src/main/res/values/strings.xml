@@ -14,6 +14,7 @@
     <string name="job_aids">Job Aids</string>
     <string name="saving_dialog_title">Saving</string>
     <string name="interpunct" translatable="false">\u00b7</string>
+    <string name="nickname_format">Nickname: %1$s</string>
 
     <!-- Harm Reduction: client visit recording action (used after enrollment) -->
     <string name="record_harm_reduction_client_visit">Record Harm Reduction Client Visit</string>

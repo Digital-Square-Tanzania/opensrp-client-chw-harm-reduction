@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.smartregister.chw.harmreduction.R;
@@ -75,6 +76,13 @@ public class HarmReductionRegisterProvider implements RecyclerViewProvider<HarmR
 
             String patientName = getName(firstName, Utils.getValue(pc.getColumnmaps(), DBConstants.KEY.LAST_NAME, true));
             viewHolder.patientName.setText(patientName + ", " + age);
+            String nickname = Utils.getValue(pc.getColumnmaps(), DBConstants.KEY.NICKNAME, true);
+            if (StringUtils.isNotBlank(nickname)) {
+                viewHolder.parentName.setText(context.getString(R.string.nickname_format, nickname));
+                viewHolder.parentName.setVisibility(View.VISIBLE);
+            } else {
+                viewHolder.parentName.setVisibility(View.GONE);
+            }
             viewHolder.textViewGender.setText(updateMemberGender(pc));
             viewHolder.textViewVillage.setText(Utils.getValue(pc.getColumnmaps(), DBConstants.KEY.VILLAGE_TOWN, true));
             viewHolder.patientColumn.setOnClickListener(onClickListener);

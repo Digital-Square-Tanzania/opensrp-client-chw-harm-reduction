@@ -1,0 +1,49 @@
+---
+name: step1_other_conditions_specify
+description: Show the other condition field when other conditions is selected
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('other_conditions')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_mental_health_result
+description: Show the mental health result when mental health screening is selected
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('mental_health_conditions')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_mental_health_treatment_after_screening
+description: Show treatment when mental health symptoms are present
+priority: 1
+condition: "step1_mental_health_result == 'has_symptoms'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_diabetes_result
+description: Show the diabetes result when diabetes screening is selected
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('diabetes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_diabetes_treatment_after_screening
+description: Show treatment when diabetes symptoms are present
+priority: 1
+condition: "step1_diabetes_result == 'has_symptoms'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_other_conditions_result
+description: Show the other condition result when other conditions is selected
+priority: 1
+condition: "step1_screening_tests_done != null && step1_screening_tests_done.contains('other_conditions')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_other_conditions_treatment_after_screening
+description: Show treatment when symptoms of another condition are present
+priority: 1
+condition: "step1_other_conditions_result == 'has_symptoms'"
+actions:
+  - "isRelevant = true"

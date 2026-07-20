@@ -98,6 +98,22 @@ public class RiskAssessmentFormAssetsTest {
     }
 
     @Test
+    public void testRiskAssessmentFormsCaptureNicknameAndMapItForPersistence() throws Exception {
+        for (String formPath : FORM_PATHS) {
+            JSONObject form = readJson(formPath);
+            JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
+            JSONObject nickname = getField(fields, "nickname");
+
+            Assert.assertEquals("edit_text", nickname.getString("type"));
+            Assert.assertTrue(indexOf(fields, "birth_region") < indexOf(fields, "nickname"));
+            Assert.assertTrue(indexOf(fields, "nickname") < indexOf(fields, "maskani_name"));
+        }
+
+        JSONObject clientFields = readJson("src/main/assets/ec_client_fields.json");
+        Assert.assertTrue(mappedColumns(clientFields, "ec_harm_reduction_risk_assessment").contains("nickname"));
+    }
+
+    @Test
     public void testRiskAssessmentFormsGateStressChallengesWithYesNoQuestion() throws Exception {
         for (String formPath : FORM_PATHS) {
             JSONObject form = readJson(formPath);
@@ -182,6 +198,23 @@ public class RiskAssessmentFormAssetsTest {
         }
 
         return columns;
+    }
+
+    private static Set<String> mappedColumns(JSONObject clientFields, String tableName) throws Exception {
+        JSONArray bindObjects = clientFields.getJSONArray("bindobjects");
+        for (int i = 0; i < bindObjects.length(); i++) {
+            JSONObject bindObject = bindObjects.getJSONObject(i);
+            if (tableName.equals(bindObject.optString("name"))) {
+                Set<String> columns = new LinkedHashSet<>();
+                JSONArray mappedColumns = bindObject.getJSONArray("columns");
+                for (int j = 0; j < mappedColumns.length(); j++) {
+                    columns.add(mappedColumns.getJSONObject(j).optString("column_name"));
+                }
+                return columns;
+            }
+        }
+
+        throw new AssertionError("Missing table mapping: " + tableName);
     }
 
     private static String getRuleBlock(String rules, String ruleName) {

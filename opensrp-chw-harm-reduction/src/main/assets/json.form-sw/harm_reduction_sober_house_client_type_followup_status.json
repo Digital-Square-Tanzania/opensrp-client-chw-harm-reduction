@@ -118,6 +118,20 @@
             "text": "Amehama"
           },
           {
+            "key": "health_reasons",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_reasons",
+            "text": "Sababu za kiafya"
+          },
+          {
+            "key": "misconduct",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "misconduct",
+            "text": "Utovu wa nidhamu"
+          },
+          {
             "key": "other",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",

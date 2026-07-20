@@ -51,8 +51,12 @@ public class SoberHouseServiceFormsTest {
         Assert.assertFalse(swahiliContinuationField.has("relevance"));
         Assert.assertEquals(2, englishContinuationField.getJSONArray("options").length());
         Assert.assertEquals(2, swahiliContinuationField.getJSONArray("options").length());
-        Assert.assertEquals(4, englishReasonField.getJSONArray("options").length());
-        Assert.assertEquals(4, swahiliReasonField.getJSONArray("options").length());
+        Assert.assertEquals(6, englishReasonField.getJSONArray("options").length());
+        Assert.assertEquals(6, swahiliReasonField.getJSONArray("options").length());
+        Assert.assertEquals("Health reasons", getOption(englishReasonField, "health_reasons").getString("text"));
+        Assert.assertEquals("Sababu za kiafya", getOption(swahiliReasonField, "health_reasons").getString("text"));
+        Assert.assertEquals("Misconduct", getOption(englishReasonField, "misconduct").getString("text"));
+        Assert.assertEquals("Utovu wa nidhamu", getOption(swahiliReasonField, "misconduct").getString("text"));
         Assert.assertEquals("Cause of death", englishCauseOfDeathField.getString("label"));
         Assert.assertEquals("Sababu ya kifo", swahiliCauseOfDeathField.getString("label"));
         Assert.assertEquals(3, englishCauseOfDeathField.getJSONArray("options").length());
@@ -154,6 +158,18 @@ public class SoberHouseServiceFormsTest {
         }
 
         throw new AssertionError("Missing field: " + key);
+    }
+
+    private static JSONObject getOption(JSONObject field, String key) throws Exception {
+        JSONArray options = field.getJSONArray("options");
+        for (int i = 0; i < options.length(); i++) {
+            JSONObject option = options.getJSONObject(i);
+            if (key.equals(option.optString("key"))) {
+                return option;
+            }
+        }
+
+        throw new AssertionError("Missing option: " + key);
     }
 
     private static JSONObject readJson(String relativePath) throws Exception {

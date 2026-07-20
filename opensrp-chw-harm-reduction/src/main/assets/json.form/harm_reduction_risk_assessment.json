@@ -1293,7 +1293,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "stress_challenges_experienced",
         "type": "native_radio",
-        "label": "Were there any challenges experienced?",
+        "label": "Have you experienced any challenges related to stress?",
         "options": [
           {
             "key": "yes",

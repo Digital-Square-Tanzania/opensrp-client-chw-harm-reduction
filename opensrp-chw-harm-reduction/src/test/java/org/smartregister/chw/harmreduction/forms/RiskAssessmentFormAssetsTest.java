@@ -120,8 +120,14 @@ public class RiskAssessmentFormAssetsTest {
             JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
 
             Assert.assertTrue(indexOf(fields, "stress_challenges_experienced") < indexOf(fields, "stress_challenges"));
-            Assert.assertEquals(new LinkedHashSet<>(Arrays.asList("yes", "no")),
-                    optionKeys(getField(fields, "stress_challenges_experienced")));
+            JSONObject stressGate = getField(fields, "stress_challenges_experienced");
+            Assert.assertEquals(new LinkedHashSet<>(Arrays.asList("yes", "no")), optionKeys(stressGate));
+            Assert.assertEquals(
+                    formPath.contains("json.form-sw")
+                            ? "Je, una changamoto zozote zinazokupelekea kupata msongo wa mawazo?"
+                            : "Have you experienced any challenges related to stress?",
+                    stressGate.getString("label")
+            );
 
             JSONObject stressChallenges = getField(fields, "stress_challenges");
             Assert.assertEquals("harm-reduction-risk-assessment-relevance-rules.yml",

@@ -1293,7 +1293,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "stress_challenges_experienced",
         "type": "native_radio",
-        "label": "Je, kuna changamoto zozote zilizotokea?",
+        "label": "Je, una changamoto zozote zinazokupelekea kupata msongo wa mawazo?",
         "options": [
           {
             "key": "yes",

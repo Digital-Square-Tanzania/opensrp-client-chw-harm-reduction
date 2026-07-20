@@ -135,6 +135,63 @@ public class SoberHouseServiceFormsTest {
         Assert.assertEquals(12, swahiliLifeSkillsField.getJSONArray("options").length());
     }
 
+    @Test
+    public void testDiseaseScreeningFormMatchesNarrationInBothLanguages() throws Exception {
+        JSONObject englishForm = readJson("src/main/assets/json.form/harm_reduction_sober_house_disease_screening.json");
+        JSONObject swahiliForm = readJson("src/main/assets/json.form-sw/harm_reduction_sober_house_disease_screening.json");
+
+        Assert.assertEquals("Disease Screening", englishForm.getJSONObject("step1").getString("title"));
+        Assert.assertEquals("Uchunguzi wa magonjwa", swahiliForm.getJSONObject("step1").getString("title"));
+
+        JSONObject englishScreening = getField(englishForm.getJSONObject("step1").getJSONArray("fields"), "screening_tests_done");
+        JSONObject swahiliScreening = getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), "screening_tests_done");
+        Assert.assertEquals(4, englishScreening.getJSONArray("options").length());
+        Assert.assertEquals(4, swahiliScreening.getJSONArray("options").length());
+        Assert.assertEquals("not_done", englishScreening.getJSONArray("exclusive").getString(0));
+        Assert.assertEquals("not_done", swahiliScreening.getJSONArray("exclusive").getString(0));
+
+        String[] conditionalFields = {
+                "other_conditions_specify",
+                "mental_health_result",
+                "mental_health_treatment_after_screening",
+                "diabetes_result",
+                "diabetes_treatment_after_screening",
+                "other_conditions_result",
+                "other_conditions_treatment_after_screening"
+        };
+        for (String fieldKey : conditionalFields) {
+            Assert.assertTrue(getField(englishForm.getJSONObject("step1").getJSONArray("fields"), fieldKey).has("relevance"));
+            Assert.assertTrue(getField(swahiliForm.getJSONObject("step1").getJSONArray("fields"), fieldKey).has("relevance"));
+        }
+    }
+
+    @Test
+    public void testDiseaseScreeningRulesOnlyAskTreatmentForSymptoms() throws Exception {
+        String rules = readText("src/main/assets/rule/harm-reduction-sober-house-disease-screening-rules.yml");
+
+        Assert.assertTrue(getRuleBlock(rules, "step1_mental_health_treatment_after_screening")
+                .contains("step1_mental_health_result == 'has_symptoms'"));
+        Assert.assertTrue(getRuleBlock(rules, "step1_diabetes_treatment_after_screening")
+                .contains("step1_diabetes_result == 'has_symptoms'"));
+        Assert.assertTrue(getRuleBlock(rules, "step1_other_conditions_treatment_after_screening")
+                .contains("step1_other_conditions_result == 'has_symptoms'"));
+    }
+
+    @Test
+    public void testDiseaseScreeningFieldsAreMappedToSoberHouseServices() throws Exception {
+        JSONObject clientFields = readJson("src/main/assets/ec_client_fields.json");
+        Set<String> mappedColumns = mappedColumns(clientFields, "ec_harm_reduction_sober_house_services");
+
+        Assert.assertTrue(mappedColumns.contains("screening_tests_done"));
+        Assert.assertTrue(mappedColumns.contains("other_conditions_specify"));
+        Assert.assertTrue(mappedColumns.contains("mental_health_result"));
+        Assert.assertTrue(mappedColumns.contains("mental_health_treatment_after_screening"));
+        Assert.assertTrue(mappedColumns.contains("diabetes_result"));
+        Assert.assertTrue(mappedColumns.contains("diabetes_treatment_after_screening"));
+        Assert.assertTrue(mappedColumns.contains("other_conditions_result"));
+        Assert.assertTrue(mappedColumns.contains("other_conditions_treatment_after_screening"));
+    }
+
     private static boolean hasField(JSONArray fields, String key) throws Exception {
         for (int i = 0; i < fields.length(); i++) {
             if (key.equals(fields.getJSONObject(i).optString("key"))) {
@@ -176,6 +233,23 @@ public class SoberHouseServiceFormsTest {
         }
 
         return columns;
+    }
+
+    private static Set<String> mappedColumns(JSONObject clientFields, String tableName) throws Exception {
+        JSONArray bindObjects = clientFields.getJSONArray("bindobjects");
+        for (int i = 0; i < bindObjects.length(); i++) {
+            JSONObject bindObject = bindObjects.getJSONObject(i);
+            if (tableName.equals(bindObject.optString("name"))) {
+                Set<String> columns = new LinkedHashSet<>();
+                JSONArray mappedColumns = bindObject.getJSONArray("columns");
+                for (int j = 0; j < mappedColumns.length(); j++) {
+                    columns.add(mappedColumns.getJSONObject(j).optString("column_name"));
+                }
+                return columns;
+            }
+        }
+
+        throw new AssertionError("Missing bind object: " + tableName);
     }
 
     private static String getRuleBlock(String rules, String ruleName) {
